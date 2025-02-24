@@ -1,0 +1,14 @@
+It's embarrassing to admit but better under this scenario than a more serious one.
+Given this and what we are seeing in Ukraine it's clear the value of drones on the battlefield is real and hard to counter.
+Likely we will be seeing the deployment of anti-drone....drones in the next few years.
+Launching helicopters, fighter jets, & missiles is just not cost-effective when it's against a drone that probably cost $10k or less.
+While military assets can definitely INCLUDE drones, I'm not really seeing anything in the article stating that the focus is on developing drones to shoot down drones.
+Overall as you touched on a bit, there's definitely use cases for air to air drones but at a certain point, you have to start asking yourself what is a drone and what is a missile, and whether you're better off developing large drones with long range and high speed that can keep up with your 6th gen fighter, that have their own munitions to counter drones.
+Or just creating smaller drone-specific munitions for the existing fighter.
+The big challenge with fielding drones to defend against drone attacks, is the limited warning you get considering the tiny radar cross section of a drone.
+You need a much faster "interceptor" drone to be able to catch up with the drone you're trying to target which will also necessarily cost substantially more than for example a Shahed-136 on account of needing to be faster, reusable, and having targeting systems and munitions besides quick and dirty onboard explosives.
+It's more likely we'll see more laser based anti drone systems, more sophisticated EW and more ubiquitous smart AA guns with aided targeting than missiles, since those will probably always be more expensive that the simple drones they're trying to shoot down.
+Possibly, but you'll probably need to replace the radar on top with an optical targeting system, and if you're really smart have cheap optical targeting pods that are separate from the gun.
+Drones can come in low enough to be all but invisible until it's too late.
+You don't want them trading 10 drones for one cwis over and over, so spreading out the sensors will make the attack on the gun less debilitating and allow the gun to see them coming before they can fire on it.
+I think you'll see a return of anti-aircraft machine guns as drone-killing weapons, only they will be computer-tracking with a human to approve the object being shot at.

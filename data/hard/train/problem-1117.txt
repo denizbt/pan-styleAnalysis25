@@ -1,0 +1,14 @@
+Thr US can afford to have constelations of high resolution satellites permanently monitoring interesting sights over China.
+Also there's no consistent wind pattern over China that a balloon could use to cross the whole country.
+Satellites can very much do that.
+You don't need to change the whole orbit in order to change observation position.
+Satellites can aquire data also when not directly above a location.
+In any case, that balloon was likely doing sigint more than anything else.
+The US does this with very high altitude drones and satellites.
+Spy satellites see slices of the surface world in 30s chunks.
+Good SIGINT requires longer dwell times than that to observe longer term patterns as well as rare or unusual signals.
+Longer dwell periods to observe longer term patterns for SIGINT and ELINT.
+Like, as a basic example, you can observe, say, LTE uplink patterns over the span of hours or days and track exactly what time people get to work, how many people work there, where they live, etc.
+Hard to do that from a satellite which can only see that chunk of earth for 30s every 90 minutes.
+I dont know, satelites orbit the Earth in what, 2 hours?
+The baloon was slow and it drifted in basically straight line if you look at the globe (and not mercator).

@@ -1,0 +1,9 @@
+Flight time.
+Building a powered craft than can stay aloft for days to weeks at a time is difficult.
+With large sailplane-like drones clad in solar panels it's possible, but these are large, plane-like drones, and expensive to build.
+And, if you want it to move slowly to collect large blocks of, for example, narrow beam GHz transmissions which are undetectable from space, but a whisper of which can be detected if you're in the atmosphere, you have to plot a course that loops and circles your target because a plane-like platform is moving quickly.
+The multirotor vertical takeoff type of drone that most people think of are amazingly maneuverable in flight, but the tradeoff is they're incredibly inefficient in flight.
+You can't build one capable of days of flight time with current weight of materials, motors, batteries, and solar cells.
+r/politics is currently accepting new moderator applications.
+If you want to help make this community a better place, consider !
+The type and activity of signals recieved alone can identify hidden military installations and military communication capabilities, identify important transmission towers that handle the most traffic, and remote equipment used for civilian communication, control of power grids, and other things that could be used to cripple a nation.

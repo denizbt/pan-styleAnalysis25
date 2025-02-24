@@ -1,0 +1,13 @@
+80% was the threshold the ATF themselves came up with and now they want to change it.
+They don’t explain it they just say “readily” as you said.
+Readily can be interpreted as a block of aluminum and a cnc machine.
+Or spool of plastic and 3d printer.
+As someone who's taught 3d printing, I promise you it's not that simple.
+Most people can't print a functional door stop after taking a 6 hour course with me holding their hand the entire way.
+I've watched people fail at 3D printing door stops.
+If a 3D printed object has literally any tolerances what-so-ever then printing it is orders of magnitude harder than ordering a kit.
+While 3D printing isn't terribly insurmountable, it is still a way, way higher bar than a hand drill and some files.
+In the case of a Glock, you still need to purchase or fabricate the metal rails and the rest of the parts, even on a 3D printed frame.
+After your stuff comes in, you can either 3D print and fuck around with getting the right 3D model, waiting many hours to fuck up the first print, repeating multiple times, and finally maybe getting something that will work, or you can buy the 80% lower and be committing your crime in a little less than an hour.
+I've done both (well, not the crime part.
+I legally register any guns I build like my state requires me to do) and to call the two paths equivalent is silly.

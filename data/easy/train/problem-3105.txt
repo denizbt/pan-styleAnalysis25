@@ -1,0 +1,6 @@
+On a different note, the attack appears to be widespread, the Russian government can’t sweep it under the rug.
+A good read is the effects of Jimmy Carter’s grain embargo in the 70’s with-in the USSR.
+The embargo effectively pull the meat off the average Russians’ plate just when they were getting accustom to meat on the plate Carter got his point across to the average Russian.
+I think this IT breach could have the same effect.
+It effects everyone in Russia.
+I mean, I already need to be semi expert with PHP, JavaScript, deploying ci/cd pipelines, handling multiple flows in GitHub depending on the team, scrum, kanban, postgres, MySQL, vue, react, jQuery, even Python for web scraping, html,css, etc... Do you really think a full stack web engineer has enough bandwidth to add systems level code in c or c++ to create malware and then find a way to get that malware installed on the host and doing so knowing you're risking jail time if you're not doing it in a white hat way and most white hat jobs definitely don't want you trying ransom ware on them, it definitely is a very non genetic IT skill.

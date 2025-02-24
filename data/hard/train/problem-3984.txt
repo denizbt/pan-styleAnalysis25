@@ -1,0 +1,15 @@
+Requires all recording chips to embed cryptographic signatures in the raw data, and invalidates copies where the original was discarded after applying filters or when it was re-compressed during a youtube upload.
+When you can prove the data hasn't been tampered with, then the file is usable evidence, and proper security cameras likely already have been doing it for a decade.
+Phone cameras less so, but the more AI content generation ramps up, the more likely it'll become a standard feature.
+Too bad for the privacy nuts, as it'll mean that either you strip the metadata that proves authenticity, or they know exactly which physical camera chip was used.
+(I'm sure cryptographers can devise a system where you can't correlate the signature with its source, yet making the massive investment to crack a single TPM and extract its keys before it can self-destruct doesn't undermine every other chip from the same production run.
+But being that fancy would cost more in R&D, and the sliver of a market segment that cares enough about privacy won't be large enough to bother.
+).
+Unlike decryption keys, every single unit can have its own unique signing key, generated on-chip in the factory, in turn signed by the manufacturer.
+It would be a direct parallel with how HTTPS works, each website generating its own private/public key pair and getting the public half signed by a certificate authority.
+Only the site ever knows its own private key, while you have proof that the CA thought the corresponding public key was valid.
+Encryption with a private key while allowing decryption with a public key verifies identity of the source.
+Public key cryptography is only really a good idea when you have a certain degree of trust in whoever physically holds the private key.
+Signatures are made with private keys, and private keys embedded into devices will never ever possibly leak.
+Another avenue of attack would be the key getting leaked during the manufacturing process.
+Or maybe even a government requiring that the manufacture provide all private keys.

@@ -1,0 +1,11 @@
+Issues with internal navigation (and those that use IMUs) is sensor drift.
+TLDR the math to rebuild position gets erroneous along the way because it’s like trying to guess where something is based off how fast it’s fastly moving.
+That’s just tricky.
+If you had a calculus class or two you get what I mean.
+We use filters and GPS to back up this errornous math.
+Removing GPS (even though it’s plagued with its own problems of requiring a minimum set amount of satellites to even get a position) just crippled one fixes.
+So, Russia is rapidly ramping up jamming of GPS signals in case of attack in a war that doesn't exist?
+He sends his nazies and prisoners to Ukraine like he sends trash from Moscow to other Russian regions.
+Different kinds of trash, but strategy is same.
+Shhhh don't tell the Russians that some American missiles can probably fall back on GLONASS guidance (the Russian version of gps).
+A "special military operation" that is "going according to plan" would hardly justify such defensive operations.

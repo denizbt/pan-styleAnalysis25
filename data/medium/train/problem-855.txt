@@ -1,0 +1,15 @@
+BMW was testing this in car engines wayyyy back when I was a little VW nut.
+I'm not an engineer but I think the project didnt work because the infrastructure to install hydrogen pumps...everywhere was too much.
+The only problem with hydrogen is that power per volume of fuel is not as powerful as fossil fuels.
+So potentially you'd have to make a few extra stops to refill the plane etc but it's still a good start.
+Hydrogen is an amazing fuel for many reasons.
+But, it is incredibly difficult to make containers to hold it at high pressure safely.
+Why?
+Hydrogen, being just a single atom molecule, has the amazing ability to slip between the most minute molecular spaces between two surfaces joined to make a container - it can leak out between welds!
+So...building safe passenger aircraft for long-haul fast-turnaround high-usage commercial use will prove very tricky, let alone all of the other issues mentioned.
+Edit: Oh, and the energy density of Hydrogen is than other fossil fuels, plus when it is burned the only byproducts are water (as steam), so no pollutants.
+Not sure where you got your point about it not being as efficient as fossil fuels.
+(Edit 2, aah, I now see you meant volumetric density).
+Did you see the NASA Artemis rocket launch last week?
+It was continually plagued with problems partly because the hydrogen fuel tanks kept developing leaks.
+Even within a few hours of the launch they were emergency patching a new leak!

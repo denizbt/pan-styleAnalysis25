@@ -1,0 +1,13 @@
+No?
+You can retrieve your plaintext passwords from it (which is the point), meaning they are encrypted but not hashed.
+The master password sure, but not the actual data.
+Yeah that's client-side encryption.
+Not hashing.
+Hashing means you can't reconstruct the data from the hash.
+It's used for authentication, where they store a hashed version of your password so that they can authenticate you, but if it's leaked it's harder to reconstruct the password.
+So many people uses the same password for multiple things or very identifiable patterns with their passwords, it is incredibly easy to hack people who have simple password and has been part of a breach...
+Password managers enforces strong and different password which are virtually impossible to crack.
+Also most of them have a zero knowledge architecture so even if the hackers cracks one accounts encryption (that would be incredibly hard, unless you use a stupid master password), it doesn't mean they would be able to access any other user accounts information.
+I agree that nothing is uncrackable...
+But there is a reason why you don't really hear about password leaks from password managers, it is incredibly difficult to crack, and they actually invest energy and resources in their security, even if its not perfect...
+Most of the services you use don't.

@@ -1,0 +1,11 @@
+"The justification problem: Why adopt simple hypotheses?
+One obvious answer is that the world is simple and therefore a complex theory is false.
+However, the apriori claim that the world is simple is highly controversial—see the entry on simplicity.
+From a learning-theoretic perspective, dismissing complex hypotheses impairs the reliability of inductive methods.
+In Kelly’s metaphor, a fixed bias is like a stopped watch: We may happen to use the watch when it is pointing at the right time, but the watch is not a reliable instrument for telling time [Kelly 2007a, 2010].
+".
+Example.
+South Carolina wanted to build a nuclear plant, but it failed, partially because there wasn't enough of a skilled workforce available.
+They had to outsource labour from South Korea.
+Additionally.
+Rather than using philosophical theories as a justification for coming to a conclusion, I'd recommend using them more as loose guides to help identify the important parts of a problem, as those are far more likely to lead you to a statement of fact, rather than a misguided justification for your claim.

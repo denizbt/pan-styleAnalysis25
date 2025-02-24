@@ -1,0 +1,9 @@
+A nuclear power plant large enough to power America as a whole is a nuclear power plant I'd prefer to not live anywhere near or down wind of.
+I'd say the best would be a mix -- Wind generators in windy areas, kinetic generators in coastal regions, along with nuclear and solar in regions where the other two don't work.
+Joking aside, wind isn't feasible in certain areas of the US so it'll need to be supplemented with something else.
+Nuclear is the best candidate.
+Is nuclear energy perfect an safe?
+No.
+Is it something we have now that doesn't involve dumping copious amounts of carbon into the atmosphere?
+Yes.
+I’m not an electrical engineer so I’m sure there are complexities to any solution but there are places doing HVDC transmission over hundreds and even thousands of KM, so having solar/wind/wave energy capture systems where they’re feasible and using transmission lines (either HVDC or “regular” HVAC) to get to areas where they aren’t seems like a smarter solution than trying to build an expensive nuke plant that has a 50 year productive life and makes the land unusable for twice that long.

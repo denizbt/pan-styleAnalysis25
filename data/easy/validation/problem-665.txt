@@ -1,0 +1,8 @@
+The fact that we're even reading about it means that there was an attempt but it failed or was successfully contained.
+Nobody would publicly announce their failure.
+Like people say, somethings being hacked every day in the EU but it's mostly either insignificant or completely harmless to even report about and cause unnecessary panic.
+Most crucial systems in astablisments like refineries that could potentially be harmful are exclusively localized and far away from internet access.
+On-line sub systems are usually just used for monitoring and some things that can be remotely controlled are extremely controlled requiring multiple both digital and physical failsafes.
+My brothers friend works for a digital safety contractor for companies in the energy sector (not the top tier ones, but still) and he said that it's way the fuck easier to hack some Swiss bank (good luck with that) then anything to do with energy production/delivery and the most effective way would be to physically destroy it.
+There are people that do try it.
+But its nation state hackers so they work without limit and without any consequences.

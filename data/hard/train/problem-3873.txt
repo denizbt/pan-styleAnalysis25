@@ -1,0 +1,9 @@
+The Texas Bar did actually have the chance to fix everything, it's just that they deliberately chose not to.
+If you go over to the /r/law thread for this, the top comment is.
+> ...the implication [is] that the state bar didn't really want to disbar her so they purposely bungled the case.
+It's either "the Court doesn't want to entertain this motion", or "the Court doesn't want any possible technical appeals".
+The statement that the attached exhibits "did not match the documents described in the brief" sounds like the wrong documents were attached with the wrong exhibit numbers, like "we attached our Doordash receipt instead of the evidence".
+I was of the same opinion until someone posted the relevant text of the article (which, of course I didn't read) that said that the judge notified the Bar Commission's attorneys that the stated number of exhibits was inconsistent with the number filed, and that the descriptions of each exhibit was incorrect.
+The Commission's attorneys responded saying that there was no error (even though there was), and the case was dismissed since they refused to correct the issue.
+And "no corrective action was necessary" may mean that the Commission sent the court Exhibit F, but failed to file a motion to formally retract, correct, and re-submit.
+>When the court contacted the Commission about the errors, the latter responded that "no corrective action was necessary," according to Bouressa's ruling.

@@ -1,0 +1,6 @@
+But the bot was programmed the way it is based on the idea that tweets will be believed, so it's the same thing.
+"Twitter claims that tweets from verified accounts are, in fact, verified accounts, which can therefore be believed to be legitimate sources, etc".
+Indeed it's possible that a lawyer could argue that Twitter has a reputation and the verification check is used to say that this account is the actual account from the company or other entity.
+By removing the verification process and not having proper means to protect the authentic account from malicious impersonation you could say that Twitter had gross negligence that led to material damage.
+Literally the reason Twitter introduced authentication in the first place is because they got sued by corporations over impersonation that had resulted in damage to their corporate brand.
+If this happens to more companies, class action lawsuit against Twitter for allowing users to officially impersonate others and do tangible damage to their bottom line sounds possible.

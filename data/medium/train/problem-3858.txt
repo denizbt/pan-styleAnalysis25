@@ -1,0 +1,15 @@
+> "There really is no need today for all these small businesses to sit on top of Visa, MasterCard, and AmEx rails.
+It's unnecessary.
+".
+It really is an amazing thing, Don't have to worry about carrying cash at all in Delhi.
+Can pay online for even a single chewing gum of 1 Rs.
+And it's free to use as well.
+I don't know much about UPI, but is it not different from Credit cards?
+Its more like a debit card, no?
+Currently UPI is primarily based on Debit card/Bank account.
+But UPI with Rupay (Rupay is similar to Visa/MC) credit cards for select banks is live.
+So you can link your credit card to UPI and scan qr codes to pay just like in UPI.
+But the catch is only merchant transactions are allowed unlike UPI with bank account so you can't send money to your friend via UPI credit card.
+Also since only Rupay Credit Cards are allowed and that too only for select bank accounts it's really still in a beta phase.
+Also UPI itself still has issues to solve as its pretty bad anti fraud system and chargebacks are close to impossible in UPI.
+So if you get scammed you most likely aren't going to see that money again compared to credit cards where you can just raise a chargeback.

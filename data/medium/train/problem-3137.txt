@@ -1,0 +1,17 @@
+Hikvision are pretty good cameras.
+You are probably OK buying them for external home security use.
+The CCP aren't going to be interested in my driveway.
+They shouldn't be used by regular citizens either as that would only help setting up big surveilence areas and mapping out everything.
+Buying them for commercial and government purposes is a very bad idea in the current geopolitical environment.
+Beware all Chinese products, especially anything to do with cell phones, routers, and computers.
+And they are definitely eager to spy on non governmental shit just like how they have been spying chinese outside of their country with their illegal hidden stations and other garbage.
+What is the risk if these cameras are only operated in offline mode?
+That is how I use them.
+I can connect to local VPN to access remotely.
+The cameras are never given access to the internet.
+Most people just plug them in.....and onto the internet so they get the "features" like cloud storage or cellphone access.
+People running them offline are like 1 in 100, but probably smarter than most.
+I suppose that’s how most people do it.
+Not very wise though.
+Hear way too many hacking stories to even consider connecting them to the internet, no matter the company.
+The strangest thing was when one client asked if we could prevent the CCP from accessing their cameras, but also allowed them to view their cameras from their phone while they were vacationing in China.

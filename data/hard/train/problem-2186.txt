@@ -1,0 +1,21 @@
+Without even going into why that’s misguided at best, they don’t mention anything about concerns over the use of Starlink in military applications in general, just in Ukraine.
+The point is that Starlink doesn't want to be subject to that level of restriction to begin with; if the US government gets involved, it's already over, and suddenly Starlink is subject to regulatory review and sanctioning by every country in the world on the grounds that it's a dual purpose weapons platform.
+That's why it's against their TOS.
+American companies can not export military use or dual use technologies without extensive regulation, ITAR being the most prominent.
+Phased array radars used to be common restricted on this basis, but things like rocket engines, GPS, inertial guidance packages, etc are all obviously things that can be used for military purposes.
+Stepping back this is seemingly obvious, the US doesn't want random companies exporting the technology to easily make strategic weapons without oversight.
+Boeing and Raytheon aren't just donating or selling arms to the UA, it is channeled through the government.
+Absent a contract, SpaceX and Starlink are not in a comparable position.
+Starlink Kits and Services are commercial communication products.
+Off-the-shelf, Starlink can provide communication capabilities to a variety of end-users, such as consumers, schools, businesses and other commercial entities, hospitals, humanitarian organizations, non-governmental and governmental organizations in support of critical infrastructure and other services, including during times of crisis.
+However, Starlink is not designed or intended for use with or in offensive or defensive weaponry or other comparable end-uses.
+Custom modifications of the Starlink Kits or Services for military end-uses or military end-users may transform the items into products controlled under U.S. export control laws, specifically the International Traffic in Arms Regulations (ITAR) (22 C.F.R.
+§§ 120-130) or the Export Administration Regulations (EAR) (15 C.F.R.
+§§ 730-774) requiring authorizations from the United States government for the export, support, or use outside the United States.
+Starlink aftersales support to customers is limited exclusively to standard commercial service support.
+At its sole discretion, Starlink may refuse to provide technical support to any modified Starlink products.
+Yeah, yeah Ukraine is fighting a defensive war, not using them "offensively".
+Being generous and assuming people aren't being purposely obtuse, a cruise missile is an offensive weapon the same way a tank is regardless of who started hostilities.
+If Starlink is being used as a guidance package for a long range weapon, it is treated differently than if it used purely for traditional communications, military or civilian.
+thats exactly the reason, communitcations are defensive, but if you were to use starlink as a plug and play high bandwith/low latency data link to control a drone deep into russian territory, its a clearly offensive weapon.
+Using Starlink for a military operation against Russia is like using a Huawei network for a military operation against China.

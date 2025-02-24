@@ -1,0 +1,23 @@
+Having made the mistake of forgetting to turn on Aeroplane Mode on a flight with a (3G) picocell before, I'd day it makes that button all the more important...
+The bill shock when you discover how much a few seconds of "fuck, fuck, no, please don't start downloading anything" costs you when roaming onto those airline networks is quite something.
+Which includes pretty much every European who ever crosses a border, given roaming is free here.
+(Until you get on a plane with a picocell and forget to turn it off of course.
+).
+Right.
+So if you've never actually left Canada I can see why you think "just disable data roaming" is top insight, but to be honest for the rest of us "avoid roaming charges by never leaving your country" is Viz Top Tips level advice.
+I have data roaming enabled because I use data roaming all the time, both in Europe (I'm writing this while roaming in Budapest) and elsewhere (in China for example, if you have a decent (ie.
+not North American) contract and carrier, data roaming is much more convenient and cost effective than trying to get a Chinese SIM, and has the added benefit of circumventing the Great Firewall.
+).
+Even if I never leave the country, doesn't mean I'm not roaming.
+There's plenty of places within my own country where my provider's network cuts out and I would be roaming.
+It doesn't happen on a day to day basis though when I stay in the city.
+Just when I go outside the regular service area and don't want my phone to be accessing data and running up the bill.
+Do you think everyone who boards a plane in the EU is an EU citizen with an EU contract?
+My experience is that most planes are carrying a range of nationalities, being as it is that "enabling international travel" is one of their absolute key selling points.
+But YMMV, of course.
+(And, if you're struggling to parse the second paragraph, being as how it had long words and all - my point is, you're wrong anyway.
+EU free roaming doesn't extend to onboard picocells.
+).
+5G is faster?
+I call BS, been to several towns in the UK with 5G and it pretty much renders the phone unusable.
+There was a BBC news story about this in the last couple of days.

@@ -1,0 +1,6 @@
+A lot of cough syrups contain glycerol, which is chemically similar to ethylene glycol (but safe to consume).
+Glycerol is used for a lot of other things, though - it's an industrial solvent and antifreeze, it's used to dampen vibrations in sensitive machinery, it's used in skin and hair products, and it's even used as a fuel.
+Sometimes industrial glycerol is mixed with ethylene glycol since it has similar properties... so if contaminated industrial glycerol somehow gets into the supply chain of glycerol intended for drug or food manufacturing, it can be deadly.
+(It was an early antibiotic syrup, which used diethylene glycol as a solvent -- which is highly toxic, although the pharmacist who formulated it for the company that sold it was unaware of this.
+).
+This is a re-run of the scandal of 1937 in the USA which killed over 100 people and led to the passing of the 1938 Federal Food, Drug, and Cosmetic Act, which significantly increased the Food and Drug Administration's powers to regulate drugs.

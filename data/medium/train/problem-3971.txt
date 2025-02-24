@@ -1,0 +1,15 @@
+This is actually insane.
+I was a former defense contractor, writing software for one of the big names.
+Anybody that knows programming, knows that 90% of what you do is integrate with third parties/plug-ins.
+Like if you’re running a Java Web server, you use spring boot.
+If it’s angular/node, you can use random libraries like font/web packs.
+And this was for literally every third party module our code used.
+For something like this to happen, there has to be a major, major screw up somewhere.
+Because I know for a fact this application was likely security vetted the same way.
+Which means whoever made this software did it in the way to slip through all those security checks.
+Which makes you wonder what they didn’t find yet in other apps since that security vetting process obviously didn’t work.
+A whole lot of US doctrine is conceptual, with very little set in stone.
+Same with most of NATO for that matter.
+And I'm not sure what use deployment patterns would have tbh.
+We're not at war right now and the information has no current value.
+Hell, doesn't help that with the way the military is(isn't) organized it wouldn't make any difference in the first place.

@@ -1,0 +1,7 @@
+So, Russia is rapidly ramping up jamming of GPS signals in case of attack in a war that doesn't exist?
+A "special military operation" that is "going according to plan" would hardly justify such defensive operations.
+Shhhh don't tell the Russians that some American missiles can probably fall back on GLONASS guidance (the Russian version of gps).
+Don’t forget that the United States could install “lower hemisphere” GPS receivers on cruise missiles, and set them to home in on the transmitters.
+Also, I’m sure the Americans have tech geeks who have figured out how to build GPS antennas that can only “see” the upper hemisphere.
+The real GPS satellites are above the missile’s flight path, Russian jammers are either on the ground (ignored by an “upper hemisphere only” receiver), on high-flying drones (need a lot of fuel to keep some on station 24/7), or on satellites launched into orbits which an international agency has not assigned to Russia.
+Since such satellites would also jam GPS over the United States and over international waters, the first launch would result in Russian launch sites being put out of commission.

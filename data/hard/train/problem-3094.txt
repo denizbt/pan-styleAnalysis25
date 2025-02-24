@@ -1,0 +1,10 @@
+Because generally paying the ransom works when it comes to preventing user data being sold elsewhere and it's not like the government is going to hit the hacked company's wallet for the breach either.
+Medibank was too cheap to pay the ransom and now there's a file of abortion records floating around on the internet as proof of the validity of the data.
+It won't deter attempts to steal companies data because even if a ransom isn't possible they can still sell the data to somebody else.
+all it could do is that when companies that get attacked, now for resale of IP or internal documents or whatever instead of ransom don't even have a chance to prevent the sale.
+fair enough, but I suppose it's not impossible for someone to go and exploit someone else based on something they found out by breaching the first company in this example - either for ransom or for sale of more IP - yes, incredibly unlikely.
+that's true, what I meant is that if they can sell it to others they can still make money by getting what the highest bidder wants - I suppose Ransomware-as-a-service but again the entity that'll pay for it will need a reason to want data from the company that's going to be breached.
+I think the idea is that if it's illegal to pay the ransom then hackers are less incentivised to steal data from those companies, because they _know_ they're not going to get the ransom money either way.
+It's not about ransom ware, it's about paying ransom to hackers who've obtained private customer data and are threatening to release it.
+A ransomware can only harm a company which is ignoring even the most basic principles of data security.
+A simple daily offsite backup makes you being basically immune to ransomware attacks.

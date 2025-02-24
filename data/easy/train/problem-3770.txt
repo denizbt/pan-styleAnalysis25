@@ -1,0 +1,8 @@
+That is almost exactly the circumstances that gave rise to the original discussion of whether an agreement not to compete was legal, and to an extent the entire field of what is now antitrust law.
+In the 18th-century English case Mitchel v. Reynolds, Reynolds sold his bakehouse to Mitchel on the condition that he wouldn't open up a competing bake shop, and then proceeded to do exactly that.
+Mitchel sued, Reynolds said that the agreement was null as against the law against monopolies, and the court ultimately sided with Mitchel and said the non-compete agreement was lawful to the extent it was reasonably necessary to effectuate the transaction.
+This reasoning -- that to be enforceable a covenant not to compete must be reasonable, now understood to be reasonable as to the scope of work, geographical area, and lenh of time -- is more or less still the legal standard used today in common-law countries.
+Microsoft-Activision, no.
+The FTC literally claims in court documents that Microsoft lied to the analogous EU or UK (don't remember which) regulatory body over a previous acquisition (Bethesda, I believe), leading that regulatory body to state matter-of-factly that Microsoft followed through and did not lie.
+Their opposition to Microsoft-Activision is flimsy.
+Plus Microsoft has been behaving well to game studios starting to unionize.

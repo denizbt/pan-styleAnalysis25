@@ -1,0 +1,9 @@
+Looking at this from a software design perspective, why is there a switch to ignore 2nd and lower preferences in ballots without 1st preference votes?
+If ballots without a 1st preference vote were nevertheless VALID, when could such a switch be needed?
+If such ballots would be invalid, when could such a switch be needed?
+Q: does ranked choice voting vary between different cities or counties within the same state?
+Serious question: do the requirements for VALID RCV ballots differ between city elections in Oakland, CA and San Francisco, CA?
+If not, does the California department of State not provide any guidance to local election officials on how to configure vote tabulation machines?
+Whether said ballots are valid is a matter of state/local regulations that vary by place, so different elections boards would want to set the setting differently with the otherwise same software.
+Yes, they can differ, though I’m not sure if they do anywhere or if it’s purely theoretical.
+IIRC in this case the rules for how to count ballots came from the Oakland City Charter, which would imply that it could be a city-by-city designation.

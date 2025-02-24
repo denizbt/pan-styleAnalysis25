@@ -1,0 +1,6 @@
+It's likely that somebody at some point in the supply chain thought they could save some money by substituting in a cheaper source of glycerol, or maybe they mixed up the two similar-looking chemicals.
+Glycerol is a common ingredient in cough syrups because it's syrupy, it's mildly sweet-tasting, lots of things dissolve easily in it, and it will prevent sugar from crystallizing.
+Food grade glycerol is pure and safe to consume (it's probably in something you've eaten or put on your skin today), but sometimes glycerol intended for use as an industrial solvent or soap/shampoo additive is contaminated with ethylene glycol, which has similar properties (but is toxic).
+Propylene glycol is a sweetener/emulsifier that's mostly harmless in small doses, but if the lab doesn't synthesize it right, it may be contaminated with ethylene glycol, which is horribly toxic.
+Most of us know the latter chemical as the anti-freeze used in cars.
+Similarly, if a distillery does their fermentation right, their product will contain ethanol (drinking alcohol), but if they mess up, it will also contain methanol (wood alcohol) that is much more toxic.

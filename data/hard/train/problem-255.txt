@@ -1,0 +1,12 @@
+That is practically how it is here (USA).
+You can make people sign noncompete, but it's not enforceable unless you give them something for it.
+But there are plenty of people who sign those that do not understand how completely unenforceable those clauses are.
+99% of non-compete clauses aren’t worth the paper they’re written on, because the employer isn’t going to enforce it.
+You'll see companies offering things like a $2000 one time payment to sign a noncompete along with a payback clause if they get fired.
+That's nothing to a company running these kind of agreements but it will snare a lot of the grunt workforce who shouldn't be under noncompetes to begin with.
+On the other hand, I have friends that work for software companies in various roles, and their agreements state that they can't work for a company that makes a competing product.
+When your company makes a wide range of products, an agreement like that basically locks you out of entire industries.
+My noncompete seems reasonable - I work for Company A, providing contract engineering services to Company B.
+My noncompete basically only says I can't work directly for Company B within 12 or 18 months of leaving Company A, or they'll effectively have to keep paying my contract during that time.
+It's there to discourage companies from cutting out the middleman (Company A).
+In NY State they're not enforceable if they're too broad, but unfortunately that isn't defined well enough to stop companies from threatening to sue, and that alone is enough to make you a less-desirable candidate.

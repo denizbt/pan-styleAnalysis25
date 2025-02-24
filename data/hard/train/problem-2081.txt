@@ -1,0 +1,14 @@
+Usually for hydrogen production from water, electrolyzer costs are significant, but not unacceptable.
+As soon as you increase the downtime of your electrolyzers massively by only using them for energy peak excesses, the capital costs per produced kg of hydrogen will increase massively, making production economically infeasible even if electricity is cheap.
+Source: me, a chemical engineer, performing research in the field of handling renewable energy output fluctuations.
+Overall, storing energy in hydrogen carriers (ammonia, but also methanol, methane, and formic acid are very interesting) is for many purpouses preferred over hydrogen in its pure form.
+Although as the name says, these are hydrogen carriers, meaning they also require hydrogen and thus have the same problem with their costs of electrolyzers (and fuel cells to get back to electricity).
+The costs per kWh of material that actually stores the energy however (ammonia vs pure hydrogen) is higher and the overall efficiency of energy storage is lower.
+The answer is yes, the costs of storage in the form of ammonia is many times lower as compared to the costs of hydrogen when looking at the costs of storage tanks and compression.
+Isn't there something like one of the best ways to store hydrogen is as ammonia?
+As pure hydrogen is very difficult to store and transport?
+They should generate hydrogen through electrolysis and then ship the hydrogen in cargo ships across the world.
+That fuel can be used to power cars and generators.
+It will never be useful for cars or even trucks.
+Never mind planes.
+But it has its uses in industry and other sectors.

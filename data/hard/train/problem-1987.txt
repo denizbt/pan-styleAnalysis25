@@ -1,0 +1,12 @@
+The European Union (EU) has already given a deadline of December 28, 2024 to device manufacturers for compliance, and the mandate will be enforced a few months after that in India, starting March 2025.
+"There is a global supply chain at play when it comes to chargers, therefore we have to align ourselves with the global timeline," said Rohit Kumar Singh, secretary, ministry of consumer affairs, speaking with The Economic Times.
+It's worth noting that most Android phones come with USB Type-C ports out of the box, it's only Apple that has to make the change, and move away from their proprietary Lightning ports.
+Apples whole lineup is mostly USBC now, it's just the iPhone and a couple accessories that are lightning.
+Everyone always brings Apple into this, but lightning has been around and used across most of their devices for 10 years with their 30 pin connector for 10 years before that.
+Sure it’s annoying, but like you said, there are companies that have completely different ports change multiple times in the same year.
+This is 100% why I’m not a huge fan of USBC.
+It’s a solid connector, the possibilities are endless, but it’s hard to tell if the cable or charger you’re holding in your hand is going to work with what you want at the moment.
+This is most likely due to wear on my phone, as i feel the port it self is loose, even the factory chargers have to be held just right to fast charge.
+I went and bought one of those magnetic tip cables, fits extremely tight in the port.
+No issue charging but transfer rate is down to usb 2 speeds.
+Which i dont transfer often so wifi is fine for me.

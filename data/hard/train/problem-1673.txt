@@ -1,0 +1,19 @@
+I personally don't use Tiktok, or generally most social media apps.
+But there's nothing particularly noteworthy and some things are even incorrect in that white paper.
+I have strong objections against TikTok, but honestly, that white paper looks very superficial, to say the least.
+In particular, their objections to MD5, SQLite, and reflection are hilarious.
+MD5 is perfectly fine for any hashing that's not required to be crypto safe, such as generating a random file name.
+SQLite is used on device, so it doesn't matter that the arguments are user defined, since it's their own data in the first place.
+Reflection is not necessarily a security risk, in fact it's very commonly used in Java/C.
+While I don't disagree your sentiment.. "Meanwhile China doesn't even let their kids use TikTok."
+is deceiving at best.
+Yes, they dont have access to TikTok.
+They use DouYin, which is basically the exact same app, run by the exact same company.
+Indeed, very valid point.
+Only ByteDance knows, but I fear that even if actual security issues were found, unless clear malice could be proven (highly unlikely, imo), nobody would listen anyway.
+Just as an example, LastPass was renowned for abysmally bad practices almost a decade ago, and it is still one of the more popular password managers.
+The public mostly prefers to err on the side of convenience, unless the cost is obviously high, and with such an insidious threat, it rarely is obvious.
+Basically, this is a very superficial and nitpicky analysis.
+It can all be boiled down to "They're using X, Y, Z, which could be sketchy, but we don't know".
+If a student would come up to me with such a report, I would not give them a pass.
+The fact that it's full of spelling errors doesn't help it in the credibility department either.

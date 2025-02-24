@@ -1,0 +1,17 @@
+SM-6 missiles on naval ships are plenty of capable of hitting "things" in space or on their way up to space.
+Aegis ashore is being heavily invested in Europe to replace Patriot batteries.
+SM6 failed last year at intercepting a medium-range ballistic missile but I'd be willing to bet that nobody said "well fuck it, back to formula" and instead enhanced it even further.
+SM-6 is not capable of hitting targets in orbit, which go much faster than the medium range targets at the edge of its envelope.
+SM-6 is a terminal interceptor, designed to kill missiles coming right at you, which is not want you want to kill satellites.
+If you want a hard kill, you need SM-3, designed to kill intercontinental ballistic missiles outside the atmosphere.
+This is a mid-course interceptor that shoots down missiles aiming at somebody hundreds of miles away, very similar to a satellite trajectory.
+SM-3 has also demonstrated the ability to hit satellites with slight modifications in Operation Burnt Frost in 2008.
+But these assume that blowing up a satellite is a good idea.
+You create a massive cloud of debris in low LEO (and even a bit into upper LEO) that affects every satellite in orbit, including your own.
+For months you don’t know where most of this debris is and thus cannot maneuver your satellites to avoid, as you may actually be steering it into a piece of debris rather than away from (tracking all large debris takes years, we’re still cataloging debris from China’s 2007 test).
+There is no better way of destroying enemy targets in a way that can kill your own, which is why other ways of killing satellites that leaves them largely intact are preferred.
+I think you meant the SM-3, satellites orbit between 160\2000km, the SM-6 only has 240km\ range, but the SM-3 has a \1000km range.
+That being said, most navies do not have ships with radars strong enough to get the full range out of those SM-3's.
+The US' Aegis system's range is classified but with the information we do know and some physics it shouldn't be higher than 870km, but its likely less, just because they can detect doesn't mean they can lock on, and radars aren't 100% efficient either.
+The Dutch Zeven Provincieen-class Frigates with their SMART-L EWC radars have \2000km range, so if a missile was invented with such a range NATO should be able to shoot down satellites even in the more distant orbits.
+As far as I know there aren't any NATO Naval radars with ranges larger than the Aegis and SMART-L EWC, but I'd be happy if someone could provide information saying otherwise, lol.

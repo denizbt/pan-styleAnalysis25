@@ -1,0 +1,10 @@
+I think I saw someone yesterday commenting on how hydrogen cars wouldn’t work or something cause the infrastructure isn’t in place and wondering if Rolls Royce had taken that into account.
+Not to mention, half of these people are so fixated on current hydrogen infrastructure and generation techniques that they blind themselves to the future.
+Tech like this isn't designed for 2022, it's a test bed for the designs of 2042.
+When we have enough excess green energy from decades of build out to spare the power for hydrogen production, and have decades to get airports and such ready for the shift.
+Hydrogen fuel cell powering an electric motor is quite efficient, certainly more so than the current powerplants for aircraft.
+There is more promise with fuel cells that can possibly convert hydrogen into electricity at 80%+ efficiency rather than the 30% efficiency of mechanical solutions.
+Total useless gimmick.
+It can only achieve, at best, the same thermodynamic efficiency as a normal hydrocarbon jet engine, but hydrogen is-and-always-will-be much more expensive than jet fuel, and will always have many times lower energy density (requiring a much larger plane that is heavier and has more drag).
+Hydrogen infrastructure for aviation (I agree it isn't the best solution for ground transport) is not much more onerous than a switch to battery electric for aviation, the difference is a long haul flight has a chance of getting off the ground with technology achievable in the short to medium term with hydrogen.
+Currently commercially available lithium ion batteries have an energy density of less than 1 MJ/kg.

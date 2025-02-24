@@ -1,0 +1,12 @@
+A bond fund is like a stock fund in that you can buy and sell at any time.
+And that fund, in turn, buys and sells bonds trying to hedge against these risks and provide reliable returns.
+Those strategies can be anything from a simple "bond ladder" i.e.
+buy and sell bonds every year on a fixed schedule, to sophisticated strategies trying to predict the market.
+Bonds usually have a long maturity like 5-10 years or more.
+If you buy them you have to wait that period of time to get your cash back, during which time you are exposed to interest rate risk.
+Like if you had bought 10 year bonds 2 years ago, you'd own bonds that are paying interest at 3-5% below market, so you are losing money.
+The only way you lose your money with actual bond ownership is if the entity that issued the bond goes tits up.
+That’s why the bond funds also tanked.
+The bonds they were holding became worth less as interest rates increased, so the value of the fund decreased.
+Bond funds don’t return principal and have constant maturity, plus are not tax exempt.
+So most people would be better off buying 20 year bonds rather than tlt, but signing up for an account at the treasury direct website is tougher than your etrade account.

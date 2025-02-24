@@ -1,0 +1,18 @@
+The problem is calling it FSD when it is not.
+The word full self driving implies that it can drive by itself without human intervention when in fact the car can needs people in interject when the car is making a mistake.
+That is why the California DMV is ordering Tesla to not use the words Full self driving in any promotion of the feature.
+If that opening tag line said "This video is a technical demo representing what we at Tesla are building and not representative of current self-driving technology" that would be one thing.
+But that's not what the tagline says.
+I'm surprised that this video is still up on Tesla's site complete with the (now known to be incorrect) text at the opening saying that the driver isn't doing anything and the car is operating itself.
+>The video, which remains archived on Tesla’s website, was released in October 2016 and promoted on Twitter by Chief Executive Elon Musk as evidence that "Tesla drives itself.
+".
+Yes.
+But the video says it’s done by the software and that the driver isn’t doing anything.
+That’s a straight up lie, according to the dev.
+That’s not normal at all.
+I’m sorry, but it’s terrible practice as a developer/manager if you don’t tell your customers that a demo includes things that are not real if that’s the product you’re selling.
+If you do that it in the EU you’re also on the hook for fraud.
+Not sure about other markets.
+State exactly what works and what doesn’t.
+If you claim that a thing shows X being done by the software while the software clearly doesn’t do this and you know it doesn’t do it, that’s bad.
+That’s not just a mock-up of how the future will look, that’s just misleading and claiming you have a product you don’t actually have.

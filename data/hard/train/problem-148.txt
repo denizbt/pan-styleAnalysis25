@@ -1,0 +1,15 @@
+I live in northern rural Ohio.
+Even out in the countryside we have an average 6 or more homes per mile.
+So not dense but not sparse either.
+We don't have much for internet.
+I have spotty LTE through Verizon maybe 2mbps down and 600kbps up.
+Luckily a terrestrial wireless ISP has set up towers in the area.
+For $100 a month I get 49mbps down 5mbps up.
+COVID brought to light how bad our internet infrastructure is in my area.
+Supposedly our electrical company will be running fiber out to our area over the next few years.
+Plus towns in every direction at about 10 mile increments With 3000 plus residents.
+I'm just saying I live in one of the most densely populated states in the US and we have nothing for high speed internet.
+It's all so dependent on where you live and the geography of your country, I'm not sure that just breaking it down by average speeds is all the meaningful in the first place.
+Maybe rather than speeds look at what percentage of the population of a country has access to what type of connections.
+I've got 10Gbps fiber running straight into my PC and I can beat the highest numbers mentioned in this article by a factor of 20 on average... and I don't pay any exorbitant amounts for that either...
+I'm a little dubious about those numbers, or these numbers are being severely dragged down by rural areas still lacking fiber.

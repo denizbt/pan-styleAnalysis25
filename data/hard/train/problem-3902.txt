@@ -1,0 +1,8 @@
+The thing is, they've all been real.
+This is how real science actually works: incremental progress, one step at a time, and it almost seems like nothing is changing until you look back on the last 20 years.
+Previously, the energy output was greater than the energy absorbed from the lasers, by the hydrogen capsule.
+>And although the experiment got more energy out than the laser put in, this did not include the energy needed to make the lasers work - which was far greater that the amount of energy the hydrogen produced.
+"And although the experiment got more energy out than the laser put in, this did not include the energy needed to make the lasers work - which was far greater that the amount of energy the hydrogen produced".
+Laser energy consumption is greater than the energy of the emitted beam and the energy gained as the result of fusion is greater than the energy absorbed from the beam.
+This time, energy output was greater than the total amount of energy input by the lasers, including waste input that didn't get directly absorbed.
+Still to go: exceeding the total energy used by the lasers, including waste heat and secondary elements like cooling systems.

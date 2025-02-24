@@ -1,0 +1,26 @@
+The broad spectrum isn't a challenge at all.
+It's the narrow beam forming and relatively low power.
+To detect it from any significant distance you would need to find yourself inside the beam.
+Once you can receive any radio signal, pin pointing it's source isn't all that difficult.
+The high operating frequencies of Starlink kind of make it easy as you can use directional antennas to get a heading to the source and these antennas don't need to be massive to have a tight pattern.
+I think it's unlikely that Russia can detect Starlink any significant distance.
+Like if they could fly over they could locate terminals pretty quickly.
+But from the ground you would pretty much need to be on top of it.
+It's akin to a flashlight being used at night.
+Low power, small beam distance, but everyone around can see that light, even that light can't see them.
+I've seen more than 1submarine located and "sunk" because their SATCOM link was sniffed out and they were geolocated based off it, and it's not like military SHF/UHF is putting out more power than STARLINK does.
+There's still easily detectable EMRAD from terminals, 100% of the electrons aren't going to the satellite, literally no system on Earth is that clean and precise... That's made worse by STARLINK being a LEO constellation, as the satellites are moving at a high speed, and the antennas must move as well.
+That constant movement leads to A LOT of EMRAD bleed into the background, which can be sniffed out.
+Can you name a single submarine that was sunk because of being geolocated by satellite communication sniffing?
+I can't find a single instance of that happening.
+Every submarine casualty I can find since the invention of satellite communications haven't listed this is the cause.
+something like 95% of them weren't even damaged due to conflicts, most seemed to be accidents, fire, grounding, collission, etc...
+If you're looking for particular frequencies or even frequency bands, even tiny amounts of EMRAD are easily enough detectable, particularly when you're talking about something like Ka and Ku bands, which are really only used for SATCOM.
+You're not guessing what that emission you're picking up on a Ka frequency is, 99% chance it's SATCOM, and if we're talking about SATCOM in Ukraine, it's a 99.999999% chance that's a STARLINK terminal...
+We saw a multitude of Russian airstrikes against FSA and civilian SATCOM terminals in Syria, and that was believed to be Viasat's systems.
+I know Elon loves to moronically tout STARLINK as some technological marvel, but at its core, it's literally no different.
+It's a SHF satellite internet service with a low powered local user terminal.
+The only real difference is one is using a mass of small LEO birds and the other is using a handful of bigger GEO birds.
+That's it.
+If this actually worked, Russia would not be tipping their hand.
+They'd be quietly using it to target key Ukraine positions.

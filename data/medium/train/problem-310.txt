@@ -1,0 +1,54 @@
+Terrible naming idea IMO.
+Why bring to mind imagery of WWII Germany ?
+Only way it could be worse is if they named it Tiger or named an airplane the Stuka.
+We're almost certainly getting a Tiger reboot at some point.
+Naming tanks after animals that lean into it's role (MBT = Apex predator for example) is just one of the extremely few traditions that was started by the Nazis but never abandoned.
+As for the Panther name: Panthera is the general scientific name for a group of big cats.
+The german naming scheme for battle tanks utilizes names out of this group.
+Calling the prototype Panther leaves room for what the eventual designation will be, while at the same time hinting at usage as MBT in the german army.
+Rheinmetall just bought Expal, one of Europe's largest producer of all kinds of ammunition, for $1.24 billion.
+They're also building a new ammunition plant in Germany that will by June deliver 300,000 FAPDS Gepard rounds worth approx.
+$300 million to resupply the Gepards operating in Ukraine.
+If they can produce that many of the rather complicated FAPDS shells in half a year, I don't see why they should not be able to build a second production line for 130mm tank ammo there as well.
+They'd certainly have access to all manner of components and propellants now that they own Expal.
+I meant if they got an order for say 60 KF51 Panther from Ukraine, producing the ammunition would be among the least of their problems.
+Honestly I don't think you're entirely wrong, the Panther has only been in development for 4-6 years (components since 2016, system level development began in 2018).
+So far, they've been using the tried-and-tested Leo 2A4 hull, layered in passive armour, reactive armour as well as their modular APS panels on top, so only the turret is really new - and feature like a launcher for loitering munition and such.
+The Wikipedia article states that if the tank was to enter production, Rheinmetall intended to develop an entirely new hull.
+Pretty sure they'd have to scrap that idea, as well as plans for greater AI integration and possibly other features if they really want to produce a reliable tank within 15-18 months.
+They'd have to concentrate on the new gun and the autoloader.
+Their APS system isn't a new development and launchers for 2 Israeli Hero loitering munitions shouldn't be a problem either, so the main challenge would be the gun and the autoloader.
+They've been developing a 130mm gun for the Leopard since 2015, calling it the "Rheinmetall Future Gun System" - so who knows, maybe it is indeed ready for production.
+I can't imagine Rheinmetall wouldrisk their entire reputation to sell what would hardly be more than 50-60 tanks.
+Seems to me more like they're using the opportunity to get a real client to demonstrate their new system, after all a private development like this must have cost them a significant amount of money.
+A bit similar to how Poland used the opportunity to get a first customer for their domestic AHS Krab SPH that way.
+Still, I agree, it would certainly be a good idea if they at least developed some economical way to replace the 130mm gun with a 120mm one should any unforeseen problems arise.
+An 2A4 without any upgrades and standard munition from the 80s, afaik, might for example not be able to penetrate much of the frontside of T72B3.
+130mm, according to Rheinmetall, brings 50% more penetration kinetic energy.
+From what I understand, a Panther would destroy any tank in Ukraine from every direction, from I don't know how many km away.
+It would probably be similar to Tigers and Shermans in WW2.
+Wait.
+The Germans have modern Tiger and Elefant tanks in use today ?
+?
+The Tiger and Panther were probably the most feared German armoured vehicles of the day, are particularly iconic and such they bring all sorts of extra baggage - the Tiger most so.
+Besides, Ukraine will likely need 3 million 155mm artillery shells in 2023 - about 2.4 million more than currently produced in the USA and Europe together annually.
+The Panther stores 20 rounds, and will certainly not prowl around on it's own, but with other tanks, IFVs with infantry and ATGMS, so it will likely reserve those for more recent T72 upgrades, T80U or T90s.
+You can pretty much be certain that each shell will mean the loss of another one of Russia's dwindling number of near-peer level tanks.
+So providing a couple thousand shells max.
+over a year for an extremely usefull system seems rather sane and manageable, compared to millions of artillery shells, weighing around 100,000 tons all taken together of at least 4 calibres and subtypes compatible only with certain systems (SMArt, BONUS, OGRE, ...).
+But maybe I'm missing something, having never served and all that, feel free to tell me about the insanity of providing say 60 tanks with maybe a thousand easily recognizable shells per month.
+Rheinmetall has sold a lot of kit in recent years, over 600 Boxer to the UK, 500 to Algeria, over 200 to Australia, orders for a few hundred are incoming from the Bundeswehr, for example for at least 100 RCH 155 Boxer-based SPH.
+Then they've sold 100 Panzerhaubitze 2000 to Ukraine (paid by Germany Ertüchtigungsinitiative fund), over 200 heavy KF41 Lynx IFV to Hungary and are the leading contender (having joined forces with Raytheon and some other US companies) to build the official successor to the Bradley.
+They're also the junior partner when it comes to Leopard 2, so recent sales to Norway and Czechia mean more business for them as well.
+They've just bought one of Europe's largest ammunition producers in Spain for $1.24 billion and are building another ammo factory in Germany.
+Smart move, considering Ukraine needs about 3 million 155mm artillery shells per year, while the US has production facilities for a whopping 200k shells per year, while European companies added up to 300k.
+Rheinmetall is ideally placed to provide as much of the missing 2.5 million as they can produce with their new production lines and won't have to worry too much whether their prices are competitive.
+So if there's one company in Germany that has been scaling up and is scaling up further, it would be Rheinmetall, making them probably the only company in Germany that has the capacity to fill such an order in such a short timeframe.
+For comparison: KMW is the senior partner for Leopard 2 and has partnered with Rheinmetall on other projects, like the Panzerhaubitze 2000.
+But basically they're a 3000 employee mid-sized company that has been kept alive by the ocassional export order and small strategic purchases by the Bundeswehr, which is always busy trying to keep know-how in the country, so they keep the relevant companies going with small orders here and there, without exactly making them global actors.
+Rheinmetall on the other hand now has over 30,000 employees worldwide, and most likely makes most of their money with systems whose development they've funded themselves (unlike companies like KMW who get a folder with 1,000 requirements for a new IFV from the Bundeswehr and have to work from there) - KF41 Lynx, Boxer, Skynex, Panther - all developed at their own initiative with their own funding.
+KMW may be worth €1 billion, Rheinmetall can afford to spend a billion en passant to buy a company like Expal.
+So while an order for 50 brand new Leopard 2A7V from KMW would likely take 3 years to complete, Rheinmetall is actually able to produce at the required speed.
+If they say 15-18 months, that means they can deliver in 15-18 months - whether it's 15 or 18 months probably would depend on the size of the order: 15 months if they can fit the order into their existing facilities, 18 if they have to build a new one.
+I think there is probably a 0% chance of them delivering the futuristic, AI heavy tank based on an entirely new hull they were planning for.
+That prototype you see in the videos is based on the tried an tested Leo 2A4 hull with mostly off-the-shelve motor, APU and suspension, fitted with three layers of armour: some very conventional, off-the-shelve passive armour, a layer of newly developed ERA, covered with another layer of AMAP-APS panels, also not a new development.

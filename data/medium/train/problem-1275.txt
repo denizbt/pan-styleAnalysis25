@@ -1,0 +1,17 @@
+Infosys, Tata Consultancy Services (TCS), Wipro, Tech Mahindra, Cognizant, etc - all big Indian tech consultants that actually are highly incompetent.
+Their top management is filled people who are not hands on with tech.
+All of them are project managers who can talk well, have brilliant photographic memory, but have never actually coded in their life.
+So they are known for screwing up projects regularly and having a toxic work culture that Elon would envy.
+Fun example...
+So Tata (mother group of TCS) decided to launched their own super app for the Indian market - called Tata Neue.
+They hired the TCS leadership to drive it entirely under a new company - Tata Digital.
+The app took a couple of years to make.
+The app was launched as the title sponsor for IPL 2022 (India's superbowl).
+Crazy amount of marketing money spent.
+But the app bombed due to technical glitches.
+Despite being built in this decade, the app already has accumulated a huge technical debt that will take years to fix.
+The capable senior folks they hired quietly left, leaving a higher concentration of project managers in charge.
+You can to know how bad it's doing.
+Work culture is so toxic that Tata Digital paid Glassdoor shit ton of money to pull down the Tata Digital Glassdoor page to combat the crazy amount of negative employee reviews.
+Would love to go into detail but can't, but we had an huge issue for almost a year with a platform they managed for us that was apparently 'unsolvable', which I solved using the design/orchestration documentation that they wrote.
+They are absolutely useless.

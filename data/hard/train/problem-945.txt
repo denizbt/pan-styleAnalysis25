@@ -1,0 +1,10 @@
+Those channels and frequencies can now be flooded with garbage, or even better, have commands spoofed on them, similar to how Iranians tricked drones into landing.
+And unlike planes, they can't quickly and easily bring back the balloons, especially with everyone watching on high alert, and with them being relatively easy to triangulate now.
+They can't swap parts out quickly either to change encryption/decryption.
+That depends on the volume of data it sends/receives.
+Encryption/decryption via software take work, and at high volumes offloading to hardware is still done.
+It also takes less power to use a dedicated ASIC/FPGA vs doing it all in software.
+The radios likely have decryption cards/chips that are used for decrypting transmissions on the fly, and the US can eventually use those to eavesdrop on any communications their balloons transmit, and reverse engineer to effectively bypass their encryption schemes.
+If they are dumb enough to use the same encryption tech on their military vehicles, it could be even worse.
+They would likely use encrypted communication, if indeed it is some kind of spy device.
+So then they'd need to decrypt that; even if it's smply as normal TLS.

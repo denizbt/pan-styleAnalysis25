@@ -1,0 +1,24 @@
+Each interceptor is over $1M on their own.
+That's $72M just for ready to go interceptors, not including any reloads.
+The Sentinel radar is $70M as well.
+Almost all of it is actually US made.
+The only thing Norwegian is the fire control systems, and even then, there's US variants that can easily be swapped out.
+It's basically just the US Marine's surface launched AIM-120 program from the early 90s, only Norway didn't cancel it like the Marines did.
+Hence why it uses the US Marine's chief SHORAD radar instead of a better radar.
+The fire control unit can be easily swapped out, but is actually the one defining feature which let's the system track and hit targets at an unprecedented rate.
+A lot of systems use the other parts, but does not score close to 100% in any systems simulations.
+NASAMS regularly does.
+In larger networks, NASAMS is integrated into the whole range of missile defense, so the real range of a launcher is then just restricted by its missile range.
+In theory it can launch using a global hawk catching an enemy aircraft far beyond visual range.
+In this network it can also work with the f35 in the sky, shooting at f35's prefered target.
+And vica versa.
+There's a 1000x different firecontrols you can use, all roughly the same quality.
+US uses their own fire control for the NASAMS around Washinon DC for example.
+Norway uses their own and it's great, but it's also nothing special...
+There's literally no other air defense system that uses the AIM-120 as its interceptor...
+There was CAWLS and SLAMRAAM, but they were both cancelled early on.
+It has nothing to do with NASAMS itself, it's literally the interceptor that's the core aspect of it.
+That's basically every air defense network my man lol.
+A US Navy warship can fire off an SM-2 at a target it can't see, as long as another ship or aircraft feeds it the targeting data.
+US Army's PAC-3 batteries engage based off targets F-35s provide them, even if they can't see the target themselves.
+You're also going to have a REAL hard time providing targeting solution via a Global Hawk... sure, they have a radar, but it's a ground scanning radar, not one designed for tracking aerial targets lol.

@@ -1,0 +1,7 @@
+In this case the answer seems to be quite acurate based on what I've read from other sources after asking this to ChatGPT, but I don't recommend that anyone does any form of research this way.
+> Hawass is considered a controversial figure due to his strong personality and tendency to take credit for the work of others, as well as allegations of financial mismanagement and misuse of government resources during his tenure as Minister of Antiquities.
+Additionally, there were also accusations of him mishandling some ancient artifacts, such as the mask of Tutankhamun.
+He also faced criticism for his handling of the looting of the Egyptian Museum in Cairo during the 2011 revolution, as well as for his perceived lack of transparency and exclusion of other scholars from excavations and research projects.
+ChatGPT is for entertainment only, it has no concept of truth or facts and its training has no bias towards trusted content.
+Its purpose is to generate a text, word after word, based on what trillions of random documents, websites and books taught it is the most likely continuation.
+The result might be stunningly convincing at first, but it takes no effort to compel it to write a paragraph that's half plagiarised from wikipedia and half made-up bullshit, and by the nature of its programming, it has no way to tell which is which.

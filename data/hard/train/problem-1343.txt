@@ -1,0 +1,16 @@
+The most I do is remove any per-installed app on windows and call it a day.
+I've got all the telemetry turned off, but only as deep as the system naturally allows through the set-up menus.
+I use windows defender and firewall for security, and all my mobile devices are on a vpn with my house, but that's it.
+I still run windows on my daily driver.
+Don't even have a dual boot.
+I've got a couple laptops I use regularly that are windows also.
+I've been using linux since the late 90s.
+I use it on literally everything I own except my daily driver.
+I run my own home's routers, switches, media and file servers, backup server, smart home server, I even have a home dns server and intranet.
+Using salvaged and refurbished hardware for all of it.
+It does get worse and worse, I just keep being lazy I guess.
+I've fought so so so many battles getting things to work in linux over the years I guess I'm just okay with the minimum bullshit I actually have to deal with on windows anymore.
+I'm still on windows 10 and my IT guy did his wizardly ways to get rid of the windows store from my computer and other programs so I don't have to deal with that crap.
+I like a clean experience and might even switch to Unix because it's gets worse and worse.
+Someone did give me a raspberry pi that's inside of a keyboard but I have not yet had time to take out of the box and set it up.
+I might make a suitcase computer if I can find the right screen.

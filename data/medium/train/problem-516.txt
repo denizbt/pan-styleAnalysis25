@@ -1,0 +1,18 @@
+Wait till you see a list of all the things China and Australia have been collaborating on.
+China and the west have gone balls deep into each other so long that they might as well be a conjoined twin at this point.
+China is a giant mindless eating machine Pac-Man consuming the world's resources at an alarming rate.
+The Dahua NVR has a function called P2P which when enabled, does send information back to Chinese servers.
+Anything that hits Chinese soil, the Chinese gov can have access to it.
+P2P is mainly for ease of remote access for the end user.
+Users won't need to port forward or update IP addresses.
+All the end user has to do is enter a serial number or scan a QR code, enter password and they're now able to view their security cameras even while sitting at the park.
+So users who enable/use that feature are trading for convenience at the cost of their security.
+But most users don't care.
+They just want to be able to easily connect/view their cameras when they're not at home.
+Of-course you can air-gap the video surveillance system and keep it offline.
+But the question is, are there any hidden backdoors in the system?
+Can some hacker just insert a loaded USB and just bypass the NVR's security and access all recorded footage/event logs regardless of login requirements?
+I highly doubt all these video surveillance systems are offline.
+They're probably behind some VLAN or isolated network, so still online in a way.
+And how do you trust any previous/future system/camera updates/firmware upgrades to not have any backdoors/hidden exploits?
+This becomes a very important topic especially when these cameras could potentially be installed/used at army bases, government offices, power plants or any other highly sensitive sites.

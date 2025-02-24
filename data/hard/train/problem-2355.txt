@@ -1,0 +1,11 @@
+This is just an old leak of phone numbers that have a WhatsApp account linked to them.
+It's not great, but also not that much of a big deal since we already know every phone number that exists, and it only takes a moment to check whether there's a WhatsApp account linked to it.
+WhatsApp is extremely secure.
+Messages are end to end encrypted, so no one except you and the other people on the chat can access them.
+I know that WhatsApp uses same encryption than Signal does, so that's solid.
+But do you trust Meta for not having some sort of backdoor there?
+Is there any way for me to verify this?
+Also I've read that Meta does not even need to be able to read contents of messages, the metadata is plenty for them to build profiles.
+Who you messaged, when and from where is quite a lot of information to give to a company that in past has sold your data to highest bidder.
+But the encryption they use is and that's what I'm referring to in my post.
+What they do with it is another thing, and I do not trust them for a minute.

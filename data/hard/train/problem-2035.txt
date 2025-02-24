@@ -1,0 +1,14 @@
+Another important aspect of GDPR, is that it also sets rather strict limits on what kinds of data you're allowed to keep in the first place, and what are its legitimate uses.
+If I'm not mistaken, GDPR sets out guidelines and timeline for the steps required by a business after a security breach that affects private data.
+If those steps are not taken in the given timeline , then massive fines are levied against the business.
+Also I believe it also lays out massive fines if a business is found to be willfully lax in its security that leads to a breach.
+So for example, if they know about a flaw in their security but don't choose to fix that flaw and that flaw is used to against access to private data, then they will face the massive fines.
+2) A lot of corporations (with maybe the exception of the likes of Google & Facebook types) don't like to pay for security.
+They'll hire a security team but it won't be paid as well as they can get in the bigger tech firms.
+So you get lower quality candidates.
+1) is that its genuinely difficult to create an absolutely iron tight system.
+All systems will have some vulnerability.
+And modern software builds on a lot of other software, various frameworks and libraries etc, which many times are maintained by small teams or even individuals.
+In such cases its really difficult to ensure that the smaller components are perfectly secure.
+This problem isn't completely solvable unfortunately (in College we were taught that its impossible to design a completely secure system).
+But most of these can be solved by paying more for inhouse security teams, and paying them more.

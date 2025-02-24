@@ -1,0 +1,8 @@
+Our discussion begins at 12h00 EST () and will last for one hour.
+It will feature the Legal Counsels for Reddit and the Wikimedia Foundation.
+TL;DR: r/WorldNews is holding a live-audio discussion on Twitter Spaces, about tomorrow’s hearing at the US Supreme Court on Section 230, the legal foundation for all social media platforms.
+It may be the most consequential case in the history of the internet.
+Equally, platform users who curate that content (such as users who upvote or downvote posts, or moderators who remove spam) are also shielded from the liability that falls upon editors at publishing houses.
+In effect, he might say that "biased moderation" creates a new context for posted content, one which distorts the public understanding or meaning of that content to a sufficient extent, that it ceases to be third-party content, with the platform becoming a kind of co-author-by-context.
+I'd imagine the system that would replace it would need to be user filter based, where posts/news/etc is categorized into topics and users would need to define those topics to filter out stuff instead of having an algorithm do it for them.
+Since an algorithm is just categorizing posts into topics and not acting for the user, it shouldn't run afoul of the rule as all curation still must be done specifically by the user.

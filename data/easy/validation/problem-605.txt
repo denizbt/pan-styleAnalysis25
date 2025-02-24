@@ -1,0 +1,15 @@
+As an “exchange”, FTX is allowed to offer relatively risky instruments to investors vs. what a bank could offer, but unlike a bank, is not allowed to then leverage investor funds to make loans, etc, and generate income.
+So unlike a bank, they’re SUPPOSED to maintain a 1:1 ratio of assets on hand to assets invested, to prevent exactly this sort of “run” from occurring.
+Whereas Wells Fargo for example can loan out people’s money and therefore have less than 100% of the value of assets invested actually on hand at any given time - this is because the FDIC insures those assets to reduce the impact on individual investors if there is a run on the bank.
+Ultimately, this means that 1) the crypto hedge fund likely does not actually have the necessary assets to act as collateral on their loans, and 2) the exchange doesn’t have enough funds on hand to make investors whole in the event of a run - which was what happened when the news leaked, and people have now just lost most of whatever they had in FTX.
+What is uncommon here is that FTX only actually made something like 25% of FTT available for the public to buy, then transferred the other 75% to the crypto hedge fund.
+So the value of FTT was being pumped up due to an artificially small amount of it being available to buy.
+In reality, had the other 75% been available, the true value of FTT would have been much lower.
+A few days ago the crypto hedge fund’s balance sheet was leaked, which showed that about $8bn of their assets were actually in FTT, meaning that it wouldn’t actually work as collateral should they need to repay their various loans, because if they did in theory make it available to investors the excess supply would tank the value of FTT, and that 75% would be worth nothing like $8bn (not to mention it was never really something that should have been allowed as collateral anyway because it has no underlying intrinsic value, unlike USD, real estate, etc.
+).
+Pretty much.
+I think it’s important to separate the actual technology behind crypto/NFT’s from this sort of bullshit, because the tech itself does potentially have a number of potential valid use cases.
+And in theory, it’s not crazy to think that a well regulated crypto exchange could work, even though it may still be riskier vs traditional brokerages.
+Exactly, it’s absolutely insane that once these exchanges took off and started playing games with people’s very real money, no one stepped in to mandate strict regulation.
+r/politics is currently accepting new moderator applications.
+If you want to help make this community a better place, consider !

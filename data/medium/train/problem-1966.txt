@@ -1,0 +1,18 @@
+MDM on personal devices is more about enforcement of compliance measures such as passcodes etc… and the ability to reclaim app licenses and delete corporate data if an employee leaves the organization.
+All good things.
+Especially if you want to save money by not issuing users company owned devices in favor of just paying for the MDM license.
+Modern MDM solutions do a good job of separating personal and work data.
+Dual use devices are absolutely fine in large organizations as long as you've got adequate MDM and device guidelines (e.g.
+a list of allowed devices) in place.
+But it still relies on the security of the devices themselves which lately there’s been a lot of zero day exploits found.
+I get the concern here from governments.
+I’m personally in the camp of keeping work and personal computing separate.
+Life is just easier that way.
+It is a good solution, but i would have to agree for my company having access to my personal device in certain circumstances.
+I don't think it is realistic prospect, but i still did not agree.
+They say it's a security risk.
+I would just keep my work data separate from personal data.
+Like I said previously, it's not worth the risk.
+Why 💩 where you sleep?
+Then everyone will be screaming bloody murder when something happens to their job.
+🤷‍♀️.

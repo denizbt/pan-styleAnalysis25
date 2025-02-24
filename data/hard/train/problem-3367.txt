@@ -1,0 +1,8 @@
+Assuming ITER reaches its goal it won't be that far away: 300 MW electricity used to produce 50 MW of plasma heating which leads to 500 MW of fusion, converting that to electricity would give something like 150-200 MW.
+There is also some power for cooling and other stuff, but we are talking about a factor 2-3 to break-even instead of the 300 for inertial confinement.
+In addition it's already in a relevant power range - going from 500 MW to 3 GW is a smaller step than going from a shot per day to multiple shots per second.
+Now they compare the increased output to the laser energy (which is larger as some energy goes elsewhere) for a second round of news.
+First they compared the output to the energy absorbed by the fuel for a first round of news when they exceeded that.
+isn't it net energy gain compared to the energy beams that hit the fuel pellet?
+DOE labs measure it that way and apparently the rest of the world doesn't?
+Which would be hugely misleading regarding break even point unless we are to just ignore all the missed energy inputs.

@@ -1,0 +1,25 @@
+U.S., Dutch and Japanese officials are close to an agreement to limit China’s access to technology used to make computer chips, a Dutch semiconductor supply company confirmed Sunday.
+ASML, a leading maker of semiconductor production equipment based in Veldhoven, Netherlands, said it was possible an agreement had already been reached but that it didn’t know any details about the deal or how it would affect ASML’s business.
+ASML is the world’s only producer of machines that use extreme ultraviolet lithography to make advanced semiconductor chips.
+The Dutch government has prohibited ASML from exporting that equipment to China since 2019, but the company had still been shipping lower-quality lithography systems to China.
+>The export controls won’t cripple the Chinese military.
+According to a recent RAND Corporation report, China’s military systems rely on older, less sophisticated chips made in China on which US export controls will have no effect.
+If China needs more advanced chips for AI-driven weapons systems, it can likely produce them, albeit at a very high cost.
+Many semiconductor industry experts agree that China has the technical capability to produce cutting-edge chips yet lacks the commercial capability to scale up production.
+This means that the US ban will have less effect on weapons systems, instead delaying the rollout of civilian applications such as autonomous vehicles.
+It's not a question of yes/no can they produce these chips, it's can they produce them in such quantities that they can make super advanced missiles at scale.
+The better chips you have the more advanced your munitions are.
+This still impacts them, and makes their ability to militarize in the short term hampered.
+It doesn't, at least not directly.
+These type of advanced chips are used for very small devices like smartphones.
+It puts economic pressure on Chinese telecom and civilian tech companies and limits their ability to progress their technology in these spheres, but these are not the chips used in things like cruise missiles, fighter jets etc.
+The short term is important because Taiwan is increasingly drifting away from the Chinese sphere of influence, and is turning their entire country into a fortress after Ukraine got Ukraine'd.
+The longer it takes for them to militarize to the point of being able to pull off an extremely difficult amphibious invasion, the exponentially harder that invasion will be.
+The sanctions are devastating to China's civilian tech industry, which is nothing to balk at since they're the world's largest manufacturer of civilian electronic goods.
+The sanctions are hurting China a lot, but not in terms of their military directly (obviously anything impacting your general economy is also indirectly bad for your military).
+You're conflating two different things here.
+In the future perhaps.
+But most modern missiles that are being produced to scale largely do not use the type of advanced chips that China is being sanctioned from buying.
+Not unless China is firing AI missiles or missiles the size of your mobile phone.
+Cruise missiles aren't packing 7nm semiconductor chips.
+Many people seem to assume that military tech is universally more advanced than civilian when for electronics the reverse is often true.

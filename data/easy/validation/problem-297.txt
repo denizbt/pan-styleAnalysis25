@@ -1,0 +1,10 @@
+I used to work in a factory and a new boss came in and told the maintenance guys to stop shutting down one of the chains for maintenance every weekend because it was eating into production time.
+They told him that was a bad idea but he didn't listen.
+Then, like you, he claimed that everything was OK because for 2 months everything was fine and that proved the weekly maintenance wasn't needed.
+But then it broke down and because of no maintenance they had to replace several key components that had failed and instead of the 16 hours of down time that would have happened over those two months the line was down for a week and they had to spend hundreds of thousands of dollars on replacement parts.
+Who is "they"?
+Twitter employees?
+The ones who would've done that would rather just quit and get the severance package rather than ruin their careers by causing a major outage.
+Very possible.
+Security is always the first thing to be compromised by cut backs, even if not intentional.
+Somewhere there's a database that isn't going to get a patch or a web server with a new RCE vulnerability that gets overlooked.

@@ -1,0 +1,12 @@
+Oh, don't worry you won't, he is just having the normal, shit on Microsoft post you always see in articles about them.
+There seems to be a quota for them now.
+And why do you think they still work on their own DirectX 12 API that works only on their Windows 10/11 instead of adopting an open standard like Vulkan that is real cross-platform and actually works on all Windows versions starting from Windows 7 and Linux and MacOS and Android, if it's not for the vendor lock-in they're always trying?
+Money?
+What money?
+Your money?
+Microsoft didn't say they will give 100 mil of cash, they said it will be digital infrastructure.
+Maybe, if you send them 100 mil, then you can dictate build the opensource infrastructure you're suggesting.
+You want Microsoft to send 100mil and tell them to build opensource infrastructure?
+You really sure that's a smart thing to do if you're CEO of Microsoft?
+“Romania's National Anti-Corruption Directorate (DNA) has launched an enquiry into the reselling of the educational licences, and Microsoft is not suspected of involvement.
+"At this moment, Microsoft is not involved as a company in this investigation," a spokeswoman for DNA told ZDNet.

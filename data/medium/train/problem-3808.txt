@@ -1,0 +1,16 @@
+Not really - the XKCD you probably got that info from is outdated.
+Dictionary attacks go after common words (hence dictionary) and common substitutions.
+If it can be found in that dictionary, it is functionally 1 unit of complexity and not really any better than a single character.
+If you want the easy to remember, impossible to brute force, pick a sentence and use the entire thing, punctuation and all.
+Just be careful you don't use common phrases.
+If it's common (e.g.
+knowledge is power), the whole thing might appear in a good dictionary and then it becomes 1 unit of complexity.
+E.g.
+the above sentence is 22+ units long (i.e.
+too long to dictionary attack even with a good dictionary), will never get guessed and is easy enough to remember.
+In a comment further down I specify that adding adding some characters like dashed and backslashes would be better.
+Capitalization and numbers would help, too.
+But still, password123 is better than Pass123.
+Would stand up against a dictionary attack, but a clever cracker might test for random strings of letters.
+Could start with the alphabet sequence.
+Would be best to add in a dash, or forward/backslash every few letters.

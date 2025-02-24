@@ -1,0 +1,15 @@
+BMW was testing this in car engines wayyyy back when I was a little VW nut.
+I'm not an engineer but I think the project didnt work because the infrastructure to install hydrogen pumps...everywhere was too much.
+Part of the problem with hydrogen as a straight fuel is that the infrastructure to contain it is a problem.
+Gaseous hydrogen is extremely difficult to keep contained, it just sort of oozes through most kinds of seals used to hold it in.
+Plus, gaseous hydrogen isn't very power dense relative to liquid hydrogen, but if you try to handle liquid hydrogen, you have all sorts of new problems relating to dealing with a cryogenic fluid.
+Another problem is packaging - a Hydrogen tank capable of storing enough H2 to rival petrol in volumetric energy density would not only have to be extremely high pressure, but would also have to be cylindrical/spherical to be worthwhile.
+Those sort of shapes are difficult to package into a car.
+Wing tanks work for liquid fuels that aren't held at pressure - they can be any shape they want.
+But H2 tanks suitable for flight, i.e.
+both lightweight and high pressure to contain similar volumetric energy density as liquid fuel, need to be cylindrical or spherical.
+These are very difficult to package into any vehicle, let alone a commercial plane.
+It is in commercial aviation.
+The tank volume plus boil off make it difficult to close the system design.
+Rolls just modded an engine to run on a different fuel and got it to run on a sea level test stand.
+It's not anywhere in the vicinity of the future of flight.

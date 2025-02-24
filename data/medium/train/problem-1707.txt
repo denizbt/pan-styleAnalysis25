@@ -1,0 +1,15 @@
+One single test shot of a laser into a gold-coated fuel pellet managed to put out slightly more energy than was put in, known as Q.
+However it ignored that the energy that came out was in the form of thermal energy, which is typically converted to electricity at an efficiency of 30-40%, and furthermore that the actual amount of power carried in the laser was on the order of 1% of the electricity used to generate it.
+This is only one of a dozen or more approaches to fusion, and one of the ones least likely to lead to commercial fusion power.
+So while it's a great scientific achievement, it still returned something like 0.004% of the input power.
+Yep, and as I said it's a great scientific achievement.
+Next steps would be to figure out what the perfect solution was on that unique fuel pellet, then get the laser efficiency way up (e.g.
+different wavelenhs), and maybe throw in some magnetic confinement to improve the fusion efficiency.
+The main research is in ITER, Wendelstein, SPARC, etc.
+and then a whole load of more speculative commercial companies such as ZAP, Helion, CFS and other.
+The commercial entities range from "Genuine if left-field prospects with real physics behind them" to "Blatantly obvious frauds looking for money".
+I would be surprised if one of them doesn't produce a viable fusion generator on-grid in my lifetime.
+I mean flying cars in theory aren't that difficult.
+The real issue is that they would be way too expensive and need to give up a lot of features in comparison to normal ones.
+There actually are working prototypes for flying cars for years now.
+It's much worse than a normal car for close ranges and much worse than a plane at longer ranges though.

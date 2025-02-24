@@ -1,0 +1,10 @@
+They need a reel of a couple dozen microchips, and everything else won't be on sanction lists, and that'll already be enough for a thousand drones.
+The chips required for the drones are likely less complex/don't need to be extremely compact, as Texas Instruments doesn't even make anything smaller than 45nm (and TI parts were found in shahed drones).
+Honest question: you don't think a large redistributor of such sanctioned parts would scratch off the serial numbers?
+It's done on cars, and those probably have less supplier scrutiny/combat use cases tbh.
+From what I gather, I think it's mostly a large inconvenience/expense rather than irreparable damage.
+Huawei used to get their chips manufactured by TSMC, which is no longer happening, but there are rumors that they've found a way to get their 12-14nm chips mass produced, to be used in the wearable devices, and allegedly planning to relaunch the Kirin (5nm?)
+flagship phone chip manufacturing in 2023.
+They ranked quite high in benchmarks at the time they were released, so my guess is China is mostly missing the manufacturing part, not the design/engineering part.
+That sounds like a pretty huge assumption, imo.
+Just because they currently use American parts doesn't mean they can't/won't invest the time to find alternatives when necessary.

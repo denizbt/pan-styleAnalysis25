@@ -1,0 +1,8 @@
+It's not going to saturate the local environment to the point where it will be easier to detect.
+As it decays it might ionize some surrounding atoms making them slightly radioactive, but this won't increase the overall radioactivity of the area.
+Radiation is a very braod term that includes things like heat, radio waves, visible light, all the up to ionizing radiation (x-rays and gamma).
+The problem is "radiation" is a blanket term, and such reactions tend not to happen all that frequently and most of the time when we think radiation we think gamma rays (aka x rays).
+But hang out to something that's giving you 10 x rays an hour for a few weeks and you're going to have some problems.
+Which is the same as saying, this is like getting 10 X-rays done in an hour.
+Which is a very simple way of conveying useful information in a relatable way to the public.
+Most people have had x-rays done multiple times, and everybody knows it's not dangerous, but that you don't want excess exposure if you can avoid it.

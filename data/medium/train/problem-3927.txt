@@ -1,0 +1,11 @@
+It's no longer possible to determine in anything resembling the timespan of a normal online interaction on a comment thread, for example.
+You'd likely need, say, 10 comments/messages exchanged or more to be able to definitively tell (and that's based on currently publicly available models.
+Who knows what Google has -- we know fairly little about the performance of models like LaMDA and PaLM beyond what Google wants us to see.)
+When this knowledge permeates society and becomes conventional wisdom, I'd imagine online forums and other casual forms of online communication (I.e.
+forums not somehow anchored in the real world through a real group, or populated by people known personally to you) will be in for some trouble.
+Assuming captchas or potentially personal online IDs become commonplace.
+I'm hoping for the former, but who can say?
+I don't see how they can really monetize it like they have with google though.
+It would immediately turn me away.
+I'm sure they really wanted that data they got from letting the world use it for as long as we did.
+I cannot imagine how valuable that truly is combined with their targeted marketing algorithms and personal spreadsheet on every living human being.

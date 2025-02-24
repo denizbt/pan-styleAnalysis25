@@ -1,0 +1,15 @@
+"For viewers who frequently travel or own a second home, Netflix says the account holder will have to sign in on their Netflix mobile app at least once a month while connected to the Wi-Fi at their primary location.
+".
+Yep.
+I can see why the suits want this feature, but there's no way to implement it that doesn't inconvenience families with kids in college - one of the main legitimate use cases - or which doesn't introduce hilarious loopholes, like how you should theoretically be able to share an account with other people in your dorm.
+Honestly, though.
+If they just made it something like one location per screen, I feel like there'd be a lot less of a pushback.
+Because currently, they're making weird assumptions like 4 people all watching it at the same time in the same house.
+You mean like college students?
+They're probably one of the main demographics of legitimate sharing, but Netflix only lets that happen if they can go home at least once a month.
+Okay, more explanation: There is no reasonable definition of "household" from a technological standpoint that doesn't open up all sorts of weird technicalities.
+The closest you get is an IP address, but I can already think of two major flaws in that.
+1) If you're on public wifi, it'll also see that as a single house, and 2) if you have to cycle power to your router, you'll likely get a new IP address, so Netflix will think you moved.
+But even if you could come up with a reasonable technological definition of a household, I still feel like watching on multiple screens is less likely than you'd think.
+To me, at least, that always felt like a feature to allow for college students and similar, so you don't have to coordinate watching times at multiple locations.
+(Think "Get off the phone, I need to use the internet") There are still some use cases for multiple screens, like if someone wants to watch on their commute, but they're a lot less common.

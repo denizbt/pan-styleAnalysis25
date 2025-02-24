@@ -1,0 +1,8 @@
+You can focus the communications the same way you focus a laser, so instead of transmitting far and wide to any receiver in range the message is only receivable in very small corridors.
+We do that with satellites to make sure nobody else can intercept sensitive communications.
+To intercept tight beam transmissions they'd need to be positioned directly between the satellite and the transmitter, which means inside US airspace.
+>They fly closer to earth and drift with wind patterns, which are not as predictable to militaries and intelligence agencies as the fixed orbits of satellites, and they can evade radar.
+They can also hover over areas, while satellites are generally in constant motion.
+Simple cameras on balloons can produce clearer images than those on orbital satellites, and other surveillance equipment can pick up signals that do not reach the altitude of satellites.
+Remember when the act of wardriving to find open wifi to use was considered an invasion of privacy and borderline illegal like 10 years years ago, and there were media stories and coverage about the scariness of it all, and now we just have open wifi everywhere for people to use as they please?
+lol.

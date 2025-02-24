@@ -1,0 +1,40 @@
+This is great, they can manufacture batteries for solar generation!
+It could improve their people's standard of living as well as being a pretty good export.
+Lithium chemistry is great for transportation because it has high energy density and long life wrapped up in a generic small package.
+Sodium can come close already in a similar form factor but lithium still has advantages and should be used for transportation.
+For storing solar energy, flow batteries will probably be the winner.
+The reason flow batteries are not ideal for transportation is that they need to be maintained at a relatively high temperature to charge and discharge but this is easily achieved in a power storage station.
+You may notice that large electrical power transformers are often hot already.
+This becomes a perfect companion to a technology that needs to stay warm all the time.
+For a car or truck that is only operated now and then, this is a disadvantage.
+For storing megawatts or gigawatts of power, you're better off with a chemistry that doesn't use so much packaging.
+Most of the cost of a battery for an EV is not the chemicals as such but the materials and processes to package them.
+Flow batteries use a different approach and can be built from the start to handle megawatt loads of power and that means they will be cheaper to manufacture for this sort of use because they don't waste so much money on redundant packing.
+Nah, lithium is not a desirable chemistry for stationary energy storage.
+Sodium and flow batteries can be made at even lower prices and don't require any scarce resources but they're not necessarily ideal for transportation.
+For storing solar energy in fixed locations, though, they make great sense and can certainly beat lithium on price once they are manufactured at a large scale.
+At this moment in time, in this snapshot of the transition to renewables that is 2023, lithium based batteries are certainly your best bet.
+LiFePO4 is a much better choice than lead-acid for the time being and they will be cheaper in the near future.
+I'm sure that's true.
+But it's also true that even lower cost alternatives that don't use lithium at all will also be available in the next few years and this is what I was emphasizing.
+Here, let me provide some links to make this more clear about the flow batteries and the sodium ion batteries.
+They are real products that simply have not had time to reach the scale where they are lower in cost than lithium but will soon be there.
+I'm not saying there is something wrong with doing so at this time.
+What I'm saying is that going forward, in the near future, you will find that this will not be the key market for lithium chemistry batteries because there will be less costly and more effective alternatives which are already being manufactured.
+These refer to up and coming battery chemistries which are specifically targeted to the energy storage market.
+The reason they're better is that they will be lower in cost and not contain any rare materials which will make them free of controversy for the same reason that they will be low in cost.
+This is the original reference.
+It is not to say that you cannot or should not use a lithium ion battery pack to store solar energy at time time.
+Even lead-acid is fine at this point in time.
+Soon that won't make much sense but for now whatever it takes is good enough.
+The same will soon be true for using lithium batteries for storing energy for stationary uses.
+You could still do so, but it won't make sense.
+Perhaps you misunderstand my point.
+I'm not suggesting you cannot or should not use a lithium battery to store solar energy at this point in time.
+Whatever works for you, that's great.
+Enjoy!
+More power to you.
+I'm glad for you, really.
+Many are still using lead-acid and that's fine too.
+Lithium is a great alternative to lead-acid at this time.
+My emphasis is on "at this time".

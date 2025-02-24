@@ -1,0 +1,10 @@
+And everyone else is fucked cause we're now trapped on our planet and can't launch any new satellites while orbit is absolutely wrecked by space debris and destroys any existing satellites.
+When the atmosphere becomes so clogged with space debris from collisions and abandoned satellites that it becomes impossible to safely travel through, trapping us on the planet until they all decay and eventually burn up upon reentry.
+You make the orbit low enough that any mechanical failure (eg, lack of propulsion) makes that the entire satellite will burn up as it descends.
+Were all star link satellites to have all power cut to them they'd burn up in under 30 years, most of them in eight years.
+As they're currently designed, after five years they'll push themselves into a descent which will burn them up entirely.
+tldr; LEO satellites are self disposing over the course of a few decades if things go totally FUBAR, five years if all goes according to plan.
+This is different than geosynchronous satellites which are sunsetted by boosting themselves up into a graveyard orbit (as that takes less propellent than shifting their orbit to burn up into the atmosphere).
+Most geosynchronous satellites have orbits that decay in the hundreds and thousands of years, so military action on those satellites is a real danger.
+Which are: a) more expensive; b) out of reach of amateurs; c) increasingly difficult to get into orbit due to too many damn space x junk satellites.
+And it does affect the entire world when it's impossible for people to enjoy the night sky without this garbage.

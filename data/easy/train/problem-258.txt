@@ -1,0 +1,10 @@
+And by taking the time to find those opportunities, you force yourself to read a lot of code, which is always worthwhile.
+Sometimes you learn how to do something clever, a lot of the time you learn what not to do, and you always gain background knowledge that you can apply to a later project.
+Can't count the number of times I was able to design or debug something faster or better because I was the most familiar one on the team with some other remote part of the codebase - not because I had worked with it in my day-to-day, just because I would sometimes take whole afternoons "off" just to poke around and sate my curiosity.
+jesus christ.
+20 years ago i worked in my colleges distance education department.
+sweet gig, basically video taped (YEA TAPE) classes.
+in one software engineering masters class, the professor was talking about project management.
+he roughly said “we’re going to use lines of code as our metric.
+it’s a terrible metric for the real world.
+but for this exercise it’s a clear cut enough metric to learn these basics”.

@@ -1,0 +1,10 @@
+Generally a bigger fan of electric than hydrogen but the massive power density makes it very attractive for aircraft and it could be carbon neutral, though most hydrogen isn't today.
+Airports have huge exclusion areas, perfect for solar panels.
+Transport is a huge pain so production on site would be great.
+For battery electric the power density isn't there for aircraft.
+Not airliners anyway.
+Once the public accepts the safety record, I imagine hydrogen fuel cells will become the standard for large and industrial vehicles like planes, construction equipment, and semis.
+Just to be clear hydrogen has high energy density not power and that density is by mass not volume.
+By volume it is very bad, which is one of the issues with hydrogen for flight, the other most obvious one being the pressures needed requiring specific shapes of storage (e.g not wing shaped like current plane fuel storage).
+Jokes aside, I feel like hydrogen is going to need a lot of safety checks in place.
+While both hydrogen and regular fuel are flammable, the hydrogen is probably also in a pressurized container, which would make it potentially explosive.

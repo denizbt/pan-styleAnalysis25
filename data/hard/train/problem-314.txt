@@ -1,0 +1,12 @@
+Doesn’t this light it up like the 4th of July for, well, literally anything that can track IR….
+And also makes missile itself sensor blind… which is something you don’t want if you want your missile to A: dodge incoming fire and B: Uh, ya know, hit your target?
+hypersonic weapons move so fast that no existing anti-missile-defense can even SEE/TRACK them.
+if it flies at you, it needs to miss you won't even see it coming.
+The Long-Range Hypersonic Weapon (LRHW) is a medium-range surface-to-surface boost-glide hypersonic missile planned for use by the United States Army.
+What stuff like hypersonic glide vehicles are a way to extend payload range or to miniaturize booster rockets for the same range/payload over ballistic missiles.
+Hypersonic cruise missiles are a bit more unique but have terminal velocities comparable to ancient weapons like the AS-4 Kitchen.
+They simply decrease delivery time.
+Plasma stealth is not a thing except for low-frequency early warning radars because 1.
+High frequency radars including and above the Echo and Foxtrot bands (S band in IEEE), which are most fire-control radars are still reflected unless you have really really high plasma density.
+2.
+Plasma is fucking hot to the point where orbital IR sensors are likely to pick it up.

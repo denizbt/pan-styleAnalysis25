@@ -1,0 +1,16 @@
+That is, you no longer have to choose between voting for who you like best or voting against who you like least.
+It’s still way better than first past the post or plurality winner voting!
+But there’s a reason most lonerm democracy reform advocates have stopped pushing for IRV.
+It also impacts people’s willingness to vote, as it makes the ballot a non trivial amount more complicated.
+It's no more complicated than any other voting system except FPTP (which everyone agrees sucks) and Approval Voting (which is just silly for a general election).
+You could satisfy the "later no harm" criterion, for example, just by drawing a name from a hat and ignoring voters entirely, if you didn't care about choosing the right winner, but that doesn't make that a good voting system.
+You could satisfy the "consistency criterion" by always electing whichever candidate comes alphabetically first, and that also doesn't make for a good voting system.
+These would be terrible choices because it's more important to choose the right winner than anything else you could possible be worried about.
+Sure, there's not always a clear choice for the right winner.
+When there is, though, and you don't pick it, that's hard to explain away by saying "but look at all these other random properties that our election system does satisfy!
+".
+Eh.
+Instant runoff, which is what everyone means by ranked choice, is a start.
+Better than what most of the country does now.
+But don't set it up like some kind of ideal.
+It's another broken system that's a little less broken than what we're doing already.

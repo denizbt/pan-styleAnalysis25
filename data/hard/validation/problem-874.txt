@@ -1,0 +1,15 @@
+Heat seeking weapons don't give any warning.
+You might be able to spot the missile launch, but will have no warning prior to that, and only seconds if you spot the launch.
+Radar based weapons will give a warning in STT mode this is the one you know from movies, etc.
+In STT mode the launch radar is basically behaving like a spotlight aimed right at the target, and the targets RWR (radar warning receiver) will notice that and warn the pilot(s).
+Older radar based weapons like the Sparrow need constant illumination of the target.
+However, modern radar based weapons can also be guided in TWS (track while scan).
+In this mode, the search radar is still scanning the sky for other targets, so the targeted aircraft won't see a change in behaviour and doesn't know it's been locked.
+The aircraft's RWR will know that there's a radar searching in the area which it will relay to the pilot, but the pilot will have to make a judgement call as to whether they're under attack or not.
+They'll only get a warning when the inbound missile goes 'pitbull' - which means it's turned on its own radar for terminal guidance.
+That only happens when the missile is close to its target, so the defending pilot won't get much warning.
+There is, but it doesn’t automatically mean the other side is about to fling a missile at you or fill the air around you with steel.
+It just means they have that option if they decide to.
+There’s a bunch of information you can get by listening for radar emissions that aren’t yours.
+If you’ve just been pinged once or twice then you know they know you exist, but they aren’t that fussed.
+If you’re being lit up multiple times a second by high powered radar then you know someone is taking a very strong interest, but you don’t know what their next move is.

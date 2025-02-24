@@ -1,0 +1,18 @@
+Today it was mostly quiet, but we had a couple of air raid alerts which were uneventful for Kharkiv, but other towns/cities were hit.
+Kupiansk was hit a couple of times today, most likely with S-300 missiles both times.
+Then Dnipro was also hit with missiles in the evening, apparently they hit some company’s manufacturing facilities and there were no reported casualties.
+Scum.
+I truly wish Ukrainians could get longer range capability weapons to strike the airfields and stockpiles of weapons being used in these terrorist attacks.
+I truly hope that in the near future they will be hunting these criminals down like the plague they are and bringing them to justice or terminating them on the spot.
+The Nazi hunters of the previous century had the right idea.
+My norwegian company outsources ERP development to another norwegian company that hires only russian developers.
+I work closely with one of them and the topic never came up.
+He seems to be enjoying his recent move to Montenegro, though.
+There are 18 AWS datacenters in North America, around about the same number of Microsoft Azure datacenters, most organizations will only use two groups of 3 at most, and it would be trivial from an infosec perspective to figure out which specific ones for a given organization.
+And on top of that - there are service providers that provide key network interconnects for network services and cloud providers - you figure out where and hit those, you can probably take down DOZENS of fincancial companies all at once, irrespective of their physical or vitrtual datacenters.
+Even moderately big regional banks will only have a handful of either physical or virtual datacenters - and the virtual datacenters (what you're referring to as the cloud) - are in physical datacenters operated by your cloud provider, and the location of those datacenters is not a secret.
+Blackouts in Kharkiv still continue, but not everywhere.
+Some parts of the city literally never have blackouts, while others are without electricity almost the entire day.
+My apartment building had blackouts lasting 5-8 hours every day during the last 4 days.
+But then we look outside of our window and all the buildings on the other side of the street never have any blackouts, they are always lit up, which just sucks.
+Blackouts should be evenly divided between everyone, and not like it is now with some people never having electricity, while others never have any blackouts.

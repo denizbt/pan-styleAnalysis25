@@ -1,0 +1,12 @@
+Jets is going to be really difficult because of high training requirements to be useful in the way Ukraine wants.
+Russia has the fighters but still can't use them because their pilots simply aren't well trained enough to pull off SEAD/DEAD, so if they use them they just get obliterated by Ukrainian AA.
+Ukraine won't be able to take control of it's skies either if it can't run SEAD/DEAD missions and the training requirement is extremely steep.
+Like, we need to get them training now so maybe they can do this next year, and that's assuming they learn as quickly on the jets as they did on the HIMARs.
+There's a newer variant that has a multifrequency seeker, but there's not believed to be many at all, given Russia's historical disinterest in SEAD/DEAD.
+The west has historically had very little in terms of air defenses, because their fighter fleets serve as their air defenses.
+As such, Russia just never prioritized SEAD/DEAD, and it shows.
+It's more complex than that.
+Russia has no credible ability to perform SEAD/DEAD.
+Their main anti-rad missile is the KH-31, which has 3 single frequency seekers.
+If a radar uses frequency hopping like any semi modern radar does, the KH-31 will lose the target completely.
+Worse yet, only way to swap out which frequency seeker is installed, is to send the missile to the factory for replacement.

@@ -1,0 +1,15 @@
+This is not political decision it is government aka civil service decisin.
+there are LOADS of companies doing this.
+I have just finished a project ...
+The replacement cameras/systems are also made in china - however they have had their code checked and verified.
+It is simpler, easier, quicker and cheaper just to tear out the old and bung in the new "checked" cameras.
+and what about the hardware?
+a small wireless transmitter on a board capable of accessing/downloading a harddrive if someone with the right receiver is in range.
+Indeed there are, however wifi/transmitters and data acquisition would not fall into that category.
+Security is is excellence in box ticking, if the manufacture can't explain the purpose of a chip = device not approved .. and NEXT!
+While Huawei were fighting their losing battle to show their kit was safe and OK, there is/was a facility in Leeds [UK] that went through their kit to validate claims.
+Large UK company I was doing work for got taken over by a US company in a worldwide shopping spree, and from this perspective - any huawei kit to be removed from network in a quick time scale, no huawei phones for business purposes ... and so on.
+..would love to hear of an example of hardware that carries out a useful function without any form of coding/instruction set ?
+Further in the context of this a piece of hardware that carries out data acquisition and onward transmission without any code.
+It’s really funny how easy it is to use „external threats“ to distract people from the internal problems that are a million times greater and more acute.
+Most of this „being tough on China“ mentality that we see right now is just populism.

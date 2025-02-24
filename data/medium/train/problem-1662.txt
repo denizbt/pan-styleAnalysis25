@@ -1,0 +1,19 @@
+'Red herring': most crime guns are smuggled from the US, police believe.
+It'd help if the feds kept stats, but they won't.
+This is not a domestic gun problem: registered, or 3D printed.
+I don't own a gun, and I'm an Eastern city 'liberal', but even I can see our laws are horseshit with the US gun warehouse next-door, and our customs officers directed to harass for duties, not security.
+It;'s always been possible for amateur gunsmiths to make their own firearms, but it requires a certain skill level in machining to do, pre 1980s most of your firearms required some level of hand fitting.
+The AR15 and the Glock were some of the first truly modular designs out there with completely standardized parts The builder is more an assembler than anything else, like if IKEA made guns.
+When table top CNC matures you'll be able to fully divorce yourself from manufacturers and make all the parts yourself, that's when this kind of thing will really take off, it'll be virtually impossible to trace.
+As it is, a plastic firearm might be able to function for a couple of rounds using small cartridges, or a bit longer if you've got some basic metal parts included.
+3D printing takes the skill down to loading a cad file and setting the printer up to run.
+once you've got it dialed in you're basically making a functionally identical clone of the production firearm.
+However, a properly functioning, accurate and reliable gun needs tight tolerances and some items which just can't be printed (like a rifled barrel), plus it will need to be metal in the critical areas.
+Even modern metal 3D printers give pretty poor surface quality.
+You'd need to perform at least some machining of the printed parts to get them up to standard.
+The hi-point guns have even \less\ metal in them.
+I think their slides are actually polymer.
+like wise the G36 rifle has rails, the barrel, BCG and the small parts.
+the entire frame and receiver is polymer.
+You need metal for somethings, but not as many as you might think.
+You can make it out of about 80-90% plastic with the right design.

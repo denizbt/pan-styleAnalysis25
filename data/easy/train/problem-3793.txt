@@ -1,0 +1,11 @@
+I looked it up from another article and apparently the capsule here contains Cs-137 which is very radioactive but not emitting neutrons.
+If it's a gauge they usually use them for measuring densities of other materials, essentially you know how many gamma particles your isotope is creating and you measure how many you get from a detector on the other side of what you are measuring.
+Cs-137 emits betas and gammas, the betas don't have a lot of energy and can't travel very far, it's likely that they don't even leave whatever capsule is around the Cs itself.
+The gammas are more important, they don't have enough energy to cause a nucleus to change but they can deposit energy that causes DNA and cell damage.
+Luckily cars are usually pretty good gamma shields and distance is also a really good shield so people driving by quickly probably don't need to worry too much, just don't pick up random crap off that highway until they find the thing.
+Definitely.
+Not being able to find it would be a really bad thing, and half life just means average 5xrays worth of energy in 30 years.
+Radiographer here.
+Ten times xrays ain't that much.
+It's not great but it's not terrible.
+Also depending on the kind of radiation being emited then most of it may be absorbed by the air within just a couple of metres.

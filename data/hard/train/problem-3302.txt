@@ -1,0 +1,13 @@
+police reportedly found a "steering wheel weight" in the vehicle's footwell.
+Such a device is used to trick Tesla's safety systems into thinking a driver's hands remain on a wheel so that the autopilot remains active, according to the police's release.
+Cars like Tesla have a very long way to go before their automatic systems can be similarly trusted as nearly as infallible.
+That’s not surprising given the orders of magnitude more challenging terrestrial environment and proximity to all sorts of other things, both stationary and moving, and sometimes moving directly at you.
+However, aircraft autopilots work in 3 dimensions with 6 degrees of freedom and control the aircraft through multiple modes of motion that land-based vehicles never experience, like Dutch roll, phugoid, and turbulence.
+They are also equipped with automatic terrain avoidance systems to steer the aircraft up and away from ground obstacles.
+With respect to computer vision, some aircraft are equipped with synthetic vision systems that use IR and visual cameras to “see” in the dark and through clouds and fog.
+These are primarily pilot aids, though some systems have started to integrate the data they generate with the autopilot for precision landings.
+Yes there are autopilots nowadays that can land the aircraft automatically and such, but those are very fancy and rare outside of large airliners.
+Most GA aircrafts that you're referring to do have basic autopilots, but vast majority of the autopilots are operated by airliners.
+Writing airliners off when they are the largest users of autopilot functions just because it doesn't support your argument is disingenuous.
+Some are also equipped with auto-land and auto-rollout that will fly a 200-ton aircraft with 500 people onboard down onto the runway in zero visibility and automatically brake the aircraft to taxi speed while maintaining runway centerline.
+That’s an impressive piece of engineering that’s used countless times every day.

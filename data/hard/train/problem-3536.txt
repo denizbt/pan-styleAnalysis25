@@ -1,0 +1,10 @@
+All units have been shut down since at least mid September (last two units shut down).
+per unit ( though I'm not sure the timeline of shutdown at the other 4 units nor does this does not account for the spent fuel poolh.
+It is my understanding the reactors have been in cold shut down ().
+As such it is not producing power.
+However the plant still requires power to operate systems, and even in cold shut down there is decay heat to deal with (risks are significantly reduced, and in the event of issues there will be more time to address them before they lead to an accident, but there is still some risk).
+I heard somewhere they've slowly been running them down so as to eliminate the possibility of a meltdown/runaway reaction if the power is suddenly cut to them and they can't get backup generators running.
+In cold shutdown the plant is in as safe a condition as possible were something to happen, and it would not be a severe accident with just loss of cooling (there may also be additional capabilities e.g.
+Post Fukushima the US added features like auxiliary generators, pumps, wiring to expedite restoring cooling & make up water).
+A complete loss of off-site power and emergency generators would be more like a three mile Island accident than Fukushima and no where near Chernobyl.
+Targeted attacks could result in worse outcomes of the intent were to do so.

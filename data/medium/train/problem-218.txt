@@ -1,0 +1,11 @@
+eh there are some ways that allow you to send computationally intensive requests that can harm a server more than some other kinds of requests.
+but I doubt it's a ddos, I suppose they could null route the traffic if that were the case but /shrug.
+This is actually easier than you might think.
+The internet uses a thing called the boarder gateway protocol(bgp) which is like a google maps for internet traffic.
+You can setup your own bgp if you want.
+Iirc most servers have their own bgp to tell the internet how they can be found.
+You can reconfigure these things pretty easily so that any/all traffic on the internet goes through your server.
+There have been several large incidents over the years.
+One time youtube missconfigured one and started getting every piece of traffic that China generated (including classified stuff).
+The reason we haven't done it yet is because itll only work once before people start to seriously consider making an alternative, more secure bgp.
+So why waste it on russia when they are headed towards collapse anyways.

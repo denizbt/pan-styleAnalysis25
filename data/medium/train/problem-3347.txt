@@ -1,0 +1,23 @@
+Don’t know but it may be designed for a specific orbit, with a specific camera for the purpose or something similar.
+A good way to detect bodies of water might be based on sun reflection.
+So that would dictate best viewing would be when between the earth and the sun.
+And there might be a camera tech, and surely computing system, that’s best suited to detecting reflections.
+Total guess on my part.
+And what of the waterfalls?
+I'm told not to chase them, and am relegated to the rivers and the lakes.
+Could this satellite chase those waterfalls for me?
+The SWOT mission builds on a series of U.S.-French satellites that have tracked rising sea levels and measured ocean wave heights since 1992.
+But SWOT introduces a new type of instrument, a Ka-band radar interferometer, with improved precision and a broader field of view than altimeters on older oceanography satellites.
+The Ka-band radar interferometer, called KaRIn, consists of two antennas mounted on booms 33 feet (10 meters) apart, about half the lenh of a tennis court.
+One of the downward-facing antennas will transmit radar pulses, and both antennas on the instrument will measure the reflected radar signals that bounce off Earth’s surface.
+Scientists can derive the height of water levels in oceans, lakes, and rivers from the tiny difference in the time the reflected signals arrive at each antenna.
+“These antennas have to be kept extremely stable and pointed at the same place on the Earth within a few microns, which is smaller than a human hair,” said Parag Vaze, SWOT project manager at NASA’s Jet Propulsion Laboratory.
+“The radar sends electromagnetic pulses from one antenna that reflect off the surface of the Earth and are received by both antennas as the same time.
+This provides a very precise measurement of the height using a triangulation technique called interferometry.
+That lets us create a 2D map of the surface water.”.
+I guess now you'll have the bodies of water mapped with greater accuracy and detail.
+Also dynamic features like currents can now be studied from space with this satellite.
+Meteosat Third Generation's first launch, MTG-I1, happened four days ago.
+This brings weather observations to a new level, but nobody is talking about that.
+Talk about stolen spotlight!
+It's all about NASA, Elon, yadda yadda.

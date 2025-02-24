@@ -1,0 +1,12 @@
+A weapon specifically designed for export that can shoot down drones?
+Sure Ukraine has a need, but how many sales can they get from that after this war ends?
+Who's the next we equip with weapons that has an enemy sending drones at them?
+If you mean a cost effective way for our own militaries to take down drones, then they already are.
+The US army is going all in on laser technology.
+a 50 kwatt laser slapped on the top of a Stryker vehicle, it can get to an area to protect it quickly enough against drones weighing anywhere between 1 and 1,000 pounds.
+It can also target artillery and mortar rounds.
+I don't see them wanting to share new technology like this anytime soon.
+Inertial navigation involves differentiating a noisy signal to determine orientation, then using that to subtract a huge acceleration offset due to gravity, then differentiating that twice to go from acceleration to velocity to position.
+Even the tiniest drift or noise in those sensors will make the answer diverge from reality extremely fast.
+The MEMS sensors in phones will diverge in seconds.
+US ITAR classifies sensors with sufficiently low noise and drift to be useful as weapons, you can't export them.

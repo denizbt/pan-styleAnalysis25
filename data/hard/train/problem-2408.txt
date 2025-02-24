@@ -1,0 +1,9 @@
+My guess is that the number of such requests / returns are relatively small in comparison to allowing the entire state to take advantage of this procedure.
+Thus, much easier to process than an entire state.
+You included a link to fvap.gov.
+I can see where the states are empowered to send overseas voters Absentee Ballot Applications by electronic means, but my quick perusal did not find how the voters could vote by email.
+Yes, I agree that electronic / email voting would be much more convenient, but it opens the door for increased fraud, as well as complaints from voters who supposedly do not have email access, but want similar convenience.
+With all the (unfounded) complaints of fraudulent voting, methinks opening the entire state to email voting would cause a much heavier workload on the verification process to try to assure the absence of fraud.
+You could also allow people to revote and only count the last ballot making it almost impossible to force someone to vote how you want, you just need a good verification system but that's no different than when I use the Global Entry website.
+Your point 2 is valid but it would be up to the individual states to allow Internet based voting at that point.
+States don't typically build their own voting machines or tabulators today either.

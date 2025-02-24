@@ -1,0 +1,8 @@
+and EOL can be postponed if it's brought up to date (yes it's costly and takes time but it's quicker and cheaper than sourcing 1GWe of heat).
+even then nuclear can be used to directly heat stuff (I suppose.. you have a 700°C mass of water vapour going to spin a turbine, may as well do something else before it reaches the turbine if ever).
+I would not wean off of nuclear, but.. if the heat itself can be used in an industrial area then there's no need to hop on to the electricity wagon and hop off by generating heat with it again - aka more efficient.
+If they are short of electrical generation, or their generation is gas fired, then maybe keeping the nuclear plants on-line for longer makes sense.
+Have to consider the system as a whole and plan for the longer term because cheap Russian gas is likely not coming back and need to get off it.
+I can't read the article, but finding some numbers suggests 40% to households and small industry and 60% large manufacturing, which fits what I remembered.
+Germany makes a lot of stuff.
+Electrifying that consumption is likely what they are doing, now that they have an economic incentive / less access to cheap Russian gas, but it takes time and costs a fortune... so their most likely response in the short term is buying elsewhere where it is specifically gas they need.

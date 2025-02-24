@@ -1,0 +1,10 @@
+True, we hoped to produce a friendly state that acted and thought like us, but that's a rather different beast, even if it's also a bad policy to go about doing.
+The big advantage of GLSDB is it's flexibility via the GBU-39 Small Diameter Bomb (hence the SDB) which has a load of snazzy features, such as enabling a "return angle" attack.
+As in, the missile can fly past a target, turn around, and hit it from behind.
+The SDB also has variants to allow laser designation of targets, ability to track moving targets, etc.
+The latter statement isn't true here.
+The standard GMLRS warhead is 200 pounds tnt equivalent in either a unitary high explosive version or a fragmenting style.
+The warhead is a little more than half the size on that of the GMLRS and surely subsonic because it needs to glide like 100km to hit the quoted range figures.
+It'll destroy vehicles and most buildings it can hit but you'd have to identify, target, and hit them.
+At 150km without air superiority that's not very easy.
+On the upside, these are cheaper than GMLRS and more spammable assuming we're sending a lot of them.

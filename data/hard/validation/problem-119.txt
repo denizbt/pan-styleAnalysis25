@@ -1,0 +1,13 @@
+There was one issue that came up from it when states started legalizing it: Colorado got too much money from weed taxes and had to figure out what to do with the extra money.
+So to pass a bill, you need 50, but to actually have that vote at all you need 60 if someone is filibustering.
+The thing you need to remember is that in every single case where someone says "they need 60 votes", that's not because the Senate just requires 60 votes, it's because someone (usually McConnell) is proactively going out of their way to filibuster the bill.
+People just assume though that Senate votes require 60 because the GOP for the last decade has openly held a policy of filibustering literally everything as long as a Democrat is president.
+Their goal in this was to "ensure Obama remains a one term president".
+What might have made it confusing to you is that some things are exempt from the filibuster - confirming judges and iirc cabinet members cannot be filibustered, nor can the yearly budget reconciliation bill (otherwise the minority party could always force a shutdown via filibuster).
+Accident or not, it is now a primary working feature of Senate debate, and its current use is commonly justified by the argument that if a senator feels strongly enough to use their floor time to filibuster, they have that right (this is what I allude to when I say “original intention”, as the reason filibustering was never eliminated in the Senate).
+I don't really think there's a great answer to this problem ... but yes, the speaking filibuster actually keeps the Senate occupied preventing any other legislation from being discussed/voted on during its entirety.
+In this way, current Senate rules not only allow for filibustering tactics, but go further and clarify when and how it can be used and countered.
+The change in general policy to seek a cloture vote and then move on when it fails is a direct consequence of the Senate rules explicitly allowing members to filibuster.
+This could have been prevented by rule change instead (as the House did), but it wasn’t.
+It could have been prevented by the Constitution (and the founding fathers were well aware that it was a potential tactic), but it wasn’t.
+The filibuster is quite clearly an oversight and would have likely been prevented if the founders knew how it would develop.

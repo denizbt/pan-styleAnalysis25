@@ -1,0 +1,10 @@
+There is nothing unusual about this, SpaceX are just covering their asses legally, and also thinking about what's best for them financially.
+If SpaceX knowingly allows Starlink to be integrated into non-US weapons systems, it likely becomes military tech that falls under ITAR which means exporting it requires US government approval.
+They can get approval, but that'll take time and will also cause its own set of problems for Starlink; namely, how to keep selling it to civilians if it's now classified as restricted military technology.
+It would be a legal nightmare.
+I'll add some.
+"International Traffic in Arms Regulations" is one way the US regulates technology leaving the country.
+All companies and the govt itself must follow them, and the State Department must approve of it.
+I submitted countless papers for approval to make sure my Mars documents couldn't teach people how to make a nuke.
+Eventually they moved it out of ITAR.
+If Starlink is a new way to guide a missile then that's a huge deal.

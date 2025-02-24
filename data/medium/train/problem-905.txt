@@ -1,0 +1,10 @@
+And to make it circular, the location where Ingenuity first took off from is named Wright Brothers Field, and is officially listed by the International Civil Aviation Organization by the three letter airport code IGY.
+Since Perseverance carried Ingenuity around, I think Percy should be classified as an aircraft carrier.
+Percy is also powered by an RTG, so this would make Percy the 12th US nuclear-powered aircraft carrier.
+I imagine using COTS components and software makes for a way faster development cycle than using specialized tools like VxWorks.
+God damn What a time to be alive We're flying a motherfucking autonomous helicopter on motherfucking Mars!
+Not only that, but a broken helicopter in conditions far beyond what she was designed for.
+The inclinometer failed months ago during the cold Martian winter (as a tech demonstrator Ingenuity has very few backup systems) and the new hazard avoidance system has twice landed Ingenuity on a sandy slope steeper than she was designed for.
+Both takeoffs were fine, and Ingenuity has moved to a new airfield, and since we’ve run out of letters, this is now Airfield Beta.
+Five flights maximum over 30 Martian days, and they implied that they expected to push the helicopter to the point of crashing towards the end of those five.
+They expected to find much more significant differences between their models/testing and Mars itself.

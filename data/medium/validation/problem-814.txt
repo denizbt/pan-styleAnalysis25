@@ -1,0 +1,34 @@
+Clickbait bullshit title.
+The report says the system is not fully immune to all imaginable forms of tampering.
+You know, exactly like literally all computer systems that ever existed.
+First and most importantly: They’re not saying that a fraud happened, the report (made by the military apparently) said that some fraud might happen because of two points:
+1 - The final program that goes in the machine can be altered while being compiled if the machine is connect in the internet.
+Any person with a little knowledge in how compiled programs works, knows that this improbable, if not, impossible.
+The compiler that transforms the code into binary code is something quite hard to be interfered with.
+2 - The tests that combine the voter fingerprints count with the final votes count is not 100% trustworthy.
+Final notes here, while I was in the military, I had this strange requests from my superiors, with 0 knowledge in IT and 100% willingness to appears to their superiors, as the smartest guy ever.
+So it might be the dumb military without nothing to say, just warning: We’re watching you TSE (TSE is the tribunal responsible for the elections here).
+I'll try to clarify.
+I do believe they install it from binary but the report was talking about the moment they compile the binary.
+The source is available for auditioning by a few registered non profitable organization such as universities months prior the election.
+Sometimes there are suggested improvements in code as a result so the binary needs to be recompiled every election.
+I wouldn't expect a pipeline to the machines, but they don't have a build pipeline in the development environment?
+That does sound old.
+Maybe it's just a person running some build script.
+Government tech isn't usually the cutting edge .
+I can't see the article (paywall).
+I'm curious about this concept of altering the program before compiling it.
+Do they not install programs from binary?
+There are many ways to secure a binary, like with a cryptographic signature, so I'm not sure why they would be building from source.
+Maybe it's covered in the article, but I couldn't read it.
+Thanks.
+Yeah, I imagine it gets compiled every time there's a change.
+At least that's how most modern software development happens.
+It's usually done in a continuous integration pipeline, so auditing the access to that build process should clarify things for them.
+There’s no pipeline direct to the machine as they aren’t connect to the internet.
+This system is quite old actually.
+As a former hacker I need to say it is not impossible but very improbable.
+It used to be possible to write your own bytes in the binary while bypassing the compiler.
+The challenge here would be that the hacker would need access and "remote control" of the machine compiling the final program.
+He would also need to know in details the source code, the compiler used and the hardware its running on.
+There are a lot of other challenges he would face but I'm too tired to type.

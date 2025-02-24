@@ -1,0 +1,16 @@
+The judge cannot ban the drug, he can only override the FDA approval.
+The FDA can simply immediately re-authorize the drug, potentially with aid from an executive order if they want some extra protection.
+This would force it to be brought back to the court, with another lenhy hearing, after which the FDA can simply re-authorize, etc.
+It might be extra-legal, but so is the authority the judge would call on to "ban" the drug.
+This article discusses the claims that they are making and why, legally, the approval of the drug should not be reversed.
+The claims they are making are ridiculous - it doesn't even appear that they have standing.
+They're hoping the judge puts his personal beliefs above the law.
+A federal judge in Texas has a say in federal laws, much like a federal judge in California does.
+That’s federalism for you — the final say is SCOTUS which is illegitimate anyway.
+After working on Aaon units; Tranes, Carriers, York, etc are all shit by comparison.
+Socially, Texas policies suck donkey balls.
+But there’s a lot of shit that’s built / sourced from there.
+Not true.
+Lots of manufacturing down there.
+Aaon makes commercial RTU systems with heat/cool/reheat, has awesome controls designs that are not in any other AC\Heating units by other manufacturers and far more energy efficient.
+I can literally wire their controls into third party controllers or integrate it into BAS / Bacnet to allow for remote control and monitoring via computer.

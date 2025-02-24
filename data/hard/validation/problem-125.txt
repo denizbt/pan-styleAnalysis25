@@ -1,0 +1,23 @@
+Pretty sure most people aren't actually trying to get famous or even posting much.
+The general attitude seems to be more along the lines of "everyone has my data anyway, who gives a fuck?
+Expedia and every other company gave away way more of my sensitive data than I gave TikTok and nothing happened to them, why should I care what the government thinks if they won't protect me anyway.
+Fuck it and fuck them, I'll get my half hour(or significantly more) of happy brain chemicals/doom scrolls/zone out.
+".
+Yeah.
+Even the cheapest IP/WiFi-camera's on Aliexpress typically run a barebone Linux OS on multicore ARM SoC's that are more capable than 10 year old smartphones.
+Dumb cameras over coax (AHD/CVBS) still exist, but these require DVR's, and are not what most people are buying nowadays.
+Unless isolated (e.g.
+seperate VLAN), these things can do practically anything in your network and over internet.
+2) If the devices exiltrate data they need not do so over the wired network.
+Wireless transmission to a passerby or a nearby device is possible and could be done in a way that avoids detection.
+1) Exfiltrating data isn't the only security concern.
+Having a device connected to a network is a great way to discover and exploit vulnerabilities, even without actively receiving commands.
+To ensure security against the type of breach they appear to be attempting to mitigate, the only solution is robust traffic monitoring across the whole network.
+For a national defence network, it should be trivial to monitor and analyse any and all communications sent/received by any single node on the network.
+It should be clear if a device is communicating in an undesirable way.
+Devices will come and go.
+Whilst cameras do represent a unique threat in that they process images of their local environment, there's nothing stopping a different component elsewhere in the network from accessing the same data and reporting it back silently.
+Much harder to do of course, but not impossible.
+But any motherboard (to name just one example) could be housing a rogue chip that piggybacks on legitimate resources.
+If a network is depending on every nodes hardware to be uncompromised, then that network will never be truly considered secure.
+If all of this is followed, it scarcely matters what device you install (from the perspective of this particular threat, at least, there are many more considerations) - a device could call home all it likes, but not only will its calls go undelivered, it will be obvious what device is calling where, and what it is attempting to send/receive.

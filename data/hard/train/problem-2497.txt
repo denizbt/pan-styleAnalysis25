@@ -1,0 +1,12 @@
+The Signal protocol is open source.
+Whatsapp has been using it for years .
+The only thing is we dont know what is really implemented.
+But if they are truthfully to their words, end to end is really end to end between 2 parties.
+The keys are asymmetric the server wouldnt have a chance to read your messages.
+The messages are stored encrypted and only the devices has the keys.
+Mention keys because Signal is using pair of keys like or ssl (public private) of each participants.
+As I understand the new devices has no chance to read the older messages because there is no version of the encrypted messages that also encrypted with their private key on the server.
+If they don't store the keys locally that wouldn't be using Signal's encryption… Like, the existing DMs are already encrypted between client and server anyway.
+That doesn't necessarily mean that there could be no benefit to end-to-end encryption, but it does mean that there are still points of vulnerability.
+A reasonable security assessment would consider what your threat model is, and the consequences to you of a breach; there are no risk-free options, outside of CS papers.
+In that case more harm can happen because people use the system as if it's secure with no way of verifying that it is, the behavior change in itself increases the harm and risk if that makes sense.

@@ -1,0 +1,14 @@
+to only thermal imaging cameras, and only to thermal imaging cameras with AI attached that pick out human shaped bodies.
+Any person at the other end of the camera will pick them out right away.
+It's not an invisibility cloak so much as a variance in the AI decision tree that it will need to be retrained to identify.
+It's like if you saw a cow shaped animal that had tiger stripes.
+Is it a cow?
+I don't know.
+But once someone tells you, "yeah, that's a cow.
+It's just a new breed."
+then you're brain is "okay, that's a cow" and you won't be confused anymore where you see it.
+I'm an AI researcher.
+Stuff like this is cute but it's pretty trivial to train models that get past it.
+This kind of thing is effectively an arms race; you can design a pattern to evade one gen of facial detection by exploiting its flaws but the next gen will just be trained to get past it.
+And the people building the models are always going to have the upper hand and be one step ahead because they have government resources backing them.
+The only reliable way to prevent facial detection technology from working is to just conceal your face.

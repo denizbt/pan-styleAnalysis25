@@ -1,0 +1,62 @@
+Since January we’ve been living inside a Transformers trailer.
+There is no other explanation for the combination of dizzying technological progress and ominous if not nonsense events.
+Music’s better at least in Fallout, even if there is way too much reliance on atomic vehicles as opposed to semiautonomous electric ones.
+Butcher Pete playing.
+The "energy in the lasers" is not the energy used to create the laser pulses.
+In the case of the NIF only about 1% of the energy used to create the pulse actually makes it to the target.
+You ever watch a movie which makes a reference to some mass media thing which only exists within the canon of that film?
+Think like how in the Simpsons, they have Itchy & Scratchy, but it only exists within the Simpsons.
+What if we're in a movie trailer and the Transformers, the Fallout Series, and the Simpsons for that matter are all only relevant to us since we're in that trailer?
+Fuck yeah This is something scientists have been trying to achieve for over half a century I know its still just a small step towards a limitless energy future, but its an important one.
+It proves it can be done.
+I hope with this achievement, comes greater funding for fusion.
+Its nice to hear some good news for once.
+EDIT say they put in 1 watt from the laser and got 1.2 watts out.
+Great.
+The laser is 1% efficient at best - meaning it takes roughly 101 watts to produce that 1.2 watts.
+That is about 0.02 % efficient.
+The energy from the reaction itself has made more thermal energy, than it took to start it.
+Yes I inderstand that if you were to try and make electricity with that particular reaction it would result in less due to inefficiency, but my point remains that they can make more energy than it takes to start it.
+For now, its just barely more, they said it was enough net gain thermal energy to boil 10 kettles of water, so of course that isnt going to make a lot of power, but it proves it can be done, and that is the main point here.
+I hate main stream media and science, the article is worded to believe net energy producing fusion has occurred.
+It has not and is nowhere near close.
+Think of it like the difference between engine power at the crankshaft vs at the wheels.
+Of course there is going to be some power loss on the way, but it doesnt make the engine itself any less poweful.
+Itll take a net energy gain of 100 to 1 to make it commercially viable to produce electricity, and this is probably something like 1.01 to 1.
+(I dont see any official numbers anywhere yet, so thats just a guess).
+Say they used 1 watt from the laser to make 1.2 watts.
+Cool.
+It takes 100 watts to charge the laser.
+If the laser took 100x the energy to charge, that would be a 1% efficiency... 0.02% would be 50,000 times more.
+All I see in that article is that the laser put out 2.1 megajoules, and the reaction put out 2.5 megajoules.
+Click on the damned thread from r/Physics and read the damned thing before making these incorrect comments; you have no clue what you are speaking about.
+So now you are changing your comments, leading to even more confusion and screwed up math... at this point, Im kinda doubt you know what you are talking about.
+You havent been clear about one thing the whole time.
+You're getting 0.2 watts total output from over 100 watt input.
+Then you need to generate electricity which has even more inefficiencies.
+If the laser is 1 watt power output for a 100 watt input, that makes the laser 1% efficient yes, but how you get 0.02% doesnt make any sense, since the reaction output is greater than the laser input.
+Divide 100 by 1.2, and you get 83.3, so to charge the laser took 83.3 time more energy than the reaction output, making it 1.2% efficient in total, not 0.02%.
+Otherwise by your metric, making the laser 1 to 1 would be 2%, and that doesnt add up.
+And then you keep saying "us physicists"... like you are some sort of superior being when you cant even get basic math correct.
+Thats not what you described before, you were only talking about the laser, and now you have changed the numbers from 1.2, to 0.2 to try and fit your narrative, but that still works out to 0.2%, not 0.02.
+Where are the numbers for the electrical efficiency?
+You are trying to debate with incomplete information.
+Where are all these random values coming from anyway?
+Nearly every article Ive read about this describes it as the holy grail of fusion.
+Sure we still have a long way to go, but this proves it can be a viable option and not a pipe dream.
+Really?
+Cmon do we have to involve dumbass politics here?
+I get you are trying to make a joke, but time and place my friend.
+To me, this is basically achieving the holy grail of science fiction, or at least a major step towards it.
+Lets talk about that, its way more interesting than Putins limp dick BS.
+I dont think that will happen to fusion power, there is already billions and billions going into it.
+Even if the fossil fuel industry manages to dely it, it is inevitable now.
+Fossil fuels wont last forever, but fusion power could last thousands of years easily.
+However, I personally doubt they will dely it much, fusion is the next big step in society.
+It will have the kind of impact that discovering fire did, or the transistion to the iron age, or the invention of the printing press.
+There will be resistance, of that Im sure, but there will also be many who push for it.
+In the end, we will still need oil.
+Fuel isnt the only reason we use it, its also used to make a wide variety of petroluem products like plastics and lubrication for machines.
+If the oil companies were smart, they would invest in this new energy source.
+Its like you wanna talk about apples, and someone keeps bringing up food in general.
+Sure apples are food, but they have nothing to do with steak.

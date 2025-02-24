@@ -1,0 +1,12 @@
+Neptune’s first launch—just revealed—was actually Feb 25-26: Three Neptunes were launched from south of Odessa at three ships attempting an amphibious landing in Mykolaiv.
+All three were shot down by Russia.
+But a startled Russian Navy went back to Crimea.
+The Bayraktar operators refused to send a drone out to see the damage, as weather conditions would require it to be low, exposing it.
+Neptune operators had to wait.
+They observed on radar that other ships immediately rushed.
+Later, that a tugboat left Crimea—bullseye.
+It helps understand the curious moves of the Black Sea fleet in the first few days (TLDR: they were targeted by 3 Neptune, that's why they decided to put some distance between the coast and them).
+I'm not an expert, but when two layers of air (or any material) differ significantly in density, it creates a 'barrier' that waves can bounce off off.
+So a radio wave from a radar will bounce back and forth between the sea and the clouds, even around the curve of the earth.
+Basically large storm are highly charged (everyone has seen lightning) and denser than air because of this the dielectric constant of the cloud layer is different from normal air at lower levels.
+This increases the index of refraction of the higher air and leads to a region of low index of refraction (air) between two higher index of refraction regions (cloud and water) and causes total internal reflection at small angles meaning the radar waves will curve with the layer of low altitude air around the earth instead of entering the water or continuing up to space.

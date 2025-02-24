@@ -1,0 +1,38 @@
+Many people here are talking about encryption and security as if they know absolutely anything.
+Encryption exists to so you don't have to trust centralized services.
+However the Twitter protocol is closed source and there's no guarantee that your messages arnt being double read by storage services AND point to point.
+Let alone another million vulnerabilities.
+Absolutely!
+It's almost like people think "encryption" is a magic key to data security.
+Clearly they never worked as an information/operations security roles.
+No matter how much packet analysis and systems probing you can never know for sure if it's truly encrypted, the data isnt still available in memory somewhere or intentionallytransmitted in secondary channels.
+Encrypting data doesnt guarantee all copies are in cyphertext.
+Saying that, if a single Twitter developer with proper access leaked dev code or db showing this kind of behavior they would instantly cause a true shitstorm, it's just not worth it and the likelihood is that Twitter is acting in its own interests which is to cater to free speech absolutists.
+Twitter could say anything they want unless twitter itself is fully open source, we wouldn’t know.
+This also applies to all services.
+The Signal protocol is open source.
+Whatsapp has been using it for years .
+The only thing is we dont know what is really implemented.
+But if they are truthfully to their words, end to end is really end to end between 2 parties.
+The keys are asymmetric the server wouldnt have a chance to read your messages.
+The messages are stored encrypted and only the devices has the keys.
+Mention keys because Signal is using pair of keys like or ssl (public private) of each participants.
+Alice wants to send a message to bob.
+Alice uses bob’s public key to encrypt a message to bob.
+Bob need his private key to decrypt message from alice and visa versa.
+Ideally the private key should never leave the device.
+This works because RSA magic, that enable you to use one key to encrypt and other key to decrypt.
+The key to decrypt is only on the end user side.
+Signal on top of that is using double ratchet so that a diff key will be used for every message.
+This guarantee forward secrecy.
+Meaning whatsapp is totally aware how many devices linked to your account and generate multiple version of the encrypted message with every public key of your devices.
+As I understand the new devices has no chance to read the older messages because there is no version of the encrypted messages that also encrypted with their private key on the server.
+Chinese social media app WeChat claims they encrypt your sent and received messages between their servers and your device.
+In our example bob has pc and ios.
+Alice whatsapp then would have to create 2 encrypted messages and tag it with bob’s iphone, bob‘s pc.
+Chinese social media app Twitter claims they will encrypt the messages too and i am sure they will bring int he same Chinese programmers from Weibo and WeChat to build those functions in to Twitter now when much of their western workforce has successfully been removed...
+They will likely build similar functions that exist in Chinese social media apps such as video, banking, insurance etc etc...
+If Tesla cars loose their tax incentives in China while Chinese cars keep them then their sales in China will hit dirt levels and combined this with the fact Chinese union action at the Tesla factory and subcomponent providers could shut down all Tesla production globally indefinitely we can assume the Chinese can bankrupt Tesla whenever they want.
+Tesla has 35% of its sales in China and most of its sub-components come from China.
+China was weighing if it should extend the tax incentives Telsa gets in China and shortly after Elon Musk made public statements in support of the One China policy vs Taiwan the Chinese extended those tax incentives.
+Thus Elon Musk is compromised and this explains why he is helping the CCP gain control over Twitter...
