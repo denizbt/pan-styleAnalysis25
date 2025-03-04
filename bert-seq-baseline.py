@@ -1,20 +1,15 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Baseline Model (BERT for Sequence Classification)
+# Baseline Model (BERT for Sequence Classification)
 
 import torch
 import os
-import pandas as pd
 import json
 from datasets import Dataset
-from transformers import AutoTokenizer, AutoModel, BertForSequenceClassification
-from torch.utils.data import DataLoader
+from transformers import AutoTokenizer, DistilBertForSequenceClassification, EarlyStoppingCallback
+#from torch.utils.data import DataLoader
 from transformers import Trainer, TrainingArguments
+from sklearn.metrics import f1_score
 
-
-# ## Dataset Creation (pairs of sentences & labels)
-
+# Dataset Creation (pairs of sentences & labels)
 ## read in data from dir with txt and json 
 def read_labeled_data(dir):
   problems = [] # list of lists, each list is a problem and contains the list of sentences
@@ -22,7 +17,6 @@ def read_labeled_data(dir):
   files = os.listdir(dir)
   files.sort(key=lambda x: int(''.join(filter(str.isdigit, x))))
   for file in files:
-    #print(file)
     with open(dir+"/"+file, "r") as f:
       if(file.endswith(".txt")):
         # a problem file
@@ -60,21 +54,30 @@ def pair_sentences_with_labels(problems, labels):
     return sentence_pairs, label_pairs
 
 
-def create_dataset(dataset_split):
+def create_dataset(dataset_split, difficulty="all"):
   # labels is dict with keys: 'authors', 'changes'
-  easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
-  med_probs, med_labels = read_labeled_data(f"data/medium/{dataset_split}")
-  hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
+  all_pairs = []
+  all_labels = []
+  if difficulty == "all":
+    easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
+    med_probs, med_labels = read_labeled_data(f"data/medium/{dataset_split}")
+    hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
 
-  # now create pairs of sentences, in pandas dictionary
-  easy_pairs, easy_labels = pair_sentences_with_labels(easy_probs, easy_labels)
-  med_pairs, med_labels = pair_sentences_with_labels(med_probs, med_labels)
-  hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
+    # now create pairs of sentences, in pandas dictionary
+    easy_pairs, easy_labels = pair_sentences_with_labels(easy_probs, easy_labels)
+    med_pairs, med_labels = pair_sentences_with_labels(med_probs, med_labels)
+    hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
 
-  all_pairs = easy_pairs + med_pairs + hard_pairs
-  all_labels = easy_labels + med_labels + hard_labels
+    all_pairs = easy_pairs + med_pairs + hard_pairs
+    all_labels = easy_labels + med_labels + hard_labels
+  elif difficulty == "hard":
+    hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
+    hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
+
+    all_pairs = hard_pairs
+    all_labels = hard_labels
+
   assert len(all_pairs) == len(all_labels)
-
   dataset = Dataset.from_dict({
       "sentence1": [s1 for s1, s2 in all_pairs],
       "sentence2": [s2 for s1, s2 in all_pairs],
@@ -83,24 +86,24 @@ def create_dataset(dataset_split):
 
   return dataset
   
-
-# from transformers import AdamW, get_scheduler
-# optimizer = AdamW(model.parameters(), lr=2e-5, eps=1e-8)
-
-# train_dataloader = DataLoader(tokenized_dataset, batch_size=8, shuffle=True)
-# num_training_steps = len(train_dataloader) * 3  # Assume 3 epochs
-# lr_scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
+def compute_metrics(eval_pred):
+    logits, labels = eval_pred
+    # Convert logits to predicted class labels
+    predictions = logits.argmax(axis=-1)
+    # Compute Macro F1 score
+    f1 = f1_score(labels, predictions, average='macro')
+    return {"f1": f1}
 
 def main():
-  train_dataset = create_dataset("train")
-  val_dataset = create_dataset("validation")
+  train_dataset = create_dataset("train", "hard")
+  val_dataset = create_dataset("validation", "hard")
 
   ## Tokenization
-  tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-  model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
+  tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+  model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)
 
   def tokenize_batch(batch):
-    return tokenizer(batch['sentence1'], batch['sentence2'], padding=True, truncation=True)
+    return tokenizer(batch['sentence1'], batch['sentence2'], padding=True, return_tensors='pt', truncation=True)
 
   tokenized_train = train_dataset.map(tokenize_batch, batched=True)
   tokenized_train.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
@@ -112,29 +115,39 @@ def main():
 
   training_args = TrainingArguments(
     output_dir='./results',          # Output directory for saving model
-    evaluation_strategy="epoch",     # Evaluate after every epoch
+    eval_strategy="epoch",           # Evaluate after every epoch
+    save_strategy="epoch",
+    fp16=True,
     learning_rate=2e-5,              # Learning rate
+    warmup_steps=500,                # Gradually increase lr at start
+    lr_scheduler_type="linear",      # Decreases lr as training progresses
     per_device_train_batch_size=8,   # Batch size for training
     per_device_eval_batch_size=16,   # Batch size for evaluation
+    gradient_accumulation_steps=2,   # Effective batch size = batch_size * 2
     num_train_epochs=3,              # Number of epochs
     weight_decay=0.01,               # Strength of weight decay
     logging_dir='./logs',            # Directory for storing logs
-    logging_steps=10,                # Log every 10 steps
+    logging_steps=100,               # Log every 100 steps
     load_best_model_at_end=True,     # Load the best model when finished training
-)
+  )
 
   trainer = Trainer(
       model=model,                         # The model to train
       args=training_args,                  # The training arguments
-      train_dataset=train_dataset,         # The training dataset
-      eval_dataset=val_dataset,           # The evaluation dataset
+      train_dataset=tokenized_train,       # The training dataset
+      eval_dataset=tokenized_val,          # The evaluation dataset
       tokenizer=tokenizer,                 # The tokenizer
+      compute_metrics=compute_metrics,
+      callbacks=[EarlyStoppingCallback(early_stopping_patience=2)]
   )
 
   trainer.train()
-  model.save_pretrained('./fine_tuned_bert')
-  tokenizer.save_pretrained('./fine_tuned_bert')
 
+  model.save_pretrained('./finetuned-distilbert')
+  tokenizer.save_pretrained('./finetuned-distilbert')
+
+  results = trainer.evaluate()
+  print(f"Evaluation Results: {results}")
 
 if __name__ == "__main__":
   main()
