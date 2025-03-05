@@ -11,9 +11,11 @@ import argparse
 
 def get_args():
   parser = argparse.ArgumentParser()
+  parser.add_argument("--eval", type=bool, default=False)
   parser.add_argument("--checkpoint", type=str, default="", help="path to checkpoint to resume training.")
 
   return parser.parse_args()
+
 # Dataset Creation (pairs of sentences & labels)
 ## read in data from dir with txt and json 
 def read_labeled_data(dir):
@@ -116,7 +118,6 @@ def main(args):
 
     tokenized_val = val_dataset.map(tokenize_batch, batched=True)
     tokenized_val.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
-
 
     # Load Trainer and continue training
     training_args = TrainingArguments(
