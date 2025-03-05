@@ -4,11 +4,16 @@ import torch
 import os
 import json
 from datasets import Dataset
-from transformers import AutoTokenizer, DistilBertForSequenceClassification, EarlyStoppingCallback
-#from torch.utils.data import DataLoader
+from transformers import AutoTokenizer, DistilBertForSequenceClassification, EarlyStoppingCallback, AutoModelForSequenceClassification
 from transformers import Trainer, TrainingArguments
 from sklearn.metrics import f1_score
+import argparse
 
+def get_args():
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--checkpoint", type=str, default="", help="path to checkpoint to resume training.")
+
+  return parser.parse_args()
 # Dataset Creation (pairs of sentences & labels)
 ## read in data from dir with txt and json 
 def read_labeled_data(dir):
@@ -94,16 +99,66 @@ def compute_metrics(eval_pred):
     f1 = f1_score(labels, predictions, average='macro')
     return {"f1": f1}
 
-def main():
+def main(args):
   train_dataset = create_dataset("train", "hard")
   val_dataset = create_dataset("validation", "hard")
 
+  if(args.checkpoint != ""):
+    def tokenize_batch(batch):
+      return tokenizer(batch['sentence1'], batch['sentence2'], padding=True, return_tensors='pt', truncation=True)
+
+    tokenizer = AutoTokenizer.from_pretrained(args.checkpoint)
+    model = AutoModelForSequenceClassification.from_pretrained(args.checkpoint)
+
+    # # Load training arguments
+    tokenized_train = train_dataset.map(tokenize_batch, batched=True)
+    tokenized_train.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
+
+    tokenized_val = val_dataset.map(tokenize_batch, batched=True)
+    tokenized_val.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
+
+
+    # Load Trainer and continue training
+    training_args = TrainingArguments(
+      output_dir='./results',          # Output directory for saving model
+      eval_strategy="epoch",           # Evaluate after every epoch
+      save_strategy="epoch",
+      fp16=True,
+      learning_rate=2e-5,              # Learning rate
+      warmup_steps=500,                # Gradually increase lr at start
+      lr_scheduler_type="linear",      # Decreases lr as training progresses
+      per_device_train_batch_size=8,   # Batch size for training
+      per_device_eval_batch_size=16,   # Batch size for evaluation
+      gradient_accumulation_steps=2,   # Effective batch size = batch_size * 2
+      num_train_epochs=3,              # Number of epochs
+      weight_decay=0.01,               # Strength of weight decay
+      logging_dir='./logs',            # Directory for storing logs
+      logging_steps=100,               # Log every 100 steps
+      load_best_model_at_end=True,     # Load the best model when finished training
+    )
+
+    trainer = Trainer(model=model,                         # The model to train
+      args=training_args,                  # The training arguments
+      train_dataset=tokenized_train,       # The training dataset
+      eval_dataset=tokenized_val,          # The evaluation dataset
+      tokenizer=tokenizer,                 # The tokenizer
+      compute_metrics=compute_metrics,
+      callbacks=[EarlyStoppingCallback(early_stopping_patience=2)])
+
+    trainer.train(resume_from_checkpoint=args.checkpoint)
+    model.save_pretrained('./finetuned-distilbert')
+    tokenizer.save_pretrained('./finetuned-distilbert')
+
+    results = trainer.evaluate()
+    print(f"Evaluation Results: {results}")
+    pass
+
   ## Tokenization
+  def tokenize_batch(batch):
+      return tokenizer(batch['sentence1'], batch['sentence2'], padding=True, return_tensors='pt', truncation=True)
+
   tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
   model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=2)
-
-  def tokenize_batch(batch):
-    return tokenizer(batch['sentence1'], batch['sentence2'], padding=True, return_tensors='pt', truncation=True)
 
   tokenized_train = train_dataset.map(tokenize_batch, batched=True)
   tokenized_train.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
@@ -111,8 +166,9 @@ def main():
   tokenized_val = val_dataset.map(tokenize_batch, batched=True)
   tokenized_val.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
 
-  print("tokenization over!") # works up to here!
+  print("tokenization over!")
 
+  ## Training
   training_args = TrainingArguments(
     output_dir='./results',          # Output directory for saving model
     eval_strategy="epoch",           # Evaluate after every epoch
@@ -150,4 +206,5 @@ def main():
   print(f"Evaluation Results: {results}")
 
 if __name__ == "__main__":
-  main()
+  args = get_args()
+  main(args)
