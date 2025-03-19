@@ -6,6 +6,7 @@ from transformers import Trainer, TrainingArguments
 
 import torch.nn as nn
 import torch.optim as optim
+import torch.nn.functional as F
 import numpy as np
 from sklearn.metrics import f1_score
 
@@ -17,13 +18,23 @@ from tqdm import tqdm
 # utils.py
 from utils import read_labeled_data, pair_sentences_with_labels
 
+# for mini-lm
+#Mean Pooling - Take attention mask into account for correct averaging
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0] #First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
 
 def cosine_sim_classification(documents, labels, threshold=0.5):
-  tokenizer = AutoTokenizer.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
-  model = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
+  model_name = "sentence-transformers/all-MiniLM-L6-v2"
+  # tokenizer = AutoTokenizer.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
+  # model = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
+  tokenizer = AutoTokenizer.from_pretrained(model_name)
+  model = AutoModel.from_pretrained(model_name)
 
   # iterate through the sentences and compare cosine sims of embeddings
-  thresholds = [0.92, 0.94, 0.96, 0.98]
+  thresholds = [0.25, 0.5, 0.75, 0.8, 0.85, 0.9, 0.92, 0.94, 0.96, 0.98]
   predictions = [[] for _ in range(len(thresholds))] # list of predictions
   
   for d in tqdm(documents):
@@ -32,9 +43,18 @@ def cosine_sim_classification(documents, labels, threshold=0.5):
 
     # embeddings.shape: len(d) x embedding dim
     # type(embeddings) = torch.Tensor
+    # with torch.no_grad():
+    #   embeddings = model(**inputs, output_hidden_states=True, return_dict=True).pooler_output
+
+    # Compute token embeddings
     with torch.no_grad():
-      embeddings = model(**inputs, output_hidden_states=True, return_dict=True).pooler_output
-    
+      model_output = model(**inputs)
+
+    # Perform pooling
+    embeddings = mean_pooling(model_output, inputs['attention_mask'])
+
+    # Normalize embeddings
+    embeddings = F.normalize(embeddings, p=2, dim=1)
     
     assert embeddings.shape[0] == len(d)
     for i in range(len(d)-1):
