@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Baseline Model (BERT for Sequence Classification)
+# Baseline Model (BERT for Sequence Classification)
 
 import torch
 import os
@@ -12,54 +9,11 @@ from transformers import AutoTokenizer, AutoModel, BertForSequenceClassification
 from torch.utils.data import DataLoader
 from transformers import Trainer, TrainingArguments
 
+# utils.py
+from utils import read_labeled_data, pair_sentences_with_labels
+
 
 # ## Dataset Creation (pairs of sentences & labels)
-
-## read in data from dir with txt and json 
-def read_labeled_data(dir):
-  problems = [] # list of lists, each list is a problem and contains the list of sentences
-  labels = []
-  files = os.listdir(dir)
-  files.sort(key=lambda x: int(''.join(filter(str.isdigit, x))))
-  for file in files:
-    #print(file)
-    with open(dir+"/"+file, "r") as f:
-      if(file.endswith(".txt")):
-        # a problem file
-        problem = f.readlines()
-        problems.append([p.strip() for p in problem]) # assumption: split based on periods, not newlines
-      else:
-        # a truth file
-        truth = json.load(f)
-        labels.append(truth)
-  
-  assert len(problems) == len(labels)
-  return problems, labels
-
-
-def pair_sentences_with_labels(problems, labels):
-    sentence_pairs = []
-    label_pairs = []
-
-    count = 1
-    for prob, label in zip(problems, labels):
-        # For each problem (list of sentences) and corresponding label (dict with 'changes' list)
-        changes = label['changes']
-
-        if len(prob) - 1 != len(changes):
-            continue # hard training problem-3207.txt is broken (extra new line I think, the number of sentence pairs does not match)
-            # raise ValueError(f"Number of sentence pairs does not match the number of labels for this file. "
-            #                  f"Sentences: {len(prob) - 1}, Changes: {len(changes)}")
-        
-        for i in range(len(prob) - 1):
-            sentence_pairs.append((prob[i], prob[i + 1]))
-            label_pairs.append(changes[i])
-        
-        count += 1
-
-    return sentence_pairs, label_pairs
-
-
 def create_dataset(dataset_split):
   # labels is dict with keys: 'authors', 'changes'
   easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
@@ -83,14 +37,6 @@ def create_dataset(dataset_split):
 
   return dataset
   
-
-# from transformers import AdamW, get_scheduler
-# optimizer = AdamW(model.parameters(), lr=2e-5, eps=1e-8)
-
-# train_dataloader = DataLoader(tokenized_dataset, batch_size=8, shuffle=True)
-# num_training_steps = len(train_dataloader) * 3  # Assume 3 epochs
-# lr_scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
-
 def main():
   train_dataset = create_dataset("train")
   val_dataset = create_dataset("validation")
@@ -107,8 +53,7 @@ def main():
 
   tokenized_val = val_dataset.map(tokenize_batch, batched=True)
   tokenized_val.set_format(type="torch", columns=["input_ids", "attention_mask", "label"])
-
-  print("tokenization over!") # works up to here!
+  print("tokenization over!")
 
   training_args = TrainingArguments(
     output_dir='./results',          # Output directory for saving model
