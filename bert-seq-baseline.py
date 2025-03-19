@@ -1,5 +1,4 @@
 # Baseline Model (BERT for Sequence Classification)
-
 import torch
 import os
 import json
@@ -8,7 +7,14 @@ from transformers import AutoTokenizer, DistilBertForSequenceClassification, Ear
 from transformers import Trainer, TrainingArguments
 from sklearn.metrics import f1_score
 import argparse
+from utils import read_labeled_data, pair_sentences_with_labels
 
+def get_args():
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--eval", type=bool, default=False)
+  parser.add_argument("--checkpoint", type=str, default="", help="path to checkpoint to resume training.")
+
+  return parser.parse_args()
 
 # ## Dataset Creation (pairs of sentences & labels)
 def create_dataset(dataset_split, difficulty):
