@@ -32,6 +32,12 @@ def read_labeled_data(dir):
 
 
 def pair_sentences_with_labels(problems, labels):
+    """
+    returns
+    sentence_pairs: List[Tuple(str, str)]
+    label_pairs: List[int \in {0, 1}]
+    len(sentence_pairs) == len(label_pairs)
+    """
     sentence_pairs = []
     label_pairs = []
 
