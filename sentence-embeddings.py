@@ -98,22 +98,30 @@ class SentPairDataset(Dataset):
     def __init__(self, embeddings_path, labels):
       # TODO try training with 2x training data i.e. concatenation both ways.
       embs = torch.load(embeddings_path)
-      print(f"original loaded size {embs.size()}")
+      # print(f"original loaded size {embs.size()}")
       self.embeddings = embs.view(embs.size(0), -1)
-      self.labels = torch.tensor(labels, dtype=torch.float32)
       
-      print(f"embeddings size {self.embeddings.size()}")
-      print(f"labels size {self.labels.size()}")
-      raise RuntimeError("stop get some help")
+      labels = labels.tolist() if type(labels) is not list else labels
+      self.labels = torch.tensor(labels, dtype=torch.float32)
+            
+      # print(f"embeddings size {self.embeddings.size()}")
+      # print(f"labels size {self.labels.size()}")
 
     def __len__(self):
       return self.embeddings.size(0)
 
     def __getitem__(self, idx):
-      embedding = self.embeddings[idx]
-      label = self.labels[idx]
-
-      return embedding, label
+      # Case when DataLoader gives a single index (batch_size=1)
+      if isinstance(idx, int):
+          return self.embeddings[idx], self.labels[idx]
+      
+      # Case when DataLoader gives a list or tensor of indices (batch_size > 1)
+      elif isinstance(idx, list) or isinstance(idx, torch.Tensor):
+          idx = torch.tensor(idx)  # Ensure idx is a tensor
+          return self.embeddings[idx], self.labels[idx]
+      
+      else:
+          raise TypeError(f"Unsupported idx type: {type(idx)}")
 
 """
 MLP for binary classification of sentences for same author or not.
@@ -137,19 +145,21 @@ class StyleNN(nn.Module):
 """
 Training loop for StyleNN
 """
-def train_val_NN(train_data_path, train_labels, val_data_path, val_labels, num_epochs=5, threshold=0.5):
+def train_val_NN(train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=5, threshold=0.5):
   device = "cuda" if torch.cuda.is_available() else "cpu"
   train_set = SentPairDataset(train_data_path, train_labels)
   val_set = SentPairDataset(val_data_path, val_labels)
 
-  train_loader = DataLoader(train_set, batch_size=64, shuffle=True)
-  val_loader = DataLoader(val_set, batch_size=64, shuffle=False)
+  train_loader = DataLoader(train_set, batch_size=1, shuffle=True, num_workers=0)
+  val_loader = DataLoader(val_set, batch_size=1, shuffle=False, num_workers=0)
 
-  model = StyleNN(input_dim=train_set.embeddings.size(1)) ## TODO check if this is the right dim
+  embedding_dim = train_set.embeddings.size(1)
+  # print(f"embedding dim: {embedding_dim}")
+  model = StyleNN(input_dim=embedding_dim)
   model.to(device)
   
   optimizer = optim.AdamW(model.parameters()) # default lr=0.001
-  criterion = nn.BCELoss() # or weighted cross entropy?
+  criterion = nn.BCELoss()
 
   best_val_loss = float("inf")
   patience = 3  # stop if no improvement after 3 epochs
@@ -158,7 +168,10 @@ def train_val_NN(train_data_path, train_labels, val_data_path, val_labels, num_e
 
   for e in tqdm(range(num_epochs), desc="epochs"):
     train_running_loss = 0
-    for inputs, labels in tqdm(train_loader, desc=f"train loader {e}", leave=False):
+    
+    # TODO fix the TypeError in train_loader (driving me insane)
+    # TypeError: only integer tensors of a single element can be converted to an index
+    for i, (inputs, labels) in enumerate(train_loader):
       inputs = inputs.to(device)
       labels = labels.to(device) # BCE requires floats for labels
       print("Batch input shape:", inputs.shape)  # (batch_size, 2*embedding_dim)
@@ -174,42 +187,42 @@ def train_val_NN(train_data_path, train_labels, val_data_path, val_labels, num_e
 
       train_running_loss += loss.item()
     
-    model.eval()
-    val_running_loss = 0
-    all_preds = []
-    all_labels = []
-    with torch.no_grad():
-      for inputs, labels in tqdm(val_loader, desc=f"val loader {e}", leave=False):
-        inputs, labels = inputs.to(device), labels.to(device).float()
-        outputs = model(inputs).squeeze()
-        loss = criterion(outputs, labels)
+    # model.eval()
+    # val_running_loss = 0
+    # all_preds = []
+    # all_labels = []
+    # with torch.no_grad():
+    #   for inputs, labels in tqdm(val_loader, desc=f"val loader {e}", leave=False):
+    #     inputs, labels = inputs.to(device), labels.to(device).float()
+    #     outputs = model(inputs).squeeze()
+    #     loss = criterion(outputs, labels)
 
-        val_running_loss += loss.item()
-        preds = (outputs >= threshold).float()
+    #     val_running_loss += loss.item()
+    #     preds = (outputs >= threshold).float()
         
-        all_preds.extend(preds)
-        all_labels.extend(labels)
+    #     all_preds.extend(preds)
+    #     all_labels.extend(labels)
         
-    metrics = compute_metrics(torch.stack(all_preds), torch.stack(all_labels))
-    avg_train_loss = train_running_loss / len(train_loader)
-    avg_val_loss = val_running_loss / len(val_loader)
-    print(f"epoch {e}:\ntraining loss:{avg_train_loss:.4f}\nval loss:{avg_val_loss:.4f}")
-    print(f"metrics: {metrics}\n")
+    # metrics = compute_metrics(torch.stack(all_preds), torch.stack(all_labels))
+    # avg_train_loss = train_running_loss / len(train_loader)
+    # avg_val_loss = val_running_loss / len(val_loader)
+    # print(f"epoch {e}:\ntraining loss:{avg_train_loss:.4f}\nval loss:{avg_val_loss:.4f}")
+    # print(f"metrics: {metrics}\n")
 
-    # save model after every epoch
-    torch.save(model.state_dict(), f"mlp_epoch_{e}.pth")
+    # # save model after every epoch
+    # torch.save(model.state_dict(), f"mlp_epoch_{e}.pth")
 
-    if avg_val_loss < best_val_loss:
-      best_val_loss = avg_val_loss
-      patience_counter = 0
-      best_epoch = e
-    else:
-      patience_counter += 1
+    # if avg_val_loss < best_val_loss:
+    #   best_val_loss = avg_val_loss
+    #   patience_counter = 0
+    #   best_epoch = e
+    # else:
+    #   patience_counter += 1
     
-    # Early stopping condition: if patience exceeds the limit, stop training
-    if patience_counter >= patience:
-      print(f"early stopping triggered after {e+1} epochs.")
-      break
+    # # Early stopping condition: if patience exceeds the limit, stop training
+    # if patience_counter >= patience:
+    #   print(f"early stopping triggered after {e+1} epochs.")
+    #   break
     
   print(f"training over! best epoch was {best_epoch}")
 
@@ -266,31 +279,30 @@ def save_embeddings(data, split="train"):
     all_embeddings.append(pair.cpu())
 
   sentence_embeddings = torch.stack(all_embeddings, dim=0).squeeze()
-  print(f"sentence_embeddings {sentence_embeddings.size()}")
-  print(f"# of sentence pairs {len(data)}")
+  # print(f"sentence_embeddings {sentence_embeddings.size()}")
+  # print(f"# of sentence pairs {len(data)}")
 
   # final tensor should have dim : (# of sentences) x 2 x (embedding dim)
-  torch.save(sentence_embeddings, f"TEST_{file_path}_{split}.pt")
-  # torch.save(sentence_embeddings, f"{file_path}_{split}_embeddings.pt")
+  torch.save(sentence_embeddings, f"{file_path}_{split}.pt")
 
 def main():
-  train_sentences, train_pairs, train_labels = get_data("train")
-  val_sentences, val_pairs, val_labels = get_data("validation")
-  print("data extracted!")
-  print(f"train: # of sentences {len(train_sentences)}, # of pairs {len(train_pairs)}, # of labels {len(train_labels)}")
-  print(f"val: # of sentences {len(val_sentences)}, # of pairs {len(val_pairs)}, # of labels {len(val_labels)}")
-  # TODO figure out how to save the extracted data so don't need to run this code everytime
-  # dataset lengths are good up till here!
-  
-  save_embeddings(val_pairs, split="val")
-  print("saved validation!")
+  # train_sentences, train_pairs, train_labels = get_data("train")
+  # val_sentences, val_pairs, val_labels = get_data("validation")
+  # print("data extracted!")
+  # print(f"train: # of sentences {len(train_sentences)}, # of pairs {len(train_pairs)}, # of labels {len(train_labels)}")
+  # print(f"val: # of sentences {len(val_sentences)}, # of pairs {len(val_pairs)}, # of labels {len(val_labels)}")
 
-  save_embeddings(train_pairs, split="train")
-  print("saved training!")
+  # save_embeddings(val_pairs, split="val")
+  # print("saved validation!")
+
+  # save_embeddings(train_pairs, split="train")
+  # print("saved training!")
   
-  # train_path = "unsup-simcse-roberta-base_train_embeddings.pt"
-  # val_path = "unsup-simcse-roberta-base_val_embeddings.pt"
-  # train_val_NN(train_path, train_labels, val_path, val_labels)
+  train_labels = np.load("train_labels.npy")
+  val_labels = np.load("val_labels.npy")
+  train_path = "all-MiniLM-L12-v2_train.pt"
+  val_path = "all-MiniLM-L12-v2_val.pt"
+  train_val_NN(train_path, train_labels, val_path, val_labels)
 
 if __name__ == "__main__":
   main()
