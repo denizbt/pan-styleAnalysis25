@@ -3,3 +3,6 @@
 *.csv
 results/
 finetuned-*/
+*.pt*
+*.npy
+__pycache__/

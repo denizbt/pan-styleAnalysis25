@@ -4,6 +4,23 @@ Utility functions for PAN 2025 task
 import os
 import json
 
+def get_data(dataset_split):
+    # Load data (Assuming sentence_pairs contains embeddings & labels contains 0 or 1)
+    easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
+    med_probs, med_labels = read_labeled_data(f"data/medium/{dataset_split}")
+    hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
+
+    # now create pairs of sentences, in pandas dictionary
+    easy_pairs, easy_labels = pair_sentences_with_labels(easy_probs, easy_labels)
+    med_pairs, med_labels = pair_sentences_with_labels(med_probs, med_labels)
+    hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
+
+    all_sentences = easy_probs + med_probs + hard_probs
+    all_pairs = easy_pairs + med_pairs + hard_pairs
+    all_labels = easy_labels + med_labels + hard_labels
+
+    return all_sentences, all_pairs, all_labels
+
 ## read in data from dir with txt and json 
 def read_labeled_data(dir):
   """

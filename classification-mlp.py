@@ -5,89 +5,11 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score, precision_recall_curve
 
-from scipy.spatial.distance import cosine
 from transformers import AutoModel, AutoTokenizer
 
 from tqdm import tqdm
-
-# utils.py
-from utils import read_labeled_data, pair_sentences_with_labels
-
-def get_data(dataset_split):
-    # Load data (Assuming sentence_pairs contains embeddings & labels contains 0 or 1)
-    easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
-    med_probs, med_labels = read_labeled_data(f"data/medium/{dataset_split}")
-    hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
-
-    # now create pairs of sentences, in pandas dictionary
-    easy_pairs, easy_labels = pair_sentences_with_labels(easy_probs, easy_labels)
-    med_pairs, med_labels = pair_sentences_with_labels(med_probs, med_labels)
-    hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
-
-    all_sentences = easy_probs + med_probs + hard_probs
-    all_pairs = easy_pairs + med_pairs + hard_pairs
-    all_labels = easy_labels + med_labels + hard_labels
-
-    return all_sentences, all_pairs, all_labels
-
-# for mini-lm
-#Mean Pooling - Take attention mask into account for correct averaging
-def mean_pooling(model_output, attention_mask):
-    token_embeddings = model_output[0] #First element of model_output contains all token embeddings
-    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
-    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
-
-# function which calculates cosine similarity between sentence embeddings
-def cosine_sim_classification(documents, labels):
-  model_name = "sentence-transformers/all-MiniLM-L12-v2"
-  tokenizer = AutoTokenizer.from_pretrained(model_name)
-  model = AutoModel.from_pretrained(model_name)
-
-  # iterate through the sentences and compare cosine sims of embeddings
-  thresholds = [0.25, 0.5, 0.75, 0.8, 0.85, 0.9, 0.92, 0.94, 0.96, 0.98]
-  predictions = [[] for _ in range(len(thresholds))] # list of predictions
-  
-  for d in tqdm(documents):
-    preds = [[] for _ in range(len(thresholds))]
-    inputs = tokenizer(d, padding=True, truncation=True, return_tensors="pt")
-
-    # embeddings.shape: len(d) x embedding dim
-    # type(embeddings) = torch.Tensor
-    # with torch.no_grad():
-    #   embeddings = model(**inputs, output_hidden_states=True, return_dict=True).pooler_output
-
-    with torch.no_grad():
-      model_output = model(**inputs)
-
-    # Perform pooling
-    embeddings = mean_pooling(model_output, inputs['attention_mask'])
-
-    # Normalize embeddings
-    embeddings = F.normalize(embeddings, p=2, dim=1)
-    
-    assert embeddings.shape[0] == len(d)
-    for i in range(len(d)-1):
-      cosine_sim = cosine(embeddings[i], embeddings[i+1])
-
-      for i in range(len(thresholds)):
-        if cosine_sim > thresholds[i]:
-          # same author
-          preds[i].append(1)
-        else:
-          preds[i].append(0)
-    
-    # assert len(preds) == (len(d)-1)
-    for i in range(len(thresholds)): 
-      predictions[i].extend(preds[i])
-  
-  print(f"{model_name} performance")
-  for i in range(len(thresholds)):
-    macro_f1 = f1_score(labels, predictions[i], average='macro')
-    print(f"{thresholds[i]} Macro F1: {macro_f1}")
-
 
 """
 Custom Dataset for sentence pair classification
@@ -125,10 +47,15 @@ class StyleNN(nn.Module):
         x = self.sigmoid(x)
         return x
 
+
+"""
+Cross validation approach to training model
+"""
+
 """
 Training loop for StyleNN, also calls val() loop
 """
-def train(train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=1, threshold=0.5):
+def train(train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
   device = "cuda" if torch.cuda.is_available() else "cpu"
   train_set = SentPairDataset(train_data_path, train_labels)
   val_set = SentPairDataset(val_data_path, val_labels)
@@ -144,7 +71,6 @@ def train(train_data_path, train_labels, val_data_path, val_labels, batch_size=6
   criterion = nn.BCELoss()
 
   best_val_f1 = -1
-  patience = 3  # stop if no improvement after some # of epochs
   patience_counter = 0
   best_epoch = 0
 
@@ -172,7 +98,7 @@ def train(train_data_path, train_labels, val_data_path, val_labels, batch_size=6
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     print(f"val metrics: {metrics}\n")
 
-    if metrics['f1'] < best_val_f1:
+    if metrics['f1'] > best_val_f1:
         best_val_f1 = metrics['f1']
         patience_counter = 0
         best_epoch = e
@@ -241,7 +167,7 @@ def compute_metrics(y_true, y_pred, threshold):
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)
-    f1 = f1_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred, average='macro', zero_division=0)
     
     metrics = {
         'accuracy': accuracy,
@@ -301,20 +227,11 @@ def save_embeddings(data, split="train"):
   torch.save(sentence_embeddings, f"{file_path}_{split}.pt")
 
 def main():
-  # train_sentences, train_pairs, train_labels = get_data("train")
-  # val_sentences, val_pairs, val_labels = get_data("validation")
-  # print("data extracted!")
-  # print(f"train: # of sentences {len(train_sentences)}, # of pairs {len(train_pairs)}, # of labels {len(train_labels)}")
-  # print(f"val: # of sentences {len(val_sentences)}, # of pairs {len(val_pairs)}, # of labels {len(val_labels)}")
-
-  # save_embeddings(val_pairs, split="val")
-  # print("saved validation!")
-
-  # save_embeddings(train_pairs, split="train")
-  # print("saved training!")
-  
+  # load saved labels (numpy array of changes, 0 or 1)
   train_labels = np.load("train_labels.npy")
   val_labels = np.load("val_labels.npy")
+  
+  # load saved sentence embeddings
   train_path = "all-MiniLM-L12-v2_train.pt"
   val_path = "all-MiniLM-L12-v2_val.pt"
   train(train_path, train_labels, val_path, val_labels)
