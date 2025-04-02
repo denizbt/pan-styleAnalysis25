@@ -1,14 +1,12 @@
 import torch
-from datasets import Dataset
 from transformers import AutoTokenizer, AutoModel
-from torch.utils.data import DataLoader
-# from transformers import Trainer, TrainingArguments
+from torch.utils.data import Dataset, DataLoader
 
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
-from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
+from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score, precision_recall_curve
 
 from scipy.spatial.distance import cosine
 from transformers import AutoModel, AutoTokenizer
@@ -96,32 +94,17 @@ Custom Dataset for sentence pair classification
 """
 class SentPairDataset(Dataset):
     def __init__(self, embeddings_path, labels):
-      # TODO try training with 2x training data i.e. concatenation both ways.
-      embs = torch.load(embeddings_path)
-      # print(f"original loaded size {embs.size()}")
-      self.embeddings = embs.view(embs.size(0), -1)
-      
-      labels = labels.tolist() if type(labels) is not list else labels
-      self.labels = torch.tensor(labels, dtype=torch.float32)
-            
-      # print(f"embeddings size {self.embeddings.size()}")
-      # print(f"labels size {self.labels.size()}")
+        embs = torch.load(embeddings_path)
+        self.embeddings = embs.view(embs.size(0), -1)
+        
+        labels = labels.tolist() if type(labels) is not list else labels
+        self.labels = torch.tensor(labels, dtype=torch.float32)
 
     def __len__(self):
-      return self.embeddings.size(0)
+        return self.embeddings.size(0)
 
     def __getitem__(self, idx):
-      # Case when DataLoader gives a single index (batch_size=1)
-      if isinstance(idx, int):
-          return self.embeddings[idx], self.labels[idx]
-      
-      # Case when DataLoader gives a list or tensor of indices (batch_size > 1)
-      elif isinstance(idx, list) or isinstance(idx, torch.Tensor):
-          idx = torch.tensor(idx)  # Ensure idx is a tensor
-          return self.embeddings[idx], self.labels[idx]
-      
-      else:
-          raise TypeError(f"Unsupported idx type: {type(idx)}")
+      return self.embeddings[idx], self.labels[idx]
 
 """
 MLP for binary classification of sentences for same author or not.
@@ -143,100 +126,132 @@ class StyleNN(nn.Module):
         return x
 
 """
-Training loop for StyleNN
+Training loop for StyleNN, also calls val() loop
 """
-def train_val_NN(train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=5, threshold=0.5):
+def train(train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=1, threshold=0.5):
   device = "cuda" if torch.cuda.is_available() else "cpu"
   train_set = SentPairDataset(train_data_path, train_labels)
   val_set = SentPairDataset(val_data_path, val_labels)
 
-  train_loader = DataLoader(train_set, batch_size=1, shuffle=True, num_workers=0)
-  val_loader = DataLoader(val_set, batch_size=1, shuffle=False, num_workers=0)
+  train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=0)
+  val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0)
 
   embedding_dim = train_set.embeddings.size(1)
-  # print(f"embedding dim: {embedding_dim}")
   model = StyleNN(input_dim=embedding_dim)
   model.to(device)
   
   optimizer = optim.AdamW(model.parameters()) # default lr=0.001
   criterion = nn.BCELoss()
 
-  best_val_loss = float("inf")
-  patience = 3  # stop if no improvement after 3 epochs
+  best_val_f1 = -1
+  patience = 3  # stop if no improvement after some # of epochs
   patience_counter = 0
   best_epoch = 0
 
-  for e in tqdm(range(num_epochs), desc="epochs"):
+  for e in tqdm(range(num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
-    
-    # TODO fix the TypeError in train_loader (driving me insane)
-    # TypeError: only integer tensors of a single element can be converted to an index
-    for i, (inputs, labels) in enumerate(train_loader):
+    for inputs, labels in tqdm(train_loader, desc=f"train batches (epoch {e+1})", position=1, leave=False):
       inputs = inputs.to(device)
-      labels = labels.to(device) # BCE requires floats for labels
-      print("Batch input shape:", inputs.shape)  # (batch_size, 2*embedding_dim)
-      print("Batch labels shape:", labels.shape) # (batch_size,)
-      #break
+      labels = labels.to(device)
       
       model.train()
       optimizer.zero_grad()
-      outputs = model(inputs).squeeze()
-      loss = criterion(outputs, labels) 
+      outputs = model(inputs).view(-1)
+  
+      loss = criterion(outputs, labels)
       loss.backward()
       optimizer.step()
 
       train_running_loss += loss.item()
-    
-    # model.eval()
-    # val_running_loss = 0
-    # all_preds = []
-    # all_labels = []
-    # with torch.no_grad():
-    #   for inputs, labels in tqdm(val_loader, desc=f"val loader {e}", leave=False):
-    #     inputs, labels = inputs.to(device), labels.to(device).float()
-    #     outputs = model(inputs).squeeze()
-    #     loss = criterion(outputs, labels)
 
-    #     val_running_loss += loss.item()
-    #     preds = (outputs >= threshold).float()
-        
-    #     all_preds.extend(preds)
-    #     all_labels.extend(labels)
-        
-    # metrics = compute_metrics(torch.stack(all_preds), torch.stack(all_labels))
-    # avg_train_loss = train_running_loss / len(train_loader)
-    # avg_val_loss = val_running_loss / len(val_loader)
-    # print(f"epoch {e}:\ntraining loss:{avg_train_loss:.4f}\nval loss:{avg_val_loss:.4f}")
-    # print(f"metrics: {metrics}\n")
+    # save model after every training epoch
+    torch.save(model.state_dict(), f"mlp_epoch_{e}.pth")  
 
-    # # save model after every epoch
-    # torch.save(model.state_dict(), f"mlp_epoch_{e}.pth")
+    avg_train_loss = train_running_loss / len(train_loader)
+    metrics, avg_val_loss = val(model, val_loader, criterion, device)
+    print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
+    print(f"val metrics: {metrics}\n")
 
-    # if avg_val_loss < best_val_loss:
-    #   best_val_loss = avg_val_loss
-    #   patience_counter = 0
-    #   best_epoch = e
-    # else:
-    #   patience_counter += 1
-    
-    # # Early stopping condition: if patience exceeds the limit, stop training
-    # if patience_counter >= patience:
-    #   print(f"early stopping triggered after {e+1} epochs.")
-    #   break
+    if metrics['f1'] < best_val_f1:
+        best_val_f1 = metrics['f1']
+        patience_counter = 0
+        best_epoch = e
+    else:
+      patience_counter += 1
+      
+    # Early stopping condition: if patience exceeds the limit, stop training
+    if patience_counter >= patience:
+      print(f"early stopping triggered after {e+1} epochs.")
+      break
     
   print(f"training over! best epoch was {best_epoch}")
 
 
-def compute_metrics(labels, preds):
-  labels_np = labels.cpu().numpy()
-  preds_np = preds.cpu().numpy()
-  
-  return {
-      'accuracy': accuracy_score(labels_np, preds_np),
-      'precision': precision_score(labels_np, preds_np),
-      'recall': recall_score(labels_np, preds_np),
-      'f1_score': f1_score(labels_np, preds_np)
-  }
+def val(model, val_loader, criterion, device):
+    model.eval()
+    val_running_loss = 0
+    all_outputs = []
+    all_labels = []
+    with torch.no_grad():
+      for inputs, labels in val_loader:
+        inputs, labels = inputs.to(device), labels.to(device).float()
+        outputs = model(inputs).squeeze()
+        loss = criterion(outputs, labels)
+
+        val_running_loss += loss.item()
+        
+        all_outputs.extend(outputs.cpu().numpy())
+        all_labels.extend(labels.cpu().numpy())
+        
+    all_outputs = np.array(all_outputs)
+    all_labels = np.array(all_labels)
+    precision, recall, thresholds = precision_recall_curve(all_labels, all_outputs)
+        
+    # Calculate F1 scores
+    # Note: precision_recall_curve returns one more precision/recall value than thresholds
+    f1_scores = 2 * precision[:-1] * recall[:-1] / (precision[:-1] + recall[:-1] + 1e-8)
+    
+    # Find threshold with best F1 score
+    if len(f1_scores) > 0:  # Make sure we have valid F1 scores
+        best_idx = np.argmax(f1_scores)
+        epoch_threshold = thresholds[best_idx]
+    else:
+        epoch_threshold = 0.5
+    
+    # apply the best f1 threshold to make predictions
+    val_predictions = (all_outputs >= epoch_threshold).astype(int)
+    
+    metrics = compute_metrics(y_true=all_labels, y_pred=val_predictions, threshold=epoch_threshold)
+    avg_val_loss = val_running_loss / len(val_loader)
+    return metrics, avg_val_loss
+
+
+def compute_metrics(y_true, y_pred, threshold):
+    """
+    Compute classification metrics using a given threshold
+    
+    Args:
+        y_true: Ground truth labels
+        y_pred: Predictions from model (0, 1)
+        threshold: Threshold to use for binary classification
+        
+    Returns:
+        Dictionary with accuracy, precision, recall, f1 score, and threshold applied
+    """
+    accuracy = accuracy_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+    
+    metrics = {
+        'accuracy': accuracy,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1,
+        'best_threshold': threshold
+    }
+    
+    return metrics
 
 def save_embeddings(data, split="train"):
   # model_name = "sentence-transformers/all-MiniLM-L12-v2"
@@ -302,7 +317,7 @@ def main():
   val_labels = np.load("val_labels.npy")
   train_path = "all-MiniLM-L12-v2_train.pt"
   val_path = "all-MiniLM-L12-v2_val.pt"
-  train_val_NN(train_path, train_labels, val_path, val_labels)
+  train(train_path, train_labels, val_path, val_labels)
 
 if __name__ == "__main__":
   main()
