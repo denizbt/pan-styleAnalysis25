@@ -3,6 +3,56 @@ Utility functions for PAN 2025 task
 """
 import os
 import json
+import torch
+from transformers import AutoTokenizer, AutoModel
+from tqdm import tqdm 
+
+def save_embeddings(data, split="train"):
+  # model_name = "sentence-transformers/all-MiniLM-L12-v2"
+  model_name = "princeton-nlp/unsup-simcse-roberta-base"
+  file_path = model_name.split("/")[1]
+  print(file_path)
+  tokenizer = AutoTokenizer.from_pretrained(model_name)
+  model = AutoModel.from_pretrained(model_name).eval()
+
+  device = "cuda" if torch.cuda.is_available() else "cpu"
+  model.to(device)
+
+  all_embeddings = []
+  for s1, s2 in tqdm(data):
+    input1 = tokenizer(s1, padding=True, truncation=True, return_tensors="pt").to(device)
+    input2 = tokenizer(s2, padding=True, truncation=True, return_tensors="pt").to(device)
+
+    # embeddings.shape: len(d) x embedding dim
+    # type(embeddings) = torch.Tensor
+    with torch.no_grad():
+      emb1 = model(**input1, output_hidden_states=True, return_dict=True).pooler_output
+      emb2 = model(**input2, output_hidden_states=True, return_dict=True).pooler_output
+
+    # with torch.no_grad():
+    #   out1 = model(**input1)
+    #   out2 = model(**input2)
+
+    # # Perform pooling and normalize
+    # emb1 = mean_pooling(out1, input1['attention_mask'])
+    # emb2 = mean_pooling(out2, input2['attention_mask'])
+    # emb1 = F.normalize(emb1, p=2, dim=1)
+    # emb2 = F.normalize(emb2, p=2, dim=1)
+    # print(f"s1: {emb1.size()}, s2: {emb2.size()}")
+    
+    # put two pairs together (new dimension, not concatenation)
+    pair = torch.stack([emb1, emb2], dim=0)
+    # print(f"pair: {pair.size()}")
+
+    # now save the embeddings
+    all_embeddings.append(pair.cpu())
+
+  sentence_embeddings = torch.stack(all_embeddings, dim=0).squeeze()
+  # print(f"sentence_embeddings {sentence_embeddings.size()}")
+  # print(f"# of sentence pairs {len(data)}")
+
+  # final tensor should have dim : (# of sentences) x 2 x (embedding dim)
+  torch.save(sentence_embeddings, f"{file_path}_{split}.pt")
 
 def get_data(dataset_split):
     # Load data (Assuming sentence_pairs contains embeddings & labels contains 0 or 1)

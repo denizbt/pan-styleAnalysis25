@@ -3,7 +3,6 @@ import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 from scipy.spatial.distance import cosine
 from sklearn.metrics import f1_score
-import numpy as np
 from tqdm import tqdm
 
 from utils import *
