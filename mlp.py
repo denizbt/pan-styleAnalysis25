@@ -1,5 +1,4 @@
 import torch
-from transformers import AutoTokenizer, AutoModel
 from torch.utils.data import Dataset, DataLoader
 
 import numpy as np
@@ -20,16 +19,20 @@ def get_args():
   return parser.parse_args()
 
 
-"""
-Custom Dataset for sentence pair classification
-"""
 class SentPairDataset(Dataset):
-    def __init__(self, embeddings_path, labels):
+    """
+    Custom (Pytorch) Dataset for sentence pair classification
+    """
+    def __init__(self, embeddings_path, labels, direct_pass=None):
+      labels = labels.tolist() if type(labels) is not list else labels
+      self.labels = torch.tensor(labels, dtype=torch.float32)      
+
+      if direct_pass is not None:
+        self.embeddings = embeddings_path.view(embeddings_path.size(0), -1)
+      else:
         embs = torch.load(embeddings_path)
         self.embeddings = embs.view(embs.size(0), -1)
-        
-        labels = labels.tolist() if type(labels) is not list else labels
-        self.labels = torch.tensor(labels, dtype=torch.float32)
+      
 
     def __len__(self):
         return self.embeddings.size(0)
@@ -37,10 +40,11 @@ class SentPairDataset(Dataset):
     def __getitem__(self, idx):
       return self.embeddings[idx], self.labels[idx]
 
-"""
-MLP for binary classification of sentences for same author or not.
-"""
+
 class StyleNN(nn.Module):
+    """
+    MLP for binary classification of sentences for same author or not.
+    """
     def __init__(self, input_dim, hidden_dim=150, output_dim=1):
         super(StyleNN, self).__init__()
         self.fc1 = nn.Linear(input_dim, hidden_dim)
@@ -56,10 +60,10 @@ class StyleNN(nn.Module):
         x = self.sigmoid(x)
         return x
 
-"""
-Training loop for StyleNN, also calls val() loop
-"""
-def train(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
+def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
+  """
+  Training loop for StyleNN, also calls val() loop
+  """
   device = "cuda" if torch.cuda.is_available() else "cpu"
   train_set = SentPairDataset(train_data_path, train_labels)
   val_set = SentPairDataset(val_data_path, val_labels)
@@ -98,7 +102,7 @@ def train(args, train_data_path, train_labels, val_data_path, val_labels, batch_
     torch.save(model.state_dict(), f"{args.embedding_type}_mlp_epoch_{e}.pth")  
 
     avg_train_loss = train_running_loss / len(train_loader)
-    metrics, avg_val_loss = val(model, val_loader, criterion, device)
+    metrics, avg_val_loss = val_mlp(model, val_loader, criterion, device)
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     print(f"val metrics: {metrics}\n")
 
@@ -121,7 +125,7 @@ def train(args, train_data_path, train_labels, val_data_path, val_labels, batch_
   print(f"training over! best epoch was {best_epoch}")
 
 
-def val(model, val_loader, criterion, device):
+def val_mlp(model, val_loader, criterion, device):
     model.eval()
     val_running_loss = 0
     all_outputs = []
@@ -146,13 +150,13 @@ def val(model, val_loader, criterion, device):
     f1_scores = 2 * precision[:-1] * recall[:-1] / (precision[:-1] + recall[:-1] + 1e-8)
     
     # Find threshold with best F1 score
-    if len(f1_scores) > 0:  # Make sure we have valid F1 scores
+    if len(f1_scores) > 0:
         best_idx = np.argmax(f1_scores)
         epoch_threshold = thresholds[best_idx]
     else:
         epoch_threshold = 0.5
     
-    # apply the best f1 threshold to make predictions
+    # use the best f1 threshold to make predictions
     val_predictions = (all_outputs >= epoch_threshold).astype(int)
     
     metrics = compute_metrics(y_true=all_labels, y_pred=val_predictions, threshold=epoch_threshold)
@@ -188,14 +192,15 @@ def compute_metrics(y_true, y_pred, threshold):
     return metrics
 
 def main(args):
-  # load saved labels (numpy array of changes, 0 or 1)
+  # load saved labels (numpy array of changes)
+  # 0 if there was no style change, 1 if there was a style change
   train_labels = np.load("train_labels.npy")
   val_labels = np.load("val_labels.npy")
   
   # load saved sentence embeddings
   train_path = args.embedding_type+"_train.pt"
   val_path = args.embedding_type+"_val.pt"
-  train(args, train_path, train_labels, val_path, val_labels)
+  train_mlp(args, train_path, train_labels, val_path, val_labels)
 
 if __name__ == "__main__":
   args = get_args()
