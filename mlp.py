@@ -12,10 +12,10 @@ import argparse
 
 def get_args():
   parser = argparse.ArgumentParser()
-  parser.add_argument(
-      "--embedding-type", type=str, default="all-MiniLM-L12-v2"
-  )
-  
+  parser.add_argument("--embedding-type", type=str, default="all-MiniLM-L12-v2")
+  parser.add_argument("--weighted-loss", type=bool, default=False)  
+  parser.add_argument("--reverse-augment", type=bool, default=False)
+
   return parser.parse_args()
 
 
@@ -23,19 +23,34 @@ class SentPairDataset(Dataset):
     """
     Custom (Pytorch) Dataset for sentence pair classification
     """
-    def __init__(self, embeddings_path, labels, direct_pass=None):
-      labels = labels.tolist() if type(labels) is not list else labels
-      self.labels = torch.tensor(labels, dtype=torch.float32)      
-
-      if direct_pass is not None:
-        self.embeddings = embeddings_path.view(embeddings_path.size(0), -1)
+    def __init__(self, embeddings_path, labels, direct_pass=False, reverse_augment=False):
+      """
+      embeddings_path: path to .pt file, or torch.Tensor
+      direct_pass: True when embeddings_path contains torch.Tensor
+      reverse_augment: True when we want to add reverse concatenation of embeddings to the dataset
+      """
+      if direct_pass:
+        embs = embeddings_path
       else:
         embs = torch.load(embeddings_path)
-        self.embeddings = embs.view(embs.size(0), -1)
       
+      # embs shape: (total_pairs, 2, embedding_dim)
+      if reverse_augment:
+        forward_concat = torch.cat([embs[:, 0, :], embs[:, 1, :]], dim=1)            
+        reverse_concat = torch.cat([embs[:, 1, :], embs[:, 0, :]], dim=1)
+        
+        # add both directations
+        self.embeddings = torch.cat([forward_concat, reverse_concat], dim=0)
+        
+        # duplicate labels for the reversed concatentation
+        labels_tensor = torch.tensor(labels, dtype=torch.float32)
+        self.labels = torch.cat([labels_tensor, labels_tensor], dim=0)
+      else:
+        self.embeddings = embs.view(embs.size(0), -1)
+        self.labels = torch.tensor(labels, dtype=torch.float32)      
 
     def __len__(self):
-        return self.embeddings.size(0)
+      return self.embeddings.size(0)
 
     def __getitem__(self, idx):
       return self.embeddings[idx], self.labels[idx]
@@ -45,19 +60,41 @@ class StyleNN(nn.Module):
     """
     MLP for binary classification of sentences for same author or not.
     """
-    def __init__(self, input_dim, hidden_dim=150, output_dim=1):
+    def __init__(self, input_dim, hidden_dims=[512, 256, 128, 64], output_dim=1, p=0.4, apply_sigmoid=True):
+        """
+        Args:
+        p: dropout rate
+        apply_sigmoid: True if model should apply sigmoid as last step in forward()
+        """
         super(StyleNN, self).__init__()
-        self.fc1 = nn.Linear(input_dim, hidden_dim)
-        self.fc2 = nn.Linear(hidden_dim, hidden_dim//2)
-        self.fc3 = nn.Linear(hidden_dim//2, output_dim)
-        self.sigmoid = nn.Sigmoid()  # for binary classification
-        self.relu = nn.ReLU()
+        layers = []
+        
+        layers.append(nn.Linear(input_dim, hidden_dims[0]))
+        layers.append(nn.ReLU())
+        layers.append(nn.BatchNorm1d(hidden_dims[0]))
+        layers.append(nn.Dropout(p))
+        
+        # define all hidden layers
+        for i in range(len(hidden_dims)-1):
+            layers.append(nn.Linear(hidden_dims[i], hidden_dims[i+1]))
+            layers.append(nn.ReLU())
+            layers.append(nn.BatchNorm1d(hidden_dims[i+1]))
+            layers.append(nn.Dropout(p))
+        
+        layers.append(nn.Linear(hidden_dims[-1], output_dim))
+        
+        self.model = nn.Sequential(*layers)
+        
+        self.sigmoid = nn.Sigmoid()
+        self.apply_sigmoid = apply_sigmoid
         
     def forward(self, x):
-        x = self.relu(self.fc1(x))
-        x = self.relu(self.fc2(x))
-        x = self.fc3(x)
+      x = self.model(x)
+      
+      # apply sigmoid if not using BCEWithLogitsLoss
+      if self.apply_sigmoid:
         x = self.sigmoid(x)
+  
         return x
 
 def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
@@ -65,22 +102,35 @@ def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, ba
   Training loop for StyleNN, also calls val() loop
   """
   device = "cuda" if torch.cuda.is_available() else "cpu"
-  train_set = SentPairDataset(train_data_path, train_labels)
+  train_set = SentPairDataset(train_data_path, train_labels, reverse_augment=args.reverse_augment)
   val_set = SentPairDataset(val_data_path, val_labels)
+  # print(f"train set embeddings size: {train_set.embeddings.size()}")
+  # print(f"train set labels size {train_set.labels.size()}")
 
   train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=0)
   val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0)
 
   embedding_dim = train_set.embeddings.size(1)
-  model = StyleNN(input_dim=embedding_dim)
+  model = StyleNN(input_dim=embedding_dim, apply_sigmoid=not(args.weighted_loss))
   model.to(device)
   
-  optimizer = optim.AdamW(model.parameters()) # default lr=0.001
-  criterion = nn.BCELoss()
+  lr = 0.001  # default = 0.01
+  optimizer = optim.AdamW(model.parameters(), lr=lr)
+  
+  if args.weighted_loss:
+    # calculate positive class weight
+    # training, and val thresholds get super unstable when i use weights
+    num_class_1 = sum(train_set.labels)
+    pos_weight = (len(train_set.labels)-num_class_1) / num_class_1
+    criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight]))
+  else:
+    criterion = nn.BCELoss()
 
+  best_val_preds = None
   best_metrics = {'f1': -1}
   patience_counter = 0
   best_epoch = 0
+  best_model_state = None
 
   for e in tqdm(range(num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
@@ -94,36 +144,47 @@ def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, ba
   
       loss = criterion(outputs, labels)
       loss.backward()
+      
+      # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0) # grad clipping
       optimizer.step()
 
       train_running_loss += loss.item()
-
-    # save model after every training epoch
-    torch.save(model.state_dict(), f"{args.embedding_type}_mlp_epoch_{e}.pth")  
-
+    
     avg_train_loss = train_running_loss / len(train_loader)
-    metrics, avg_val_loss = val_mlp(model, val_loader, criterion, device)
+    metrics, avg_val_loss, val_preds = val_mlp(model, val_loader, criterion, device)
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     print(f"val metrics: {metrics}\n")
 
     if metrics['f1'] > best_metrics['f1']:
+        best_val_preds = val_preds
         best_metrics = metrics
         patience_counter = 0
         best_epoch = e
+        best_model_state = model.state_dict().copy()
     else:
       patience_counter += 1
       
-    # Early stopping condition: if patience exceeds the limit, stop training
+    # early stopping condition: if patience exceeds the limit, stop training
     if patience_counter >= patience:
       print(f"early stopping triggered after {e+1} epochs.")
       break
-    
-  with open(f"{args.embedding_type}_val_metrics.json", "w+") as f:
+
+  # save metrics, preds, model
+  file_name = f"{args.embedding_type}_"
+  if args.weighted_loss:
+    file_name += "weighted_"
+  if args.reverse_augment:
+    file_name += "reverse_"
+
+  with open(f"{file_name}metrics.json", "w+") as f:
      best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
      json.dump(best_metrics, f)
   
-  print(f"training over! best epoch was {best_epoch}")
+  np.save(f"{file_name}preds.npy", best_val_preds)
 
+  model.load_state_dict(best_model_state)
+  torch.save(model.state_dict(), f"{file_name}mlp_model.pth")
+  print(f"training over! best epoch was {best_epoch}")
 
 def val_mlp(model, val_loader, criterion, device):
     model.eval()
@@ -157,24 +218,15 @@ def val_mlp(model, val_loader, criterion, device):
         epoch_threshold = 0.5
     
     # use the best f1 threshold to make predictions
-    val_predictions = (all_outputs >= epoch_threshold).astype(int)
+    val_preds= (all_outputs >= epoch_threshold).astype(int)
     
-    metrics = compute_metrics(y_true=all_labels, y_pred=val_predictions, threshold=epoch_threshold)
+    metrics = compute_metrics(y_true=all_labels, y_pred=val_preds, threshold=epoch_threshold)
     avg_val_loss = val_running_loss / len(val_loader)
-    return metrics, avg_val_loss
-
+    return metrics, avg_val_loss, val_preds
 
 def compute_metrics(y_true, y_pred, threshold):
     """
-    Compute classification metrics using a given threshold
-    
-    Args:
-        y_true: Ground truth labels
-        y_pred: Predictions from model (0, 1)
-        threshold: Threshold to use for binary classification
-        
-    Returns:
-        Dictionary with accuracy, precision, recall, f1 score, and threshold applied
+    Compute classification metrics (accuracy, precision, recall, f1) using the given threshold
     """
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred)
