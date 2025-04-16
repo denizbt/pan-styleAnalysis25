@@ -209,7 +209,7 @@ def extract_embeddings(model, embedding_dataset, batch_size=64, concat=True):
     
     return torch.vstack(processed_embeddings)
 
-def mlp_classification(train_embeddings, train_labels, val_embeddings, val_labels, batch_size=64, epochs=10, patience=3):
+def mlp_classification(train_embeddings, train_labels, val_embeddings, val_labels, batch_size=64, epochs=10, patience=5):
     device= 'cuda' if torch.cuda.is_available() else 'cpu'
     
     # create datasets, dataloaders
@@ -219,7 +219,7 @@ def mlp_classification(train_embeddings, train_labels, val_embeddings, val_label
     val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0)
 
     embedding_dim = train_set.embeddings.size(1)    
-    model = StyleNN(input_dim=embedding_dim, hidden_dim=embedding_dim//2)
+    model = StyleNN(input_dim=embedding_dim)
     model.to(device)
   
     optimizer = optim.AdamW(model.parameters()) # default lr=0.001
@@ -247,10 +247,10 @@ def mlp_classification(train_embeddings, train_labels, val_embeddings, val_label
             train_running_loss += loss.item()
 
             # save model after every training epoch
-            torch.save(model.state_dict(), f"{args.embedding_type}_pipeline_{e}.pth")  
+            torch.save(model.state_dict(), f"BAL_{args.embedding_type}_pipeline_{e}.pth")  
 
             avg_train_loss = train_running_loss / len(train_loader)
-            metrics, avg_val_loss = val_mlp(model, val_loader, criterion, device)
+            metrics, avg_val_loss, _ = val_mlp(model, val_loader, criterion, device)
             print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
             print(f"val metrics: {metrics}\n")
 
@@ -266,7 +266,7 @@ def mlp_classification(train_embeddings, train_labels, val_embeddings, val_label
                 print(f"early stopping triggered after {e+1} epochs.")
                 break
     
-    with open(f"siamese_mlp_val_metrics.json", "w+") as f:
+    with open(f"BAL_siamese_mlp_val_metrics.json", "w+") as f:
         best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
         json.dump(best_metrics, f)
     
@@ -300,24 +300,24 @@ def main(args):
     # load saved labels (numpy array of changes)
     # invert labels such that it's 1 if same author, 0 if different author
     # OG data has 1 for style change, 0 for no style change
-    train_labels = (np.load("train_labels.npy")) ^ 1
+    train_labels = (np.load("train_bal_labels.npy")) ^ 1
     val_labels = (np.load("val_labels.npy")) ^ 1
     # print(f"same author {sum(train_labels)}, diff author {len(train_labels)-sum(train_labels)}")
 
     # load saved sentence embeddings
-    train_path = args.embedding_type+"_train.pt"
+    train_path = args.embedding_type+"_bal_train.pt"
     val_path = args.embedding_type+"_val.pt"
 
     # train Siamese network
-    # model, train_losses, val_losses = train_siamese(
-    #     train_path, train_labels,
-    #     val_path, val_labels,
-    #     epochs=10
-    # )
+    model, train_losses, val_losses = train_siamese(
+        train_path, train_labels,
+        val_path, val_labels,
+        epochs=10
+    )
     
     ## TODO remove
-    model = SiameseNetwork(input_dim=384)
-    model.load_state_dict(torch.load("siamese_model.pth"))
+    # model = SiameseNetwork(input_dim=384)
+    # model.load_state_dict(torch.load("siamese_model.pth"))
     ### end remove
 
     # extract features for train & val embeddings
@@ -327,11 +327,11 @@ def main(args):
     siamese_train = extract_embeddings(model, train_set, concat=False)
    
     # perform final classification with MLP, switch labels back before sending
-    train_labels = (np.load("train_labels.npy")) ^ 1
+    train_labels = (np.load("train_bal_labels.npy")) ^ 1
     val_labels = (np.load("val_labels.npy")) ^ 1
 
-    #mlp_classification(siamese_train, train_labels, siamese_val, val_labels)
-    cosine_sim_classification(siamese_train, train_labels)    
+    mlp_classification(siamese_train, train_labels, siamese_val, val_labels)
+    # cosine_sim_classification(siamese_train, train_labels)    
 
     # TODO check if i need to flip the labels (for final classification), i think not?
 

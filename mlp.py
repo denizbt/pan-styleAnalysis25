@@ -15,6 +15,8 @@ def get_args():
   parser.add_argument("--embedding-type", type=str, default="all-MiniLM-L12-v2")
   parser.add_argument("--weighted-loss", type=bool, default=False)  
   parser.add_argument("--reverse-augment", type=bool, default=False)
+  parser.add_argument("--lr-schedule", type=bool, default=False)
+  parser.add_argument("--balanced-train", type=bool, default=False)
 
   return parser.parse_args()
 
@@ -94,8 +96,8 @@ class StyleNN(nn.Module):
       # apply sigmoid if not using BCEWithLogitsLoss
       if self.apply_sigmoid:
         x = self.sigmoid(x)
-  
-        return x
+      
+      return x
 
 def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
   """
@@ -116,6 +118,8 @@ def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, ba
   
   lr = 0.001  # default = 0.01
   optimizer = optim.AdamW(model.parameters(), lr=lr)
+  if args.lr_schedule:
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=3, factor=0.5)
   
   if args.weighted_loss:
     # calculate positive class weight
@@ -154,6 +158,10 @@ def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, ba
     metrics, avg_val_loss, val_preds = val_mlp(model, val_loader, criterion, device)
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     print(f"val metrics: {metrics}\n")
+    
+    # update learning rate using scheduler
+    if args.lr_schedule:
+      scheduler.step(avg_val_loss)
 
     if metrics['f1'] > best_metrics['f1']:
         best_val_preds = val_preds
@@ -171,10 +179,14 @@ def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, ba
 
   # save metrics, preds, model
   file_name = f"{args.embedding_type}_"
+  if args.balanced_train:
+    file_name += "bal_"
   if args.weighted_loss:
     file_name += "weighted_"
   if args.reverse_augment:
     file_name += "reverse_"
+  if args.lr_schedule:
+    file_name += "lr_"
 
   with open(f"{file_name}metrics.json", "w+") as f:
      best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
@@ -191,36 +203,42 @@ def val_mlp(model, val_loader, criterion, device):
     val_running_loss = 0
     all_outputs = []
     all_labels = []
+    
     with torch.no_grad():
-      for inputs, labels in val_loader:
-        inputs, labels = inputs.to(device), labels.to(device).float()
-        outputs = model(inputs).squeeze()
-        loss = criterion(outputs, labels)
+        for inputs, labels in val_loader:
+            inputs, labels = inputs.to(device), labels.to(device).float()
+            outputs = model(inputs).squeeze()
+            loss = criterion(outputs, labels)
 
-        val_running_loss += loss.item()
-        
-        all_outputs.extend(outputs.cpu().numpy())
-        all_labels.extend(labels.cpu().numpy())
-        
+            val_running_loss += loss.item()
+            
+            all_outputs.extend(outputs.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+    
     all_outputs = np.array(all_outputs)
     all_labels = np.array(all_labels)
-    precision, recall, thresholds = precision_recall_curve(all_labels, all_outputs)
+    
+    # Find threshold that maximizes macro F1
+    best_threshold = 0.5  # Default value
+    best_macro_f1 = 0
+    
+    # Test a range of thresholds to find the one that maximizes macro F1
+    thresholds = np.linspace(0.1, 0.9, 81)
+    
+    for threshold in thresholds:
+        preds = (all_outputs >= threshold).astype(int)
+        macro_f1 = f1_score(all_labels, preds, average='macro', zero_division=0)
         
-    # Calculate F1 scores
-    # Note: precision_recall_curve returns one more precision/recall value than thresholds
-    f1_scores = 2 * precision[:-1] * recall[:-1] / (precision[:-1] + recall[:-1] + 1e-8)
+        if macro_f1 > best_macro_f1:
+            best_macro_f1 = macro_f1
+            best_threshold = threshold
     
-    # Find threshold with best F1 score
-    if len(f1_scores) > 0:
-        best_idx = np.argmax(f1_scores)
-        epoch_threshold = thresholds[best_idx]
-    else:
-        epoch_threshold = 0.5
+    # use the best threshold to make final predictions
+    val_preds = (all_outputs >= best_threshold).astype(int)
     
-    # use the best f1 threshold to make predictions
-    val_preds= (all_outputs >= epoch_threshold).astype(int)
+    # calculate final metrics using the best threshold
+    metrics = compute_metrics(y_true=all_labels, y_pred=val_preds, threshold=best_threshold)
     
-    metrics = compute_metrics(y_true=all_labels, y_pred=val_preds, threshold=epoch_threshold)
     avg_val_loss = val_running_loss / len(val_loader)
     return metrics, avg_val_loss, val_preds
 
@@ -229,8 +247,8 @@ def compute_metrics(y_true, y_pred, threshold):
     Compute classification metrics (accuracy, precision, recall, f1) using the given threshold
     """
     accuracy = accuracy_score(y_true, y_pred)
-    precision = precision_score(y_true, y_pred)
-    recall = recall_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred, average='macro', zero_division=0)
+    recall = recall_score(y_true, y_pred, average='macro', zero_division=0)
     f1 = f1_score(y_true, y_pred, average='macro', zero_division=0)
     
     metrics = {
@@ -246,11 +264,16 @@ def compute_metrics(y_true, y_pred, threshold):
 def main(args):
   # load saved labels (numpy array of changes)
   # 0 if there was no style change, 1 if there was a style change
-  train_labels = np.load("train_labels.npy")
+  if args.balanced_train:
+    train_path = args.embedding_type+"_bal_train.pt"
+    train_labels = np.load("train_bal_labels.npy")
+  else:  
+    train_path = args.embedding_type+"_train.pt"
+    train_labels = np.load("train_labels.npy")
+  
   val_labels = np.load("val_labels.npy")
   
   # load saved sentence embeddings
-  train_path = args.embedding_type+"_train.pt"
   val_path = args.embedding_type+"_val.pt"
   train_mlp(args, train_path, train_labels, val_path, val_labels)
 
