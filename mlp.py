@@ -4,7 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
-from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score, precision_recall_curve
+from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
 
 from tqdm import tqdm
 import json
@@ -65,8 +65,8 @@ class StyleNN(nn.Module):
     def __init__(self, input_dim, hidden_dims=[512, 256, 128, 64], output_dim=1, p=0.4, apply_sigmoid=True):
         """
         Args:
-        p: dropout rate
-        apply_sigmoid: True if model should apply sigmoid as last step in forward()
+          p: dropout rate
+          apply_sigmoid: True if model should apply sigmoid as last step in forward()
         """
         super(StyleNN, self).__init__()
         layers = []

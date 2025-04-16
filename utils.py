@@ -267,6 +267,27 @@ def save_style_change_pairs(new_pairs=95196):
   # create embeddings from pairs
   save_embeddings(pairs, "train")
 
+def data_creation(args):
+  """
+  Returns:
+    data: [(probs, labels)], where first element is train set, and second element is val set
+  """
+  data = []
+  split = ["train", "validation"]
+  for i in range(len(split)):
+    s = split[i]
+    easy_probs, easy_labels = read_labeled_data(f"{args.data_dir}/easy/{s}")
+    med_probs, med_labels = read_labeled_data(f"{args.data_dir}/medium/{s}")
+    hard_probs, hard_labels = read_labeled_data(f"{args.data_dir}/hard/{s}")
+    
+    probs = easy_probs + med_probs + hard_probs
+    labels = easy_labels + med_labels + hard_labels
+    
+    pairs, label_pairs = pair_sentences_with_labels(probs, labels)
+    data.append((pairs, label_pairs))
+  
+  return data
+
 if __name__ == "__main__":
   pass
     
