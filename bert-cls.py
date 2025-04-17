@@ -16,7 +16,7 @@ import argparse
 
 def get_args():
   parser = argparse.ArgumentParser()
-  parser.add_argument("--model-name", type=str, default="bert-base-uncased")
+  parser.add_argument("--model-name", type=str, default="bert-base-cased")
   parser.add_argument("--data-dir", type=str, default="data/")
   
   return parser.parse_args()
@@ -27,7 +27,7 @@ class BertStyleNN(nn.Module):
   1. Uses self.encoder for independent feature extraction of two sentences.
   2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
   """
-  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='bert-base-cased'):
+  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='bert-base-cased', pooling='mean'):
     """
     Args:
       hidden_dims [List[int]]:
@@ -36,6 +36,7 @@ class BertStyleNN(nn.Module):
     super(BertStyleNN, self).__init__()  
 
     self.encoder = AutoModel.from_pretrained(enc_model_name)
+    self.pooling = pooling
     
     embedding_dim =  self.encoder.config.hidden_size
     # input to MLP is the concatenation of the sentence pairs extracted
@@ -47,14 +48,25 @@ class BertStyleNN(nn.Module):
     s1 = self.encoder(input_ids=input_ids1, attention_mask=attention_mask1)
     s2 = self.encoder(input_ids=input_ids2, attention_mask=attention_mask2)
     
-    s1 = s1.pooler_output if s1.pooler_output is not None else s1.last_hidden_state[:, 0, :]
-    s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
-
+    if self.pooling == 'mean':
+      s1 = mean_pooling(s1, attention_mask1)
+      s2 = mean_pooling(s2, attention_mask2)
+    else:
+      s1 = s1.pooler_output if s1.pooler_output is not None else s1.last_hidden_state[:, 0, :]
+      s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
+      
     # concatenate features from sentece pairs to pass into MLP for classification
-    # pass through sigmoid for final 1-class classification probability
+    # using BCEWithLogitsLoss, so no sigmoid
     concat = torch.cat((s1, s2), dim=1)
     logits = self.mlp(concat)
-    return F.sigmoid(logits)
+    return logits
+
+def mean_pooling(model_output, attention_mask):
+  token_embeddings = model_output.last_hidden_state  # [batch_size, seq_len, hidden_dim]
+  input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+  sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+  sum_mask = input_mask_expanded.sum(1)
+  return sum_embeddings / sum_mask.clamp(min=1e-9)  # prevent division by zero
 
 class BertPairDataset(Dataset):
   """
@@ -110,7 +122,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   Training loop for BertStyleNN
   """
   device = "cuda" if torch.cuda.is_available() else "cpu"
-
+  
   tokenizer = AutoTokenizer.from_pretrained(args.model_name)
   train_set = BertPairDataset(tokenizer, train_pairs, train_labels)
   val_set = BertPairDataset(tokenizer, val_pairs, val_labels)
@@ -120,6 +132,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   
   model = BertStyleNN(enc_model_name=args.model_name)
   model.to(device)
+  # scaler = GradScaler()
   print(f"model is on {device}")
   
   bert_params = list(model.encoder.parameters())
@@ -130,7 +143,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   ])
 
   scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
-  criterion = nn.BCELoss()
+  criterion = nn.BCEWithLogitsLoss()
   
   best_val_preds = None
   best_metrics = {'f1': -1}
@@ -146,15 +159,13 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
       input_ids2 = batch['input_ids2'].to(device)
       attention_mask2 = batch['attention_mask2'].to(device)
       labels = batch['labels'].to(device)
-        
+      
       model.train()
       optimizer.zero_grad()
-      outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
       
+      outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
       loss = criterion(outputs, labels)
       loss.backward()
-      
-      torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0) # grad clipping
       optimizer.step()
 
       train_running_loss += loss.item()
@@ -277,9 +288,7 @@ if __name__ == "__main__":
   assert len(val_pairs) == len(val_labels)
   
   print("read in data.")
-  torch.cuda.empty_cache() # to reduce memory problems
-  
-  print("cuda?", torch.cuda.is_available())
-  raise RuntimeError()
+  torch.cuda.empty_cache() # to reduce memory problems  
+  # print("cuda?", torch.cuda.is_available())
 
   train(args, train_pairs, train_labels, val_pairs, val_labels)

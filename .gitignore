@@ -8,3 +8,4 @@ finetuned-*/
 __pycache__/
 *.zip
 *.json
+*.pkl
