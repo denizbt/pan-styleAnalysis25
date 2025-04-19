@@ -7,6 +7,7 @@ from tqdm import tqdm
 import json
 import numpy as np
 import pickle
+import logging
 
 # mlp.py, file i wrote
 from mlp import StyleNN
@@ -19,6 +20,7 @@ def get_args():
   parser.add_argument("--data-dir", type=str, default="data/")
   parser.add_argument("--workers", type=int, default=2)
   parser.add_argument("--resume-training", type=str, default="None")
+  parser.add_argument("--run-inference", type=str, default="")
   
   return parser.parse_args()
 
@@ -40,6 +42,7 @@ class BertStyleNN(nn.Module):
     
     self.encoder = AutoModel.from_pretrained(enc_model_name)
     if resume_training is not None:
+      logging.info(f"resuming training from {resume_training}")
       print(f"resuming training from {resume_training}")
       self.encoder.load_state_dict(torch.load(resume_training))
     
@@ -134,8 +137,18 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   train_set = BertPairDataset(tokenizer, train_pairs, train_labels)
   val_set = BertPairDataset(tokenizer, val_pairs, val_labels)
   
-  train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
+  if args.run_inference != "":
+    model = BertStyleNN(enc_model_name=args.model_name)
+    model.load_state_dict(torch.load(args.run_inference))
+    model.to(device)
+    print(f"model is on {device}")
+    metrics, loss, preds = val(model, val_loader, nn.BCEWithLogitsLoss(), device)
+    logging.info(f"run inference with {args.run_inference}, \n{metrics},\n val loss: {loss}")
+    np.save("preds_inference.npy", preds)
+    return
+
+  train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   
   model = BertStyleNN(enc_model_name=args.model_name, resume_training= None if args.resume_training == "None" else args.resume_training)
   model.to(device)
@@ -160,7 +173,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   patience_counter = 0
   best_epoch = 0
 
-  print("starting training!")
+  logging.info("starting training!")
   for e in tqdm(range(num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
     for batch in tqdm(train_loader, desc=f"train batches (epoch {e+1})", position=1, leave=False):
@@ -181,15 +194,17 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
       train_running_loss += loss.item()
     
     # save model (encoder and entire model) after every epoch
-    file_path = args.model_name.split("/")
-    file_path = file_path[len(file_path)-1]
-    torch.save(model.state_dict(), f"{file_path}-e{e}.pth")
-    torch.save(model.encoder.state_dict(), f"enc-only-{file_path}-e{e}.pth")
+    file_name = args.model_name.split("/")
+    file_name = file_name[len(file_name)-1]
+    torch.save(model.state_dict(), f"{file_name}-e{e}.pth")
+    torch.save(model.encoder.state_dict(), f"enc-only-{file_name}-e{e}.pth")
     
     avg_train_loss = train_running_loss / len(train_loader)
     metrics, avg_val_loss, val_preds = val(model, val_loader, criterion, device)
+    
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
-    print(f"val metrics: {metrics}\n")
+    logging.info(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
+    logging.info(f"val metrics: {metrics}\n")
     
     # update learning rate using scheduler
     scheduler.step(avg_val_loss)
@@ -204,19 +219,17 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
       
     # early stopping condition: if patience exceeds the limit, stop training
     if patience_counter >= patience:
-      print(f"early stopping triggered after {e+1} epochs.")
+      logging.info(f"early stopping triggered after {e+1} epochs.")
       break
   
-  file_name = f"{args.model_name}_"
+  file_name += "_"
   with open(f"{file_name}metrics.json", "w+") as f:
     best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
     json.dump(best_metrics, f)
 
   np.save(f"{file_name}preds.npy", best_val_preds)
 
-  # model.load_state_dict(best_model_state)
-  # torch.save(model.state_dict(), f"{file_name}mlp_model.pth")
-  print(f"training over! best epoch was {best_epoch}")
+  logging.info(f"training over! best epoch was {best_epoch}")
 
 def val(model, val_loader, criterion, device):
     model.eval()
@@ -296,11 +309,19 @@ if __name__ == "__main__":
 
   train_labels = np.load("train_labels.npy")
   val_labels = np.load("val_labels.npy")
-  
   # assert len(train_pairs) == len(train_labels)
   # assert len(val_pairs) == len(val_labels)
   
-  print("read in data.")
+  file_name = args.model_name.split("/")
+  file_name = file_name[len(file_name)-1]
+  logging.basicConfig(
+    filename=f'{file_name}_train.log',
+    level=logging.INFO,
+    filemode='a', # appends to file
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+  )
+  logging.info("read in data.")
+  
   torch.cuda.empty_cache() # to reduce memory problems  
-
   train(args, train_pairs, train_labels, val_pairs, val_labels)
