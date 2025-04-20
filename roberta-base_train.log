@@ -1,0 +1,4 @@
+2025-04-19 15:52:50 - INFO - read in data.
+2025-04-19 16:06:34 - INFO - run inference with roberta-base-Best.pth, 
+{'accuracy': 0.8566589409876983, 'precision': 0.7815999718443247, 'recall': 0.7634895963406299, 'f1': 0.7718839218662694, 'best_threshold': 0.86},
+ val loss: 0.6875443691139892

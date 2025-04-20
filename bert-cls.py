@@ -30,7 +30,7 @@ class BertStyleNN(nn.Module):
   1. Uses self.encoder for independent feature extraction of two sentences.
   2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
   """
-  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', resume_training=None):
+  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean'):
     """
     Args:
       hidden_dims [List[int]]:
@@ -40,12 +40,7 @@ class BertStyleNN(nn.Module):
     """
     super(BertStyleNN, self).__init__()  
     
-    self.encoder = AutoModel.from_pretrained(enc_model_name)
-    if resume_training is not None:
-      logging.info(f"resuming training from {resume_training}")
-      print(f"resuming training from {resume_training}")
-      self.encoder.load_state_dict(torch.load(resume_training))
-    
+    self.encoder = AutoModel.from_pretrained(enc_model_name)  
     self.pooling = pooling
 
     embedding_dim =  self.encoder.config.hidden_size
@@ -150,9 +145,13 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
 
   train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   
-  model = BertStyleNN(enc_model_name=args.model_name, resume_training= None if args.resume_training == "None" else args.resume_training)
+  # resume training both encoder and FFNN/MLP weights
+  model = BertStyleNN(enc_model_name=args.model_name)
+  if args.resume_training != "None":
+    logging.info(f"Resuming training from {args.resume_training}") 
+    model.load_state_dict(torch.load(args.resume_training))
+  
   model.to(device)
-  # scaler = GradScaler()
   print(f"model is on {device}")
   
   bert_params = list(model.encoder.parameters())
@@ -323,5 +322,5 @@ if __name__ == "__main__":
   )
   logging.info("read in data.")
   
-  torch.cuda.empty_cache() # to reduce memory problems  
+  torch.cuda.empty_cache() # to reduce memory problems
   train(args, train_pairs, train_labels, val_pairs, val_labels)
