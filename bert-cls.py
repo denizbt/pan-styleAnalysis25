@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from torch import nn
 from transformers import AutoTokenizer, AutoModel
+from sentence_transformers import SentenceTransformer
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 from tqdm import tqdm
 import json
@@ -18,9 +19,11 @@ def get_args():
   parser = argparse.ArgumentParser()
   parser.add_argument("--model-name", type=str, default="roberta-base")
   parser.add_argument("--data-dir", type=str, default="data/")
-  parser.add_argument("--workers", type=int, default=2)
+  parser.add_argument("--workers", type=int, default=1)
+  parser.add_argument("--pooling", type=str, default="mean")
   parser.add_argument("--resume-training", type=str, default="None")
   parser.add_argument("--run-inference", type=str, default="")
+  parser.add_argument("--sentence-transformers", type=bool, default=False)
   
   return parser.parse_args()
 
@@ -30,7 +33,7 @@ class BertStyleNN(nn.Module):
   1. Uses self.encoder for independent feature extraction of two sentences.
   2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
   """
-  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean'):
+  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False):
     """
     Args:
       hidden_dims [List[int]]:
@@ -39,27 +42,40 @@ class BertStyleNN(nn.Module):
       resume_training: If not None, contains path to encoder-only model state dict from which to resume training
     """
     super(BertStyleNN, self).__init__()  
-    
-    self.encoder = AutoModel.from_pretrained(enc_model_name)  
-    self.pooling = pooling
 
-    embedding_dim =  self.encoder.config.hidden_size
+    # check if it's a sentence transformers model
+    # self.sentence_transformers = use_sentence_transformers
+    if use_sentence_transformers:
+      self.encoder = SentenceTransformer(enc_model_name)
+      # self.encoder = SentenceTransformer(enc_model_name, trust_remote_code=True, model_kwargs={'default_task': 'text-matching'})
+      with torch.no_grad():
+        dummy_embedding = self.encoder.encode(["Hello"], convert_to_tensor=True)
+        embedding_dim = dummy_embedding.shape[-1]
+    else:
+      self.encoder = AutoModel.from_pretrained(enc_model_name)  
+      embedding_dim =  self.encoder.config.hidden_size
+
+    self.pooling = pooling
     # input to MLP is the concatenation of the sentence pairs extracted
     self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim)
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
-    # pooler_output takes [CLS] hidden layer vector 
-    s1 = self.encoder(input_ids=input_ids1, attention_mask=attention_mask1)
-    s2 = self.encoder(input_ids=input_ids2, attention_mask=attention_mask2)
-    
-    if self.pooling == 'mean':
-      s1 = mean_pooling(s1, attention_mask1)
-      s2 = mean_pooling(s2, attention_mask2)
+    if attention_mask1 is None:
+      s1 = self.encoder.encode(input_ids1, convert_to_tensor=True, batch_size=16, show_progress_bar=False).to(next(self.parameters()).device)
+      s2 = self.encoder.encode(input_ids2, convert_to_tensor=True, batch_size=16, show_progress_bar=False).to(next(self.parameters()).device)
     else:
-      s1 = s1.pooler_output if s1.pooler_output is not None else s1.last_hidden_state[:, 0, :]
-      s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
+      s1 = self.encoder(input_ids=input_ids1, attention_mask=attention_mask1)
+      s2 = self.encoder(input_ids=input_ids2, attention_mask=attention_mask2)
       
+      if self.pooling == 'mean':
+        s1 = mean_pooling(s1, attention_mask1)
+        s2 = mean_pooling(s2, attention_mask2)
+      else:
+        # pooler_output takes [CLS] hidden layer vector
+        s1 = s1.pooler_output if s1.pooler_output is not None else s1.last_hidden_state[:, 0, :]
+        s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
+    
     # concatenate features from sentece pairs to pass into MLP for classification
     # using BCEWithLogitsLoss, so no sigmoid
     concat = torch.cat((s1, s2), dim=1)
@@ -97,6 +113,14 @@ class BertPairDataset(Dataset):
     s1, s2 = self.sent_pairs[idx]
     label = self.labels[idx]
     
+    # return non-tokenized text if sentence-transformers being used
+    if self.return_raw_text:
+      return {
+          's1': s1,
+          's2': s2,
+          'labels': torch.tensor(label, dtype=torch.float)
+      }
+    
     # get tokenized values for both sentences in pair
     tok1 = self.tokenizer(
       s1,
@@ -131,10 +155,12 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   tokenizer = AutoTokenizer.from_pretrained(args.model_name)
   train_set = BertPairDataset(tokenizer, train_pairs, train_labels)
   val_set = BertPairDataset(tokenizer, val_pairs, val_labels)
+  train_set.return_raw_text = args.sentence_transformers
+  val_set.return_raw_text = args.sentence_transformers
   
   val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
   if args.run_inference != "":
-    model = BertStyleNN(enc_model_name=args.model_name)
+    model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling)
     model.load_state_dict(torch.load(args.run_inference))
     model.to(device)
     print(f"model is on {device}")
@@ -146,7 +172,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   
   # resume training both encoder and FFNN/MLP weights
-  model = BertStyleNN(enc_model_name=args.model_name)
+  model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling)
   if args.resume_training != "None":
     logging.info(f"Resuming training from {args.resume_training}") 
     model.load_state_dict(torch.load(args.resume_training))
@@ -176,16 +202,21 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   for e in tqdm(range(num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
     for batch in tqdm(train_loader, desc=f"train batches (epoch {e+1})", position=1, leave=False):
-      input_ids1 = batch['input_ids1'].to(device)
-      attention_mask1 = batch['attention_mask1'].to(device)
-      input_ids2 = batch['input_ids2'].to(device)
-      attention_mask2 = batch['attention_mask2'].to(device)
-      labels = batch['labels'].to(device)
-      
       model.train()
       optimizer.zero_grad()
       
-      outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
+      if args.sentence_transformers:  # SentenceTransformer
+        input_ids1 = batch['s1']
+        input_ids2 = batch['s2']
+        outputs = model(input_ids1, None, input_ids2, None).squeeze(1)
+      else:  # normal HuggingFace
+        input_ids1 = batch['input_ids1'].to(device)
+        attention_mask1 = batch['attention_mask1'].to(device)
+        input_ids2 = batch['input_ids2'].to(device)
+        attention_mask2 = batch['attention_mask2'].to(device)
+        outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
+
+      labels = batch['labels'].to(device)
       loss = criterion(outputs, labels)
       loss.backward()
       optimizer.step()
@@ -238,14 +269,18 @@ def val(model, val_loader, criterion, device):
     
     with torch.no_grad():
         for batch in tqdm(val_loader, desc=f"val batches", position=1, leave=False):
-          input_ids1 = batch['input_ids1'].to(device)
-          attention_mask1 = batch['attention_mask1'].to(device)
-          input_ids2 = batch['input_ids2'].to(device)
-          attention_mask2 = batch['attention_mask2'].to(device)
+          if "s1" in batch:  # SentenceTransformer
+            input_ids1 = batch["s1"]
+            input_ids2 = batch["s2"]
+            outputs = model(input_ids1, None, input_ids2, None).squeeze(1)
+          else:  # normal HuggingFace
+            input_ids1 = batch['input_ids1'].to(device)
+            attention_mask1 = batch['attention_mask1'].to(device)
+            input_ids2 = batch['input_ids2'].to(device)
+            attention_mask2 = batch['attention_mask2'].to(device)
+            outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
+            
           labels = batch['labels'].to(device)
-              
-          outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
-          
           loss = criterion(outputs, labels)
           val_running_loss += loss.item()
           
