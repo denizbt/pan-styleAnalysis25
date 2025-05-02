@@ -24,6 +24,8 @@ def get_args():
   parser.add_argument("--resume-training", type=str, default="None")
   parser.add_argument("--run-inference", type=str, default="")
   parser.add_argument("--sentence-transformers", type=bool, default=False)
+  parser.add_argument("--num-epochs", type=int, default=15)
+  parser.add_argument("--balanced-data", type=bool, default=False)
   
   return parser.parse_args()
 
@@ -146,7 +148,7 @@ class BertPairDataset(Dataset):
           'attention_mask2': tok2['attention_mask'].squeeze(0),
           'labels': torch.tensor(label, dtype=torch.float)}
 
-def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16, num_epochs=15, patience=5):
+def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16, patience=5):
   """
   Training loop for BertStyleNN
   """
@@ -166,7 +168,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
     print(f"model is on {device}")
     metrics, loss, preds = val(model, val_loader, nn.BCEWithLogitsLoss(), device)
     logging.info(f"run inference with {args.run_inference}, \n{metrics},\n val loss: {loss}")
-    np.save("preds_inference.npy", preds)
+    np.save(f"{args.model_name}_preds_inference.npy", preds)
     return
 
   train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
@@ -175,8 +177,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling)
   if args.resume_training != "None":
     logging.info(f"Resuming training from {args.resume_training}") 
-    model.load_state_dict(torch.load(args.resume_training))
-  
+    model.load_state_dict(torch.load(args.resume_training, map_location=device))
   model.to(device)
   print(f"model is on {device}")
   
@@ -186,9 +187,8 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
       {'params': bert_params, 'lr': 1e-5},  # Lower learning rate for BERT
       {'params': classifier_params, 'lr': 1e-4}  # Higher learning rate for MLP
   ])
-
   scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
-  
+
   pos_weight = torch.tensor([0.8 / 0.2])  # ratio of negative to positive
   pos_weight = pos_weight.to(device)  # move to GPU if using cuda
   criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
@@ -199,9 +199,9 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   best_epoch = 0
 
   logging.info("starting training!")
-  for e in tqdm(range(num_epochs), desc="Epochs", position=0):
+  for e in tqdm(range(args.num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
-    for batch in tqdm(train_loader, desc=f"train batches (epoch {e+1})", position=1, leave=False):
+    for batch in tqdm(train_loader, desc=f"train (epoch {e+1})", position=1, leave=False):
       model.train()
       optimizer.zero_grad()
       
@@ -233,7 +233,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
     metrics, avg_val_loss, val_preds = val(model, val_loader, criterion, device)
     
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
-    logging.info(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
+    logging.info(f"epoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     logging.info(f"val metrics: {metrics}\n")
     
     # update learning rate using scheduler
@@ -246,20 +246,33 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
         best_epoch = e
     else:
       patience_counter += 1
-      
+
     # early stopping condition: if patience exceeds the limit, stop training
     if patience_counter >= patience:
+      # save optimizer state if early stopping (to continue later)
+      torch.save({
+            'epoch': e,
+            'optimizer': optimizer.state_dict(),
+        }, f"{file_name}-e{e}-optimizer.pth")
       logging.info(f"early stopping triggered after {e+1} epochs.")
       break
+    
+    # save optimizer on the last epoch
+    if (e+1) >= args.num_epochs:
+      torch.save({
+            'epoch': e,
+            'optimizer': optimizer.state_dict(),
+        }, f"{file_name}-e{e}-optimizer.pth")
   
   file_name += "_"
-  with open(f"{file_name}metrics.json", "w+") as f:
-    best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
-    json.dump(best_metrics, f)
+  # with open(f"{file_name}metrics.json", "w+") as f:
+  #   best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
+  #   json.dump(best_metrics, f)
 
   np.save(f"{file_name}preds.npy", best_val_preds)
 
   logging.info(f"training over! best epoch was {best_epoch}")
+  print(f"best epoch was {best_epoch}!")
 
 def val(model, val_loader, criterion, device):
     model.eval()
@@ -335,8 +348,28 @@ def compute_metrics(y_true, y_pred, threshold):
 
 if __name__ == "__main__":
   args = get_args()
+  
+  file_name = args.model_name.split("/")
+  file_name = file_name[len(file_name)-1]
+  if args.balanced_data:
+    file_name += "_bal"
+  logging.basicConfig(
+    filename=f'{file_name}_train.log',
+    level=logging.INFO,
+    filemode='a', # appends to file
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+  )
+
   with open('train_pairs.pkl', 'rb') as f:
     train_pairs = pickle.load(f)
+    
+  # add in negative pairs (FOR BALANCED TRAIN)
+  if args.balanced_data:
+    with open('new_sentence_pairs.pkl', 'rb') as f:
+      neg_pairs = pickle.load(f)
+    logging.info(f"adding {len(neg_pairs)} negative examples to dataset")
+    train_pairs.extend(neg_pairs)
     
   with open('val_pairs.pkl', 'rb') as f:
     val_pairs = pickle.load(f)
@@ -346,15 +379,6 @@ if __name__ == "__main__":
   # assert len(train_pairs) == len(train_labels)
   # assert len(val_pairs) == len(val_labels)
   
-  file_name = args.model_name.split("/")
-  file_name = file_name[len(file_name)-1]
-  logging.basicConfig(
-    filename=f'{file_name}_train.log',
-    level=logging.INFO,
-    filemode='a', # appends to file
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-  )
   logging.info("read in data.")
   
   torch.cuda.empty_cache() # to reduce memory problems

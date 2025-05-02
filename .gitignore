@@ -1,11 +1,10 @@
 .DS_Store
 *venv/
 *.csv
-results/
 finetuned-*/
 *.pt*
 *.npy
 __pycache__/
 *.zip
-*.json
+# *.json
 *.pkl

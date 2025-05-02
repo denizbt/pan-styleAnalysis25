@@ -1,0 +1,25 @@
+NOT GOOD
+epoch 3                                                                                                                                                              
+training loss: 0.6760
+val loss: 0.6754
+val metrics: {'accuracy': 0.8463481309799726, 'precision': 0.8789857157321583, 'recall': 0.6321641559711967, 'f1': 0.6646851054870064, 'best_threshold': 0.1}
+
+epoch 4                                                                                                                                                              
+training loss: 0.6744
+val loss: 0.6713
+val metrics: {'accuracy': 0.8577286503833126, 'precision': 0.8853054218708193, 'recall': 0.6619366400748716, 'f1': 0.7022239467802185, 'best_threshold': 0.17}
+
+epoch 5                                                                                                                                                              
+training loss: 0.6725
+val loss: 0.6720
+val metrics: {'accuracy': 0.8550543768942771, 'precision': 0.8903198402143259, 'recall': 0.6528780718408241, 'f1': 0.6915619512288386, 'best_threshold': 0.82}
+
+epoch 6                                                                                                                                                              
+training loss: 0.6770
+val loss: 0.6765
+val metrics: {'accuracy': 0.8423961490461758, 'precision': 0.8858784382747482, 'recall': 0.6195902900830033, 'f1': 0.6479909934066037, 'best_threshold': 0.1}
+
+epoch 7                                                                                                                                                              
+training loss: 0.6777
+val loss: 0.6776
+val metrics: {'accuracy': 0.8404350151542165, 'precision': 0.8722093107156895, 'recall': 0.617544918236474, 'f1': 0.6448709727724818, 'best_threshold': 0.29000000000000004}
