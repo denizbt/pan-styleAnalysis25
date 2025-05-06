@@ -6,9 +6,7 @@ import json
 import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
-from tqdm import tqdm 
-import nltk
-nltk.download('punkt_tab')
+from tqdm import tqdm
 
 import random
 import pickle
@@ -288,6 +286,35 @@ def data_creation(args):
   
   return data
 
+def save_datasplits(dataset_split):
+    # Load data (Assuming sentence_pairs contains embeddings & labels contains 0 or 1)
+    easy_probs, easy_labels = read_labeled_data(f"data/easy/{dataset_split}")
+    med_probs, med_labels = read_labeled_data(f"data/medium/{dataset_split}")
+    hard_probs, hard_labels = read_labeled_data(f"data/hard/{dataset_split}")
+    print("read_labeled_data")
+
+    # now create pairs of sentences, in pandas dictionary
+    easy_pairs, easy_labels = pair_sentences_with_labels(easy_probs, easy_labels)
+    med_pairs, med_labels = pair_sentences_with_labels(med_probs, med_labels)
+    hard_pairs, hard_labels = pair_sentences_with_labels(hard_probs, hard_labels)
+    print("pair_sentences_with_labels")
+
+    # save pairs and labels
+    with open(f"easy_val_pairs.pkl", "wb") as f:
+      pickle.dump(easy_pairs, f)
+
+    with open(f"med_val_pairs.pkl", "wb") as f:
+      pickle.dump(med_pairs, f)
+
+    with open(f"hard_val_pairs.pkl", "wb") as f:
+      pickle.dump(hard_pairs, f)
+  
+    np.save("easy_val_labels.npy", easy_labels)
+    np.save("med_val_labels.npy", med_labels)
+    np.save("hard_val_labels.npy", hard_labels)
+
+
 if __name__ == "__main__":
-  pass
+  save_datasplits("validation")
+
     

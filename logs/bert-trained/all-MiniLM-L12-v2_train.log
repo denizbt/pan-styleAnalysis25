@@ -79,3 +79,45 @@ val loss: 0.9718
 2025-05-01 23:24:19 - INFO - read in data.
 2025-05-01 23:24:20 - INFO - Resuming training from all-MiniLM-L12-v2-e14-V1.pth
 2025-05-01 23:24:22 - INFO - starting training!
+2025-05-02 00:05:54 - INFO - epoch 0
+training loss: 0.9295
+val loss: 0.9722
+2025-05-02 00:05:54 - INFO - val metrics: {'accuracy': 0.8477149818743686, 'precision': 0.765852005971711, 'recall': 0.7585786679576735, 'f1': 0.7620997202887997, 'best_threshold': 0.87}
+
+2025-05-02 00:47:30 - INFO - epoch 1
+training loss: 0.9246
+val loss: 0.9688
+2025-05-02 00:47:30 - INFO - val metrics: {'accuracy': 0.8557675164913532, 'precision': 0.7807862981512004, 'recall': 0.7589688973964308, 'f1': 0.768915439936925, 'best_threshold': 0.88}
+
+2025-05-02 01:29:04 - INFO - epoch 2
+training loss: 0.9216
+val loss: 0.9673
+2025-05-02 01:29:04 - INFO - val metrics: {'accuracy': 0.8579069352825816, 'precision': 0.784632551135488, 'recall': 0.7611262220735009, 'f1': 0.7717830734914038, 'best_threshold': 0.9}
+
+2025-05-02 02:10:36 - INFO - epoch 3
+training loss: 0.9212
+val loss: 0.9682
+2025-05-02 02:10:36 - INFO - val metrics: {'accuracy': 0.8492601176680336, 'precision': 0.7678861073326585, 'recall': 0.7654631983192501, 'f1': 0.7666619308872689, 'best_threshold': 0.9}
+
+2025-05-02 02:52:08 - INFO - epoch 4
+training loss: 0.9178
+val loss: 0.9711
+2025-05-02 02:52:08 - INFO - val metrics: {'accuracy': 0.8530932430023177, 'precision': 0.7760664726962343, 'recall': 0.7561501579435062, 'f1': 0.7652876735602638, 'best_threshold': 0.87}
+
+2025-05-02 03:33:42 - INFO - epoch 5
+training loss: 0.9155
+val loss: 0.9685
+2025-05-02 03:33:42 - INFO - val metrics: {'accuracy': 0.8507161110120639, 'precision': 0.7703550555194025, 'recall': 0.7655635890580849, 'f1': 0.7679102381630303, 'best_threshold': 0.9}
+
+2025-05-02 04:15:18 - INFO - epoch 6
+training loss: 0.9138
+val loss: 0.9701
+2025-05-02 04:15:18 - INFO - val metrics: {'accuracy': 0.8463184168300945, 'precision': 0.7631430887238198, 'recall': 0.7639415328995605, 'f1': 0.7635408928346334, 'best_threshold': 0.9}
+
+2025-05-02 04:56:52 - INFO - epoch 7
+training loss: 0.9123
+val loss: 0.9718
+2025-05-02 04:56:52 - INFO - val metrics: {'accuracy': 0.8443869970880133, 'precision': 0.7601108985900739, 'recall': 0.7628914887108188, 'f1': 0.7614837016894652, 'best_threshold': 0.88}
+
+2025-05-02 04:56:55 - INFO - early stopping triggered after 8 epochs.
+2025-05-02 04:56:55 - INFO - training over! best epoch was 2

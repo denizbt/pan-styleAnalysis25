@@ -1,5 +1,5 @@
-# TODO finish the final pipeline code here (for system submission)
-# TODO need to use docker to upload our final system
+# TODO add ensemble model pipeline code here
+# TODO need to use docker to upload our final system. include pth files
 
 import argparse
 import os
