@@ -6,5 +6,6 @@ finetuned-*/
 *.npy
 __pycache__/
 *.zip
-# *.json
 *.pkl
+submission/
+OLD*

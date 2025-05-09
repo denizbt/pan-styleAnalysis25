@@ -35,21 +35,20 @@ class BertStyleNN(nn.Module):
   1. Uses self.encoder for independent feature extraction of two sentences.
   2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
   """
-  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False):
+  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False, logits_loss=True):
     """
     Args:
       hidden_dims [List[int]]:
       output_dim [int]: final classification of the model is a single dimension
       pooling [str] in ['mean', 'cls]
       resume_training: If not None, contains path to encoder-only model state dict from which to resume training
+      logits_loss [bool]: True if using BCEWithLogitsLoss to train, means StyleNN should not apply_sigmoid in forward pass
     """
     super(BertStyleNN, self).__init__()  
 
     # check if it's a sentence transformers model
-    # self.sentence_transformers = use_sentence_transformers
     if use_sentence_transformers:
       self.encoder = SentenceTransformer(enc_model_name)
-      # self.encoder = SentenceTransformer(enc_model_name, trust_remote_code=True, model_kwargs={'default_task': 'text-matching'})
       with torch.no_grad():
         dummy_embedding = self.encoder.encode(["Hello"], convert_to_tensor=True)
         embedding_dim = dummy_embedding.shape[-1]
@@ -59,7 +58,7 @@ class BertStyleNN(nn.Module):
 
     self.pooling = pooling
     # input to MLP is the concatenation of the sentence pairs extracted
-    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim)
+    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
@@ -162,7 +161,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   
   val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
   if args.run_inference != "":
-    model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling)
+    model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling, logits_loss=True)
     model.load_state_dict(torch.load(args.run_inference))
     model.to(device)
     print(f"model is on {device}")
@@ -174,7 +173,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   
   # resume training both encoder and FFNN/MLP weights
-  model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling)
+  model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling, logits_loss=True)
   if args.resume_training != "None":
     logging.info(f"Resuming training from {args.resume_training}") 
     model.load_state_dict(torch.load(args.resume_training, map_location=device))
@@ -265,10 +264,6 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
         }, f"{file_name}-e{e}-optimizer.pth")
   
   file_name += "_"
-  # with open(f"{file_name}metrics.json", "w+") as f:
-  #   best_metrics = {k: float(v) if hasattr(v, 'item') else v for k, v in best_metrics.items()}
-  #   json.dump(best_metrics, f)
-
   np.save(f"{file_name}preds.npy", best_val_preds)
 
   logging.info(f"training over! best epoch was {best_epoch}")
@@ -378,7 +373,6 @@ if __name__ == "__main__":
   val_labels = np.load("val_labels.npy")
   # assert len(train_pairs) == len(train_labels)
   # assert len(val_pairs) == len(val_labels)
-  
   logging.info("read in data.")
   
   torch.cuda.empty_cache() # to reduce memory problems

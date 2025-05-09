@@ -8,42 +8,207 @@ import numpy as np
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 
 import pickle
-
+import logging
 from models import BertPairDataset, BertStyleNN
+import argparse
 
-def ensemble_preds(difficulty):
- device = "cuda" if torch.cuda.is_available() else "cpu"
+def get_args():
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--difficulty", type=str, default="easy")
+  parser.add_argument("--ensemble-method", type=str, default="maj-vote", help="One of 'maj-vote', 'avg-logits', 'avg-probs'")
+  parser.add_argument("--load-preds", type=bool, default=False)
 
- with open(f'{difficulty}_val_pairs.pkl', 'rb') as f:
-  val_pairs = pickle.load(f)
- 
- val_labels = np.load(f"{difficulty}_val_labels.npy")
+  return parser.parse_args()
 
- models = ["all-MiniLM-L12-v2", "deberta-base", "roberta-base", "sentence-t5-base", "bge-base-en-v1.5"]
- probabilities = []
- for model_name in models:
-   tokenizer = AutoTokenizer.from_pretrained(model_name)
-   val_set = BertPairDataset(tokenizer, val_pairs, val_labels)
-   sentence_transformers = model_name in ["bge-base-en-v1.5", "sentence-t5-base"]
-   val_set.return_raw_text = sentence_transformers
+def run_ensemble(args):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
-   val_loader = DataLoader(val_set, batch_size=16, shuffle=False, pin_memory=True)
+    with open(f'{args.difficulty}_val_pairs.pkl', 'rb') as f:
+        val_pairs = pickle.load(f)
+    val_labels = np.load(f"{args.difficulty}_val_labels.npy")
 
-   # run inference!
-   model = BertStyleNN(enc_model_name=model_name, use_sentence_transformers=sentence_transformers)
-   model.load_state_dict(f"{model_name}-Best.pth")
-   model.to(device)
-   print(f"model is on {device}")
+    models = ["all-MiniLM-L12-v2", "deberta-base", "roberta-base", "sentence-t5-base", "bge-base-en-v1.5"]
+    all_outputs = []
+    all_preds = []
+    labels = None
+    logging.info(f"using {args.ensemble_method} for ensemble")
+    for path_name in models:
+        sentence_transformers = path_name in ["bge-base-en-v1.5", "sentence-t5-base"]
+        logits_loss = args.ensemble_method in ["avg-logits"]
+        
+        model_name = get_model_name(path_name)
+        logging.info(f"running inference with {model_name}")
+        if args.load_preds:
+            labels = val_labels
+            if not logits_loss:
+                output = torch.Tensor(np.load(f"{path_name}_{args.difficulty}_probs.npy"))
+            else:
+                output = torch.Tensor(np.load(f"{path_name}_{args.difficulty}_logits.npy"))
+            _, val_preds = indiv_preds(output, labels, logits_loss)
+            all_outputs.append(output)
+            all_preds.append(val_preds)
+            continue
 
-   metrics, loss, preds = val(model, val_loader, nn.BCEWithLogitsLoss(), device)
-   print(f"run inference with {model_name}, \n{metrics},\n val loss: {loss}")
-   # np.save(f"{model_name}_preds_ensemble.npy", preds)
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        val_set = BertPairDataset(tokenizer, val_pairs, val_labels)
+        val_set.return_raw_text = sentence_transformers
+        val_loader = DataLoader(val_set, batch_size=16, shuffle=False, pin_memory=True)
+
+        # run inference!
+        # logits_loss = True means we return logits from forward pass
+        criterion = nn.BCEWithLogitsLoss() if logits_loss else nn.BCELoss()
+
+        model = BertStyleNN(enc_model_name=model_name, use_sentence_transformers=sentence_transformers, logits_loss=logits_loss)
+        model.load_state_dict(torch.load(f"{path_name}-Best.pth"))
+        model.to(device)
+        print(f"{model_name} is on {device}")
+        
+        loss, output, labels_v = val(model, val_loader, criterion, device)
+        np.save(f"{path_name}_{args.difficulty}_logits.npy", output)
+        logging.info(f"     val loss: {loss}, output {output[0]}")
+        _, val_preds = indiv_preds(output, labels_v, logits_loss)
+        
+        all_preds.append(val_preds)
+        all_outputs.append(output)
+        labels = labels_v
     
+    if args.ensemble_method == "avg-logits" or args.ensemble_method == "avg-probs":
+        metrics, val_preds = ensemble_avg_outputs(all_outputs, labels, apply_sigmoid=logits_loss)
+    elif args.ensemble_method == "maj-vote":
+        metrics, val_preds = ensemble_majority_voting(all_preds, labels)
+    else:
+        raise RuntimeError("Ensemble method not supported.")
+    
+    logging.info(f"ensemble {metrics}")
+    logging.info(f"# of pos preds: {sum(val_preds)}, total: {len(val_preds)}")
+    logging.info(f"actual # of pos {sum(val_labels)}")
+
+def indiv_preds(outputs, labels, logits_loss):
+    # outputs is list for a single model (either logits or probs)
+    # returns metrics, and PyTorch tensor with binary predictions
+    if logits_loss:
+        sigmoid = nn.Sigmoid()
+        probs = sigmoid(outputs)
+    else:
+       probs = outputs
+
+    if torch.is_tensor(labels):
+        labels_np = labels.numpy()
+    else:
+        labels_np = labels
+
+    best_threshold = 0.5  # Default value
+    best_macro_f1 = 0
+    
+    # Test a range of thresholds to find the one that maximizes macro F1
+    thresholds = np.linspace(0.05, 0.95, 91)
+    for threshold in thresholds:
+        preds = (probs >= threshold).int()
+        macro_f1 = f1_score(labels_np, preds, average='macro', zero_division=0)
+        
+        if macro_f1 > best_macro_f1:
+            best_macro_f1 = macro_f1
+            best_threshold = threshold
+    
+    # use the best threshold to make final predictions
+    val_preds = (probs >= best_threshold).int()
+    
+    # calculate final metrics using the best threshold
+    metrics = compute_metrics(y_true=labels_np, y_pred=val_preds, threshold=best_threshold)
+    logging.info(f"     {metrics}")
+    return metrics, val_preds
+
+
+def ensemble_majority_voting(all_preds, labels, majority_req=2):
+    """
+    Given preds (list of lists of binary predictions), implement majority voting where majority_req required to make
+    1 prediction (in theory, make it easier to predict 1 due to class imbalance)
+    """
+    final_preds = (torch.sum(torch.stack(all_preds), dim=0) >= majority_req).int()
+    
+    # calculate final metrics using the best threshold
+    if torch.is_tensor(labels):
+        labels = labels.numpy()
+    metrics = compute_metrics(y_true=labels, y_pred=final_preds.numpy(), threshold=-1)
+    return metrics, final_preds.numpy()
+
+def ensemble_avg_outputs(outputs, labels, apply_sigmoid=False):
+    """
+    Given list of torch Tensors, calculate avg of outputs (optionally apply sigmoid) and then get predictions from that.
+    Finds best threshold for the given validation set (labels).
+    """
+    # first find avg of the outputs (whether logits or probs)
+    avg_probs = torch.mean(torch.stack(outputs), dim=0)
+
+    # optionally apply sigmoid to turn into probabilities
+    if apply_sigmoid:
+        sigmoid = nn.Sigmoid()
+        avg_probs = sigmoid(avg_probs)
+        avg_probs = torch.clamp(avg_probs, min=1e-6, max=1 - 1e-6)
+    
+    avg_probs_np = avg_probs.numpy()
+    if torch.is_tensor(labels):
+        labels_np = labels.numpy()
+    else:
+        labels_np = labels
+
+    # Find threshold that maximizes macro F1
+    best_threshold = 0.5  # Default value
+    best_macro_f1 = 0
+    
+    # Test a range of thresholds to find the one that maximizes macro F1
+    thresholds = np.linspace(0.05, 0.95, 91)
+    for threshold in thresholds:
+        preds = (avg_probs_np >= threshold).astype(int)
+        macro_f1 = f1_score(labels_np, preds, average='macro', zero_division=0)
+        
+        if macro_f1 > best_macro_f1:
+            best_macro_f1 = macro_f1
+            best_threshold = threshold
+    
+    # use the best threshold to make final predictions
+    val_preds = (avg_probs_np >= best_threshold).astype(int)
+    
+    # calculate final metrics using the best threshold
+    metrics = compute_metrics(y_true=labels_np, y_pred=val_preds, threshold=best_threshold)
+    return metrics, val_preds
 
 def val(model, val_loader, criterion, device):
-   # TODO write this without thresholding
-   # return probabilities
-   pass
+    """
+    Returns the direct output from the model (whether logits or probs is defined earlier in run_ensemble)
+    Outputs are torch tensors on CPU!
+    """
+    model.eval()
+    val_running_loss = 0
+    all_outputs = []
+    all_labels = []
+
+    with torch.no_grad():
+        for batch in val_loader:
+          if "s1" in batch:  # SentenceTransformer
+            input_ids1 = batch["s1"]
+            input_ids2 = batch["s2"]
+            outputs = model(input_ids1, None, input_ids2, None).squeeze(1)
+          else:  # normal HuggingFace
+            input_ids1 = batch['input_ids1'].to(device)
+            attention_mask1 = batch['attention_mask1'].to(device)
+            input_ids2 = batch['input_ids2'].to(device)
+            attention_mask2 = batch['attention_mask2'].to(device)
+            outputs = model(input_ids1, attention_mask1, input_ids2, attention_mask2).squeeze(1)
+            
+          labels = batch['labels'].to(device)
+          loss = criterion(outputs, labels)
+          val_running_loss += loss.item()
+          
+          all_outputs.append(outputs.detach().cpu())
+          all_labels.append(labels.detach().cpu())
+    
+    all_outputs = torch.cat(all_outputs)
+    all_labels = torch.cat(all_labels)
+    
+    # return logits/probs (as torch.tensors on CPU)
+    avg_val_loss = val_running_loss / len(val_loader)
+    return avg_val_loss, all_outputs, all_labels
 
 def compute_metrics(y_true, y_pred, threshold):
     """
@@ -64,5 +229,26 @@ def compute_metrics(y_true, y_pred, threshold):
     
     return metrics
 
+def get_model_name(path_name):
+    if path_name in ["all-MiniLM-L12-v2", "sentence-t5-base"]:
+        model_name = "sentence-transformers/" + path_name
+    elif "deberta" in path_name:
+        model_name = "microsoft/" + path_name
+    elif "bge" in path_name:
+        model_name = "BAAI/" + path_name
+    else:
+        # roberta-base
+        model_name = path_name
+
+    return model_name
+
 if __name__ == '__main__':
-    ensemble_preds()
+    args = get_args()
+    logging.basicConfig(
+        filename=f'{args.difficulty}_{args.ensemble_method}.log',
+        level=logging.INFO,
+        filemode='a', # appends to file
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    run_ensemble(args)

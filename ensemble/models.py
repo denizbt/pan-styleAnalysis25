@@ -1,5 +1,6 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
+from transformers import AutoModel
 from torch import nn
 from sentence_transformers import SentenceTransformer
 
@@ -73,21 +74,20 @@ class BertStyleNN(nn.Module):
   1. Uses self.encoder for independent feature extraction of two sentences.
   2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
   """
-  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False):
+  def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False, logits_loss=False):
     """
     Args:
       hidden_dims [List[int]]:
       output_dim [int]: final classification of the model is a single dimension
       pooling [str] in ['mean', 'cls]
       resume_training: If not None, contains path to encoder-only model state dict from which to resume training
+      logits_loss [bool]: True if using BCEWithLogitsLoss to train, means StyleNN should not apply_sigmoid in forward pass
     """
     super(BertStyleNN, self).__init__()  
 
     # check if it's a sentence transformers model
-    # self.sentence_transformers = use_sentence_transformers
     if use_sentence_transformers:
       self.encoder = SentenceTransformer(enc_model_name)
-      # self.encoder = SentenceTransformer(enc_model_name, trust_remote_code=True, model_kwargs={'default_task': 'text-matching'})
       with torch.no_grad():
         dummy_embedding = self.encoder.encode(["Hello"], convert_to_tensor=True)
         embedding_dim = dummy_embedding.shape[-1]
@@ -97,7 +97,7 @@ class BertStyleNN(nn.Module):
 
     self.pooling = pooling
     # input to MLP is the concatenation of the sentence pairs extracted
-    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim)
+    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
@@ -117,7 +117,6 @@ class BertStyleNN(nn.Module):
         s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
     
     # concatenate features from sentece pairs to pass into MLP for classification
-    # using BCEWithLogitsLoss, so no sigmoid
     concat = torch.cat((s1, s2), dim=1)
     logits = self.mlp(concat)
     return logits

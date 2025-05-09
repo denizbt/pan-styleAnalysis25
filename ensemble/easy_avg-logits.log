@@ -1,0 +1,23 @@
+2025-05-08 22:54:58 - INFO - using avg-logits for ensemble
+2025-05-08 22:54:58 - INFO - running inference with sentence-transformers/all-MiniLM-L12-v2
+2025-05-08 22:55:46 - INFO -      val loss: 0.5647505040704547, output -7.872105121612549
+2025-05-08 22:55:46 - INFO -      {'accuracy': 0.9124621840538695, 'precision': 0.8691208592055784, 'recall': 0.8726363900529701, 'f1': 0.8708600036307614, 'best_threshold': 0.95}
+2025-05-08 22:55:46 - INFO - running inference with microsoft/deberta-base
+2025-05-08 22:58:50 - INFO -      val loss: 0.6228691154782001, output -8.467860221862793
+2025-05-08 22:58:51 - INFO -      {'accuracy': 0.9167561237435347, 'precision': 0.8716399401763242, 'recall': 0.8875826503285346, 'f1': 0.8792289613689654, 'best_threshold': 0.94}
+2025-05-08 22:58:51 - INFO - running inference with roberta-base
+2025-05-08 23:01:10 - INFO -      val loss: 0.6861762370014408, output -7.0764851570129395
+2025-05-08 23:01:10 - INFO -      {'accuracy': 0.920854884356397, 'precision': 0.8816955939174872, 'recall': 0.8845817320511556, 'f1': 0.8831266575323297, 'best_threshold': 0.95}
+2025-05-08 23:01:10 - INFO - running inference with sentence-transformers/sentence-t5-base
+2025-05-08 23:01:11 - INFO - Use pytorch device_name: cuda:0
+2025-05-08 23:01:11 - INFO - Load pretrained SentenceTransformer: sentence-transformers/sentence-t5-base
+2025-05-08 23:02:03 - INFO -      val loss: 0.5202136741833149, output -15.158049583435059
+2025-05-08 23:02:04 - INFO -      {'accuracy': 0.911974236361862, 'precision': 0.888166048044797, 'recall': 0.8406405331994371, 'f1': 0.8612671867114208, 'best_threshold': 0.95}
+2025-05-08 23:02:04 - INFO - running inference with BAAI/bge-base-en-v1.5
+2025-05-08 23:02:04 - INFO - Use pytorch device_name: cuda:0
+2025-05-08 23:02:04 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2025-05-08 23:02:58 - INFO -      val loss: 0.5338636626501697, output -7.103654384613037
+2025-05-08 23:02:58 - INFO -      {'accuracy': 0.9001659022152825, 'precision': 0.8662589525239193, 'recall': 0.8258600902601951, 'f1': 0.8436138838636259, 'best_threshold': 0.9299999999999999}
+2025-05-08 23:02:58 - INFO - ensemble {'accuracy': 0.9321752708109691, 'precision': 0.9055581559324517, 'recall': 0.8901400149955565, 'f1': 0.8975347841672716, 'best_threshold': 0.7999999999999999}
+2025-05-08 23:02:58 - INFO - # of pos preds: 2088, total: 10247
+2025-05-08 23:02:58 - INFO - actual # of pos 2201

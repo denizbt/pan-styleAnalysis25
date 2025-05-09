@@ -1,0 +1,14 @@
+2025-05-08 22:51:46 - INFO - using avg-probs for ensemble
+2025-05-08 22:51:46 - INFO - running inference with sentence-transformers/all-MiniLM-L12-v2
+2025-05-08 22:51:47 - INFO -      {'accuracy': 0.9124621840538695, 'precision': 0.8691208592055784, 'recall': 0.8726363900529701, 'f1': 0.8708600036307614, 'best_threshold': 0.95}
+2025-05-08 22:51:47 - INFO - running inference with microsoft/deberta-base
+2025-05-08 22:51:47 - INFO -      {'accuracy': 0.9167561237435347, 'precision': 0.8716399401763242, 'recall': 0.8875826503285346, 'f1': 0.8792289613689654, 'best_threshold': 0.94}
+2025-05-08 22:51:47 - INFO - running inference with roberta-base
+2025-05-08 22:51:48 - INFO -      {'accuracy': 0.920854884356397, 'precision': 0.8816955939174872, 'recall': 0.8845817320511556, 'f1': 0.8831266575323297, 'best_threshold': 0.95}
+2025-05-08 22:51:48 - INFO - running inference with sentence-transformers/sentence-t5-base
+2025-05-08 22:51:48 - INFO -      {'accuracy': 0.911974236361862, 'precision': 0.888166048044797, 'recall': 0.8406405331994371, 'f1': 0.8612671867114208, 'best_threshold': 0.95}
+2025-05-08 22:51:48 - INFO - running inference with BAAI/bge-base-en-v1.5
+2025-05-08 22:51:49 - INFO -      {'accuracy': 0.9001659022152825, 'precision': 0.8662589525239193, 'recall': 0.8258600902601951, 'f1': 0.8436138838636259, 'best_threshold': 0.9299999999999999}
+2025-05-08 22:51:49 - INFO - ensemble {'accuracy': 0.9296379428125305, 'precision': 0.9005187500014571, 'recall': 0.8880292249596623, 'f1': 0.8940641871984789, 'best_threshold': 0.58}
+2025-05-08 22:51:49 - INFO - # of pos preds: 2108, total: 10247
+2025-05-08 22:51:49 - INFO - actual # of pos 2201
