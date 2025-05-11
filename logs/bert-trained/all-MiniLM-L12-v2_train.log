@@ -1,51 +1,62 @@
-2025-05-08 15:35:23 - INFO - read in data.
-2025-05-08 15:35:27 - INFO - starting training!
-2025-05-08 16:17:10 - INFO - epoch 0
-training loss: 1.0130
-val loss: 0.9854
-2025-05-08 16:17:10 - INFO - val metrics: {'accuracy': 0.8300944909966126, 'precision': 0.7388339346490502, 'recall': 0.748544924772634, 'f1': 0.743448021675532, 'best_threshold': 0.9}
+2025-05-08 22:06:40 - INFO - read in data.
+2025-05-08 22:06:45 - INFO - starting training!
+BERT LR 1e-5
+MLP LR 1e-6
+reduce LR on plateau scheduler
+2025-05-08 22:48:33 - INFO - epoch 0
+training loss: 0.8643
+val loss: 0.7488
+2025-05-08 22:48:33 - INFO - val metrics: {'accuracy': 0.8530041005526832, 'precision': 0.776956045303612, 'recall': 0.7509395403612213, 'f1': 0.762554930347118, 'best_threshold': 0.79}
 
-2025-05-08 16:58:56 - INFO - epoch 1
-training loss: 0.9790
-val loss: 0.9807
-2025-05-08 16:58:56 - INFO - val metrics: {'accuracy': 0.8337196172817496, 'precision': 0.7440882740643828, 'recall': 0.7520692647498535, 'f1': 0.7479208289956591, 'best_threshold': 0.9}
+2025-05-08 23:30:20 - INFO - epoch 1
+training loss: 0.7513
+val loss: 0.6928
+2025-05-08 23:30:20 - INFO - val metrics: {'accuracy': 0.8672074641944494, 'precision': 0.8071964022269951, 'recall': 0.7577423333467884, 'f1': 0.7780899279132818, 'best_threshold': 0.51}
 
-2025-05-08 17:40:38 - INFO - epoch 2
-training loss: 0.9688
-val loss: 0.9750
-2025-05-08 17:40:38 - INFO - val metrics: {'accuracy': 0.8308076305936887, 'precision': 0.7418190986993553, 'recall': 0.7689059288136844, 'f1': 0.753486583631199, 'best_threshold': 0.88}
+2025-05-09 00:12:26 - INFO - epoch 2
+training loss: 0.6874
+val loss: 0.6843
+2025-05-09 00:12:26 - INFO - val metrics: {'accuracy': 0.8611754917691805, 'precision': 0.7886591734722119, 'recall': 0.7720772290691024, 'f1': 0.7798321676903774, 'best_threshold': 0.9}
 
-2025-05-08 18:22:22 - INFO - epoch 3
-training loss: 0.9633
-val loss: 0.9725
-2025-05-08 18:22:22 - INFO - val metrics: {'accuracy': 0.8516669638081654, 'precision': 0.7736208720553567, 'recall': 0.7543863852078936, 'f1': 0.7632288309657931, 'best_threshold': 0.7}
+2025-05-09 00:54:12 - INFO - epoch 3
+training loss: 0.6256
+val loss: 0.6866
+2025-05-09 00:54:12 - INFO - val metrics: {'accuracy': 0.8635823379093124, 'precision': 0.7949301039272747, 'recall': 0.7672945041195741, 'f1': 0.779668250838188, 'best_threshold': 0.76}
 
-2025-05-08 19:04:09 - INFO - epoch 4
-training loss: 0.9581
-val loss: 0.9661
-2025-05-08 19:04:09 - INFO - val metrics: {'accuracy': 0.8541332382480538, 'precision': 0.7768535605613465, 'recall': 0.7629345261413722, 'f1': 0.769494201400341, 'best_threshold': 0.9}
+2025-05-09 01:35:57 - INFO - epoch 4
+training loss: 0.5676
+val loss: 0.6901
+2025-05-09 01:35:57 - INFO - val metrics: {'accuracy': 0.8675937481428656, 'precision': 0.8025352818996151, 'recall': 0.7712241867050813, 'f1': 0.7850884592075942, 'best_threshold': 0.71}
 
-2025-05-08 19:45:52 - INFO - epoch 5
-training loss: 0.9549
-val loss: 0.9651
-2025-05-08 19:45:52 - INFO - val metrics: {'accuracy': 0.8522612468057289, 'precision': 0.7726446212127488, 'recall': 0.7691925565773365, 'f1': 0.7708933890170635, 'best_threshold': 0.9}
+2025-05-09 02:17:45 - INFO - epoch 5
+training loss: 0.5010
+val loss: 0.7053
+2025-05-09 02:17:45 - INFO - val metrics: {'accuracy': 0.8534498128008557, 'precision': 0.7737315954266386, 'recall': 0.7793800410236837, 'f1': 0.7764884291368435, 'best_threshold': 0.9}
 
-2025-05-08 20:27:34 - INFO - epoch 6
-training loss: 0.9494
-val loss: 0.9653
-2025-05-08 20:27:34 - INFO - val metrics: {'accuracy': 0.8612349200689369, 'precision': 0.7911355161087136, 'recall': 0.7629989707207728, 'f1': 0.7755442834951687, 'best_threshold': 0.9}
+2025-05-09 02:59:30 - INFO - epoch 6
+training loss: 0.4453
+val loss: 0.7515
+2025-05-09 02:59:30 - INFO - val metrics: {'accuracy': 0.8613834908183277, 'precision': 0.789296580145948, 'recall': 0.771122653090625, 'f1': 0.779567837158762, 'best_threshold': 0.89}
 
-2025-05-08 21:09:15 - INFO - epoch 7
-training loss: 0.9452
-val loss: 0.9667
-2025-05-08 21:09:15 - INFO - val metrics: {'accuracy': 0.8469721281274143, 'precision': 0.7639630474398897, 'recall': 0.7690725927329143, 'f1': 0.766459867208153, 'best_threshold': 0.9}
+2025-05-09 03:41:12 - INFO - epoch 7
+training loss: 0.3948
+val loss: 0.8451
+2025-05-09 03:41:12 - INFO - val metrics: {'accuracy': 0.8424555773459321, 'precision': 0.7574310629015861, 'recall': 0.7779564805915855, 'f1': 0.766714776630685, 'best_threshold': 0.9}
 
-2025-05-08 21:51:00 - INFO - epoch 8
-training loss: 0.9415
-val loss: 0.9655
-2025-05-08 21:51:00 - INFO - val metrics: {'accuracy': 0.8476555535746122, 'precision': 0.7648867304394394, 'recall': 0.773408420660777, 'f1': 0.7689868312536757, 'best_threshold': 0.9}
+2025-05-09 04:22:54 - INFO - epoch 8
+training loss: 0.3538
+val loss: 0.9220
+2025-05-09 04:22:54 - INFO - val metrics: {'accuracy': 0.8523801034052416, 'precision': 0.7723426535337882, 'recall': 0.7746388704875331, 'f1': 0.7734795665333472, 'best_threshold': 0.9}
 
-CHOSEN BEST EPOCH DUE TO LOSS : 5
-training loss: 0.9549
-val loss: 0.9651
-metrics: {'accuracy': 0.8522612468057289, 'precision': 0.7726446212127488, 'recall': 0.7691925565773365, 'f1': 0.7708933890170635, 'best_threshold': 0.9}
+2025-05-09 05:04:37 - INFO - epoch 9
+training loss: 0.3130
+val loss: 0.8732
+2025-05-09 05:04:37 - INFO - val metrics: {'accuracy': 0.8465561300291199, 'precision': 0.7632100527928847, 'recall': 0.7803686175519061, 'f1': 0.7711279515513925, 'best_threshold': 0.89}
+
+2025-05-09 05:04:40 - INFO - early stopping triggered after 10 epochs.
+2025-05-09 05:04:40 - INFO - training over! best epoch was 4
+
+BEST CHOSEN EPOCH 4
+training loss: 0.5676
+val loss: 0.6901
+{'accuracy': 0.8675937481428656, 'precision': 0.8025352818996151, 'recall': 0.7712241867050813, 'f1': 0.7850884592075942, 'best_threshold': 0.71}

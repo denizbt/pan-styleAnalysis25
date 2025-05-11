@@ -1,11 +1,11 @@
 import torch
 from torch.utils.data import Dataset, DataLoader
 from torch import nn
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModel, get_linear_schedule_with_warmup
 from sentence_transformers import SentenceTransformer
+
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 from tqdm import tqdm
-import json
 import numpy as np
 import pickle
 import logging
@@ -25,7 +25,11 @@ def get_args():
   parser.add_argument("--run-inference", type=str, default="")
   parser.add_argument("--sentence-transformers", type=bool, default=False)
   parser.add_argument("--num-epochs", type=int, default=15)
+  parser.add_argument("--batch-size", type=int, default=16)
   parser.add_argument("--balanced-data", type=bool, default=False)
+  parser.add_argument("--bert-lr", type=float, default=1e-5)
+  parser.add_argument("--mlp_lr", type=float, default=1e-4)
+  parser.add_argument("--scheduler", type=str, default="reduce-plateau", help="If anything other than default, will use linear with 10% warmup.")
   
   return parser.parse_args()
 
@@ -147,7 +151,7 @@ class BertPairDataset(Dataset):
           'attention_mask2': tok2['attention_mask'].squeeze(0),
           'labels': torch.tensor(label, dtype=torch.float)}
 
-def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16, patience=5):
+def train(args, train_pairs, train_labels, val_pairs, val_labels, patience=5):
   """
   Training loop for BertStyleNN
   """
@@ -159,7 +163,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   train_set.return_raw_text = args.sentence_transformers
   val_set.return_raw_text = args.sentence_transformers
   
-  val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
+  val_loader = DataLoader(val_set, batch_size=args.batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
   if args.run_inference != "":
     model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling, logits_loss=True)
     model.load_state_dict(torch.load(args.run_inference))
@@ -170,7 +174,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
     np.save(f"{args.model_name}_preds_inference.npy", preds)
     return
 
-  train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
+  train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, num_workers=args.workers, pin_memory=True)
   
   # resume training both encoder and FFNN/MLP weights
   model = BertStyleNN(enc_model_name=args.model_name, use_sentence_transformers=args.sentence_transformers, pooling=args.pooling, logits_loss=True)
@@ -183,10 +187,20 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   bert_params = list(model.encoder.parameters())
   classifier_params = list(model.mlp.parameters())
   optimizer = torch.optim.AdamW([
-      {'params': bert_params, 'lr': 1e-5},  # Lower learning rate for BERT
-      {'params': classifier_params, 'lr': 1e-4}  # Higher learning rate for MLP
+      {'params': bert_params, 'lr': args.bert_lr},  # Lower learning rate for BERT
+      {'params': classifier_params, 'lr': args.mlp_lr}  # Higher learning rate for MLP
   ])
-  scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
+  
+  if args.scheduler == "reduce-plateau":
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
+  else:
+    total_steps = len(train_loader) * args.num_epochs
+    warmup_steps = int(0.1 * total_steps)  # 10% of total steps for warmup
+    scheduler = get_linear_schedule_with_warmup(
+        optimizer,
+        num_warmup_steps=warmup_steps,
+        num_training_steps=total_steps
+    )
 
   pos_weight = torch.tensor([0.8 / 0.2])  # ratio of negative to positive
   pos_weight = pos_weight.to(device)  # move to GPU if using cuda
@@ -197,10 +211,15 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
   patience_counter = 0
   best_epoch = 0
 
-  logging.info("starting training!")
+  logging.info("starting training with arguments:")
+  for arg, value in vars(args).items():
+      if value is None or value in ["", "None"]:
+        continue
+      logging.info(f"  {arg}: {value}")
+  
   for e in tqdm(range(args.num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
-    for batch in tqdm(train_loader, desc=f"train (epoch {e+1})", position=1, leave=False):
+    for batch in tqdm(train_loader, desc=f"train (epoch {e})", position=1, leave=False):
       model.train()
       optimizer.zero_grad()
       
@@ -219,6 +238,8 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
       loss = criterion(outputs, labels)
       loss.backward()
       optimizer.step()
+      if args.scheduler != "reduce-plateau":
+        scheduler.step()
 
       train_running_loss += loss.item()
     
@@ -236,7 +257,8 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
     logging.info(f"val metrics: {metrics}\n")
     
     # update learning rate using scheduler
-    scheduler.step(avg_val_loss)
+    if args.scheduler == "reduce-plateau":
+      scheduler.step(avg_val_loss)
 
     if metrics['f1'] > best_metrics['f1']:
         best_val_preds = val_preds
@@ -253,7 +275,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, batch_size=16,
             'epoch': e,
             'optimizer': optimizer.state_dict(),
         }, f"{file_name}-e{e}-optimizer.pth")
-      logging.info(f"early stopping triggered after {e+1} epochs.")
+      logging.info(f"early stopping triggered after {e} epochs.")
       break
     
     # save optimizer on the last epoch
