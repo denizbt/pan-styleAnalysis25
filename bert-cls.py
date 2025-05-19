@@ -20,7 +20,7 @@ def get_args():
   parser.add_argument("--model-name", type=str, default="roberta-base")
   parser.add_argument("--data-dir", type=str, default="data/")
   parser.add_argument("--workers", type=int, default=1)
-  parser.add_argument("--pooling", type=str, default="mean")
+  parser.add_argument("--pooling", type=str, default="mean", help="If anythiong other than mean passed in, uses [CLS] tokens.")
   parser.add_argument("--resume-training", type=str, default="None")
   parser.add_argument("--run-inference", type=str, default="")
   parser.add_argument("--sentence-transformers", type=bool, default=False)
@@ -28,8 +28,10 @@ def get_args():
   parser.add_argument("--batch-size", type=int, default=16)
   parser.add_argument("--balanced-data", type=bool, default=False)
   parser.add_argument("--bert-lr", type=float, default=1e-5)
-  parser.add_argument("--mlp_lr", type=float, default=1e-4)
+  parser.add_argument("--mlp-lr", type=float, default=1e-4)
+  parser.add_argument("--weight-decay", type=float, default=0.01)
   parser.add_argument("--scheduler", type=str, default="reduce-plateau", help="If anything other than default, will use linear with 10% warmup.")
+  parser.add_argument("--warmup-ratio", type=float, default=0, help="Used if scheduler is linear, otherwise ignored.")
   
   return parser.parse_args()
 
@@ -52,7 +54,7 @@ class BertStyleNN(nn.Module):
 
     # check if it's a sentence transformers model
     if use_sentence_transformers:
-      self.encoder = SentenceTransformer(enc_model_name)
+      self.encoder = SentenceTransformer(enc_model_name, trust_remote_code=True)
       with torch.no_grad():
         dummy_embedding = self.encoder.encode(["Hello"], convert_to_tensor=True)
         embedding_dim = dummy_embedding.shape[-1]
@@ -183,26 +185,32 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, patience=5):
     model.load_state_dict(torch.load(args.resume_training, map_location=device))
   model.to(device)
   print(f"model is on {device}")
+
+  logging.info("starting training with arguments:")
+  for arg, value in vars(args).items():
+      if value is None or value in ["", "None"]:
+        continue
+      logging.info(f"  {arg}: {value}")
   
   bert_params = list(model.encoder.parameters())
   classifier_params = list(model.mlp.parameters())
   optimizer = torch.optim.AdamW([
-      {'params': bert_params, 'lr': args.bert_lr},  # Lower learning rate for BERT
-      {'params': classifier_params, 'lr': args.mlp_lr}  # Higher learning rate for MLP
+      {'params': bert_params, 'lr': args.bert_lr, 'weight_decay': args.weight_decay},  # diff learning rates
+      {'params': classifier_params, 'lr': args.mlp_lr, 'weight_decay': 0.01}
   ])
   
   if args.scheduler == "reduce-plateau":
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
   else:
     total_steps = len(train_loader) * args.num_epochs
-    warmup_steps = int(0.1 * total_steps)  # 10% of total steps for warmup
+    warmup_steps = int(args.warmup_ratio * total_steps)  
     scheduler = get_linear_schedule_with_warmup(
         optimizer,
         num_warmup_steps=warmup_steps,
         num_training_steps=total_steps
     )
 
-  pos_weight = torch.tensor([0.8 / 0.2])  # ratio of negative to positive
+  pos_weight = torch.tensor([0.8 / 0.2])  # ratio of negative to positive (approx on training set)
   pos_weight = pos_weight.to(device)  # move to GPU if using cuda
   criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
   
@@ -211,12 +219,6 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, patience=5):
   patience_counter = 0
   best_epoch = 0
 
-  logging.info("starting training with arguments:")
-  for arg, value in vars(args).items():
-      if value is None or value in ["", "None"]:
-        continue
-      logging.info(f"  {arg}: {value}")
-  
   for e in tqdm(range(args.num_epochs), desc="Epochs", position=0):
     train_running_loss = 0
     for batch in tqdm(train_loader, desc=f"train (epoch {e})", position=1, leave=False):
@@ -247,7 +249,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, patience=5):
     file_name = args.model_name.split("/")
     file_name = file_name[len(file_name)-1]
     torch.save(model.state_dict(), f"{file_name}-e{e}.pth")
-    torch.save(model.encoder.state_dict(), f"enc-only-{file_name}-e{e}.pth")
+    # torch.save(model.encoder.state_dict(), f"enc-only-{file_name}-e{e}.pth")
     
     avg_train_loss = train_running_loss / len(train_loader)
     metrics, avg_val_loss, val_preds = val(model, val_loader, criterion, device)

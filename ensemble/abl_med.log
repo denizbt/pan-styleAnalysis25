@@ -1,0 +1,847 @@
+2025-05-18 23:09:36 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:38 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2') ensemble: {'accuracy': 0.8746766988008464, 'precision': 0.8297124345284825, 'recall': 0.778764602766601, 'f1': 0.7997673169305248, 'best_threshold': -1}
+2025-05-18 23:09:38 - INFO - # of pos preds: 2205, total: 12759
+2025-05-18 23:09:38 - INFO - actual # of pos 2750
+2025-05-18 23:09:38 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:39 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base') ensemble: {'accuracy': 0.8779684928285916, 'precision': 0.8398214893915412, 'recall': 0.7773024096494973, 'f1': 0.8020985139768122, 'best_threshold': -1}
+2025-05-18 23:09:39 - INFO - # of pos preds: 2109, total: 12759
+2025-05-18 23:09:39 - INFO - actual # of pos 2750
+2025-05-18 23:09:39 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:40 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8761658437181598, 'precision': 0.8373668697494694, 'recall': 0.7735161808917429, 'f1': 0.7986357282464833, 'best_threshold': -1}
+2025-05-18 23:09:40 - INFO - # of pos preds: 2092, total: 12759
+2025-05-18 23:09:40 - INFO - actual # of pos 2750
+2025-05-18 23:09:40 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:41 - INFO - ('deberta-base', 'roberta-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8783603730699898, 'precision': 0.8423801488330823, 'recall': 0.7754423745901416, 'f1': 0.8015757567789816, 'best_threshold': -1}
+2025-05-18 23:09:41 - INFO - # of pos preds: 2072, total: 12759
+2025-05-18 23:09:41 - INFO - actual # of pos 2750
+2025-05-18 23:09:41 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:42 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.876792852104397, 'precision': 0.8438530753871503, 'recall': 0.7677182535717854, 'f1': 0.7963487427671185, 'best_threshold': -1}
+2025-05-18 23:09:42 - INFO - # of pos preds: 1990, total: 12759
+2025-05-18 23:09:42 - INFO - actual # of pos 2750
+2025-05-18 23:09:42 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:44 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8747550748491261, 'precision': 0.8409783412570649, 'recall': 0.763518433409931, 'f1': 0.7923711871088492, 'best_threshold': -1}
+2025-05-18 23:09:44 - INFO - # of pos preds: 1972, total: 12759
+2025-05-18 23:09:44 - INFO - actual # of pos 2750
+2025-05-18 23:09:44 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:45 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8762442197664394, 'precision': 0.8461187639230305, 'recall': 0.7631489477651932, 'f1': 0.7935185197996459, 'best_threshold': -1}
+2025-05-18 23:09:45 - INFO - # of pos preds: 1933, total: 12759
+2025-05-18 23:09:45 - INFO - actual # of pos 2750
+2025-05-18 23:09:45 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:46 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8735794341249314, 'precision': 0.8513828398118141, 'recall': 0.7486597516780352, 'f1': 0.7832752362998527, 'best_threshold': -1}
+2025-05-18 23:09:46 - INFO - # of pos preds: 1773, total: 12759
+2025-05-18 23:09:46 - INFO - actual # of pos 2750
+2025-05-18 23:09:46 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:47 - INFO - ('deberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8767144760561173, 'precision': 0.862537763074392, 'recall': 0.7494711850243871, 'f1': 0.7864940874173, 'best_threshold': -1}
+2025-05-18 23:09:47 - INFO - # of pos preds: 1715, total: 12759
+2025-05-18 23:09:47 - INFO - actual # of pos 2750
+2025-05-18 23:09:47 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:48 - INFO - ('deberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8756955874284819, 'precision': 0.860593997693796, 'recall': 0.7477668643675237, 'f1': 0.7846155316628497, 'best_threshold': -1}
+2025-05-18 23:09:48 - INFO - # of pos preds: 1712, total: 12759
+2025-05-18 23:09:48 - INFO - actual # of pos 2750
+2025-05-18 23:09:48 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:49 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8742848185594483, 'precision': 0.8356717097391873, 'recall': 0.7683613656799789, 'f1': 0.7944037459934449, 'best_threshold': -1}
+2025-05-18 23:09:49 - INFO - # of pos preds: 2056, total: 12759
+2025-05-18 23:09:49 - INFO - actual # of pos 2750
+2025-05-18 23:09:49 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:50 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8735794341249314, 'precision': 0.8355107122557972, 'recall': 0.7658019600541331, 'f1': 0.7924863906667277, 'best_threshold': -1}
+2025-05-18 23:09:50 - INFO - # of pos preds: 2033, total: 12759
+2025-05-18 23:09:50 - INFO - actual # of pos 2750
+2025-05-18 23:09:50 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:52 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8750685790422447, 'precision': 0.8390727517144139, 'recall': 0.7670148321056504, 'f1': 0.7944343211773268, 'best_threshold': -1}
+2025-05-18 23:09:52 - INFO - # of pos preds: 2018, total: 12759
+2025-05-18 23:09:52 - INFO - actual # of pos 2750
+2025-05-18 23:09:52 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:53 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8728740496904146, 'precision': 0.8473026119593152, 'recall': 0.7500562402928274, 'f1': 0.7834526823069698, 'best_threshold': -1}
+2025-05-18 23:09:53 - INFO - # of pos preds: 1810, total: 12759
+2025-05-18 23:09:53 - INFO - actual # of pos 2750
+2025-05-18 23:09:53 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:54 - INFO - ('roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.875225331138804, 'precision': 0.8541541864854245, 'recall': 0.7516867546480894, 'f1': 0.7864300573096727, 'best_threshold': -1}
+2025-05-18 23:09:54 - INFO - # of pos preds: 1782, total: 12759
+2025-05-18 23:09:54 - INFO - actual # of pos 2750
+2025-05-18 23:09:54 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:55 - INFO - ('roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8745983227525668, 'precision': 0.856481886872396, 'recall': 0.747594946366452, 'f1': 0.7835542081861091, 'best_threshold': -1}
+2025-05-18 23:09:55 - INFO - # of pos preds: 1734, total: 12759
+2025-05-18 23:09:55 - INFO - actual # of pos 2750
+2025-05-18 23:09:55 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:56 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8709146484834235, 'precision': 0.8482686870753056, 'recall': 0.742477933496217, 'f1': 0.7773913631729495, 'best_threshold': -1}
+2025-05-18 23:09:56 - INFO - # of pos preds: 1739, total: 12759
+2025-05-18 23:09:56 - INFO - actual # of pos 2750
+2025-05-18 23:09:56 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:58 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8733443059800925, 'precision': 0.8563354063076843, 'recall': 0.7436309503265244, 'f1': 0.780152891323713, 'best_threshold': -1}
+2025-05-18 23:09:58 - INFO - # of pos preds: 1702, total: 12759
+2025-05-18 23:09:58 - INFO - actual # of pos 2750
+2025-05-18 23:09:58 - INFO - using maj-vote for ensemble
+2025-05-18 23:09:59 - INFO - ('all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8742064425111686, 'precision': 0.8587742115063444, 'recall': 0.7444441820543329, 'f1': 0.7813781617353827, 'best_threshold': -1}
+2025-05-18 23:09:59 - INFO - # of pos preds: 1695, total: 12759
+2025-05-18 23:09:59 - INFO - actual # of pos 2750
+2025-05-18 23:09:59 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:00 - INFO - ('sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8728740496904146, 'precision': 0.8617682114573773, 'recall': 0.7379248312882043, 'f1': 0.7763112691287277, 'best_threshold': -1}
+2025-05-18 23:10:00 - INFO - # of pos preds: 1626, total: 12759
+2025-05-18 23:10:00 - INFO - actual # of pos 2750
+2025-05-18 23:10:00 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:01 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8718551610627792, 'precision': 0.8196477987339188, 'recall': 0.7843505572257695, 'f1': 0.7997560323464479, 'best_threshold': -1}
+2025-05-18 23:10:01 - INFO - # of pos preds: 2353, total: 12759
+2025-05-18 23:10:01 - INFO - actual # of pos 2750
+2025-05-18 23:10:01 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:03 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8712281526765421, 'precision': 0.8193551481240122, 'recall': 0.7818411066403872, 'f1': 0.798062793392073, 'best_threshold': -1}
+2025-05-18 23:10:03 - INFO - # of pos preds: 2329, total: 12759
+2025-05-18 23:10:03 - INFO - actual # of pos 2750
+2025-05-18 23:10:03 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:05 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8732659299318128, 'precision': 0.822769247805917, 'recall': 0.7848541585300502, 'f1': 0.8012583913055276, 'best_threshold': -1}
+2025-05-18 23:10:05 - INFO - # of pos preds: 2329, total: 12759
+2025-05-18 23:10:05 - INFO - actual # of pos 2750
+2025-05-18 23:10:05 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:06 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8730308017869739, 'precision': 0.8245403631000501, 'recall': 0.7803528097439577, 'f1': 0.7990084057617906, 'best_threshold': -1}
+2025-05-18 23:10:06 - INFO - # of pos preds: 2266, total: 12759
+2025-05-18 23:10:06 - INFO - actual # of pos 2750
+2025-05-18 23:10:06 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:08 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8756955874284819, 'precision': 0.8296324821767304, 'recall': 0.7833699125332656, 'f1': 0.8028106558117638, 'best_threshold': -1}
+2025-05-18 23:10:08 - INFO - # of pos preds: 2252, total: 12759
+2025-05-18 23:10:08 - INFO - actual # of pos 2750
+2025-05-18 23:10:08 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:09 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8746766988008464, 'precision': 0.8288393991088548, 'recall': 0.7802150973215016, 'f1': 0.8004389051914256, 'best_threshold': -1}
+2025-05-18 23:10:09 - INFO - # of pos preds: 2227, total: 12759
+2025-05-18 23:10:09 - INFO - actual # of pos 2750
+2025-05-18 23:10:09 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:11 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8720902892076181, 'precision': 0.8268229573291206, 'recall': 0.7722371502011827, 'f1': 0.7943398735477943, 'best_threshold': -1}
+2025-05-18 23:10:11 - INFO - # of pos preds: 2164, total: 12759
+2025-05-18 23:10:11 - INFO - actual # of pos 2750
+2025-05-18 23:10:11 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:12 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.874990202993965, 'precision': 0.8336007088269599, 'recall': 0.7740854866983351, 'f1': 0.7978406486700391, 'best_threshold': -1}
+2025-05-18 23:10:12 - INFO - # of pos preds: 2127, total: 12759
+2025-05-18 23:10:12 - INFO - actual # of pos 2750
+2025-05-18 23:10:12 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:14 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8738145622697704, 'precision': 0.8318872856152895, 'recall': 0.7717538033951261, 'f1': 0.7956512959068562, 'best_threshold': -1}
+2025-05-18 23:10:14 - INFO - # of pos preds: 2118, total: 12759
+2025-05-18 23:10:14 - INFO - actual # of pos 2750
+2025-05-18 23:10:14 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:15 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8739713143663297, 'precision': 0.8415233370088036, 'recall': 0.7599860307541395, 'f1': 0.7898306259846468, 'best_threshold': -1}
+2025-05-18 23:10:15 - INFO - # of pos preds: 1936, total: 12759
+2025-05-18 23:10:15 - INFO - actual # of pos 2750
+2025-05-18 23:10:15 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:17 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8710714005799828, 'precision': 0.8228801116457574, 'recall': 0.7743568606436025, 'f1': 0.7944474585194276, 'best_threshold': -1}
+2025-05-18 23:10:17 - INFO - # of pos preds: 2219, total: 12759
+2025-05-18 23:10:17 - INFO - actual # of pos 2750
+2025-05-18 23:10:17 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:18 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8724821694490164, 'precision': 0.8257192999770435, 'recall': 0.7757835039373655, 'f1': 0.7963857844157198, 'best_threshold': -1}
+2025-05-18 23:10:18 - INFO - # of pos preds: 2209, total: 12759
+2025-05-18 23:10:18 - INFO - actual # of pos 2750
+2025-05-18 23:10:18 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:20 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8724037934007367, 'precision': 0.826646710297069, 'recall': 0.7738874649179375, 'f1': 0.7954139574222248, 'best_threshold': -1}
+2025-05-18 23:10:20 - INFO - # of pos preds: 2182, total: 12759
+2025-05-18 23:10:20 - INFO - actual # of pos 2750
+2025-05-18 23:10:20 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:22 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8720119131593385, 'precision': 0.8353552280391232, 'recall': 0.7599239230147412, 'f1': 0.7880663543244384, 'best_threshold': -1}
+2025-05-18 23:10:22 - INFO - # of pos preds: 1979, total: 12759
+2025-05-18 23:10:22 - INFO - actual # of pos 2750
+2025-05-18 23:10:22 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:23 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.87169840896622, 'precision': 0.8385431861648676, 'recall': 0.7549770297641214, 'f1': 0.7851504874114583, 'best_threshold': -1}
+2025-05-18 23:10:23 - INFO - # of pos preds: 1911, total: 12759
+2025-05-18 23:10:23 - INFO - actual # of pos 2750
+2025-05-18 23:10:23 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:25 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8677796065522376, 'precision': 0.8096782881321971, 'recall': 0.7863681050690742, 'f1': 0.7969985360403109, 'best_threshold': -1}
+2025-05-18 23:10:25 - INFO - # of pos preds: 2475, total: 12759
+2025-05-18 23:10:25 - INFO - actual # of pos 2750
+2025-05-18 23:10:25 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:27 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8700525119523473, 'precision': 0.8131889241767587, 'recall': 0.7900584746455463, 'f1': 0.8006298027335621, 'best_threshold': -1}
+2025-05-18 23:10:27 - INFO - # of pos preds: 2480, total: 12759
+2025-05-18 23:10:27 - INFO - actual # of pos 2750
+2025-05-18 23:10:27 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:29 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.8138919526514168, 'recall': 0.7886579351311094, 'f1': 0.8000965625960523, 'best_threshold': -1}
+2025-05-18 23:10:29 - INFO - # of pos preds: 2457, total: 12759
+2025-05-18 23:10:29 - INFO - actual # of pos 2750
+2025-05-18 23:10:29 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:31 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.871463280821381, 'precision': 0.8180049695397709, 'recall': 0.785946866002416, 'f1': 0.8001111022461638, 'best_threshold': -1}
+2025-05-18 23:10:31 - INFO - # of pos preds: 2386, total: 12759
+2025-05-18 23:10:31 - INFO - actual # of pos 2750
+2025-05-18 23:10:31 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:33 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8709930245317031, 'precision': 0.8201656715171142, 'recall': 0.7790539786919046, 'f1': 0.7965777254225281, 'best_threshold': -1}
+2025-05-18 23:10:33 - INFO - # of pos preds: 2292, total: 12759
+2025-05-18 23:10:33 - INFO - actual # of pos 2750
+2025-05-18 23:10:33 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:35 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8694255035661101, 'precision': 0.8156390763281387, 'recall': 0.7806921407097249, 'f1': 0.7959293615571494, 'best_threshold': -1}
+2025-05-18 23:10:35 - INFO - # of pos preds: 2352, total: 12759
+2025-05-18 23:10:35 - INFO - actual # of pos 2750
+2025-05-18 23:10:35 - INFO - using maj-vote for ensemble
+2025-05-18 23:10:37 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.866368837683204, 'precision': 0.8048873365078337, 'recall': 0.7923257976911688, 'f1': 0.7983011568649298, 'best_threshold': -1}
+2025-05-18 23:10:37 - INFO - # of pos preds: 2597, total: 12759
+2025-05-18 23:10:37 - INFO - actual # of pos 2750
+2025-05-18 23:10:37 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:38 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2') ensemble: {'accuracy': 0.8703660161454659, 'precision': 0.81580292499276, 'recall': 0.7852474954359259, 'f1': 0.7988145692081239, 'best_threshold': 0.61}
+2025-05-18 23:10:38 - INFO - # of pos preds: 2400, total: 12759
+2025-05-18 23:10:38 - INFO - actual # of pos 2750
+2025-05-18 23:10:38 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:40 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base') ensemble: {'accuracy': 0.8721686652558978, 'precision': 0.82048307685802, 'recall': 0.7841547879635601, 'f1': 0.7999517036967965, 'best_threshold': 0.6}
+2025-05-18 23:10:40 - INFO - # of pos preds: 2343, total: 12759
+2025-05-18 23:10:40 - INFO - actual # of pos 2750
+2025-05-18 23:10:40 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:41 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8729524257386942, 'precision': 0.8245142142822499, 'recall': 0.7800391284207849, 'f1': 0.7987934223980344, 'best_threshold': 0.62}
+2025-05-18 23:10:41 - INFO - # of pos preds: 2263, total: 12759
+2025-05-18 23:10:41 - INFO - actual # of pos 2750
+2025-05-18 23:10:41 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:43 - INFO - ('deberta-base', 'roberta-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8704443921937456, 'precision': 0.8152952660200427, 'recall': 0.7868798081726447, 'f1': 0.7996038754831183, 'best_threshold': 0.58}
+2025-05-18 23:10:43 - INFO - # of pos preds: 2423, total: 12759
+2025-05-18 23:10:43 - INFO - actual # of pos 2750
+2025-05-18 23:10:43 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:44 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8676228544556783, 'precision': 0.8109692857547426, 'recall': 0.7820485744647998, 'f1': 0.7949437290533472, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:10:44 - INFO - # of pos preds: 2413, total: 12759
+2025-05-18 23:10:44 - INFO - actual # of pos 2750
+2025-05-18 23:10:44 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:46 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8245700771374713, 'recall': 0.7753019555127658, 'f1': 0.795666033938078, 'best_threshold': 0.6}
+2025-05-18 23:10:46 - INFO - # of pos preds: 2214, total: 12759
+2025-05-18 23:10:46 - INFO - actual # of pos 2750
+2025-05-18 23:10:46 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:47 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8709146484834235, 'precision': 0.8182683618145037, 'recall': 0.7825643284680152, 'f1': 0.7981082382995104, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:10:47 - INFO - # of pos preds: 2347, total: 12759
+2025-05-18 23:10:47 - INFO - actual # of pos 2750
+2025-05-18 23:10:47 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:49 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8303820179973693, 'recall': 0.7662033987592984, 'f1': 0.7912248029212857, 'best_threshold': 0.6}
+2025-05-18 23:10:49 - INFO - # of pos preds: 2076, total: 12759
+2025-05-18 23:10:49 - INFO - actual # of pos 2750
+2025-05-18 23:10:49 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:50 - INFO - ('deberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8689552472764324, 'precision': 0.8176990823953996, 'recall': 0.7740629796819227, 'f1': 0.7924317636891202, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:10:50 - INFO - # of pos preds: 2262, total: 12759
+2025-05-18 23:10:50 - INFO - actual # of pos 2750
+2025-05-18 23:10:50 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:52 - INFO - ('deberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8673877263108394, 'precision': 0.8121367832218962, 'recall': 0.7779428151027712, 'f1': 0.7928663653301334, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:10:52 - INFO - # of pos preds: 2356, total: 12759
+2025-05-18 23:10:52 - INFO - actual # of pos 2750
+2025-05-18 23:10:52 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:53 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8655850772004076, 'precision': 0.8068656457183101, 'recall': 0.7811453328368105, 'f1': 0.7927438660626076, 'best_threshold': 0.58}
+2025-05-18 23:10:53 - INFO - # of pos preds: 2445, total: 12759
+2025-05-18 23:10:53 - INFO - actual # of pos 2750
+2025-05-18 23:10:53 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:55 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.8214646800722144, 'recall': 0.7725706318858482, 'f1': 0.7927581838516724, 'best_threshold': 0.62}
+2025-05-18 23:10:55 - INFO - # of pos preds: 2213, total: 12759
+2025-05-18 23:10:55 - INFO - actual # of pos 2750
+2025-05-18 23:10:55 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:56 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8683282388901952, 'precision': 0.8148928007406603, 'recall': 0.7766961916093698, 'f1': 0.7931169312194233, 'best_threshold': 0.59}
+2025-05-18 23:10:56 - INFO - # of pos preds: 2316, total: 12759
+2025-05-18 23:10:56 - INFO - actual # of pos 2750
+2025-05-18 23:10:56 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:57 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8713849047731014, 'precision': 0.828512945658849, 'recall': 0.766644892324181, 'f1': 0.7909607047915057, 'best_threshold': 0.62}
+2025-05-18 23:10:57 - INFO - # of pos preds: 2095, total: 12759
+2025-05-18 23:10:57 - INFO - actual # of pos 2750
+2025-05-18 23:10:57 - INFO - using avg-probs for ensemble
+2025-05-18 23:10:59 - INFO - ('roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8670742221177208, 'precision': 0.8148038117530036, 'recall': 0.7706223853077685, 'f1': 0.7891342195818105, 'best_threshold': 0.59}
+2025-05-18 23:10:59 - INFO - # of pos preds: 2252, total: 12759
+2025-05-18 23:10:59 - INFO - actual # of pos 2750
+2025-05-18 23:10:59 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:00 - INFO - ('roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869033623324712, 'precision': 0.820971212239685, 'recall': 0.7684428196441384, 'f1': 0.7897832909068455, 'best_threshold': 0.61}
+2025-05-18 23:11:00 - INFO - # of pos preds: 2175, total: 12759
+2025-05-18 23:11:00 - INFO - actual # of pos 2750
+2025-05-18 23:11:00 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:02 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8633905478485775, 'precision': 0.8079491013498553, 'recall': 0.7662965512856611, 'f1': 0.7838455636472521, 'best_threshold': 0.57}
+2025-05-18 23:11:02 - INFO - # of pos preds: 2269, total: 12759
+2025-05-18 23:11:02 - INFO - actual # of pos 2750
+2025-05-18 23:11:02 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:03 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8591582412414766, 'precision': 0.7949267922078767, 'recall': 0.7770490195187967, 'f1': 0.7853427034254291, 'best_threshold': 0.5299999999999999}
+2025-05-18 23:11:03 - INFO - # of pos preds: 2527, total: 12759
+2025-05-18 23:11:03 - INFO - actual # of pos 2750
+2025-05-18 23:11:03 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:05 - INFO - ('all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8668390939728818, 'precision': 0.8184592435876102, 'recall': 0.762824457987811, 'f1': 0.7850626930112792, 'best_threshold': 0.59}
+2025-05-18 23:11:05 - INFO - # of pos preds: 2139, total: 12759
+2025-05-18 23:11:05 - INFO - actual # of pos 2750
+2025-05-18 23:11:05 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:06 - INFO - ('sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8671525981660004, 'precision': 0.8253028753600836, 'recall': 0.7537938582548434, 'f1': 0.7805927863827047, 'best_threshold': 0.61}
+2025-05-18 23:11:06 - INFO - # of pos preds: 1995, total: 12759
+2025-05-18 23:11:06 - INFO - actual # of pos 2750
+2025-05-18 23:11:06 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:08 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.869895759855788, 'precision': 0.8143768531424986, 'recall': 0.7861345334653358, 'f1': 0.7987842582646132, 'best_threshold': 0.58}
+2025-05-18 23:11:08 - INFO - # of pos preds: 2424, total: 12759
+2025-05-18 23:11:08 - INFO - actual # of pos 2750
+2025-05-18 23:11:08 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:10 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8726389215455757, 'precision': 0.8249280919973792, 'recall': 0.7778613611386116, 'f1': 0.7975020963618457, 'best_threshold': 0.61}
+2025-05-18 23:11:10 - INFO - # of pos preds: 2237, total: 12759
+2025-05-18 23:11:10 - INFO - actual # of pos 2750
+2025-05-18 23:11:10 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:12 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8694255035661101, 'precision': 0.8115221808211965, 'recall': 0.7909774657353836, 'f1': 0.8004592447291337, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:11:12 - INFO - # of pos preds: 2508, total: 12759
+2025-05-18 23:11:12 - INFO - actual # of pos 2750
+2025-05-18 23:11:12 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:14 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8680147346970766, 'precision': 0.8107617904637979, 'recall': 0.7848037493528551, 'f1': 0.796519341147934, 'best_threshold': 0.57}
+2025-05-18 23:11:14 - INFO - # of pos preds: 2446, total: 12759
+2025-05-18 23:11:14 - INFO - actual # of pos 2750
+2025-05-18 23:11:14 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:16 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8740496904146093, 'precision': 0.8260296195316756, 'recall': 0.7823208566835302, 'f1': 0.8008311510889867, 'best_threshold': 0.58}
+2025-05-18 23:11:16 - INFO - # of pos preds: 2273, total: 12759
+2025-05-18 23:11:16 - INFO - actual # of pos 2750
+2025-05-18 23:11:16 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:17 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8707578963868642, 'precision': 0.8181922795044131, 'recall': 0.7819369658216696, 'f1': 0.79768429014033, 'best_threshold': 0.58}
+2025-05-18 23:11:17 - INFO - # of pos preds: 2341, total: 12759
+2025-05-18 23:11:17 - INFO - actual # of pos 2750
+2025-05-18 23:11:17 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:19 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8722470413041774, 'precision': 0.8275990324128382, 'recall': 0.7716777445753368, 'f1': 0.7942089280515092, 'best_threshold': 0.59}
+2025-05-18 23:11:19 - INFO - # of pos preds: 2152, total: 12759
+2025-05-18 23:11:19 - INFO - actual # of pos 2750
+2025-05-18 23:11:19 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:21 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869895759855788, 'precision': 0.8166623315020506, 'recall': 0.7808600078111518, 'f1': 0.7964247470700074, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:11:21 - INFO - # of pos preds: 2344, total: 12759
+2025-05-18 23:11:21 - INFO - actual # of pos 2750
+2025-05-18 23:11:21 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:23 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8688768712281527, 'precision': 0.8133925654350831, 'recall': 0.7829797182535718, 'f1': 0.7964739619851762, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:11:23 - INFO - # of pos preds: 2399, total: 12759
+2025-05-18 23:11:23 - INFO - actual # of pos 2750
+2025-05-18 23:11:23 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:25 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8277139014667136, 'recall': 0.7701592929999364, 'f1': 0.7931888746237004, 'best_threshold': 0.58}
+2025-05-18 23:11:25 - INFO - # of pos preds: 2136, total: 12759
+2025-05-18 23:11:25 - INFO - actual # of pos 2750
+2025-05-18 23:11:25 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:27 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.8222923348596609, 'recall': 0.7711201373309476, 'f1': 0.7920579915461994, 'best_threshold': 0.6}
+2025-05-18 23:11:27 - INFO - # of pos preds: 2191, total: 12759
+2025-05-18 23:11:27 - INFO - actual # of pos 2750
+2025-05-18 23:11:27 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:28 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8703660161454659, 'precision': 0.8200480794320701, 'recall': 0.7762808018238132, 'f1': 0.7947282334395414, 'best_threshold': 0.58}
+2025-05-18 23:11:28 - INFO - # of pos preds: 2264, total: 12759
+2025-05-18 23:11:28 - INFO - actual # of pos 2750
+2025-05-18 23:11:28 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:30 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8710714005799828, 'precision': 0.8247332309314126, 'recall': 0.7711921452510921, 'f1': 0.7929261750129889, 'best_threshold': 0.6}
+2025-05-18 23:11:30 - INFO - # of pos preds: 2171, total: 12759
+2025-05-18 23:11:30 - INFO - actual # of pos 2750
+2025-05-18 23:11:30 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:32 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.87389293831805, 'precision': 0.8399419585794072, 'recall': 0.761518433409931, 'f1': 0.79056459056032, 'best_threshold': 0.62}
+2025-05-18 23:11:32 - INFO - # of pos preds: 1961, total: 12759
+2025-05-18 23:11:32 - INFO - actual # of pos 2750
+2025-05-18 23:11:32 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:34 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8696606317109491, 'precision': 0.8278180304321221, 'recall': 0.7605350820625074, 'f1': 0.7863286625707807, 'best_threshold': 0.59}
+2025-05-18 23:11:34 - INFO - # of pos preds: 2041, total: 12759
+2025-05-18 23:11:34 - INFO - actual # of pos 2750
+2025-05-18 23:11:34 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:36 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8704443921937456, 'precision': 0.8182944010545765, 'recall': 0.7801547879635601, 'f1': 0.7965928178451598, 'best_threshold': 0.58}
+2025-05-18 23:11:36 - INFO - # of pos preds: 2321, total: 12759
+2025-05-18 23:11:36 - INFO - actual # of pos 2750
+2025-05-18 23:11:36 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:38 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8722470413041774, 'precision': 0.8208368216234119, 'recall': 0.7838091535799598, 'f1': 0.7998677831355501, 'best_threshold': 0.57}
+2025-05-18 23:11:38 - INFO - # of pos preds: 2336, total: 12759
+2025-05-18 23:11:38 - INFO - actual # of pos 2750
+2025-05-18 23:11:38 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:41 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8733443059800925, 'precision': 0.8262610870226281, 'recall': 0.7787065459268476, 'f1': 0.7985318481300481, 'best_threshold': 0.59}
+2025-05-18 23:11:41 - INFO - # of pos preds: 2234, total: 12759
+2025-05-18 23:11:41 - INFO - actual # of pos 2750
+2025-05-18 23:11:41 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:43 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8698173838075084, 'precision': 0.8148770275692073, 'recall': 0.784502220728617, 'f1': 0.7979924243366605, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:11:43 - INFO - # of pos preds: 2401, total: 12759
+2025-05-18 23:11:43 - INFO - actual # of pos 2750
+2025-05-18 23:11:43 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:45 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869895759855788, 'precision': 0.8168452873134289, 'recall': 0.780464418387088, 'f1': 0.7962445395690763, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:11:45 - INFO - # of pos preds: 2338, total: 12759
+2025-05-18 23:11:45 - INFO - actual # of pos 2750
+2025-05-18 23:11:45 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:47 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.872325417352457, 'precision': 0.8313353224743174, 'recall': 0.7664531739616164, 'f1': 0.7916981195384413, 'best_threshold': 0.6}
+2025-05-18 23:11:47 - INFO - # of pos preds: 2071, total: 12759
+2025-05-18 23:11:47 - INFO - actual # of pos 2750
+2025-05-18 23:11:47 - INFO - using avg-probs for ensemble
+2025-05-18 23:11:50 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8732659299318128, 'precision': 0.8263151873963896, 'recall': 0.7782610014623204, 'f1': 0.7982538590606767, 'best_threshold': 0.58}
+2025-05-18 23:11:50 - INFO - # of pos preds: 2229, total: 12759
+2025-05-18 23:11:50 - INFO - actual # of pos 2750
+2025-05-18 23:11:50 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:51 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2') ensemble: {'accuracy': 0.8783603730699898, 'precision': 0.8483494706476653, 'recall': 0.7683217649569933, 'f1': 0.7980834435334676, 'best_threshold': 0.69}
+2025-05-18 23:11:51 - INFO - # of pos preds: 1964, total: 12759
+2025-05-18 23:11:51 - INFO - actual # of pos 2750
+2025-05-18 23:11:51 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:53 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base') ensemble: {'accuracy': 0.8668390939728818, 'precision': 0.8054628963482523, 'recall': 0.7935485699234326, 'f1': 0.799231584713437, 'best_threshold': 0.57}
+2025-05-18 23:11:53 - INFO - # of pos preds: 2605, total: 12759
+2025-05-18 23:11:53 - INFO - actual # of pos 2750
+2025-05-18 23:11:53 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:54 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.815842642406694, 'recall': 0.7839108620423437, 'f1': 0.7980096631493272, 'best_threshold': 0.61}
+2025-05-18 23:11:54 - INFO - # of pos preds: 2385, total: 12759
+2025-05-18 23:11:54 - INFO - actual # of pos 2750
+2025-05-18 23:11:54 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:56 - INFO - ('deberta-base', 'roberta-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8699741359040677, 'precision': 0.8135889757064401, 'recall': 0.7885580250501821, 'f1': 0.7999124223773983, 'best_threshold': 0.58}
+2025-05-18 23:11:56 - INFO - # of pos preds: 2459, total: 12759
+2025-05-18 23:11:56 - INFO - actual # of pos 2750
+2025-05-18 23:11:56 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:57 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8684849909867545, 'precision': 0.8136706512665923, 'recall': 0.7802245433655165, 'f1': 0.7948812718923524, 'best_threshold': 0.57}
+2025-05-18 23:11:57 - INFO - # of pos preds: 2366, total: 12759
+2025-05-18 23:11:57 - INFO - actual # of pos 2750
+2025-05-18 23:11:57 - INFO - using avg-logits for ensemble
+2025-05-18 23:11:59 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8699741359040677, 'precision': 0.8176306848847616, 'recall': 0.7791957420140057, 'f1': 0.7957333010940764, 'best_threshold': 0.59}
+2025-05-18 23:11:59 - INFO - # of pos preds: 2317, total: 12759
+2025-05-18 23:11:59 - INFO - actual # of pos 2750
+2025-05-18 23:11:59 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:00 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869268751469551, 'precision': 0.8145659545251764, 'recall': 0.7823064514664075, 'f1': 0.7965204850462433, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:12:00 - INFO - # of pos preds: 2380, total: 12759
+2025-05-18 23:12:00 - INFO - actual # of pos 2750
+2025-05-18 23:12:00 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:02 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.866603965828043, 'precision': 0.81100420462652, 'recall': 0.7763883595672985, 'f1': 0.7914583441369495, 'best_threshold': 0.57}
+2025-05-18 23:12:02 - INFO - # of pos preds: 2350, total: 12759
+2025-05-18 23:12:02 - INFO - actual # of pos 2750
+2025-05-18 23:12:02 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:03 - INFO - ('deberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8686417430833138, 'precision': 0.8154203375938167, 'recall': 0.7771597380539332, 'f1': 0.7936095099546151, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:12:03 - INFO - # of pos preds: 2316, total: 12759
+2025-05-18 23:12:03 - INFO - actual # of pos 2750
+2025-05-18 23:12:03 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:05 - INFO - ('deberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8685633670350341, 'precision': 0.8145897938568166, 'recall': 0.7785602775683702, 'f1': 0.7941882617077675, 'best_threshold': 0.57}
+2025-05-18 23:12:05 - INFO - # of pos preds: 2339, total: 12759
+2025-05-18 23:12:05 - INFO - actual # of pos 2750
+2025-05-18 23:12:05 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:06 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8681714867936359, 'precision': 0.8143244668370313, 'recall': 0.777123734093861, 'f1': 0.7931775723415588, 'best_threshold': 0.6}
+2025-05-18 23:12:06 - INFO - # of pos preds: 2326, total: 12759
+2025-05-18 23:12:06 - INFO - actual # of pos 2750
+2025-05-18 23:12:06 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:08 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8739713143663297, 'precision': 0.8375351954659271, 'recall': 0.764733103842905, 'f1': 0.7922931138793927, 'best_threshold': 0.6599999999999999}
+2025-05-18 23:12:08 - INFO - # of pos preds: 2008, total: 12759
+2025-05-18 23:12:08 - INFO - actual # of pos 2750
+2025-05-18 23:12:08 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:09 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8681714867936359, 'precision': 0.814567747825635, 'recall': 0.7765962815284426, 'f1': 0.7929321327742217, 'best_threshold': 0.6}
+2025-05-18 23:12:09 - INFO - # of pos preds: 2318, total: 12759
+2025-05-18 23:12:09 - INFO - actual # of pos 2750
+2025-05-18 23:12:09 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:11 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8718551610627792, 'precision': 0.8299154541384546, 'recall': 0.7665490331428987, 'f1': 0.7913290111628313, 'best_threshold': 0.63}
+2025-05-18 23:12:11 - INFO - # of pos preds: 2083, total: 12759
+2025-05-18 23:12:11 - INFO - actual # of pos 2750
+2025-05-18 23:12:11 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:12 - INFO - ('roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8660553334900855, 'precision': 0.811156840702341, 'recall': 0.7731376851742522, 'f1': 0.7894519182958617, 'best_threshold': 0.59}
+2025-05-18 23:12:12 - INFO - # of pos preds: 2313, total: 12759
+2025-05-18 23:12:12 - INFO - actual # of pos 2750
+2025-05-18 23:12:12 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:13 - INFO - ('roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8686417430833138, 'precision': 0.8203931304262968, 'recall': 0.7676655918764022, 'f1': 0.7890564943631428, 'best_threshold': 0.62}
+2025-05-18 23:12:13 - INFO - # of pos preds: 2172, total: 12759
+2025-05-18 23:12:13 - INFO - actual # of pos 2750
+2025-05-18 23:12:13 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:15 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8642526843796535, 'precision': 0.8103956774310437, 'recall': 0.7655274253172145, 'f1': 0.7842011475373336, 'best_threshold': 0.58}
+2025-05-18 23:12:15 - INFO - # of pos preds: 2238, total: 12759
+2025-05-18 23:12:15 - INFO - actual # of pos 2750
+2025-05-18 23:12:15 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:16 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8600203777725527, 'precision': 0.7972915599826922, 'recall': 0.7748293989954496, 'f1': 0.7850550393141191, 'best_threshold': 0.5399999999999999}
+2025-05-18 23:12:16 - INFO - # of pos preds: 2474, total: 12759
+2025-05-18 23:12:16 - INFO - actual # of pos 2750
+2025-05-18 23:12:16 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:18 - INFO - ('all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8685633670350341, 'precision': 0.824153560131168, 'recall': 0.7612862060509178, 'f1': 0.7857647549988181, 'best_threshold': 0.61}
+2025-05-18 23:12:18 - INFO - # of pos preds: 2077, total: 12759
+2025-05-18 23:12:18 - INFO - actual # of pos 2750
+2025-05-18 23:12:18 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:19 - INFO - ('sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8664472137314837, 'precision': 0.8216169518054777, 'recall': 0.7561133888591177, 'f1': 0.7812362375460231, 'best_threshold': 0.61}
+2025-05-18 23:12:19 - INFO - # of pos preds: 2046, total: 12759
+2025-05-18 23:12:19 - INFO - actual # of pos 2750
+2025-05-18 23:12:19 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:21 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8691119993729917, 'precision': 0.8122286665272767, 'recall': 0.7872173407569552, 'f1': 0.7985569865245379, 'best_threshold': 0.58}
+2025-05-18 23:12:21 - INFO - # of pos preds: 2458, total: 12759
+2025-05-18 23:12:21 - INFO - actual # of pos 2750
+2025-05-18 23:12:21 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:23 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8687984951798731, 'precision': 0.8121280827736193, 'recall': 0.7856988891815548, 'f1': 0.7976116610496973, 'best_threshold': 0.59}
+2025-05-18 23:12:23 - INFO - # of pos preds: 2442, total: 12759
+2025-05-18 23:12:23 - INFO - actual # of pos 2750
+2025-05-18 23:12:23 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:25 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869033623324712, 'precision': 0.8124822732238425, 'recall': 0.7861124805856547, 'f1': 0.7980033297733324, 'best_threshold': 0.57}
+2025-05-18 23:12:25 - INFO - # of pos preds: 2443, total: 12759
+2025-05-18 23:12:25 - INFO - actual # of pos 2750
+2025-05-18 23:12:25 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:27 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.867701230503958, 'precision': 0.8090186797132863, 'recall': 0.7877686445835113, 'f1': 0.7975389407631126, 'best_threshold': 0.57}
+2025-05-18 23:12:27 - INFO - # of pos preds: 2498, total: 12759
+2025-05-18 23:12:27 - INFO - actual # of pos 2750
+2025-05-18 23:12:27 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:29 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.872795673642135, 'precision': 0.8220468168749885, 'recall': 0.7840269757218503, 'f1': 0.8004618893982525, 'best_threshold': 0.58}
+2025-05-18 23:12:29 - INFO - # of pos preds: 2327, total: 12759
+2025-05-18 23:12:29 - INFO - actual # of pos 2750
+2025-05-18 23:12:29 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:30 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8732659299318128, 'precision': 0.8277223901459214, 'recall': 0.7758874649179375, 'f1': 0.7971401019004255, 'best_threshold': 0.61}
+2025-05-18 23:12:30 - INFO - # of pos preds: 2193, total: 12759
+2025-05-18 23:12:30 - INFO - actual # of pos 2750
+2025-05-18 23:12:30 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:32 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8713849047731014, 'precision': 0.8245746449630107, 'recall': 0.7728424599678472, 'f1': 0.7940025116765174, 'best_threshold': 0.59}
+2025-05-18 23:12:32 - INFO - # of pos preds: 2189, total: 12759
+2025-05-18 23:12:32 - INFO - actual # of pos 2750
+2025-05-18 23:12:32 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:34 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8720902892076181, 'precision': 0.8240905292212556, 'recall': 0.7768523601485935, 'f1': 0.7965371139531179, 'best_threshold': 0.57}
+2025-05-18 23:12:34 - INFO - # of pos preds: 2234, total: 12759
+2025-05-18 23:12:34 - INFO - actual # of pos 2750
+2025-05-18 23:12:34 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:36 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8709146484834235, 'precision': 0.8195370924710249, 'recall': 0.7799270656409232, 'f1': 0.7969091171069629, 'best_threshold': 0.57}
+2025-05-18 23:12:36 - INFO - # of pos preds: 2307, total: 12759
+2025-05-18 23:12:36 - INFO - actual # of pos 2750
+2025-05-18 23:12:36 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:38 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8706011442903049, 'precision': 0.8227364234290859, 'recall': 0.7724747727045659, 'f1': 0.7931288940166163, 'best_threshold': 0.58}
+2025-05-18 23:12:38 - INFO - # of pos preds: 2201, total: 12759
+2025-05-18 23:12:38 - INFO - actual # of pos 2750
+2025-05-18 23:12:38 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:40 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8694255035661101, 'precision': 0.8188479945958382, 'recall': 0.7740989836419949, 'f1': 0.7928641567354342, 'best_threshold': 0.6}
+2025-05-18 23:12:40 - INFO - # of pos preds: 2252, total: 12759
+2025-05-18 23:12:40 - INFO - actual # of pos 2750
+2025-05-18 23:12:40 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:42 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8697390077592287, 'precision': 0.8170781177776638, 'recall': 0.7791777400339694, 'f1': 0.7955156593146339, 'best_threshold': 0.58}
+2025-05-18 23:12:42 - INFO - # of pos preds: 2322, total: 12759
+2025-05-18 23:12:42 - INFO - actual # of pos 2750
+2025-05-18 23:12:42 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:43 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8267913286373128, 'recall': 0.771609787554837, 'f1': 0.7938961313199256, 'best_threshold': 0.61}
+2025-05-18 23:12:43 - INFO - # of pos preds: 2158, total: 12759
+2025-05-18 23:12:43 - INFO - actual # of pos 2750
+2025-05-18 23:12:43 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:45 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8748334508974057, 'precision': 0.8417496195255529, 'recall': 0.7629090727436216, 'f1': 0.7921265699967875, 'best_threshold': 0.63}
+2025-05-18 23:12:45 - INFO - # of pos preds: 1961, total: 12759
+2025-05-18 23:12:45 - INFO - actual # of pos 2750
+2025-05-18 23:12:45 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:47 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8696606317109491, 'precision': 0.828579867365036, 'recall': 0.7594801769316706, 'f1': 0.7857780622643658, 'best_threshold': 0.6}
+2025-05-18 23:12:47 - INFO - # of pos preds: 2025, total: 12759
+2025-05-18 23:12:47 - INFO - actual # of pos 2750
+2025-05-18 23:12:47 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:49 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8680931107453562, 'precision': 0.8109132741130942, 'recall': 0.7848537043933188, 'f1': 0.7966110359086698, 'best_threshold': 0.57}
+2025-05-18 23:12:49 - INFO - # of pos preds: 2445, total: 12759
+2025-05-18 23:12:49 - INFO - actual # of pos 2750
+2025-05-18 23:12:49 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:52 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8724821694490164, 'precision': 0.8223174564230615, 'recall': 0.7819810715810316, 'f1': 0.7992557367351952, 'best_threshold': 0.58}
+2025-05-18 23:12:52 - INFO - # of pos preds: 2303, total: 12759
+2025-05-18 23:12:52 - INFO - actual # of pos 2750
+2025-05-18 23:12:52 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:54 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8743631946077279, 'precision': 0.8310708355545458, 'recall': 0.7752682040708816, 'f1': 0.7978376820597883, 'best_threshold': 0.61}
+2025-05-18 23:12:54 - INFO - # of pos preds: 2159, total: 12759
+2025-05-18 23:12:54 - INFO - actual # of pos 2750
+2025-05-18 23:12:54 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:56 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8703660161454659, 'precision': 0.816607045939348, 'recall': 0.7834014114569614, 'f1': 0.7979924668448745, 'best_threshold': 0.57}
+2025-05-18 23:12:56 - INFO - # of pos preds: 2372, total: 12759
+2025-05-18 23:12:56 - INFO - actual # of pos 2750
+2025-05-18 23:12:56 - INFO - using avg-logits for ensemble
+2025-05-18 23:12:58 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.8181498857186669, 'recall': 0.7789000626708689, 'f1': 0.7957368316101779, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:12:58 - INFO - # of pos preds: 2309, total: 12759
+2025-05-18 23:12:58 - INFO - actual # of pos 2750
+2025-05-18 23:12:58 - INFO - using avg-logits for ensemble
+2025-05-18 23:13:00 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8717767850144996, 'precision': 0.8270947502829704, 'recall': 0.770454972343073, 'f1': 0.7931940299595807, 'best_threshold': 0.6}
+2025-05-18 23:13:00 - INFO - # of pos preds: 2144, total: 12759
+2025-05-18 23:13:00 - INFO - actual # of pos 2750
+2025-05-18 23:13:00 - INFO - using avg-logits for ensemble
+2025-05-18 23:13:03 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8726389215455757, 'precision': 0.823550066873226, 'recall': 0.780366760824349, 'f1': 0.798660773136222, 'best_threshold': 0.58}
+2025-05-18 23:13:03 - INFO - # of pos preds: 2275, total: 12759
+2025-05-18 23:13:03 - INFO - actual # of pos 2750
+2025-05-18 23:13:03 - INFO - BEST subset for med, avg-logits
+2025-05-18 23:13:03 - INFO -       ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2'), F1: 0.8028106558117638
+2025-05-18 23:52:42 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:44 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2') ensemble: {'accuracy': 0.8706011442903049, 'precision': 0.8161596197246448, 'recall': 0.7856610868400258, 'f1': 0.7992086048042302, 'best_threshold': 0.61}
+2025-05-18 23:52:44 - INFO - # of pos preds: 2401, total: 12759
+2025-05-18 23:52:44 - INFO - actual # of pos 2750
+2025-05-18 23:52:44 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:45 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base') ensemble: {'accuracy': 0.8720119131593385, 'precision': 0.8199706341128818, 'recall': 0.7844504673066968, 'f1': 0.7999421625852591, 'best_threshold': 0.6}
+2025-05-18 23:52:45 - INFO - # of pos preds: 2351, total: 12759
+2025-05-18 23:52:45 - INFO - actual # of pos 2750
+2025-05-18 23:52:45 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:47 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8727172975938553, 'precision': 0.8237191464625304, 'recall': 0.7804167158648125, 'f1': 0.7987544435873417, 'best_threshold': 0.62}
+2025-05-18 23:52:47 - INFO - # of pos preds: 2274, total: 12759
+2025-05-18 23:52:47 - INFO - actual # of pos 2750
+2025-05-18 23:52:47 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:48 - INFO - ('deberta-base', 'roberta-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8709146484834235, 'precision': 0.8156799954076202, 'recall': 0.7884981698289721, 'f1': 0.8007330615843931, 'best_threshold': 0.58}
+2025-05-18 23:52:48 - INFO - # of pos preds: 2437, total: 12759
+2025-05-18 23:52:48 - INFO - actual # of pos 2750
+2025-05-18 23:52:48 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:50 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8676228544556783, 'precision': 0.8108132906559371, 'recall': 0.7824441638888636, 'f1': 0.7951213597819615, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:52:50 - INFO - # of pos preds: 2419, total: 12759
+2025-05-18 23:52:50 - INFO - actual # of pos 2750
+2025-05-18 23:52:50 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:51 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8708362724351438, 'precision': 0.8203717266220014, 'recall': 0.7778991634801407, 'f1': 0.7959030017553239, 'best_threshold': 0.59}
+2025-05-18 23:52:51 - INFO - # of pos preds: 2278, total: 12759
+2025-05-18 23:52:51 - INFO - actual # of pos 2750
+2025-05-18 23:52:51 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:53 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8716200329179403, 'precision': 0.8217077073870616, 'recall': 0.7790580295915495, 'f1': 0.7971414544145756, 'best_threshold': 0.57}
+2025-05-18 23:52:53 - INFO - # of pos preds: 2278, total: 12759
+2025-05-18 23:52:53 - INFO - actual # of pos 2750
+2025-05-18 23:52:53 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:54 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8673093502625597, 'precision': 0.8133298913976236, 'recall': 0.7748600078111518, 'f1': 0.7913610861987347, 'best_threshold': 0.57}
+2025-05-18 23:52:54 - INFO - # of pos preds: 2311, total: 12759
+2025-05-18 23:52:54 - INFO - actual # of pos 2750
+2025-05-18 23:52:54 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:55 - INFO - ('deberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8691903754212713, 'precision': 0.8180682260624252, 'recall': 0.7744765710860226, 'f1': 0.7928354238015543, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:52:55 - INFO - # of pos preds: 2263, total: 12759
+2025-05-18 23:52:55 - INFO - actual # of pos 2750
+2025-05-18 23:52:55 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:57 - INFO - ('deberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.867701230503958, 'precision': 0.8127146652338979, 'recall': 0.7782744984059802, 'f1': 0.7932953228668137, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:52:57 - INFO - # of pos preds: 2354, total: 12759
+2025-05-18 23:52:57 - INFO - actual # of pos 2750
+2025-05-18 23:52:57 - INFO - using avg-probs for ensemble
+2025-05-18 23:52:58 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8655067011521279, 'precision': 0.8066208840699923, 'recall': 0.7813591040790562, 'f1': 0.7927714341962792, 'best_threshold': 0.58}
+2025-05-18 23:52:58 - INFO - # of pos preds: 2450, total: 12759
+2025-05-18 23:52:58 - INFO - actual # of pos 2750
+2025-05-18 23:52:58 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:00 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.869895759855788, 'precision': 0.8207978473776937, 'recall': 0.7726844930471666, 'f1': 0.7926047623095004, 'best_threshold': 0.62}
+2025-05-18 23:53:00 - INFO - # of pos preds: 2220, total: 12759
+2025-05-18 23:53:00 - INFO - actual # of pos 2750
+2025-05-18 23:53:00 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:01 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8681714867936359, 'precision': 0.8143244668370313, 'recall': 0.777123734093861, 'f1': 0.7931775723415588, 'best_threshold': 0.59}
+2025-05-18 23:53:01 - INFO - # of pos preds: 2326, total: 12759
+2025-05-18 23:53:01 - INFO - actual # of pos 2750
+2025-05-18 23:53:01 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:03 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.87169840896622, 'precision': 0.8289941897863577, 'recall': 0.7672403019100991, 'f1': 0.7915361231667848, 'best_threshold': 0.62}
+2025-05-18 23:53:03 - INFO - # of pos preds: 2097, total: 12759
+2025-05-18 23:53:03 - INFO - actual # of pos 2750
+2025-05-18 23:53:03 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:04 - INFO - ('roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8655067011521279, 'precision': 0.8098554021035342, 'recall': 0.773183589315071, 'f1': 0.7889968573948365, 'best_threshold': 0.58}
+2025-05-18 23:53:04 - INFO - # of pos preds: 2326, total: 12759
+2025-05-18 23:53:04 - INFO - actual # of pos 2750
+2025-05-18 23:53:04 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:06 - INFO - ('roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8691903754212713, 'precision': 0.8212483384158261, 'recall': 0.7686745928664203, 'f1': 0.7900348967824806, 'best_threshold': 0.61}
+2025-05-18 23:53:06 - INFO - # of pos preds: 2175, total: 12759
+2025-05-18 23:53:06 - INFO - actual # of pos 2750
+2025-05-18 23:53:06 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:07 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8648013167176111, 'precision': 0.8128551223719682, 'recall': 0.7633717109147222, 'f1': 0.7835910177972999, 'best_threshold': 0.58}
+2025-05-18 23:53:07 - INFO - # of pos preds: 2193, total: 12759
+2025-05-18 23:53:07 - INFO - actual # of pos 2750
+2025-05-18 23:53:07 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:09 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8590014891449174, 'precision': 0.7947153828144198, 'recall': 0.7766853831551603, 'f1': 0.7850435596132581, 'best_threshold': 0.5299999999999999}
+2025-05-18 23:53:09 - INFO - # of pos preds: 2525, total: 12759
+2025-05-18 23:53:09 - INFO - actual # of pos 2750
+2025-05-18 23:53:09 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:10 - INFO - ('all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8669174700211615, 'precision': 0.8186387497314788, 'recall': 0.7628744130282745, 'f1': 0.7851556692500474, 'best_threshold': 0.59}
+2025-05-18 23:53:10 - INFO - # of pos preds: 2138, total: 12759
+2025-05-18 23:53:10 - INFO - actual # of pos 2750
+2025-05-18 23:53:10 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:11 - INFO - ('sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8659769574418058, 'precision': 0.8202199979675477, 'recall': 0.7562092480404, 'f1': 0.7808869773618892, 'best_threshold': 0.6}
+2025-05-18 23:53:11 - INFO - # of pos preds: 2058, total: 12759
+2025-05-18 23:53:11 - INFO - actual # of pos 2750
+2025-05-18 23:53:11 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:13 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8698173838075084, 'precision': 0.8141160756381526, 'recall': 0.7863483047075814, 'f1': 0.7988079746690961, 'best_threshold': 0.58}
+2025-05-18 23:53:13 - INFO - # of pos preds: 2429, total: 12759
+2025-05-18 23:53:13 - INFO - actual # of pos 2750
+2025-05-18 23:53:13 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:15 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8724821694490164, 'precision': 0.8245087849655579, 'recall': 0.7778933141990391, 'f1': 0.7973758816437132, 'best_threshold': 0.61}
+2025-05-18 23:53:15 - INFO - # of pos preds: 2241, total: 12759
+2025-05-18 23:53:15 - INFO - actual # of pos 2750
+2025-05-18 23:53:15 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:17 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8688768712281527, 'precision': 0.8104484700288769, 'recall': 0.7907596435934932, 'f1': 0.7998743357722178, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:53:17 - INFO - # of pos preds: 2517, total: 12759
+2025-05-18 23:53:17 - INFO - actual # of pos 2750
+2025-05-18 23:53:17 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:19 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8678579826005173, 'precision': 0.8102619299713787, 'recall': 0.7852312918373464, 'f1': 0.7965688959492765, 'best_threshold': 0.57}
+2025-05-18 23:53:19 - INFO - # of pos preds: 2456, total: 12759
+2025-05-18 23:53:19 - INFO - actual # of pos 2750
+2025-05-18 23:53:19 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:21 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8720902892076181, 'precision': 0.8195767005035542, 'recall': 0.7856871906193517, 'f1': 0.8005627198124268, 'best_threshold': 0.57}
+2025-05-18 23:53:21 - INFO - # of pos preds: 2368, total: 12759
+2025-05-18 23:53:21 - INFO - actual # of pos 2750
+2025-05-18 23:53:21 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:22 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8689552472764324, 'precision': 0.8127438738226005, 'recall': 0.7850076204143543, 'f1': 0.7974464235459529, 'best_threshold': 0.57}
+2025-05-18 23:53:22 - INFO - # of pos preds: 2428, total: 12759
+2025-05-18 23:53:22 - INFO - actual # of pos 2750
+2025-05-18 23:53:22 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:24 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8721686652558978, 'precision': 0.8272510841762608, 'recall': 0.7718915158175823, 'f1': 0.7942425934768431, 'best_threshold': 0.59}
+2025-05-18 23:53:24 - INFO - # of pos preds: 2157, total: 12759
+2025-05-18 23:53:24 - INFO - actual # of pos 2750
+2025-05-18 23:53:24 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:26 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8702092640489066, 'precision': 0.8171240061667948, 'recall': 0.7814554173970699, 'f1': 0.796975112412246, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:53:26 - INFO - # of pos preds: 2346, total: 12759
+2025-05-18 23:53:26 - INFO - actual # of pos 2750
+2025-05-18 23:53:26 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:28 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.870130888000627, 'precision': 0.8172688292195167, 'recall': 0.7807461466498333, 'f1': 0.796582747357643, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:53:28 - INFO - # of pos preds: 2337, total: 12759
+2025-05-18 23:53:28 - INFO - actual # of pos 2750
+2025-05-18 23:53:28 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:30 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8274594098730195, 'recall': 0.7705548824240003, 'f1': 0.7933824403290657, 'best_threshold': 0.58}
+2025-05-18 23:53:30 - INFO - # of pos preds: 2142, total: 12759
+2025-05-18 23:53:30 - INFO - actual # of pos 2750
+2025-05-18 23:53:30 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:32 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8695822556626694, 'precision': 0.8209893541915987, 'recall': 0.770902315189057, 'f1': 0.7914680056103627, 'best_threshold': 0.6}
+2025-05-18 23:53:32 - INFO - # of pos preds: 2200, total: 12759
+2025-05-18 23:53:32 - INFO - actual # of pos 2750
+2025-05-18 23:53:32 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:33 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8687201191315934, 'precision': 0.8146727609176264, 'recall': 0.7791876402147159, 'f1': 0.7946154725494938, 'best_threshold': 0.57}
+2025-05-18 23:53:33 - INFO - # of pos preds: 2345, total: 12759
+2025-05-18 23:53:33 - INFO - actual # of pos 2750
+2025-05-18 23:53:34 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:35 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8715416568696607, 'precision': 0.8255658265869238, 'recall': 0.7718874649179375, 'f1': 0.7936814594810266, 'best_threshold': 0.6}
+2025-05-18 23:53:35 - INFO - # of pos preds: 2171, total: 12759
+2025-05-18 23:53:35 - INFO - actual # of pos 2750
+2025-05-18 23:53:35 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:37 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.87389293831805, 'precision': 0.8399419585794072, 'recall': 0.761518433409931, 'f1': 0.79056459056032, 'best_threshold': 0.62}
+2025-05-18 23:53:37 - INFO - # of pos preds: 1961, total: 12759
+2025-05-18 23:53:37 - INFO - actual # of pos 2750
+2025-05-18 23:53:37 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:39 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8719335371110588, 'precision': 0.8368923051033466, 'recall': 0.7577641577126041, 'f1': 0.786855096840522, 'best_threshold': 0.6}
+2025-05-18 23:53:39 - INFO - # of pos preds: 1948, total: 12759
+2025-05-18 23:53:39 - INFO - actual # of pos 2750
+2025-05-18 23:53:39 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:41 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8705227682420252, 'precision': 0.8183309389244293, 'recall': 0.7804684692867329, 'f1': 0.7968062500853152, 'best_threshold': 0.58}
+2025-05-18 23:53:41 - INFO - # of pos preds: 2324, total: 12759
+2025-05-18 23:53:41 - INFO - actual # of pos 2750
+2025-05-18 23:53:41 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:43 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8720119131593385, 'precision': 0.8201586309720021, 'recall': 0.7840548778826328, 'f1': 0.7997654129392975, 'best_threshold': 0.57}
+2025-05-18 23:53:43 - INFO - # of pos preds: 2345, total: 12759
+2025-05-18 23:53:43 - INFO - actual # of pos 2750
+2025-05-18 23:53:43 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:46 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8726389215455757, 'precision': 0.8247054315636814, 'recall': 0.7782569505626754, 'f1': 0.7976863101643152, 'best_threshold': 0.59}
+2025-05-18 23:53:46 - INFO - # of pos preds: 2243, total: 12759
+2025-05-18 23:53:46 - INFO - actual # of pos 2750
+2025-05-18 23:53:46 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:48 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8696606317109491, 'precision': 0.814455130386707, 'recall': 0.784666036930399, 'f1': 0.7979249702840461, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:53:48 - INFO - # of pos preds: 2407, total: 12759
+2025-05-18 23:53:48 - INFO - actual # of pos 2750
+2025-05-18 23:53:48 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:50 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8698173838075084, 'precision': 0.8164409457737876, 'recall': 0.7809419159120428, 'f1': 0.7963920970342968, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:53:50 - INFO - # of pos preds: 2347, total: 12759
+2025-05-18 23:53:50 - INFO - actual # of pos 2750
+2025-05-18 23:53:50 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:52 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8708362724351438, 'precision': 0.824677528600811, 'recall': 0.7702511012815738, 'f1': 0.792259204096337, 'best_threshold': 0.59}
+2025-05-18 23:53:52 - INFO - # of pos preds: 2162, total: 12759
+2025-05-18 23:53:52 - INFO - actual # of pos 2750
+2025-05-18 23:53:52 - INFO - using avg-probs for ensemble
+2025-05-18 23:53:55 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8731091778352535, 'precision': 0.8257411913493383, 'recall': 0.7785566808054569, 'f1': 0.7982497809291249, 'best_threshold': 0.58}
+2025-05-18 23:53:55 - INFO - # of pos preds: 2237, total: 12759
+2025-05-18 23:53:55 - INFO - actual # of pos 2750
+2025-05-18 23:53:55 - INFO - using avg-logits for ensemble
+2025-05-18 23:53:56 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2') ensemble: {'accuracy': 0.8784387491182695, 'precision': 0.8485595266789062, 'recall': 0.7683717199974569, 'f1': 0.7981804305414881, 'best_threshold': 0.69}
+2025-05-18 23:53:56 - INFO - # of pos preds: 1963, total: 12759
+2025-05-18 23:53:56 - INFO - actual # of pos 2750
+2025-05-18 23:53:56 - INFO - using avg-logits for ensemble
+2025-05-18 23:53:58 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base') ensemble: {'accuracy': 0.8709146484834235, 'precision': 0.8167863999078175, 'recall': 0.78586090700188, 'f1': 0.7995787716258584, 'best_threshold': 0.6}
+2025-05-18 23:53:58 - INFO - # of pos preds: 2397, total: 12759
+2025-05-18 23:53:58 - INFO - actual # of pos 2750
+2025-05-18 23:53:58 - INFO - using avg-logits for ensemble
+2025-05-18 23:53:59 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8700525119523473, 'precision': 0.815628135858155, 'recall': 0.7839927701432348, 'f1': 0.7979760379951035, 'best_threshold': 0.61}
+2025-05-18 23:53:59 - INFO - # of pos preds: 2388, total: 12759
+2025-05-18 23:53:59 - INFO - actual # of pos 2750
+2025-05-18 23:53:59 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:01 - INFO - ('deberta-base', 'roberta-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.869895759855788, 'precision': 0.8131861667446426, 'recall': 0.7891673857164915, 'f1': 0.8001054404318187, 'best_threshold': 0.58}
+2025-05-18 23:54:01 - INFO - # of pos preds: 2470, total: 12759
+2025-05-18 23:54:01 - INFO - actual # of pos 2750
+2025-05-18 23:54:01 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:02 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.8684066149384748, 'precision': 0.8133421607371394, 'recall': 0.7805701777491167, 'f1': 0.7949691236187962, 'best_threshold': 0.57}
+2025-05-18 23:54:02 - INFO - # of pos preds: 2373, total: 12759
+2025-05-18 23:54:02 - INFO - actual # of pos 2750
+2025-05-18 23:54:02 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:04 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8691119993729917, 'precision': 0.8142511570711142, 'recall': 0.7822065413854804, 'f1': 0.7963359194055126, 'best_threshold': 0.58}
+2025-05-18 23:54:04 - INFO - # of pos preds: 2382, total: 12759
+2025-05-18 23:54:04 - INFO - actual # of pos 2750
+2025-05-18 23:54:04 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:05 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8680931107453562, 'precision': 0.8106647330520802, 'recall': 0.7855130201000917, 'f1': 0.7969018576851524, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:54:05 - INFO - # of pos preds: 2455, total: 12759
+2025-05-18 23:54:05 - INFO - actual # of pos 2750
+2025-05-18 23:54:05 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:06 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8680147346970766, 'precision': 0.8154329457698626, 'recall': 0.773990971761778, 'f1': 0.7915696663291865, 'best_threshold': 0.58}
+2025-05-18 23:54:06 - INFO - # of pos preds: 2282, total: 12759
+2025-05-18 23:54:06 - INFO - actual # of pos 2750
+2025-05-18 23:54:06 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:08 - INFO - ('deberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8670742221177208, 'precision': 0.8107877510032535, 'recall': 0.7794572157785267, 'f1': 0.7932856276887157, 'best_threshold': 0.5499999999999999}
+2025-05-18 23:54:08 - INFO - # of pos preds: 2386, total: 12759
+2025-05-18 23:54:08 - INFO - actual # of pos 2750
+2025-05-18 23:54:08 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:09 - INFO - ('deberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8686417430833138, 'precision': 0.814690801568141, 'recall': 0.7787420957501885, 'f1': 0.7943413312672656, 'best_threshold': 0.57}
+2025-05-18 23:54:09 - INFO - # of pos preds: 2340, total: 12759
+2025-05-18 23:54:09 - INFO - actual # of pos 2750
+2025-05-18 23:54:09 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:11 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.86503644486245, 'precision': 0.8048739087790239, 'recall': 0.7835647735220119, 'f1': 0.7933441711256022, 'best_threshold': 0.58}
+2025-05-18 23:54:11 - INFO - # of pos preds: 2494, total: 12759
+2025-05-18 23:54:11 - INFO - actual # of pos 2750
+2025-05-18 23:54:11 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:12 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8742848185594483, 'precision': 0.8379153061532174, 'recall': 0.7654603765701777, 'f1': 0.7929439387700972, 'best_threshold': 0.6599999999999999}
+2025-05-18 23:54:12 - INFO - # of pos preds: 2012, total: 12759
+2025-05-18 23:54:12 - INFO - actual # of pos 2750
+2025-05-18 23:54:12 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:14 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8683282388901952, 'precision': 0.8147700640172298, 'recall': 0.776959917892079, 'f1': 0.7932397144206462, 'best_threshold': 0.6}
+2025-05-18 23:54:14 - INFO - # of pos preds: 2320, total: 12759
+2025-05-18 23:54:14 - INFO - actual # of pos 2750
+2025-05-18 23:54:14 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:15 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8717767850144996, 'precision': 0.8295437225394424, 'recall': 0.7667628043851442, 'f1': 0.7913667428153808, 'best_threshold': 0.63}
+2025-05-18 23:54:15 - INFO - # of pos preds: 2088, total: 12759
+2025-05-18 23:54:15 - INFO - actual # of pos 2750
+2025-05-18 23:54:15 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:17 - INFO - ('roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8664472137314837, 'precision': 0.8117275796217215, 'recall': 0.7739149129419887, 'f1': 0.7901614588082722, 'best_threshold': 0.59}
+2025-05-18 23:54:17 - INFO - # of pos preds: 2316, total: 12759
+2025-05-18 23:54:17 - INFO - actual # of pos 2750
+2025-05-18 23:54:17 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:18 - INFO - ('roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8743631946077279, 'precision': 0.8436535196596865, 'recall': 0.759049037684266, 'f1': 0.7896829167706332, 'best_threshold': 0.6599999999999999}
+2025-05-18 23:54:18 - INFO - # of pos preds: 1913, total: 12759
+2025-05-18 23:54:18 - INFO - actual # of pos 2750
+2025-05-18 23:54:18 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:19 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8646445646210518, 'precision': 0.8109761731848482, 'recall': 0.7663046530849509, 'f1': 0.7849220329432653, 'best_threshold': 0.58}
+2025-05-18 23:54:19 - INFO - # of pos preds: 2241, total: 12759
+2025-05-18 23:54:19 - INFO - actual # of pos 2750
+2025-05-18 23:54:19 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:21 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8586879849517988, 'precision': 0.7938100209450116, 'recall': 0.7778041944068521, 'f1': 0.7852867862334872, 'best_threshold': 0.5299999999999999}
+2025-05-18 23:54:21 - INFO - # of pos preds: 2549, total: 12759
+2025-05-18 23:54:21 - INFO - actual # of pos 2750
+2025-05-18 23:54:21 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:22 - INFO - ('all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8684849909867545, 'precision': 0.8240536934322209, 'recall': 0.7611043878690997, 'f1': 0.7856029493891783, 'best_threshold': 0.61}
+2025-05-18 23:54:22 - INFO - # of pos preds: 2076, total: 12759
+2025-05-18 23:54:22 - INFO - actual # of pos 2750
+2025-05-18 23:54:22 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:24 - INFO - ('sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8664472137314837, 'precision': 0.8217058360492863, 'recall': 0.7559815257177631, 'f1': 0.7811660928215858, 'best_threshold': 0.61}
+2025-05-18 23:54:24 - INFO - # of pos preds: 2044, total: 12759
+2025-05-18 23:54:24 - INFO - actual # of pos 2750
+2025-05-18 23:54:24 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:26 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base') ensemble: {'accuracy': 0.869033623324712, 'precision': 0.811928648642684, 'recall': 0.7875629751405553, 'f1': 0.798637516032869, 'best_threshold': 0.58}
+2025-05-18 23:54:26 - INFO - # of pos preds: 2465, total: 12759
+2025-05-18 23:54:26 - INFO - actual # of pos 2750
+2025-05-18 23:54:26 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:27 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8686417430833138, 'precision': 0.811773381943215, 'recall': 0.7857308422419822, 'f1': 0.7974859951092264, 'best_threshold': 0.59}
+2025-05-18 23:54:27 - INFO - # of pos preds: 2446, total: 12759
+2025-05-18 23:54:27 - INFO - actual # of pos 2750
+2025-05-18 23:54:27 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:29 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8691119993729917, 'precision': 0.8122286665272767, 'recall': 0.7872173407569552, 'f1': 0.7985569865245379, 'best_threshold': 0.57}
+2025-05-18 23:54:29 - INFO - # of pos preds: 2458, total: 12759
+2025-05-18 23:54:29 - INFO - actual # of pos 2750
+2025-05-18 23:54:29 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:31 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8679363586487969, 'precision': 0.8092779694008376, 'recall': 0.7884459622703204, 'f1': 0.7980413152232069, 'best_threshold': 0.57}
+2025-05-18 23:54:31 - INFO - # of pos preds: 2503, total: 12759
+2025-05-18 23:54:31 - INFO - actual # of pos 2750
+2025-05-18 23:54:31 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:33 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8735010580766518, 'precision': 0.8253452749443604, 'recall': 0.7810481294108029, 'f1': 0.7997528190737839, 'best_threshold': 0.59}
+2025-05-18 23:54:33 - INFO - # of pos preds: 2266, total: 12759
+2025-05-18 23:54:33 - INFO - actual # of pos 2750
+2025-05-18 23:54:33 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:35 - INFO - ('deberta-base', 'roberta-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8731875538835332, 'precision': 0.8274648233420192, 'recall': 0.7759693730188285, 'f1': 0.7971081850817529, 'best_threshold': 0.61}
+2025-05-18 23:54:35 - INFO - # of pos preds: 2196, total: 12759
+2025-05-18 23:54:35 - INFO - actual # of pos 2750
+2025-05-18 23:54:35 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:37 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8718551610627792, 'precision': 0.8253230432044103, 'recall': 0.773669642776047, 'f1': 0.7948188389728642, 'best_threshold': 0.59}
+2025-05-18 23:54:37 - INFO - # of pos preds: 2191, total: 12759
+2025-05-18 23:54:37 - INFO - actual # of pos 2750
+2025-05-18 23:54:37 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:38 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8716200329179403, 'precision': 0.8231297522406993, 'recall': 0.7764207667644575, 'f1': 0.7959130944954691, 'best_threshold': 0.57}
+2025-05-18 23:54:38 - INFO - # of pos preds: 2238, total: 12759
+2025-05-18 23:54:38 - INFO - actual # of pos 2750
+2025-05-18 23:54:38 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:40 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8704443921937456, 'precision': 0.8187433842092926, 'recall': 0.7792317459740778, 'f1': 0.7961692596100849, 'best_threshold': 0.57}
+2025-05-18 23:54:40 - INFO - # of pos preds: 2307, total: 12759
+2025-05-18 23:54:40 - INFO - actual # of pos 2750
+2025-05-18 23:54:40 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:42 - INFO - ('deberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8707578963868642, 'precision': 0.8230871987266939, 'recall': 0.7725746827854931, 'f1': 0.7933160936874315, 'best_threshold': 0.58}
+2025-05-18 23:54:42 - INFO - # of pos preds: 2199, total: 12759
+2025-05-18 23:54:42 - INFO - actual # of pos 2750
+2025-05-18 23:54:42 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:44 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8708362724351438, 'precision': 0.8239609846753695, 'recall': 0.7714378695537653, 'f1': 0.792836726015785, 'best_threshold': 0.61}
+2025-05-18 23:54:44 - INFO - # of pos preds: 2180, total: 12759
+2025-05-18 23:54:44 - INFO - actual # of pos 2750
+2025-05-18 23:54:44 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:46 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8695038796143898, 'precision': 0.8167144433568427, 'recall': 0.7787641486298695, 'f1': 0.7951161776843262, 'best_threshold': 0.58}
+2025-05-18 23:54:46 - INFO - # of pos preds: 2321, total: 12759
+2025-05-18 23:54:46 - INFO - actual # of pos 2750
+2025-05-18 23:54:46 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:48 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8718551610627792, 'precision': 0.8265284789574208, 'recall': 0.771691695655728, 'f1': 0.7938659722623034, 'best_threshold': 0.61}
+2025-05-18 23:54:48 - INFO - # of pos preds: 2161, total: 12759
+2025-05-18 23:54:48 - INFO - actual # of pos 2750
+2025-05-18 23:54:48 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:49 - INFO - ('roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8750685790422447, 'precision': 0.8420305659348589, 'recall': 0.7634545272890763, 'f1': 0.792619206824966, 'best_threshold': 0.63}
+2025-05-18 23:54:49 - INFO - # of pos preds: 1964, total: 12759
+2025-05-18 23:54:49 - INFO - actual # of pos 2750
+2025-05-18 23:54:49 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:51 - INFO - ('all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8695822556626694, 'precision': 0.8283850519046673, 'recall': 0.759430221891207, 'f1': 0.7856837945391794, 'best_threshold': 0.6}
+2025-05-18 23:54:51 - INFO - # of pos preds: 2026, total: 12759
+2025-05-18 23:54:51 - INFO - actual # of pos 2750
+2025-05-18 23:54:51 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:53 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5') ensemble: {'accuracy': 0.8707578963868642, 'precision': 0.8193377909710426, 'recall': 0.7795634292772868, 'f1': 0.7966019294286815, 'best_threshold': 0.59}
+2025-05-18 23:54:53 - INFO - # of pos preds: 2305, total: 12759
+2025-05-18 23:54:53 - INFO - actual # of pos 2750
+2025-05-18 23:54:53 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:56 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8737361862214907, 'precision': 0.8266740028504714, 'recall': 0.7797474999772931, 'f1': 0.7993684974357849, 'best_threshold': 0.59}
+2025-05-18 23:54:56 - INFO - # of pos preds: 2241, total: 12759
+2025-05-18 23:54:56 - INFO - actual # of pos 2750
+2025-05-18 23:54:56 - INFO - using avg-logits for ensemble
+2025-05-18 23:54:58 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8743631946077279, 'precision': 0.8309000622536231, 'recall': 0.7755319303535908, 'f1': 0.7979630625047631, 'best_threshold': 0.61}
+2025-05-18 23:54:58 - INFO - # of pos preds: 2163, total: 12759
+2025-05-18 23:54:58 - INFO - actual # of pos 2750
+2025-05-18 23:54:58 - INFO - using avg-logits for ensemble
+2025-05-18 23:55:00 - INFO - ('deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8704443921937456, 'precision': 0.8166485686481226, 'recall': 0.7837150927801343, 'f1': 0.798203094557793, 'best_threshold': 0.57}
+2025-05-18 23:55:00 - INFO - # of pos preds: 2375, total: 12759
+2025-05-18 23:55:00 - INFO - actual # of pos 2750
+2025-05-18 23:55:00 - INFO - using avg-logits for ensemble
+2025-05-18 23:55:02 - INFO - ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8702876400971863, 'precision': 0.8184142765670426, 'recall': 0.7791318358931507, 'f1': 0.7959833773776974, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:55:02 - INFO - # of pos preds: 2309, total: 12759
+2025-05-18 23:55:02 - INFO - actual # of pos 2750
+2025-05-18 23:55:02 - INFO - using avg-logits for ensemble
+2025-05-18 23:55:04 - INFO - ('roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.8720902892076181, 'precision': 0.8275710590389724, 'recall': 0.7710503819289911, 'f1': 0.7937639414217825, 'best_threshold': 0.6}
+2025-05-18 23:55:04 - INFO - # of pos preds: 2146, total: 12759
+2025-05-18 23:55:04 - INFO - actual # of pos 2750
+2025-05-18 23:55:04 - INFO - using avg-logits for ensemble
+2025-05-18 23:55:07 - INFO - ('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2') ensemble: {'accuracy': 0.872795673642135, 'precision': 0.8237469139014646, 'recall': 0.7807303971879853, 'f1': 0.7989689603232486, 'best_threshold': 0.58}
+2025-05-18 23:55:07 - INFO - # of pos preds: 2277, total: 12759
+2025-05-18 23:55:07 - INFO - actual # of pos 2750
+2025-05-18 23:55:07 - INFO - BEST subset for med, avg-logits
+2025-05-18 23:55:07 - INFO -       ('deberta-base', 'roberta-base', 'all-mpnet-base-v2'), F1: 0.8007330615843931
+
+BEST subset for med, avg-logits (un-weighted)
+('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2'), F1: 0.8028106558117638

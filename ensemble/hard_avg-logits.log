@@ -1,23 +1,29 @@
-2025-05-08 23:28:09 - INFO - using avg-logits for ensemble
-2025-05-08 23:28:09 - INFO - running inference with sentence-transformers/all-MiniLM-L12-v2
-2025-05-08 23:28:59 - INFO -      val loss: 1.4137500757469288, output -7.984377384185791
-2025-05-08 23:28:59 - INFO -      {'accuracy': 0.7910405709992487, 'precision': 0.6605310446018464, 'recall': 0.6850428741565066, 'f1': 0.6704594243620866, 'best_threshold': 0.6599999999999999}
-2025-05-08 23:28:59 - INFO - running inference with microsoft/deberta-base
-2025-05-08 23:32:10 - INFO -      val loss: 1.5039062502240907, output -9.566438674926758
-2025-05-08 23:32:11 - INFO -      {'accuracy': 0.7858752817430503, 'precision': 0.6498987193866019, 'recall': 0.6687685434117789, 'f1': 0.657812201628839, 'best_threshold': 0.16999999999999998}
-2025-05-08 23:32:11 - INFO - running inference with roberta-base
-2025-05-08 23:34:36 - INFO -      val loss: 1.847741317345564, output -9.691571235656738
-2025-05-08 23:34:36 - INFO -      {'accuracy': 0.7941397445529677, 'precision': 0.6541556797575645, 'recall': 0.660878253431769, 'f1': 0.6573326568196339, 'best_threshold': 0.20999999999999996}
-2025-05-08 23:34:36 - INFO - running inference with sentence-transformers/sentence-t5-base
-2025-05-08 23:34:36 - INFO - Use pytorch device_name: cuda:0
-2025-05-08 23:34:36 - INFO - Load pretrained SentenceTransformer: sentence-transformers/sentence-t5-base
-2025-05-08 23:35:20 - INFO -      val loss: 1.23059350079755, output -11.26883316040039
-2025-05-08 23:35:20 - INFO -      {'accuracy': 0.7830578512396694, 'precision': 0.6346883098025199, 'recall': 0.6389492848865808, 'f1': 0.6367284040872352, 'best_threshold': 0.4099999999999999}
-2025-05-08 23:35:20 - INFO - running inference with BAAI/bge-base-en-v1.5
-2025-05-08 23:35:20 - INFO - Use pytorch device_name: cuda:0
-2025-05-08 23:35:20 - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
-2025-05-08 23:36:04 - INFO -      val loss: 1.1344459374454823, output -7.365227699279785
-2025-05-08 23:36:05 - INFO -      {'accuracy': 0.778831705484598, 'precision': 0.6293497795674549, 'recall': 0.6351446971273751, 'f1': 0.6320694699154547, 'best_threshold': 0.42999999999999994}
-2025-05-08 23:36:05 - INFO - ensemble {'accuracy': 0.7941397445529677, 'precision': 0.6659544059398161, 'recall': 0.6926740755091209, 'f1': 0.6766770865107485, 'best_threshold': 0.08}
-2025-05-08 23:36:05 - INFO - # of pos preds: 2324, total: 10648
-2025-05-08 23:36:05 - INFO - actual # of pos 1906
+2025-05-18 23:40:56 - INFO - using avg-logits for ensemble
+2025-05-18 23:40:56 - INFO - running inference with sentence-transformers/all-MiniLM-L12-v2
+2025-05-18 23:40:56 - INFO -      {'accuracy': 0.8074755822689706, 'precision': 0.6771439234682651, 'recall': 0.6876671892850978, 'f1': 0.6820360970107163, 'best_threshold': 0.6399999999999999}
+2025-05-18 23:40:56 - INFO - running inference with microsoft/deberta-base
+2025-05-18 23:40:56 - INFO -      {'accuracy': 0.8089782118707739, 'precision': 0.67973849263592, 'recall': 0.6908387893785306, 'f1': 0.6848859855802596, 'best_threshold': 0.6399999999999999}
+2025-05-18 23:40:56 - INFO - running inference with roberta-base
+2025-05-18 23:40:57 - INFO -      {'accuracy': 0.7975206611570248, 'precision': 0.6737927485742491, 'recall': 0.7068360267267594, 'f1': 0.6865284974093264, 'best_threshold': 0.6699999999999999}
+2025-05-18 23:40:57 - INFO - running inference with sentence-transformers/sentence-t5-base
+2025-05-18 23:40:57 - INFO -      {'accuracy': 0.7779864763335838, 'precision': 0.6423744374895, 'recall': 0.6654000911761507, 'f1': 0.6514307971679176, 'best_threshold': 0.5599999999999999}
+2025-05-18 23:40:57 - INFO - running inference with BAAI/bge-base-en-v1.5
+2025-05-18 23:40:57 - INFO -      {'accuracy': 0.7825882794891059, 'precision': 0.644194872502487, 'recall': 0.6614332204314279, 'f1': 0.6514698998074865, 'best_threshold': 0.61}
+2025-05-18 23:40:57 - INFO - running inference with sentence-transformers/all-mpnet-base-v2
+2025-05-18 23:40:58 - INFO -      {'accuracy': 0.7716942148760331, 'precision': 0.6373810232434602, 'recall': 0.6640296281679091, 'f1': 0.6472157770708724, 'best_threshold': 0.59}
+2025-05-18 23:40:58 - INFO - ['all-MiniLM-L12-v2', 'deberta-base', 'roberta-base', 'sentence-t5-base', 'bge-base-en-v1.5', 'all-mpnet-base-v2'] ensemble: {'accuracy': 0.8132043576258452, 'precision': 0.6884283085949783, 'recall': 0.7051052282728649, 'f1': 0.6959161648764896, 'best_threshold': 0.58}
+2025-05-18 23:40:58 - INFO - # of pos preds: 2129, total: 10648
+2025-05-18 23:40:58 - INFO - actual # of pos 1906
+
+2025-05-18 23:45:09 - INFO - using avg-logits for ensemble
+2025-05-18 23:45:09 - INFO - running inference with microsoft/deberta-base
+2025-05-18 23:45:09 - INFO -      {'accuracy': 0.8089782118707739, 'precision': 0.67973849263592, 'recall': 0.6908387893785306, 'f1': 0.6848859855802596, 'best_threshold': 0.6399999999999999}
+2025-05-18 23:45:09 - INFO - running inference with roberta-base
+2025-05-18 23:45:09 - INFO -      {'accuracy': 0.7975206611570248, 'precision': 0.6737927485742491, 'recall': 0.7068360267267594, 'f1': 0.6865284974093264, 'best_threshold': 0.6699999999999999}
+2025-05-18 23:45:09 - INFO - running inference with sentence-transformers/all-MiniLM-L12-v2
+2025-05-18 23:45:10 - INFO -      {'accuracy': 0.8074755822689706, 'precision': 0.6771439234682651, 'recall': 0.6876671892850978, 'f1': 0.6820360970107163, 'best_threshold': 0.6399999999999999}
+2025-05-18 23:45:10 - INFO - running inference with sentence-transformers/all-mpnet-base-v2
+2025-05-18 23:45:10 - INFO -      {'accuracy': 0.7716942148760331, 'precision': 0.6373810232434602, 'recall': 0.6640296281679091, 'f1': 0.6472157770708724, 'best_threshold': 0.59}
+2025-05-18 23:45:10 - INFO - ['deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2'] ensemble: {'accuracy': 0.8110443275732532, 'precision': 0.6899069429425821, 'recall': 0.7185594120170551, 'f1': 0.7017391362941101, 'best_threshold': 0.58}
+2025-05-18 23:45:10 - INFO - # of pos preds: 2296, total: 10648
+2025-05-18 23:45:10 - INFO - actual # of pos 1906

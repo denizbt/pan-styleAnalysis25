@@ -1,112 +1,67 @@
-2025-04-21 10:06:42 - INFO - read in data.
-2025-04-21 10:07:11 - INFO - starting training!
-2025-04-21 12:27:40 - INFO - 
-epoch 0
-training loss: 1.0214
-val loss: 0.9907
-2025-04-21 12:27:40 - INFO - val metrics: {'accuracy': 0.8465858441789981, 'precision': 0.7706380751056077, 'recall': 0.7214073295302097, 'f1': 0.7408785799439588, 'best_threshold': 0.6799999999999999}
+2025-05-11 01:57:59 - INFO - read in data.
+2025-05-11 01:58:02 - INFO - starting training with arguments:
+2025-05-11 01:58:02 - INFO -   model_name: microsoft/deberta-base
+2025-05-11 01:58:02 - INFO -   pooling: mean
+2025-05-11 01:58:02 - INFO -   num_epochs: 15
+2025-05-11 01:58:02 - INFO -   batch_size: 16
+2025-05-11 01:58:02 - INFO -   balanced_data: False
+2025-05-11 01:58:02 - INFO -   bert_lr: 5e-06
+2025-05-11 01:58:02 - INFO -   mlp_lr: 0.0001
+2025-05-11 01:58:02 - INFO -   scheduler: linear
+2025-05-11 04:19:02 - INFO - epoch 0
+training loss: 0.9935
+val loss: 0.7958
+2025-05-11 04:19:02 - INFO - val metrics: {'accuracy': 0.8437927140904499, 'precision': 0.7636818073410729, 'recall': 0.7238313741660553, 'f1': 0.7402667019470455, 'best_threshold': 0.23}
 
-2025-04-21 14:47:34 - INFO - 
-epoch 1
-training loss: 1.0084
-val loss: 1.0290
-2025-04-21 14:47:34 - INFO - val metrics: {'accuracy': 0.8130088548166637, 'precision': 0.7071700503434002, 'recall': 0.664294650989976, 'f1': 0.6800862945139394, 'best_threshold': 0.88}
+2025-05-11 06:41:02 - INFO - epoch 1
+training loss: 0.8009
+val loss: 0.7078
+2025-05-11 06:41:02 - INFO - val metrics: {'accuracy': 0.8627800558626018, 'precision': 0.7931424660922968, 'recall': 0.7674960883313111, 'f1': 0.7790651943609728, 'best_threshold': 0.28}
 
-2025-04-21 17:07:21 - INFO - 
-epoch 2
-training loss: 1.0489
-val loss: 1.1170
-2025-04-21 17:07:21 - INFO - val metrics: {'accuracy': 0.7961609318357402, 'precision': 0.3981159549493329, 'recall': 0.4999440235847296, 'f1': 0.44325701429327685, 'best_threshold': 0.6}
+2025-05-11 09:03:38 - INFO - epoch 2
+training loss: 0.7086
+val loss: 0.6637
+2025-05-11 09:03:38 - INFO - val metrics: {'accuracy': 0.8691685980864088, 'precision': 0.8037020372052502, 'recall': 0.7780188571103372, 'f1': 0.7896607787224468, 'best_threshold': 0.63}
 
-2025-04-21 19:27:09 - INFO - 
-epoch 3
-training loss: 1.0056
-val loss: 1.0256
-2025-04-21 19:27:09 - INFO - val metrics: {'accuracy': 0.8356807511737089, 'precision': 0.7681107866876484, 'recall': 0.6597575735496654, 'f1': 0.6881391934643433, 'best_threshold': 0.36}
+2025-05-11 11:26:11 - INFO - epoch 3
+training loss: 0.6335
+val loss: 0.6659
+2025-05-11 11:26:11 - INFO - val metrics: {'accuracy': 0.8691388839365306, 'precision': 0.8030227161776684, 'recall': 0.7798992766299366, 'f1': 0.7904853220375798, 'best_threshold': 0.83}
 
-2025-04-21 21:47:06 - INFO - 
-epoch 4
-training loss: 0.9866
-val loss: 1.0115
-2025-04-21 21:47:06 - INFO - val metrics: {'accuracy': 0.8366018898199322, 'precision': 0.7573023765473814, 'recall': 0.6863262398653531, 'f1': 0.7103038854323145, 'best_threshold': 0.83}
+2025-05-11 13:48:45 - INFO - epoch 4
+training loss: 0.5606
+val loss: 0.6949
+2025-05-11 13:48:45 - INFO - val metrics: {'accuracy': 0.8698520235336067, 'precision': 0.8028758710849525, 'recall': 0.7853389509769978, 'f1': 0.7935453429350126, 'best_threshold': 0.6799999999999999}
 
-2025-04-22 00:07:17 - INFO - 
-epoch 5
-training loss: 0.9982
-val loss: 0.9875
-2025-04-22 00:07:17 - INFO - val metrics: {'accuracy': 0.8472098413264396, 'precision': 0.7716695474566988, 'recall': 0.7228300926705051, 'f1': 0.7422133778942483, 'best_threshold': 0.82}
+2025-05-11 16:11:27 - INFO - epoch 5
+training loss: 0.4809
+val loss: 0.7243
+2025-05-11 16:11:27 - INFO - val metrics: {'accuracy': 0.8648897605039519, 'precision': 0.7942669997212457, 'recall': 0.7796727396337929, 'f1': 0.7865650490373934, 'best_threshold': 0.87}
 
-2025-04-22 02:28:38 - INFO - 
-epoch 6
-training loss: 0.9755
-val loss: 0.9824
-2025-04-22 02:28:38 - INFO - val metrics: {'accuracy': 0.8362750341712724, 'precision': 0.74770441522311, 'recall': 0.7475968713485974, 'f1': 0.7476506153312654, 'best_threshold': 0.9}
+2025-05-11 18:34:16 - INFO - epoch 6
+training loss: 0.4076
+val loss: 0.8178
+2025-05-11 18:34:16 - INFO - val metrics: {'accuracy': 0.8689605990372615, 'precision': 0.8032349741150138, 'recall': 0.7780510236168227, 'f1': 0.7894870821155007, 'best_threshold': 0.89}
 
-2025-04-22 04:50:04 - INFO - 
-epoch 7
-training loss: 0.9660
-val loss: 0.9750
-2025-04-22 04:50:04 - INFO - val metrics: {'accuracy': 0.8491412610685208, 'precision': 0.7696478789125252, 'recall': 0.7491650082679704, 'f1': 0.7585104377337787, 'best_threshold': 0.82}
+2025-05-11 20:57:03 - INFO - epoch 7
+training loss: 0.3420
+val loss: 0.8635
+2025-05-11 20:57:03 - INFO - val metrics: {'accuracy': 0.8564806560884293, 'precision': 0.7781364823964494, 'recall': 0.7860580646449526, 'f1': 0.7819674403062624, 'best_threshold': 0.9}
 
-2025-04-22 07:11:24 - INFO - 
-epoch 8
-training loss: 0.9590
-val loss: 0.9727
-2025-04-22 07:11:24 - INFO - val metrics: {'accuracy': 0.8437332857906935, 'precision': 0.7592115359922881, 'recall': 0.7588456164915733, 'f1': 0.7590282723609383, 'best_threshold': 0.86}
+2025-05-11 23:21:03 - INFO - epoch 8
+training loss: 0.2919
+val loss: 1.0024
+2025-05-11 23:21:03 - INFO - val metrics: {'accuracy': 0.8653651869020027, 'precision': 0.7958725376709074, 'recall': 0.7771497927185533, 'f1': 0.7858503271350653, 'best_threshold': 0.9}
 
-2025-04-22 09:32:55 - INFO - 
-epoch 9
-training loss: 0.9677
-val loss: 0.9817
-2025-04-22 09:32:55 - INFO - val metrics: {'accuracy': 0.861086349319546, 'precision': 0.8013961654338029, 'recall': 0.7368611739567228, 'f1': 0.7614630708306362, 'best_threshold': 0.17}
+2025-05-12 01:44:54 - INFO - epoch 9
+training loss: 0.2520
+val loss: 1.0040
+2025-05-12 01:44:54 - INFO - val metrics: {'accuracy': 0.8679206037915255, 'precision': 0.8002330142142864, 'recall': 0.7805450095195825, 'f1': 0.7896725511797006, 'best_threshold': 0.89}
 
-2025-04-22 15:04:08 - INFO - read in data.
-2025-04-22 15:04:10 - INFO - Resuming training from 1st-deberta-base-e9.pth
-2025-04-22 15:04:17 - INFO - starting training!
-2025-04-22 17:22:52 - INFO - epoch 0
-training loss: 0.9543
-val loss: 0.9721
-2025-04-22 17:22:52 - INFO - val metrics: {'accuracy': 0.8528852439531704, 'precision': 0.7761592907912727, 'recall': 0.7535778741761315, 'f1': 0.763814615198058, 'best_threshold': 0.88}
+2025-05-12 01:45:05 - INFO - early stopping triggered after 9 epochs.
+2025-05-12 01:45:05 - INFO - training over! best epoch was 4
 
-2025-04-22 19:42:06 - INFO - epoch 1
-training loss: 0.9483
-val loss: 0.9735
-2025-04-22 19:42:06 - INFO - val metrics: {'accuracy': 0.8412967255006835, 'precision': 0.755384370812615, 'recall': 0.7600828228901595, 'f1': 0.7576823146854966, 'best_threshold': 0.86}
-
-2025-04-22 22:01:25 - INFO - epoch 2
-training loss: 0.9442
-val loss: 0.9723
-2025-04-22 22:01:25 - INFO - val metrics: {'accuracy': 0.8430795744933738, 'precision': 0.75807976369793, 'recall': 0.7629929107588456, 'f1': 0.7604810644216866, 'best_threshold': 0.89}
-
-2025-04-23 00:20:39 - INFO - epoch 3
-training loss: 0.9411
-val loss: 0.9674
-2025-04-23 00:20:39 - INFO - val metrics: {'accuracy': 0.8528555298032924, 'precision': 0.7744333761446015, 'recall': 0.7632716445173109, 'f1': 0.7685921068732156, 'best_threshold': 0.82}
-
-2025-04-23 02:39:53 - INFO - epoch 4
-training loss: 0.9500
-val loss: 0.9718
-2025-04-23 02:39:53 - INFO - val metrics: {'accuracy': 0.8508646817614548, 'precision': 0.7719152397373354, 'recall': 0.7554561195109173, 'f1': 0.7631131512635854, 'best_threshold': 0.85}
-
-2025-04-23 04:59:18 - INFO - epoch 5
-training loss: 0.9398
-val loss: 0.9791
-2025-04-23 04:59:18 - INFO - val metrics: {'accuracy': 0.8463481309799726, 'precision': 0.7648308340877191, 'recall': 0.7460003366911582, 'f1': 0.7546392489194081, 'best_threshold': 0.59}
-
-2025-04-23 07:18:54 - INFO - epoch 6
-training loss: 0.9415
-val loss: 0.9723
-2025-04-23 07:18:54 - INFO - val metrics: {'accuracy': 0.8471504130266833, 'precision': 0.7649696332256515, 'recall': 0.7575730380924962, 'f1': 0.761151227946012, 'best_threshold': 0.9}
-
-2025-04-23 09:38:41 - INFO - epoch 7
-training loss: 0.9386
-val loss: 0.9771
-2025-04-23 09:38:41 - INFO - val metrics: {'accuracy': 0.8271825043085518, 'precision': 0.7367955984916388, 'recall': 0.7633197323696592, 'f1': 0.748204771759581, 'best_threshold': 0.89}
-
-2025-04-23 11:58:29 - INFO - epoch 8
-training loss: 0.9366
-val loss: 0.9740
-2025-04-23 11:58:29 - INFO - val metrics: {'accuracy': 0.8307482022939324, 'precision': 0.7419084713595436, 'recall': 0.770170836340434, 'f1': 0.7539956833523738, 'best_threshold': 0.9}
-
-2025-04-23 11:58:29 - INFO - early stopping triggered after 9 epochs.
-2025-04-23 11:58:30 - INFO - training over! best epoch was 3
+BEST (labelled)
+training loss: 0.5606
+val loss: 0.6949
+{'accuracy': 0.8698520235336067, 'precision': 0.8028758710849525, 'recall': 0.7853389509769978, 'f1': 0.7935453429350126, 'best_threshold': 0.6799999999999999}
