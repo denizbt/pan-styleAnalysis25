@@ -25,12 +25,15 @@ BEST_THRESHOLDS = {
     "roberta-base": 0.89,
     "all-MiniLM-L12-v2": 0.71,
     "sentence-t5-base": 0.52,
-    "bge-base-en-v1.5": 0.79,
+    # "bge-base-en-v1.5": 0.79,
     "all-mpnet-base-v2": 0.89
 }
 
-ENSEMBLE_THRESHOLDS = {"easy": None, "medium": None, "hard": None}
-ENSEMBLE_MODELS = {"easy": None, "medium": None, "hard": None}
+ENSEMBLE_THRESHOLDS = {"easy": 0.6699999999999999, "medium": 0.58, "hard": 0.57}
+ENSEMBLE_MODELS = {"easy": ['deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base'],
+                   "medium": ['deberta-base', 'roberta-base', 'all-mpnet-base-v2'],
+                   "hard": ['deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'all-mpnet-base-v2']}
+ENSEMBLE_METHODS = {"easy": "avg-logits", "medium": "avg-probs", "hard": "avg-probs"}
 
 def run_problems(difficulty, problems, output_path):
     """
@@ -81,7 +84,7 @@ def run_ensemble(difficulty, paragraphs):
     all_preds = []
     for path_name in models:
         sentence_transformers = path_name in ["bge-base-en-v1.5", "sentence-t5-base", "all-mpnet-base-v2"]
-        logits_loss = True # using avg_logits for ensembling
+        logits_loss = ENSEMBLE_METHODS[difficulty] in ["avg-logits"]
         model_name = get_model_name(path_name)
         
         # TODO make sure this works
@@ -102,12 +105,11 @@ def run_ensemble(difficulty, paragraphs):
         all_preds.append(preds)
         all_outputs.append(output)
     
-    if difficulty == "hard":
-        # use avg_logits for hard
-        ensemble_preds = ensemble_avg_outputs(difficulty, all_outputs, apply_sigmoid=logits_loss)
+    if ENSEMBLE_METHODS[difficulty] == "maj-vote":
+        ensemble_preds = ensemble_majority_voting(all_preds)
     else:
         # use majority voting for easy and medium
-        ensemble_preds = ensemble_majority_voting(all_preds)
+        ensemble_preds = ensemble_avg_outputs(difficulty, all_outputs, apply_sigmoid=logits_loss)
     return ensemble_preds
 
 def indiv_preds(difficulty, outputs, logits_loss):

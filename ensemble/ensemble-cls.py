@@ -245,7 +245,7 @@ def ensemble_ablation(args):
     best_method = "none"
     final_f1 = -1
     final_subset = []
-    threshold = -1
+    threshold = float(-1)
     # for method in ["maj-vote", "avg-probs", "avg-logits"]:
     for method in ["avg-probs", "avg-logits"]:
         args.ensemble_method = method
