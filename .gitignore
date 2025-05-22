@@ -7,5 +7,4 @@ finetuned-*/
 __pycache__/
 *.zip
 *.pkl
-submission/
 OLD*
