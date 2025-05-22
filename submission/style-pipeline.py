@@ -28,7 +28,6 @@ BEST_THRESHOLDS = {
     # "bge-base-en-v1.5": 0.79,
     "all-mpnet-base-v2": 0.89
 }
-
 ENSEMBLE_THRESHOLDS = {"easy": 0.6699999999999999, "medium": 0.58, "hard": 0.57}
 ENSEMBLE_MODELS = {"easy": ['deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base'],
                    "medium": ['deberta-base', 'roberta-base', 'all-mpnet-base-v2'],
@@ -46,6 +45,7 @@ def run_problems(difficulty, problems, output_path):
     """
     logger.info(f'Processing {len(problems)} problems and writing outputs to {output_path}.')
     
+    models = load_models(difficulty)
     for _, item in problems.iterrows():
         # create output file path
         output_file = output_path / item["file"].replace("/problem-", "/solution-problem-").replace(".txt", ".json").replace("/train/", "/").replace("/test/", "/").replace("/validation/", "/")
@@ -53,7 +53,8 @@ def run_problems(difficulty, problems, output_path):
         
         # paragraphs is the list of sentences for a specific file
         paragraphs = item["paragraphs"]
-        predictions = run_ensemble(difficulty, paragraphs)
+        sentence_pairs = create_sent_pairs(paragraphs) 
+        predictions = run_ensemble(models, difficulty, sentence_pairs)
         
         # write predictions to output file
         with open(output_file, 'w') as out:
@@ -61,16 +62,18 @@ def run_problems(difficulty, problems, output_path):
             out.write(json.dumps(prediction))
             
         logger.info(f"Processed {Path(item['file']).name} successfully")
-        
-        # running many models, so clear cache frequently
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+    
+    # clear memory
+    del models
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
-def run_ensemble(difficulty, paragraphs):
+def run_ensemble(models, difficulty, sentence_pairs):
     """
     Runs all of the models, uses avg logits with best threshold to return final binary predictions.
 
     Args:
+        models: List of loaded BertStyleNN models
         difficulty (str): one of "easy", "medium", "hard"
         paragraphs (list??): test set input
 
@@ -78,41 +81,32 @@ def run_ensemble(difficulty, paragraphs):
         preds: list of final binary predictions for this test set
     """
     device = "cuda" if torch.cuda.is_available() else "cpu"
-
-    models = ENSEMBLE_MODELS[difficulty]
     all_outputs = []
     all_preds = []
-    for path_name in models:
-        sentence_transformers = path_name in ["bge-base-en-v1.5", "sentence-t5-base", "all-mpnet-base-v2"]
-        logits_loss = ENSEMBLE_METHODS[difficulty] in ["avg-logits"]
-        model_name = get_model_name(path_name)
+    for path_name, model_info in models.items():
+        model = model_info['model']
+        tokenizer = model_info['tokenizer']
+        sentence_transformers = model_info['sentence_transformers']
+        logits_loss = model_info['logits_loss']
         
-        # TODO make sure this works
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        sentence_pairs = create_sent_pairs(paragraphs) 
         test_set = BertPairDataset(tokenizer, sentence_pairs, labels=None)
         test_set.return_raw_text = sentence_transformers
         data_loader = DataLoader(test_set, batch_size=16, shuffle=False, pin_memory=True)
-
-        # logits_loss = True means we return logits from forward pass
-        model = BertStyleNN(enc_model_name=model_name, use_sentence_transformers=sentence_transformers, logits_loss=logits_loss)
-        model.load_state_dict(torch.load(f"{path_name}-Best.pth"))
-        model.to(device)
         
         # run inference!
         output = inference(model, data_loader, device)
-        preds = indiv_preds(difficulty, output, logits_loss)
+        preds = indiv_preds(path_name, output, logits_loss)
         all_preds.append(preds)
         all_outputs.append(output)
     
     if ENSEMBLE_METHODS[difficulty] == "maj-vote":
         ensemble_preds = ensemble_majority_voting(all_preds)
     else:
-        # use majority voting for easy and medium
-        ensemble_preds = ensemble_avg_outputs(difficulty, all_outputs, apply_sigmoid=logits_loss)
+        logits_loss_ensemble = ENSEMBLE_METHODS[difficulty] in ["avg-logits"]
+        ensemble_preds = ensemble_avg_outputs(difficulty, all_outputs, apply_sigmoid=logits_loss_ensemble)
     return ensemble_preds
 
-def indiv_preds(difficulty, outputs, logits_loss):
+def indiv_preds(model_name, outputs, logits_loss):
     # outputs is list for a single model (either logits or probs)
     # returns metrics, and PyTorch tensor with binary predictions
     if logits_loss:
@@ -123,7 +117,7 @@ def indiv_preds(difficulty, outputs, logits_loss):
     
     # Test a range of thresholds to find the one that maximizes macro F1
     # use the best threshold to make final predictions
-    preds = (probs >= BEST_THRESHOLDS[difficulty]).int()
+    preds = (probs >= BEST_THRESHOLDS[model_name]).int()
     
     # calculate final metrics using the best threshold
     return preds
@@ -134,7 +128,7 @@ def ensemble_majority_voting(all_preds, majority_req=2):
     1 prediction (in theory, make it easier to predict 1 due to class imbalance)
     """
     final_preds = (torch.sum(torch.stack(all_preds), dim=0) >= majority_req).int()
-    return final_preds.numpy()
+    return final_preds.cpu().numpy()
 
 def ensemble_avg_outputs(difficulty, outputs, apply_sigmoid=False):
     """
@@ -153,7 +147,7 @@ def ensemble_avg_outputs(difficulty, outputs, apply_sigmoid=False):
         avg_probs = sigmoid(avg_probs)
         avg_probs = torch.clamp(avg_probs, min=1e-6, max=1-1e-6)
     
-    avg_probs_np = avg_probs.numpy()
+    avg_probs_np = avg_probs.cpu().numpy()
     
     # use the best threshold (gotten from val set) to make final predictions
     preds = (avg_probs_np >= ENSEMBLE_THRESHOLDS[difficulty]).astype(int)
@@ -186,6 +180,46 @@ def inference(model, data_loader, device):
     
     # return logits/probs (as torch.tensors on CPU)
     return all_outputs
+
+def load_models(difficulty):
+    """
+    Load all models needed for a specific difficulty level.
+    
+    Args:
+        difficulty (str): "easy", "medium", or "hard"
+        
+    Returns:
+        dict: Dictionary mapping model names to loaded model objects and tokenizers
+    """
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    models = ENSEMBLE_MODELS[difficulty]
+    loaded_models = {}
+    
+    logger.info(f"Loading {len(models)} models for {difficulty} difficulty...")
+    
+    for path_name in models:
+        sentence_transformers = path_name in ["bge-base-en-v1.5", "sentence-t5-base", "all-mpnet-base-v2"]
+        logits_loss = ENSEMBLE_METHODS[difficulty] in ["avg-logits"]
+        model_name = get_model_name(path_name)
+        
+        # Load tokenizer and model
+        # logits_loss = True means we return logits from forward pass
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = BertStyleNN(enc_model_name=model_name, use_sentence_transformers=sentence_transformers, logits_loss=logits_loss)
+        model.load_state_dict(torch.load(f"{path_name}-Best.pth"))
+        model.to(device)
+        model.eval()
+        
+        loaded_models[path_name] = {
+            'model': model,
+            'tokenizer': tokenizer,
+            'sentence_transformers': sentence_transformers,
+            'logits_loss': logits_loss
+        }
+        
+        logger.info(f"loaded model: {path_name}")
+    
+    return loaded_models
 
 def create_sent_pairs(paragraphs):
     """
