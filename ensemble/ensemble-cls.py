@@ -245,6 +245,7 @@ def ensemble_ablation(args):
     best_method = "none"
     final_f1 = -1
     final_subset = []
+    threshold = -1
     # for method in ["maj-vote", "avg-probs", "avg-logits"]:
     for method in ["avg-probs", "avg-logits"]:
         args.ensemble_method = method
@@ -261,10 +262,11 @@ def ensemble_ablation(args):
             best_method = method
             final_f1 = best_f1
             final_subset = best_models
+            threshold = metrics['best_threshold']
 
-    ret = {"models": final_subset, "f1": final_f1}    
-    logging.info(f"BEST subset for {args.difficulty}, {args.ensemble_method}")
-    logging.info(f"      {ret['models']}, F1: {ret['f1']}")
+    ret = {"models": final_subset, "f1": final_f1, "threshold": threshold}    
+    logging.info(f"BEST subset for {args.difficulty}, {best_method}")
+    logging.info(f"      {ret['models']}, F1: {ret['f1']}, Threshold: {ret['threshold']}")
     return ret
 
 def val(model, val_loader, criterion, device):

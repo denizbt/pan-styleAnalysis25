@@ -843,5 +843,5 @@
 2025-05-18 23:55:07 - INFO - BEST subset for med, avg-logits
 2025-05-18 23:55:07 - INFO -       ('deberta-base', 'roberta-base', 'all-mpnet-base-v2'), F1: 0.8007330615843931
 
-BEST subset for med, avg-logits (un-weighted)
+BEST subset for med, maj-vote (un-weighted)
 ('deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2'), F1: 0.8028106558117638

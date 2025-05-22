@@ -843,5 +843,5 @@
 2025-05-18 23:51:07 - INFO - BEST subset for easy, avg-logits (weighted by avg F1)
 2025-05-18 23:51:07 - INFO -       ('deberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base'), F1: 0.9090633832383685
 
-ACTUAL BEST (non-weighted) for easy, avg-logits
-('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2'), F1: 0.9106240198000304
+ACTUAL BEST (non-weighted) for easy, maj-vote
+('deberta-base', 'roberta-base', 'all-MiniLM-L12-v2', 'sentence-t5-base', 'all-mpnet-base-v2'), F1: 0.9106240198000304, threshold: 0.6799999999999999
