@@ -5,4 +5,4 @@ training loss: 0.9786
 val loss: 1.1170
 2025-05-11 00:39:24 - INFO - val metrics: {'accuracy': 0.7962500742853746, 'precision': 0.3981250371426873, 'recall': 0.5, 'f1': 0.4432846437610627, 'best_threshold': 0.1}
 
-abandoned!
+stopped after epoch 1.

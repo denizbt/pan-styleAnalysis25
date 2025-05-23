@@ -1,3 +1,5 @@
+Val statistics from training (where easy/med/hard datasets were combined; individual performance on difficulty partitions are different)
+
 deberta-base 'f1': 0.7935453429350126, {'precision': 0.8028758710849525, 'recall': 0.7853389509769978, 'best_threshold': 0.6799999999999999}
 roberta-base 'f1': 0.7908625218943311, {'precision': 0.79655170712798, 'recall': 0.7856230698565472, 'best_threshold': 0.89}
 all-MiniLM-L12-v2 'f1': 0.7850884592075942, {'precision': 0.8025352818996151, 'recall': 0.7712241867050813, 'best_threshold': 0.71}

@@ -1,4 +1,7 @@
-# doesn't include reading in data
+"""
+
+"""
+
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer
@@ -107,8 +110,8 @@ def run_ensemble(args, models=["all-MiniLM-L12-v2", "deberta-base", "roberta-bas
     return metrics
 
 def indiv_preds(args, outputs, labels, logits_loss):
+    # Given model outputs & labels, finds best threshold (by Macro F1) and returns PyTorch tensor of preds and metrics
     # outputs is list for a single model (either logits or probs)
-    # returns metrics, and PyTorch tensor with binary predictions
     if logits_loss:
         sigmoid = nn.Sigmoid()
         probs = sigmoid(outputs)
@@ -143,7 +146,8 @@ def indiv_preds(args, outputs, labels, logits_loss):
     return metrics, val_preds
 
 def ensemble_weighted_outputs(models, outputs, labels, apply_sigmoid=False):
-    # take weighted avg
+    # take weighted avg by each model F1 score during training
+    # did not work as well un-weighted average
     f1s = torch.tensor([MODEL_STATS[v]["f1"] for v in models])
     weights = f1s / f1s.sum()
     outputs = torch.stack(outputs)
@@ -239,7 +243,8 @@ def ensemble_avg_outputs(outputs, labels, apply_sigmoid=False):
 
 def ensemble_ablation(args):
     """
-    Method which returns subset of models & method with best val performance on the given difficulty partition
+    Method which returns subset of models & method with best val performance on the given difficulty partition.
+    Tries unweighted avg-probs, unweighted avg-logits, and maj-vote (with default parameters). 
     """
     models = list(MODEL_STATS.keys())
     best_method = "none"

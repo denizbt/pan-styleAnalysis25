@@ -1,3 +1,8 @@
+"""
+Script defines and trains a Siamese style network for feature extraction of sentence pairs, uses FFNN as binary classification head.
+NOTE: this mehthod did not work well on PAN 25 Multi-Author analysis task, dubious correctness of code.
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim

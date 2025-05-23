@@ -1,3 +1,9 @@
+"""
+Script which defines a FFNN MLP used as binary sequence classification head for BertStyleNN (training/bert-training.py).
+  - Includes train and validation functions to train just MLP, assuming static sentence embeddings extracted (as torch tensors)
+  - Architecture chosen through validation testing with sentence-transformers/all-MiniLM-L12-v2 using PAN 2025 Multi-Author cls data.
+"""
+
 import torch
 from torch.utils.data import Dataset, DataLoader
 

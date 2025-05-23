@@ -1,3 +1,26 @@
+"""
+Script which defines and trains a custom BertStyleNN for sentence pair binary classification using custom PyTorch dataset BertPairDataset.
+  - BertStyleNN simultaneously trains an encoder (BERT-style, or SentenceTransformers models from HuggingFace)
+  and custom FFNN (defined in training/mlp.py).
+  - The custom FFNN acts as binary sequence classification head, sentence embeddings are concatenated and passed to MLP as single tensor.
+  - Most hyperparameters can be set using command line arguments (batch size, lr etc.)
+  - Logs results in .log file
+  - current state expects that there exist pre-saved sentence pairs for training and validation
+    - can create sentence pairs for PAN 2025 task using functions in training/utils.py or custom creation for your specific task
+    - Train/val pairs expected to be -> List[Tuple]: each element of list is tuple (sentence1, sentence2)
+
+HuggingFace models successfully fine-tuned (similar models might work as well)    
+* bert-base and large (cased, uncased)
+* roberta-base and large
+* deberta-base
+* all-MiniLM-L12-v2
+
+For SentenceTransformers model, add "--sentence-transformers=True" argument
+* sentence-transformers/bge-base-en-v1.5 (and bge-large-en-v.15)
+* sentence-transformers/sentence-t5-base
+* sentence-transformers/all-mpnet-base-v2
+"""
+
 import torch
 from torch.utils.data import Dataset, DataLoader
 from torch import nn
@@ -18,7 +41,7 @@ import argparse
 def get_args():
   parser = argparse.ArgumentParser()
   parser.add_argument("--model-name", type=str, default="roberta-base")
-  parser.add_argument("--data-dir", type=str, default="data/")
+  parser.add_argument("--data-dir", type=str, default="../data/")
   parser.add_argument("--workers", type=int, default=1)
   parser.add_argument("--pooling", type=str, default="mean", help="If anythiong other than mean passed in, uses [CLS] tokens.")
   parser.add_argument("--resume-training", type=str, default="None")
