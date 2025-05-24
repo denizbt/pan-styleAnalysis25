@@ -3,8 +3,10 @@
 *.csv
 finetuned-*/
 *.pt*
-*.npy
+*bal_labels.npy
+*preds.npy
+ensemble/
 __pycache__/
 *.zip
-*.pkl
+# *.pkl
 OLD*
