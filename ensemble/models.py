@@ -161,3 +161,39 @@ class StyleNN(nn.Module):
         x = self.sigmoid(x)
       
       return x
+    
+class SentPairDataset(Dataset):
+    """
+    Custom (Pytorch) Dataset for sentence pair classification
+    """
+    def __init__(self, embeddings_path, labels, direct_pass=False, reverse_augment=False):
+      """
+      embeddings_path: path to .pt file, or torch.Tensor
+      direct_pass: True when embeddings_path contains torch.Tensor
+      reverse_augment: True when we want to add reverse concatenation of embeddings to the dataset
+      """
+      if direct_pass:
+        embs = embeddings_path
+      else:
+        embs = torch.load(embeddings_path)
+      
+      # embs shape: (total_pairs, 2, embedding_dim)
+      if reverse_augment:
+        forward_concat = torch.cat([embs[:, 0, :], embs[:, 1, :]], dim=1)            
+        reverse_concat = torch.cat([embs[:, 1, :], embs[:, 0, :]], dim=1)
+        
+        # add both directations
+        self.embeddings = torch.cat([forward_concat, reverse_concat], dim=0)
+        
+        # duplicate labels for the reversed concatentation
+        labels_tensor = torch.tensor(labels, dtype=torch.float32)
+        self.labels = torch.cat([labels_tensor, labels_tensor], dim=0)
+      else:
+        self.embeddings = embs.view(embs.size(0), -1)
+        self.labels = torch.tensor(labels, dtype=torch.float32)      
+
+    def __len__(self):
+      return self.embeddings.size(0)
+
+    def __getitem__(self, idx):
+      return self.embeddings[idx], self.labels[idx]

@@ -5,7 +5,8 @@ finetuned-*/
 *.pt*
 *bal_labels.npy
 *preds.npy
-ensemble/
+ensemble/*.npy
+ensemble/*.pkl
 __pycache__/
 *.zip
 # *.pkl
