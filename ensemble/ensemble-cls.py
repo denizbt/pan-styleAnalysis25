@@ -1,10 +1,9 @@
 """
 Code for finding best ensemble or otherwise method for style analysis models (by difficulty partition)
 """
-
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer
 from torch.utils.data import DataLoader
 
 import numpy as np
@@ -12,12 +11,12 @@ from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_sc
 
 import pickle
 import logging
-from models import BertPairDataset, BertStyleNN, StyleNN, SentPairDataset
+from models import BertPairDataset, BertStyleNN
 import argparse
 from itertools import chain, combinations
 
 def powerset(iterable):
-    # returns set of all subsets of length at least 3 of iterable
+    # returns set of all subsets of length >= 3 of iterable
     s = list(iterable)
     return chain.from_iterable(combinations(s, r) for r in range(3, len(s)+1))
 
@@ -27,11 +26,10 @@ def get_args():
   parser.add_argument("--ensemble-method", type=str, default="maj-vote", help="One of 'maj-vote', 'avg-logits', 'avg-probs'")
   parser.add_argument("--load-preds", type=bool, default=False)
   parser.add_argument("--ablation", type=bool, default=False)
-  parser.add_argument("--semantic-sim", type=bool, default=False)
 
   return parser.parse_args()
 
-## use to define weights for ensemble
+# use to define weights for a weighted ensemble
 MODEL_STATS = {
     "deberta-base": {"f1": 0.7935, "threshold": 0.68},
     "roberta-base": {"f1": 0.7909, "threshold": 0.89},
@@ -242,36 +240,6 @@ def ensemble_avg_outputs(outputs, labels, apply_sigmoid=False):
     metrics = compute_metrics(y_true=labels_np, y_pred=val_preds, threshold=best_threshold)
     return metrics, val_preds
 
-def easy_med_semantic(args):
-    """
-    Running non fine-tuned semantic similarity tests for easy & med to see if performs better.
-    """
-    ### WITH BERTSTYLE-NN ALL MODELS PREDICT SAME AUTHOR FOR EVERYTHING
-    ## TRY WITH JUST STYLENN (CODE NOT DONE FOR THAT, NEED TO SAVE EMBEDDINGS)
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    with open(f'{args.difficulty}_val_pairs.pkl', 'rb') as f:
-        val_pairs = pickle.load(f)
-    val_labels = np.load(f"{args.difficulty}_val_labels.npy")
-
-    criterion = nn.BCEWithLogitsLoss()
-    for m in MODEL_STATS.keys():
-        logging.info(f"running {m}")
-        sentence_transformers = m in ["bge-base-en-v1.5", "sentence-t5-base", "all-mpnet-base-v2"]
-        logits_loss = True
-        model_name = get_model_name(m)
-        
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        # val_set = SentPairDataset(tokenizer, val_pairs, val_labels)
-        # val_set.return_raw_text = sentence_transformers
-        # val_loader = DataLoader(val_set, batch_size=16, shuffle=False, pin_memory=True)
-
-        # model = StyleNN(enc_model_name=model_name, use_sentence_transformers=sentence_transformers, logits_loss=logits_loss)
-        # model.to(device)
-
-        # loss, output, _ = val(model, val_loader, criterion, device)
-        # metrics, preds = indiv_preds(args, output, val_labels, logits_loss=logits_loss)
-        # logging.info(f"     pos. preds {sum(preds)},  total: {len(val_labels)}")
-
 def ensemble_ablation(args):
     """
     Method which returns subset of models & method with best val performance on the given difficulty partition.
@@ -385,15 +353,6 @@ if __name__ == '__main__':
             datefmt='%Y-%m-%d %H:%M:%S'
         )
         ensemble_ablation(args)
-    elif args.semantic_sim:
-        logging.basicConfig(
-            filename=f'sem_{args.difficulty}.log',
-            level=logging.INFO,
-            filemode='a', # appends to file
-            format='%(asctime)s - %(levelname)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
-        )
-        easy_med_semantic(args)
     else:  
         logging.basicConfig(
             filename=f'{args.difficulty}_{args.ensemble_method}.log',
