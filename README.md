@@ -8,13 +8,13 @@
   * Contains PAN 2025 data for style analysis task. Download [here](https://zenodo.org/records/14891299).
 * ensemble/
   * ensemble-cls.py &rarr; Functions to determine best ensemble on validation set using finetuned models. Supports majority voting, avg probabilities, avg logits methods.
-  * models.py &rarr; BertStyleNN, BertPairDataset, StyleNN classes (imported in ensemble-cls.py). Compiled from training/bert-training.py and training/mlp.py
+  * models.py &rarr; BertStyleNN, BertPairDataset, StyleNN classes (imported in ensemble-cls.py). Compiled from training/bert-training.py and training/ffnn.py
 * logs/
   * bert-trained/ &rarr; Training logs for all models used in final ensemble method (and others) 
   * Other log files from baseline/naive experimentation i.e. using static embeddings without fine-tuning on style analysis task.
 * training/
   * bert-training.py &rarr; Fine-tuning code for encoder & binary classification head. Supports most HuggingFace encoder-only models (including BERT family) as well as many SentenceTransformers models. Comment in file specifies all models which definitely work.
-  * mlp.py &rarr; Defines FFNN used as binary classification head.
+  * ffnn.py &rarr; Defines FFNN used as binary classification head.
   * siamese.py &rarr; Siamese style network for fine-tuning embeddings. Did not work well (not used).
 
 ## Reproduction
@@ -41,16 +41,16 @@ snapshot_download(
 ```
 
 ### **Alternative**: Run Docker Image Submission
-TODI will it be possible to download? 
+TODO will it be possible to download? 
 
-> :pushpin: [This repository](https://github.com/denizbt/pan-tira-submission) contains the Dockerfile and all necessary files that was used to make official submission to TIRA.io. Requires user token to run i.e can't be built and pushed by public. If you want to run my Docker image, use instructions above.
+> :pushpin: [This repository](https://github.com/denizbt/pan-tira-submission) contains the Dockerfile and all necessary files that was used to make official submission to TIRA.io. Requires authentication token to run i.e can't be built and pushed by public. If you want to run my Docker image, use instructions above.
 
-!!! SHOULD I USE THE OTHER REPOSITORY? def link to download docker image if possible. not sure if i should make the other repo public at some point.
+!!! SHOULD I USE THE OTHER REPOSITORY? def link to download docker image if possible. not sure if i should make the other repo public at some point. maybe just make docker image downloadable in some way
 
 ## Shared Task Results
-TODO (awaiting leaderboard results on test set)
+coming soon! (awaiting leaderboard results on test set)
 
-## Train a BertStyleNN from Scratch!
+## Train a BertStyleNN from Scratch
 TODO
 
 ## Author

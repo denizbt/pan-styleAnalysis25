@@ -34,13 +34,11 @@ MODEL_STATS = {
     "deberta-base": {"f1": 0.7935, "threshold": 0.68},
     "roberta-base": {"f1": 0.7909, "threshold": 0.89},
     "all-MiniLM-L12-v2": {"f1": 0.7851, "threshold": 0.71},
-    "bert-base-cased": {"f1": 0.7775, "threshold": 0.84},
     "sentence-t5-base": {"f1": 0.7676, "threshold": 0.52},
     "bge-base-en-v1.5": {"f1": 0.7642, "threshold": 0.79},
     "all-mpnet-base-v2": {"f1": 0.7563, "threshold": 0.89}
 }
 
-# def run_ensemble(args, models=['deberta-base', 'roberta-base', 'sentence-t5-base', 'all-mpnet-base-v2']):
 def run_ensemble(args, models=["all-MiniLM-L12-v2", "deberta-base", "roberta-base", "sentence-t5-base", "bge-base-en-v1.5", "all-mpnet-base-v2"]):
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -346,7 +344,7 @@ if __name__ == '__main__':
     args = get_args()
     if args.ablation:
         logging.basicConfig(
-            filename=f'abl_{args.difficulty}.log',
+            filename=f'ensemble_test_{args.difficulty}.log',
             level=logging.INFO,
             filemode='a', # appends to file
             format='%(asctime)s - %(levelname)s - %(message)s',

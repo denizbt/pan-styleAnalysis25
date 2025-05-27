@@ -3,6 +3,8 @@
 BERT LR 1e-5
 MLP LR 1e-6
 reduce LR on plateau scheduler
+pooling: "mean"
+batch_size: 16
 2025-05-08 22:48:33 - INFO - epoch 0
 training loss: 0.8643
 val loss: 0.7488

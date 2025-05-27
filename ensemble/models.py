@@ -70,9 +70,9 @@ def mean_pooling(model_output, attention_mask):
 
 class BertStyleNN(nn.Module):
   """
-  NN which uses BERT(etc.) encoder and separate MLP for classification.
+  NN which uses BERT(etc.) encoder and separate FFBB for classification.
   1. Uses self.encoder for independent feature extraction of two sentences.
-  2. Concatenates the two embeddings, and passes through StyleNN (defined in mlp.py) for final classification.
+  2. Concatenates the two embeddings, and passes through StyleNN for final classification.
   """
   def __init__(self, hidden_dims=[512, 256, 128, 64], output_dim=1, enc_model_name='roberta-base', pooling='mean', use_sentence_transformers=False, logits_loss=False):
     """
@@ -96,8 +96,8 @@ class BertStyleNN(nn.Module):
       embedding_dim =  self.encoder.config.hidden_size
 
     self.pooling = pooling
-    # input to MLP is the concatenation of the sentence pairs extracted
-    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
+    # input to FFNN is the concatenation of the sentence pairs extracted
+    self.ffnn = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
@@ -116,14 +116,14 @@ class BertStyleNN(nn.Module):
         s1 = s1.pooler_output if s1.pooler_output is not None else s1.last_hidden_state[:, 0, :]
         s2 = s2.pooler_output if s2.pooler_output is not None else s2.last_hidden_state[:, 0, :]
     
-    # concatenate features from sentece pairs to pass into MLP for classification
+    # concatenate features from sentece pairs to pass into FFNN for classification
     concat = torch.cat((s1, s2), dim=1)
-    logits = self.mlp(concat)
+    logits = self.ffnn(concat)
     return logits
 
 class StyleNN(nn.Module):
     """
-    MLP for binary classification of sentences for same author or not.
+    FFNN for binary classification of sentences for same author or not.
     """
     def __init__(self, input_dim, hidden_dims=[512, 256, 128, 64], output_dim=1, p=0.4, apply_sigmoid=True):
         """

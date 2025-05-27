@@ -17,8 +17,8 @@ from tqdm import tqdm
 
 from sklearn.metrics import f1_score
 
-# mlp.py (file I wrote)
-from mlp import SentPairDataset, StyleNN, val_mlp
+# ffnn.py (file I wrote)
+from ffnn import SentPairDataset, StyleNN, val_ffnn
 
 def get_args():
   parser = argparse.ArgumentParser()
@@ -186,7 +186,7 @@ def val_siamese(model, criterion, val_loader, device):
 def extract_embeddings(model, embedding_dataset, batch_size=64, concat=True):
     """
     Extract new embeddings using single path from trained Siamese network.
-    Returns concatenated, & normalized embeddings, ready for MLP classification
+    Returns concatenated, & normalized embeddings, ready for FFNN classification
     """
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model.to(device)
@@ -204,7 +204,7 @@ def extract_embeddings(model, embedding_dataset, batch_size=64, concat=True):
             o1, o2 = F.normalize(o1, p=2), F.normalize(o2, p=2)
 
             if concat:
-                # concatenate the embeddings for input to MLP
+                # concatenate the embeddings for input to FFNN
                 combined = torch.cat([o1, o2], dim=1)
             else:
                 # do not concatenate
@@ -214,7 +214,7 @@ def extract_embeddings(model, embedding_dataset, batch_size=64, concat=True):
     
     return torch.vstack(processed_embeddings)
 
-def mlp_classification(train_embeddings, train_labels, val_embeddings, val_labels, batch_size=64, epochs=10, patience=5):
+def ffnn_classification(train_embeddings, train_labels, val_embeddings, val_labels, batch_size=64, epochs=10, patience=5):
     device= 'cuda' if torch.cuda.is_available() else 'cpu'
     
     # create datasets, dataloaders
@@ -255,7 +255,7 @@ def mlp_classification(train_embeddings, train_labels, val_embeddings, val_label
             torch.save(model.state_dict(), f"BAL_{args.embedding_type}_pipeline_{e}.pth")  
 
             avg_train_loss = train_running_loss / len(train_loader)
-            metrics, avg_val_loss, _ = val_mlp(model, val_loader, criterion, device)
+            metrics, avg_val_loss, _ = val_ffnn(model, val_loader, criterion, device)
             print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
             print(f"val metrics: {metrics}\n")
 
@@ -331,11 +331,11 @@ def main(args):
     siamese_val = extract_embeddings(model, val_set, concat=False)
     siamese_train = extract_embeddings(model, train_set, concat=False)
    
-    # perform final classification with MLP, switch labels back before sending
+    # perform final classification with FFNN/MLP, switch labels back before sending
     train_labels = (np.load("train_bal_labels.npy")) ^ 1
     val_labels = (np.load("val_labels.npy")) ^ 1
 
-    mlp_classification(siamese_train, train_labels, siamese_val, val_labels)
+    ffnn_classification(siamese_train, train_labels, siamese_val, val_labels)
     # cosine_sim_classification(siamese_train, train_labels)    
 
     # TODO check if i need to flip the labels (for final classification), i think not?
