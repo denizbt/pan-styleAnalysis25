@@ -40,15 +40,15 @@ snapshot_download(
 )
 ```
 
-### **Alternative**: Run Docker Image Submission
-TODO will it be possible to download? 
+<!-- ### **Alternative**: Run Docker Image Submission
+TODO will it be possible to download?  -->
 
-> :pushpin: [This repository](https://github.com/denizbt/pan-tira-submission) contains the Dockerfile and all necessary files that was used to make official submission to TIRA.io. Requires authentication token to run i.e can't be built and pushed by public. If you want to run my Docker image, use instructions above.
+<!-- !!! dont want to make other repo public. def link to download docker image if possible -->
 
-!!! SHOULD I USE THE OTHER REPOSITORY? def link to download docker image if possible. not sure if i should make the other repo public at some point. maybe just make docker image downloadable in some way
+<!-- > :pushpin: [This repository](https://github.com/denizbt/pan-tira-submission) contains the Dockerfile and all necessary files that was used to make official submission to TIRA.io. Requires authentication token to run i.e can't be built and pushed by public. If you want to run my Docker image, use instructions above. -->
 
 ## Shared Task Results
-coming soon! (awaiting leaderboard results on test set)
+coming soon!
 
 ## Train a BertStyleNN from Scratch
 TODO

@@ -1,5 +1,5 @@
 """
-Script which defines a FFNN used as binary sequence classification head for BertStyleNN (training/bert-training.py).
+Script which defines a MLP/FFNN used as binary sequence classification head for BertStyleNN (training/bert-training.py).
   - Includes train and validation functions to train just FFBB, assuming static sentence embeddings extracted (as torch tensors)
   - Architecture chosen through validation testing with sentence-transformers/all-MiniLM-L12-v2 using PAN 2025 Multi-Author cls data.
 """
@@ -105,7 +105,7 @@ class StyleNN(nn.Module):
       
       return x
 
-def train_ffnn(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
+def train_mlp(args, train_data_path, train_labels, val_data_path, val_labels, batch_size=64, num_epochs=15, patience=3):
   """
   Training loop for StyleNN, also calls val() loop
   """
@@ -159,7 +159,7 @@ def train_ffnn(args, train_data_path, train_labels, val_data_path, val_labels, b
       train_running_loss += loss.item()
     
     avg_train_loss = train_running_loss / len(train_loader)
-    metrics, avg_val_loss, val_preds = val_ffnn(model, val_loader, criterion, device)
+    metrics, avg_val_loss, val_preds = val_mlp(model, val_loader, criterion, device)
     print(f"\nepoch {e}\ntraining loss: {avg_train_loss:.4f}\nval loss: {avg_val_loss:.4f}")
     print(f"val metrics: {metrics}\n")
     
@@ -199,10 +199,10 @@ def train_ffnn(args, train_data_path, train_labels, val_data_path, val_labels, b
   np.save(f"{file_name}preds.npy", best_val_preds)
 
   model.load_state_dict(best_model_state)
-  torch.save(model.state_dict(), f"{file_name}ffnn_model.pth")
+  torch.save(model.state_dict(), f"{file_name}mlp_model.pth")
   print(f"training over! best epoch was {best_epoch}")
 
-def val_ffnn(model, val_loader, criterion, device):
+def val_mlp(model, val_loader, criterion, device):
     model.eval()
     val_running_loss = 0
     all_outputs = []
@@ -279,7 +279,7 @@ def main(args):
   
   # load saved sentence embeddings
   val_path = args.embedding_type+"_val.pt"
-  train_ffnn(args, train_path, train_labels, val_path, val_labels)
+  train_mlp(args, train_path, train_labels, val_path, val_labels)
 
 if __name__ == "__main__":
   args = get_args()

@@ -1,8 +1,8 @@
 import torch
 from torch.utils.data import Dataset
-from transformers import AutoModel
 from torch import nn
 from sentence_transformers import SentenceTransformer
+from transformers import AutoModel
 
 class BertPairDataset(Dataset):
   """
@@ -96,8 +96,8 @@ class BertStyleNN(nn.Module):
       embedding_dim =  self.encoder.config.hidden_size
 
     self.pooling = pooling
-    # input to FFNN is the concatenation of the sentence pairs extracted
-    self.ffnn = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
+    # input to MLP/FFNN is the concatenation of the sentence pairs extracted
+    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
@@ -118,12 +118,12 @@ class BertStyleNN(nn.Module):
     
     # concatenate features from sentece pairs to pass into FFNN for classification
     concat = torch.cat((s1, s2), dim=1)
-    logits = self.ffnn(concat)
+    logits = self.mlp(concat)
     return logits
 
 class StyleNN(nn.Module):
     """
-    FFNN for binary classification of sentences for same author or not.
+    MLP/FFNN for binary classification of sentences for same author or not.
     """
     def __init__(self, input_dim, hidden_dims=[512, 256, 128, 64], output_dim=1, p=0.4, apply_sigmoid=True):
         """

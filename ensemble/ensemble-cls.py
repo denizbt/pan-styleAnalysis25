@@ -3,8 +3,8 @@ Code for finding best ensemble or otherwise method for style analysis models (by
 """
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer
 from torch.utils.data import DataLoader
+from transformers import AutoTokenizer
 
 import numpy as np
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score

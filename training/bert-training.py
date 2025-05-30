@@ -1,8 +1,8 @@
 """
 Script which defines and trains a custom BertStyleNN for sentence pair binary classification using custom PyTorch dataset BertPairDataset.
   - BertStyleNN simultaneously trains an encoder (BERT-style, or SentenceTransformers models from HuggingFace)
-  and custom FFNN (defined in training/ffnn.py).
-  - The custom FFNN acts as binary sequence classification head, sentence embeddings are concatenated and passed to FFNN as single tensor.
+  and custom FFNN/MLP (defined in training/ffnn.py).
+  - The custom FFNN/MLP acts as binary sequence classification head, sentence embeddings are concatenated and passed to FFNN/MLP as single tensor.
   - Most hyperparameters can be set using command line arguments (batch size, lr etc.)
   - Logs results in .log file
   - current state expects that there exist pre-saved sentence pairs for training and validation
@@ -40,12 +40,12 @@ import argparse
 
 def get_args():
   parser = argparse.ArgumentParser()
-  parser.add_argument("--model-name", type=str, default="roberta-base")
+  parser.add_argument("--model-name", type=str, default="roberta-base", help="Must be exact name to pass into AutoModel.from_pretrained().")
   parser.add_argument("--data-dir", type=str, default="../data/")
   parser.add_argument("--workers", type=int, default=1)
   parser.add_argument("--pooling", type=str, default="mean", help="If anythiong other than mean passed in, uses [CLS] tokens.")
   parser.add_argument("--resume-training", type=str, default="None")
-  parser.add_argument("--run-inference", type=str, default="")
+  parser.add_argument("--run-inference", type=str, default="", help="To run inference, put path to desired the state dict in this argument.")
   parser.add_argument("--sentence-transformers", type=bool, default=False)
   parser.add_argument("--num-epochs", type=int, default=15)
   parser.add_argument("--batch-size", type=int, default=16)
@@ -86,8 +86,8 @@ class BertStyleNN(nn.Module):
       embedding_dim =  self.encoder.config.hidden_size
 
     self.pooling = pooling
-    # input to FFNN is the concatenation of the sentence pairs extracted
-    self.ffnn = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
+    # input to mlp is the concatenation of the sentence pairs extracted
+    self.mlp = StyleNN(input_dim=embedding_dim*2, hidden_dims=hidden_dims, output_dim=output_dim, apply_sigmoid=not(logits_loss))
   
   def forward(self, input_ids1, attention_mask1, input_ids2, attention_mask2):
     # extract features from encoder independently on the two sentences
@@ -109,7 +109,7 @@ class BertStyleNN(nn.Module):
     # concatenate features from sentece pairs to pass into FFNN for classification
     # using BCEWithLogitsLoss, so no sigmoid
     concat = torch.cat((s1, s2), dim=1)
-    logits = self.ffnn(concat)
+    logits = self.mlp(concat)
     return logits
 
 def mean_pooling(model_output, attention_mask):
@@ -216,7 +216,7 @@ def train(args, train_pairs, train_labels, val_pairs, val_labels, patience=5):
       logging.info(f"  {arg}: {value}")
   
   bert_params = list(model.encoder.parameters())
-  classifier_params = list(model.ffnn.parameters())
+  classifier_params = list(model.mlp.parameters())
   optimizer = torch.optim.AdamW([
       {'params': bert_params, 'lr': args.bert_lr, 'weight_decay': args.weight_decay},  # diff learning rates
       {'params': classifier_params, 'lr': args.mlp_lr, 'weight_decay': 0.01}
@@ -405,8 +405,6 @@ if __name__ == "__main__":
 
   with open('train_pairs.pkl', 'rb') as f:
     train_pairs = pickle.load(f)
-
-  print(f"train sentence pair {train_pairs[0]}")  
   
   # add in negative pairs (FOR BALANCED TRAIN)
   if args.balanced_data:
