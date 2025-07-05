@@ -1,7 +1,7 @@
 # Multi-Author Style Analysis
 [PAN Lab Shared Task @ CLEF 2025](https://pan.webis.de/clef25/pan25-web/style-change-detection.html)
 
-> :memo: **Notebook Paper:** In progress!
+> :memo: **Notebook Paper:** coming soon!
 
 ## Repository Structure
 * data/
@@ -18,7 +18,7 @@
   * siamese.py &rarr; Siamese style network for fine-tuning embeddings. Did not work well (not used).
 
 ## Reproduction
-In order to reproduce my exact results on the PAN shared task, you must download the state dictionaries for the fine-tuned models.
+To reproduce our results on the shared task, you can download our fine-tuned model dictionaries from HuggingFace.
 
 ### Download Model Files
 You can download fine-tuned model state dictionaries used in this submission to PAN 2025 directly from HuggingFace. You can view all available models [here](https://huggingface.co/denizbt/pan-style-analysis-models).
@@ -51,7 +51,9 @@ TODO will it be possible to download?  -->
 coming soon!
 
 ## Train a BertStyleNN from Scratch
-TODO
+To train your BertStyleNN, you can use our training script: `training/bert-training.py`. This script allows you to specify the pre-trained encoder for the model as well as many training hyperparameters including number of epochs, learning rate and learning rate scheduler. Please note that not every encoder from HuggingFace is out-of-the-box compatible with our script, a list of pre-tested models can be found in a comment at the top of `bert-training.py`.
 
-## Author
-Deniz Bölöni-Turgut // db823@cornell.edu
+Here's how you can use the script to train a model `bert-base-cased` as its encoder.
+```
+python3 bert-training.py --model-name="bert-base-cased" --num-epochs=10 --bert-lr=1e-4
+```
