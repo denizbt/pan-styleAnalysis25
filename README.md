@@ -1,7 +1,7 @@
 # Multi-Author Style Analysis
 [PAN Lab Shared Task @ CLEF 2025](https://pan.webis.de/clef25/pan25-web/style-change-detection.html)
 
-> :memo: **Notebook Paper:** coming soon!
+> :memo: **[CLEF 2025 Paper](https://ceur-ws.org/Vol-4038/paper_286.pdf)**
 
 ## Repository Structure
 * data/
@@ -47,8 +47,8 @@ TODO will it be possible to download?  -->
 
 <!-- > :pushpin: [This repository](https://github.com/denizbt/pan-tira-submission) contains the Dockerfile and all necessary files that was used to make official submission to TIRA.io. Requires authentication token to run i.e can't be built and pushed by public. If you want to run my Docker image, use instructions above. -->
 
-## Shared Task Results
-coming soon!
+<!-- ## Shared Task Results
+coming soon! -->
 
 ## Train a BertStyleNN from Scratch
 To train your BertStyleNN, you can use our training script: `training/bert-training.py`. This script allows you to specify the pre-trained encoder for the model as well as many training hyperparameters including number of epochs, learning rate and learning rate scheduler. Please note that not every encoder from HuggingFace is out-of-the-box compatible with our script, a list of pre-tested models can be found in a comment at the top of `bert-training.py`.

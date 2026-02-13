@@ -321,7 +321,7 @@ def val(model, val_loader, criterion, device):
     val_running_loss = 0
     all_outputs = []
     all_labels = []
-    
+    sigmoid = nn.Sigmoid()
     with torch.no_grad():
         for batch in tqdm(val_loader, desc=f"val batches", position=1, leave=False):
           if "s1" in batch:  # SentenceTransformer
@@ -339,7 +339,7 @@ def val(model, val_loader, criterion, device):
           loss = criterion(outputs, labels)
           val_running_loss += loss.item()
           
-          all_outputs.extend(outputs.cpu().numpy())
+          all_outputs.extend(sigmoid(outputs.cpu()).numpy())
           all_labels.extend(labels.cpu().numpy())
     
     all_outputs = np.array(all_outputs)
@@ -418,8 +418,7 @@ if __name__ == "__main__":
 
   train_labels = np.load("train_labels.npy")
   val_labels = np.load("val_labels.npy")
-  # assert len(train_pairs) == len(train_labels)
-  # assert len(val_pairs) == len(val_labels)
+
   logging.info("read in data.")
   
   torch.cuda.empty_cache() # to reduce memory problems
